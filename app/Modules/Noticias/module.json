@@ -1,0 +1,16 @@
+{
+    "name": "Noticias",
+    "alias": "noticias",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 2,
+    "providers": [
+        "marygastro\\Modules\\Noticias\\Providers\\NoticiasServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

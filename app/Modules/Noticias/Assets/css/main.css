@@ -1,0 +1,161 @@
+
+img {
+	width: 100%;
+}
+.quitar-float{
+	float: none;
+}
+.margen-a {
+	margin-top: 60px;
+}
+.bold {
+  font-weight: bold;
+ }
+.normal {
+	font-weight: normal;
+}
+.Delius {
+	font-family: 'Delius Unicase', cursive;
+}
+.RalewaySha {
+	font-family: 'Raleway', sans-serif;
+	text-shadow: 4px 4px 4px #aaa;
+}
+.Raleway {
+	font-family: 'Raleway', sans-serif;
+}
+.RalewaySha2 {
+	font-family: 'Raleway', sans-serif;
+	text-shadow: 2px 2px 2px #aaa;
+}
+.Philosopher {
+	font-family: 'Philosopher', sans-serif;
+}
+.PhilosopherSha {
+	font-family: 'Philosopher', sans-serif;
+	text-shadow: 4px 4px 4px #aaa;
+}
+.PhilosopherSha2 {
+	font-family: 'Philosopher', sans-serif;
+	text-shadow: 2px 2px 2px #aaa;
+}
+.go-up {
+	vertical-align: top;
+}
+body,p {
+	font-family: 'Raleway', sans-serif;
+}
+.retraso05 {
+	-webkit-animation-delay:0.5s;
+	-moz-animation-delay:0.5s;
+	animation-delay: 0.5s;
+}
+.retraso1 {
+	-webkit-animation-delay:1s;
+	-moz-animation-delay:1s;
+	animation-delay: 1s;
+}
+.retraso15 {
+	-webkit-animation-delay: 1.5s;
+	-moz-animation-delay: 1.5s;
+	animation-delay:  1.5s;
+}
+.retraso2 {
+	-webkit-animation-delay: 2s;
+	-moz-animation-delay: 2s;
+	animation-delay:  2s;	
+}
+.retraso25 {
+	-webkit-animation-delay:2.5s;
+	-moz-animation-delay:2.5s;
+	animation-delay: 2.5s;
+}
+.retraso3 {
+	-webkit-animation-delay: 3s;
+	-moz-animation-delay: 3s;
+	animation-delay:  3s;
+}
+.retraso35 {
+	-webkit-animation-delay: 3.5s;
+	-moz-animation-delay: 3.5s;
+	animation-delay:  3.5s;
+}
+.retraso4 {
+	-webkit-animation-delay: 4s;
+	-moz-animation-delay: 4s;
+	animation-delay:  4s;
+}
+.retraso45 { 
+	-webkit-animation-delay: 4.5s;
+	-moz-animation-delay: 4.5s;
+	animation-delay:  4.5s;
+}
+.retraso5 {
+	-webkit-animation-delay: 5s;
+	-moz-animation-delay: 5s;
+	animation-delay:  5s;
+}
+.no-lista li {
+	list-style-type: none;
+}
+.no-lista {
+	margin: 0px;
+	padding: 0px;
+}
+.se-gris {
+	background-color: #eee;
+}
+.grande3{
+	font-size:3em;
+}
+.grande4 {
+	font-size:4em;
+}
+.grande5 {
+	font-size: 5em;
+}
+.grande55 {
+	font-size: 5.5em;
+}
+.grande6 {
+	font-size: 6em;
+}
+.grande7 {
+	font-size: 7em;
+}
+.mediano {
+	font-size: 1.5em;
+}
+.pequeño {
+	font-size: 0.8em;
+}
+.padding-largo {
+	padding: 5px 10px;
+}
+.inline-block {
+	float:none;
+	display: inline-block;
+	margin-right: -4px;
+}
+.verde-i{
+	color:#00887C;
+}
+.azul {
+	color: #009FFF;
+}
+.verde-m {
+	color: #00833D;
+}
+.verde-d {
+	color: #93BD2C;
+}
+.amarillo {
+	color: #EDDE05;
+}
+.espacio-d {
+	margin-right: 1em;
+}
+
+a{
+	text-decoration: none;
+}
