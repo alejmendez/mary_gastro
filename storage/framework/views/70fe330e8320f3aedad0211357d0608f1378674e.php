@@ -1,6 +1,4 @@
-@extends('pagina::layouts.default')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     
 <section class="page-title" style="background-image:url('public/img/bg-page-title-1.jpg');">
 	<div class="auto-container">
@@ -13,7 +11,7 @@
 		<div class="breadcrumb-outer">
 			<ul class="bread-crumb clearfix">
 				<li>
-					<a href="{{ url('/') }}">Inicio</a>
+					<a href="<?php echo e(url('/')); ?>">Inicio</a>
 				</li>
 				<li>¿Quién es Mary Gastro?</li>
 			</ul>
@@ -34,7 +32,7 @@
 									<!--featured-image-box-->
 									<div class="video-image-box">
 										<figure class="image">
-											<img alt="Disfruto los momentos que comparto con mis pacientes" src="{{ asset('public/img/featured2.jpg') }}">
+											<img alt="Disfruto los momentos que comparto con mis pacientes" src="<?php echo e(asset('public/img/featured2.jpg')); ?>">
 										</figure>
 										<div class="caption-box">
 											Motivadora al 1000% con energía positiva que incentiva a tener un estilo de vida saludable con un enfoque integral (fisico y emocional)
@@ -48,7 +46,7 @@
 									<div class="text">
 										<p>Soy doctora y madre de 3 príncipes Isabel, Mauricio y Francisco. Me apasiona la danza en todas sus expresiones, desde los 4 años descubrí  que la música corre por mis venas y mi cuerpo expresa al compás de ella mis emociones más profundas. Amo cada cosa que hago, disfruto los momentos que comparto con mis pacientes y sus padres, con mis seres queridos y esos minutos que me dedico a mí misma para drenar las emociones del día a día y construir una vida maravillosa.</p>
 									</div>
-									<div class="signature-image"><img alt="" src="{{ asset('public/img/signature.png') }}"></div>
+									<div class="signature-image"><img alt="" src="<?php echo e(asset('public/img/signature.png')); ?>"></div>
 									<div class="about-owner">
 										<h4>Dra. Maryraida Canonicco, <span class="designation">Cumlaude en Pediatra – Puericultor <br>Especialista en gastroenterología infantil</span></h4>
 										<div class="company-title styled-font">
@@ -83,7 +81,7 @@
 									<!--featured-image-box-->
 									<div class="video-image-box">
 										<figure class="image">
-											<img alt="" src="{{ asset('public/img/featured-image-4.jpg') }}"><a class="overlay-link lightbox-image" href="#"><span class="icon flaticon-multimedia"></span></a>
+											<img alt="" src="<?php echo e(asset('public/img/featured-image-4.jpg')); ?>"><a class="overlay-link lightbox-image" href="#"><span class="icon flaticon-multimedia"></span></a>
 										</figure>
 										<div class="caption-box">
 											Aprenda como puede cambiar su vida y la salud de su familia con las rutinas de mi programa diario
@@ -165,7 +163,7 @@
 							</div><!--Image-column-->
 							<div class="image-column col-md-4 col-sm-12 col-xs-12">
 								<figure class="image-box wow slideInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-									<img alt="" src="{{ asset('public/img/team-image-1.png') }}">
+									<img alt="" src="<?php echo e(asset('public/img/team-image-1.png')); ?>">
 								</figure>
 							</div>
 						</div>
@@ -192,62 +190,62 @@
 								<!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-1.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-1.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-1.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-1.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-2.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-2.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-2.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-2.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-3.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-3.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-3.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-3.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-4.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-4.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-4.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-4.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-1.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-1.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-1.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-1.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-2.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-2.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-2.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-2.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-3.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-3.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-3.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-3.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-4.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-4.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-4.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-4.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-1.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-1.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-1.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-1.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-2.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-2.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-2.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-2.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-3.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-3.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-3.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-3.jpg')); ?>"></a>
 									</figure>
 								</div><!--Slide Item-->
 								<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-4.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-4.jpg') }}"></a>
+										<a class="lightbox-image" href="<?php echo e(asset('public/img/certificate-image-4.jpg')); ?>" title="Caption Here"><img alt="" src="<?php echo e(asset('public/img/certificate-image-4.jpg')); ?>"></a>
 									</figure>
 								</div>
 							</div>
@@ -270,4 +268,5 @@
 
 	
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('pagina::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

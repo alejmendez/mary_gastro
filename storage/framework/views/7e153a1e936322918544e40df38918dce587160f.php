@@ -1,6 +1,4 @@
-@extends('pagina::layouts.banners')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 	<section class="why-us">
     <div class="auto-container">
         
@@ -24,7 +22,7 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-1.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-1.jpg') }} 370w, {{ asset('public/img/featured-image-1-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-1.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-1.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-1-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-check"></span></div>
                             <h4 class="title"><a href="#">Revisiones de Control</a></h4>
@@ -48,7 +46,7 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-2.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-2.jpg') }} 370w, {{ asset('public/img/featured-image-2-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-2.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-2.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-2-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-tropical-pineapple"></span></div>
                             <h4 class="title"><a href="#">Estrategias de Nutrición</a></h4>
@@ -72,7 +70,7 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-3.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-3.jpg') }} 370w, {{ asset('public/img/featured-image-3-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-3.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-3.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-3-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-rocket-launch"></span></div>
                             <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
@@ -169,7 +167,7 @@
                 <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <h2>Más de 15 Años de experiencia</h2>
                     <div class="text">En pediatría – puericultor y especialista en gastroenterólogo, gracias al aporte que realiza en cada uno sus pacientes cada día reafirma su vocación por la gastropediatría.</div>
-                    <a href="{{ url('testimonios') }}" class="req-btn styled-font">Ver Testimonios</a>
+                    <a href="<?php echo e(url('testimonios')); ?>" class="req-btn styled-font">Ver Testimonios</a>
                 </div>
             </div>
             
@@ -229,7 +227,7 @@
                 <div class="inner-box">
                     <!--featured-image-box-->
                     <div class="video-image-box">
-                        <figure class="image"><img src="{{ asset('public/img/featured-image-4.jpg') }}" alt="" /><a href="{{ url('https://www.instagram.com/p/BYH0DKlh_Pj/?taken-by=mary_gastro') }}" class="overlay-link lightbox-image"><span class="icon flaticon-multimedia"></span></a></figure>
+                        <figure class="image"><img src="<?php echo e(asset('public/img/featured-image-4.jpg')); ?>" alt="" /><a href="<?php echo e(url('https://www.instagram.com/p/BYH0DKlh_Pj/?taken-by=mary_gastro')); ?>" class="overlay-link lightbox-image"><span class="icon flaticon-multimedia"></span></a></figure>
                         <div class="caption-box">Hijos sanos, padres felices... padres sanos, FAMILIAS FELICES
                         </div>
                     </div>
@@ -249,7 +247,7 @@
                             <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Una forma natural de mejorar su salud.</div>
                             <div class="acc-content ">
                                 <div class="content clearfix">
-                                    <figure class="image"><img src="{{ asset('public/img/featured-thumb-1.jpg') }}" alt=""></figure>
+                                    <figure class="image"><img src="<?php echo e(asset('public/img/featured-thumb-1.jpg')); ?>" alt=""></figure>
                                     <p>Health Coach look at exercise, eating, wellness and food not just as calories and weight loss, but also emotional, mental, physical, and spiritual terms. An Integrative with Nutrition Health Coach who’s providing services in area knows like state of mind, health history background, as well as sleep patterns.</p>
                                 </div>
                             </div>
@@ -259,7 +257,7 @@
                             <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Crea rutinas de acción</div>
                             <div class="acc-content current">
                                 <div class="content clearfix">
-                                    <figure class="image"><img src="{{ asset('public/img/featured-thumb-1.jpg') }}" alt=""></figure>
+                                    <figure class="image"><img src="<?php echo e(asset('public/img/featured-thumb-1.jpg')); ?>" alt=""></figure>
                                     <p>Health Coach look at exercise, eating, wellness and food not just as calories and weight loss, but also emotional, mental, physical, and spiritual terms. An Integrative with Nutrition Health Coach who’s providing services in area knows like state of mind, health history background, as well as sleep patterns.</p>
                                 </div>
                             </div>
@@ -269,7 +267,7 @@
                             <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Aprende enseñando a los demás</div>
                             <div class="acc-content ">
                                 <div class="content clearfix">
-                                    <figure class="image"><img src="{{ asset('public/img/featured-thumb-1.jpg') }}" alt=""></figure>
+                                    <figure class="image"><img src="<?php echo e(asset('public/img/featured-thumb-1.jpg')); ?>" alt=""></figure>
                                     <p>Health Coach look at exercise, eating, wellness and food not just as calories and weight loss, but also emotional, mental, physical, and spiritual terms. An Integrative with Nutrition Health Coach who’s providing services in area knows like state of mind, health history background, as well as sleep patterns.</p>
                                 </div>
                             </div>
@@ -307,7 +305,7 @@
                 <div class="slide-item">
                     <div class="inner-box">
                         <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-1.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-1.jpg') }} 90w, {{ asset('public/img/author-thumb-1-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                            <figure class="author-thumb"><img width="90" height="90" src="<?php echo e(asset('public/img/author-thumb-1.jpg')); ?>" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="<?php echo e(asset('public/img/author-thumb-1.jpg')); ?> 90w, <?php echo e(asset('public/img/author-thumb-1-75x75.jpg')); ?> 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
                             <h4>Yraimis Poueriet</h4>
                             <div class="designation">Intoleracia a la caseina</div>
                         </div>
@@ -318,7 +316,7 @@
                 <div class="slide-item">
                     <div class="inner-box">
                         <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" srcset="{{ asset('public/img/author-thumb-2.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                            <figure class="author-thumb"><img width="90" height="90" src="<?php echo e(asset('public/img/author-thumb-2.jpg')); ?>" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" srcset="<?php echo e(asset('public/img/author-thumb-2.jpg')); ?> 90w, <?php echo e(asset('public/img/author-thumb-2-75x75.jpg')); ?> 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
                             <h4>Carlos Gallego</h4>
                             <div class="designation">Diagnóstico acertado</div>
                         </div>
@@ -329,7 +327,7 @@
                 <div class="slide-item">
                     <div class="inner-box">
                         <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-3.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-3" srcset="{{ asset('public/img/author-thumb-3.jpg') }} 90w, {{ asset('public/img/author-thumb-3-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                            <figure class="author-thumb"><img width="90" height="90" src="<?php echo e(asset('public/img/author-thumb-3.jpg')); ?>" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-3" srcset="<?php echo e(asset('public/img/author-thumb-3.jpg')); ?> 90w, <?php echo e(asset('public/img/author-thumb-3-75x75.jpg')); ?> 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
                             <h4>Orlenis Pulido</h4>
                             <div class="designation">Mi Dra. para el hogar</div>
                         </div>
@@ -352,7 +350,7 @@
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><img src="{{ asset('public/img/featured-image-5.jpg') }}" alt=""></figure>
+                        <figure class="image"><img src="<?php echo e(asset('public/img/featured-image-5.jpg')); ?>" alt=""></figure>
                            <div class="count" style="font-size:x-large;">1</div>
                     </div>
                     <div class="lower-content">
@@ -365,7 +363,7 @@
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><img src="{{ asset('public/img/featured-image-6.jpg') }}" alt=""></figure>
+                        <figure class="image"><img src="<?php echo e(asset('public/img/featured-image-6.jpg')); ?>" alt=""></figure>
                         <div class="count" style="font-size:x-large;">2</div>
                     </div>
                     <div class="lower-content">
@@ -378,7 +376,7 @@
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><img src="{{ asset('public/img/featured-image-7.jpg') }}" alt=""></figure>
+                        <figure class="image"><img src="<?php echo e(asset('public/img/featured-image-7.jpg')); ?>" alt=""></figure>
                         <div class="count" style="font-size:x-large;">3</div>
                     </div>
                     <div class="lower-content">
@@ -391,7 +389,7 @@
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><img src="{{ asset('public/img/featured-image-8.jpg') }}" alt=""></figure>
+                        <figure class="image"><img src="<?php echo e(asset('public/img/featured-image-8.jpg')); ?>" alt=""></figure>
                         <div class="count" style="font-size:x-large;">4</div>
                     </div>
                     <div class="lower-content">
@@ -419,18 +417,18 @@
                  </div>
                  
                  <div class="link-outer pull-right">
-                    <a href="{{ url('blog') }}" class="more-link theme-btn btn-style-three">Leer más...</a>
+                    <a href="<?php echo e(url('blog')); ?>" class="more-link theme-btn btn-style-three">Leer más...</a>
                  </div>
              </div>
         </div>
         
         <div class="row clearfix">
             <!--News Style One-->
-            @foreach($noticias as $noticia)
+            <?php $__currentLoopData = $noticias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $noticia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <figure class="image-box">
-                    <a href="{{url('/blog/noticia/'. $noticia->slug)}}"><img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'.$noticia->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
+                    <a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><img width="1170" height="1170" src="<?php echo e(asset('public/archivos/noticias/'.$noticia->archivo)); ?>" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
                     <div class="lower-content">
                         <?php
                             $porciones = explode("/",$noticia->published_at);
@@ -438,14 +436,14 @@
                         
                             $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[0];
                         ?>
-                        <div class="posted-info">{{$fecha}}</div>
+                        <div class="posted-info"><?php echo e($fecha); ?></div>
                        
-                        <h3><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}}</a></h3>
-                        <div class="text">{{$noticia->resumen}} ...</div>
+                        <h3><a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><?php echo e($noticia->titulo); ?></a></h3>
+                        <div class="text"><?php echo e($noticia->resumen); ?> ...</div>
                     </div>
                 </div>
             </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         
     </div>
@@ -458,7 +456,7 @@
         
         <!--Image Column-->
         <div class="image-column" style=" background-image:url('public/img/featured-image-9.jpg');">
-            <figure class="image-box"><img src="{{ asset('public/img/featured-image-9.jpg') }}" alt=""></figure>
+            <figure class="image-box"><img src="<?php echo e(asset('public/img/featured-image-9.jpg')); ?>" alt=""></figure>
         </div>
         
         <!--Conent Column-->
@@ -515,4 +513,5 @@
         
     </div>
 </section>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('pagina::layouts.banners', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
