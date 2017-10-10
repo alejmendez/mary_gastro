@@ -11,6 +11,7 @@ Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/
     Route::post('restaurar/{id}',       'NoticiasController@restaurar');
     Route::delete('destruir/{id}',      'NoticiasController@destruir');
     Route::post('subir',                'NoticiasController@subir');
+    Route::delete('busc/eliminarimagen/{id}', 'NoticiasController@eliminarImagen');
 
     Route::group(['prefix' => 'definiciones/categorias'], function() {
 		Route::get('/', 				'CategoriasController@index');

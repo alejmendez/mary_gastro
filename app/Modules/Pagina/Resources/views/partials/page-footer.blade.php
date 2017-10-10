@@ -11,7 +11,8 @@
                         <figure><a href="{{ url('/') }}"><img src="{{ asset('public/img/logo-3-4.png') }}" alt=""></a></figure>
                      </div>
                      <div class="widget-content">
-                        <div class="text">Yo soy la Dra. MaryGastro, Médico  CUMLAUDE, Pediatra Puericultor y Especialista en Gastroenterología Pediátrica. Madre de 3 príncipes. Te incentivo a tener un estilo de vida saludable con un enfoque integral.</div>
+                        <div class="text">Médico  CUMLAUDE, Pediatra Puericultor<br>
+                        Especialista en Gastroenterología Pediátrica.</div>
                         <a href="{{ url('consulta') }}" class="theme-btn btn-style-four">Consulta Online</a>
                      </div>
                   </div>
@@ -77,7 +78,7 @@
             <div class="pull-right">
                <ul class="footer-social">
                   <li>Sígueme</li>
-                  <li><a href="{{ url('https://www.facebook.com/Maryraida?lst=1312639878%3A1160595543%3A1502303458') }}'"><span class="fa fa-facebook"></span></a></li>
+                  <li><a href="{{ url('https://www.facebook.com/Maryraida?lst=1312639878%3A1160595543%3A1502303458') }}'">maryraida <span class="fa fa-facebook"></span></a></li>
                   <li><a href="{{ url('https://www.instagram.com/mary_gastro/') }}'">#mary_gastro <span class="fa fa-instagram"></span></a></li>
                </ul>
             </div>

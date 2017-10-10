@@ -1,5 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
+
 <!--Page Title-->
     <section class="page-title" style="background-image:url('public/img/bg-page-title-1.jpg');">
         <div class="auto-container">

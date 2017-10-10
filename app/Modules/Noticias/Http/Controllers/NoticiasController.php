@@ -58,6 +58,7 @@ class NoticiasController extends Controller
         if ($rs) {
             $imgArray=[];
             $imgs = Imagenes::where('noticias_id', $id)->get();
+            
 
             foreach ($imgs as $img) {
                 $id_archivo=str_replace ('/','-', $img->archivo);
@@ -68,7 +69,7 @@ class NoticiasController extends Controller
                     'url'=>url('public/archivos/noticias/'.$img->archivo),
                     'thumbnailUrl'=>url('public/archivos/noticias/'.$img->archivo),
                     'deleteType'=>'DELETE',
-                    'deleteUrl'=>url($url.'/eliminarimagen'.$id_archivo),
+                    'deleteUrl'=>url($url.'/eliminarimagen/'.$id_archivo),
                     'data'=>[
                         'cordenadas'=>[],
                         'leyenda'=>$img->leyenda,
@@ -194,15 +195,14 @@ class NoticiasController extends Controller
 
     public function eliminarImagen(Request $request, $id=0){
         $id = str_replace('-', '/', $id);
-		try {
-			// \File::delete(public_path('img/noticias/' . $id));
-			$rs = Imagenes::where('archivo', $id)->delete();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
-
-		return ['s' => 's', 'msj' => trans('controller.eliminar')];
-    }
+        try {
+            $rs = Imagenes::destroy($id);
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        
+        }
+        return ['s' => 's', 'msj' => trans('controller.eliminar')];
+       }
 
     public function subir(Request $request) {
         $validator=Validator::make($request->all(),[

@@ -38,7 +38,8 @@ class PaginaController extends Controller {
 			'imagenes.archivo'	
 		])
 		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
-		->where('noticias.published_at','<=', date('Y-m-d H:i'))->get();
+		->where('noticias.published_at','<=', date('Y-m-d H:i'))
+		->get();
 
 	 	
 		return $this->view('pagina::index',[
