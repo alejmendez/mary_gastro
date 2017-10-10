@@ -396,7 +396,7 @@
                     </div>
                     <div class="lower-content">
                         <h3>Celebremos tu éxito</h3>
-                        <div class="text">: Compártenos tu caso de éxito, es importante para nosotros</div>
+                        <div class="text">Compártenos tu caso de éxito, es importante para nosotros</div>
                     </div>
                 </div>
             </div>
