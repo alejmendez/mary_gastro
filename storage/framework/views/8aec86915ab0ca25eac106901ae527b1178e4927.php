@@ -72,9 +72,9 @@
                     <!--Tab Buttons-->
                     <ul class="tab-buttons clearfix">
                                                 
-                    	                        <li class="tab-btn active-btn" data-tab="#info-tab-11">Venezuela</li>
+                    	<li class="tab-btn active-btn" data-tab="#info-tab-11">Venezuela</li>
                     	                        
-                    	                    </ul>
+                    </ul>
                     
                     <!--Tabs Content-->
                     <div class="tabs-content">
@@ -85,8 +85,7 @@
                             <h3 class="location-title">Estado Bolívar</h3>
                             <div class="info-style-one">
                                 <ul>
-                                    <li><div class="icon-box"><span class="fa fa-globe"></span></div><h4>Consultorio :</h4><div class="text">Centro Clinico Cardiovascular, S.A. Edif. Nolly Lc 01 <br>
-Ciudad Bolívar - Venezuela.</div></li>
+                                    <li><div class="icon-box"><span class="fa fa-globe"></span></div><h4>Consultorio :</h4><div class="text">Centro Clinico Cardiovascular, S.A. Edif. Nolly Lc 01 <br> Ciudad Bolívar - Venezuela.</div></li>
                                     <li><div class="icon-box"><span class="flaticon-envelope"></span></div><h4>¿Más Información?:</h4><div class="text">info@marygastro.com.ve</div></li>
                                     <li><div class="icon-box"><span class="flaticon-technology-1"></span></div><h4>Telf:</h4><div class="text"> +58 285 654 62 94</div></li>
                                 </ul>
@@ -101,25 +100,24 @@ Ciudad Bolívar - Venezuela.</div></li>
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
+
 <!--Map Section-->
 <section class="map-section">
     <div class="map-outer">
 
         <!--Map Canvas-->
-        <div class="map-canvas"
-            data-zoom="10"
-            data-lat="40.705311"
-            data-lng="-74.2581948"
-            data-type="roadmap"
-            data-hue="#fc721e"
-            data-title="Ciudad Bolívar, Venezuela"
-            data-content="Ciudad Bolívar, Venezuela<br><a href='mailto:info@marygastro.com.ve'>info@marygastro.com.ve</a>"
-            style="height:480px;">
+       
+
+        <div class="col-md-12 col-sm-12 col-xs-12" style="height:480px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1974.9259833775754!2d-63.543495811140254!3d8.116551177501774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9e87127d9dd4e9d7!2sCentro+Cardivascular!5e0!3m2!1ses!2sve!4v1507667056177" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
+        
 
     </div>
 </section>
 	
 
 <?php $__env->stopSection(); ?>
+
+
 <?php echo $__env->make('pagina::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

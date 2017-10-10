@@ -25,9 +25,10 @@
 <!--Gallery Section-->
 <center>
 <!-- SnapWidget -->
-
-<script src="//www.powr.io/powr.js" external-type="html"></script> 
- <div class="powr-instagram-feed" id="e8d7feb9_1507317524"></div>
+<iframe src="http://www.instabrowse.es/ffmo7iy1g5/widget.html" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:625px; height: 500px" ></iframe><a href="http://www.instabrowse.es/instagram-en-tu-blog.html" style="font-size: 10px; font-style:italic; color:#bebebe; " target="_blank">widget instabrowe.es</a>
+  
+<!-- <script src="//www.powr.io/powr.js" external-type="html"></script> 
+ <div class="powr-instagram-feed" id="e8d7feb9_1507317524"></div> -->
 
 </center>
 <?php $__env->stopSection(); ?>
