@@ -2,16 +2,16 @@
 
 Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/Noticias', 'namespace' => 'marygastro\\Modules\Noticias\Http\Controllers'], function()
 {
-    Route::get('/',                     'NoticiasController@index');
-    Route::post('guardar',              'NoticiasController@guardar');
-    Route::get('buscar/{id}',           'NoticiasController@buscar');
-    Route::put('guardar/{id}',          'NoticiasController@guardar');
-    Route::get('datatable',             'NoticiasController@datatable');
-    Route::delete('eliminar/{id}',      'NoticiasController@eliminar');
-    Route::post('restaurar/{id}',       'NoticiasController@restaurar');
-    Route::delete('destruir/{id}',      'NoticiasController@destruir');
-    Route::post('subir',                'NoticiasController@subir');
-    Route::delete('busc/eliminarimagen/{id}', 'NoticiasController@eliminarImagen');
+    Route::get('/',                                 'NoticiasController@index');
+    Route::post('guardar',                          'NoticiasController@guardar');
+    Route::get('buscar/{id}',                       'NoticiasController@buscar');
+    Route::put('guardar/{id}',                      'NoticiasController@guardar');
+    Route::get('datatable',                         'NoticiasController@datatable');
+    Route::delete('eliminar/{id}',                  'NoticiasController@eliminar');
+    Route::post('restaurar/{id}',                   'NoticiasController@restaurar');
+    Route::delete('destruir/{id}',                  'NoticiasController@destruir');
+    Route::post('subir',                            'NoticiasController@subir');
+    Route::delete('busc/eliminarimagen/{id}',       'NoticiasController@eliminarImagen');
 
     Route::group(['prefix' => 'definiciones/categorias'], function() {
 		Route::get('/', 				'CategoriasController@index');
@@ -29,7 +29,7 @@ Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/
     });
 });
 
-Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/publicar', 'namespace' => 'marygastro\\Modules\Noticias\Http\Controllers'], function()
+Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/publicar', 'namespace' => 'App\\Modules\Noticias\Http\Controllers'], function()
 {
     Route::get('/',                     'PublicarController@index');
     Route::post('/guardar',             'PublicarController@guardar');

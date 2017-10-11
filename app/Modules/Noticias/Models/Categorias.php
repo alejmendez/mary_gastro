@@ -4,6 +4,8 @@ namespace marygastro\Modules\Noticias\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
+
+
 class Categorias extends Modelo
 {
     protected $table = 'categorias';
@@ -31,8 +33,8 @@ class Categorias extends Modelo
         ]
     ];
 
-    public function noticas()
+    public function noticias()
     {
-        return $this->hasMany('marygastro\Modules\Noticas\Models\Noticias');
+        return $this->belongsToMany('marygastro\Modules\Noticas\Models\Noticias');
     }
 }

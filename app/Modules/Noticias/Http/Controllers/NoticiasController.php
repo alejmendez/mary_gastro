@@ -21,11 +21,13 @@ use marygastro\Modules\Noticias\Models\Noticias_Categorias;
 use marygastro\Modules\Noticias\Models\Categorias;
 use marygastro\Modules\Noticias\Models\Imagenes;
 
+
+
 use marygastro\Modules\Noticias\Http\Controllers\Controller;
 
 class NoticiasController extends Controller
 {
-    public $js = ['Noticias.js'];
+    public $js = ['Noticias'];
     public $librerias = [
         'alphanum',
         'maskedinput',
@@ -34,14 +36,15 @@ class NoticiasController extends Controller
         'jquery-ui',
         'jquery-ui-timepicker',
         'file-upload',
-        'jcrop'
+        'jcrop',
+        'bootstrap-select'
     ];
 
     public $perfiles_publicar = [1];
 
 
     public function index(){
-        return $this->view('noticias::noticias', [
+        return $this->view('noticias::Noticias', [
             'Noticias'=> new Noticias()
         ]);
 
@@ -58,18 +61,17 @@ class NoticiasController extends Controller
         if ($rs) {
             $imgArray=[];
             $imgs = Imagenes::where('noticias_id', $id)->get();
-            
 
             foreach ($imgs as $img) {
                 $id_archivo=str_replace ('/','-', $img->archivo);
                 $name=substr($id_archivo, strrpos($id_archivo,'/')+1);
-                $imArray[]=[
+                $imgArray[]=[
                     'id'=>$id_archivo,
                     'name'=>$name,
                     'url'=>url('public/archivos/noticias/'.$img->archivo),
                     'thumbnailUrl'=>url('public/archivos/noticias/'.$img->archivo),
                     'deleteType'=>'DELETE',
-                    'deleteUrl'=>url($url.'/eliminarimagen/'.$id_archivo),
+                    'deleteUrl'=>url($url.'/eliminarimagen'.$id_archivo),
                     'data'=>[
                         'cordenadas'=>[],
                         'leyenda'=>$img->leyenda,
@@ -77,10 +79,20 @@ class NoticiasController extends Controller
                     ]
                 ];
             }
+
+            $categoArray = [];
+            $categorias = Noticias_Categorias::where('noticias_id', $id)->get();
+
+            foreach ($categorias as $key => $categoria) {
+                $categoArray[]=[
+                    'categoria_id'=>Categorias::where('id', $categoria['categoria_id'])->get()
+                ];
+            }
+
             $respuesta = array_merge($rs->toArray(),[
                 's'=>'s',
                 'msj'=>trans('controller.buscar'),
-                'files'=>$imArray
+                'files'=>$imgArray
             ]);
 
             return $respuesta;
@@ -94,9 +106,7 @@ class NoticiasController extends Controller
 
     public function data($request){
         if ($this->puedePublicar() && $request->input(['published_at']) != '') {
-
             $data=$request->all();
-
         }else {
             $data=$request->except(['published_at']);
         }
@@ -106,6 +116,17 @@ class NoticiasController extends Controller
 
         return $data;
     }
+
+    protected function guardar_etiquetas($request, $id) {
+		Noticias_Categorias::where('noticia_id', $id)->delete();
+		foreach ($request['categoria_id'] as $categoria) {
+			Noticias_Categorias::create([
+				'noticia_id' => $id,
+				'categoria_id' => $categoria,
+			]);
+		}
+        // dd($categorias);
+	}
 
     public function guardar(noticiasRequest $request,$id=0){
 
@@ -124,6 +145,7 @@ class NoticiasController extends Controller
                $Noticias = Noticias::find($id)->update($data);
            }
 
+           $this->guardar_etiquetas($request, $Noticias->id);
            $this->guardarImagenes($archivos, $id);
 
 
@@ -195,14 +217,15 @@ class NoticiasController extends Controller
 
     public function eliminarImagen(Request $request, $id=0){
         $id = str_replace('-', '/', $id);
-        try {
-            $rs = Imagenes::destroy($id);
-        } catch (Exception $e) {
-            return $e->errorInfo[2];
-        
-        }
-        return ['s' => 's', 'msj' => trans('controller.eliminar')];
-       }
+		try {
+			// \File::delete(public_path('img/noticias/' . $id));
+			$rs = Imagenes::destroy($id);
+		} catch (Exception $e) {
+			return $e->errorInfo[2];
+		}
+
+		return ['s' => 's', 'msj' => trans('controller.eliminar')];
+    }
 
     public function subir(Request $request) {
         $validator=Validator::make($request->all(),[

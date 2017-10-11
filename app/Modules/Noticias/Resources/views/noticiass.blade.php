@@ -9,7 +9,7 @@
 @include('base::partials.modal-busqueda', [
   'titulo' => 'Buscar las Noticias',
   'columnas' => [
-    'marygastro Usuarios' => '12.5',
+    'App Usuarios' => '12.5',
     'Titulo' => '12.5',
     'Contenido' => '12.5',
     'Contenido Html' => '12.5',

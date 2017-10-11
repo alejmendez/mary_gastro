@@ -12,8 +12,8 @@ class Video extends Modelo
     protected $fillable = ['id', 'titulo', 'descripcion', 'url', 'published_at'];
 
     //protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
-    public function setPublishedAtAttribute($value){
-      $this->attributes['published_at'] = Carbon::createFromFormat('d/m/Y H:i', $value);
+     public function setPublishedAtAttribute($value){
+    $this->attributes['published_at'] = Carbon::createFromFormat('d/m/Y H:i', $value);
     }
 
     public function getPublishedAtAttribute($value){

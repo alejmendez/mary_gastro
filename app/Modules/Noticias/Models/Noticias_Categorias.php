@@ -2,12 +2,12 @@
 
 namespace marygastro\Modules\Noticias\Models;
 
-use marygastro\Modules\Base\Models\Modelo;
+use Illuminate\Database\Eloquent\Model;
 
-class noticias_categorias extends Modelo
+class noticias_categorias extends Model
 {
-    protected $table = 'noticias_categorias';
-    protected $fillable = ['noticias_id', 'categorias_id'];
+    protected $table = 'noticia_categoria';
+    protected $fillable = ['noticia_id', 'categoria_id'];
 
     protected $primaryKey = null;
     public $incrementing = false;

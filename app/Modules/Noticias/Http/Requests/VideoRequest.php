@@ -13,4 +13,8 @@ class VideoRequest extends FormRequest
     'descripcion' => ['required'],
     'published_at' => ['date_format:"d/m/Y H:i"']
   ];
+
+  public function rules(){
+    return $this->reglas();
+  }
 }
