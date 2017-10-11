@@ -81,17 +81,18 @@ class NoticiasController extends Controller
             }
 
             $categoArray = [];
-            $categorias = Noticias_Categorias::where('noticias_id', $id)->get();
+            $categorias = Noticias_Categorias::select('categoria_id')->where('noticia_id', $id)->get();
 
             foreach ($categorias as $key => $categoria) {
-                $categoArray[]=[
-                    'categoria_id'=>Categorias::where('id', $categoria['categoria_id'])->get()
-                ];
+                $categoArray[]=$categoria['categoria_id'];
             }
+
+            // dd($respuesta['categoria_id']->toArray());
 
             $respuesta = array_merge($rs->toArray(),[
                 's'=>'s',
                 'msj'=>trans('controller.buscar'),
+                'categoria_id' => $categoArray,
                 'files'=>$imgArray
             ]);
 
