@@ -21,7 +21,7 @@ use marygastro\Modules\Noticias\Model\Audio as Audio;
 
 class AudioController extends Controller
 {
-    protected $titulo='Audio';
+    protect $titulo='Audio';
 
     public $librerias = [
       'alphanum',

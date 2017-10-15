@@ -45,9 +45,7 @@ $(function() {
         aplicacion.buscar(this.id);
     });
 
-		$('#published_at', $form).datetimepicker({
-            //dateFormat: 'yy-mm-dd '
-        });
+		$('#published_at', $form).datetimepicker();
 		var contenido = CKEDITOR.replace('contenido');
         $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:

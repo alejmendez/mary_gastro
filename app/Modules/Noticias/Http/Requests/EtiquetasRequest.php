@@ -10,4 +10,8 @@ class EtiquetasRequest extends Request {
 		'slug' => ['required', 'min:3', 'max:250', 'unique:etiquetas,slug'],
 		'descripcion' => ['required']
 	];
+
+    public function rules(){
+		return $this->reglas();
+	}
 }

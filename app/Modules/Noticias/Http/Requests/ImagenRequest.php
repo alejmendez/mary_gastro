@@ -13,4 +13,8 @@ class ImagenRequest extends FormRequest
 		'published_at' => ['date_format:"d/m/Y H:i"'],
         'url'   =>  ['url']
 	];
+
+	public function rules(){
+		return $this->reglas();
+	}
 }

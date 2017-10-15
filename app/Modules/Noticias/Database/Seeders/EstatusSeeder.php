@@ -1,7 +1,7 @@
-<?php namespace marygastro\Modules\Noticias\Database\Seeds;
+<?php namespace Modules\Noticias\Database\Seeds;
 
 use Illuminate\Database\Seeder;
-use marygastro\Modules\Noticias\Model\Estatus;
+use Modules\Noticias\Model\Estatus;
 
 class EstatusSeeder extends Seeder
 {

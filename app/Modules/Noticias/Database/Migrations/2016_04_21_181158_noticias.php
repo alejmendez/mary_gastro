@@ -26,7 +26,6 @@ class Noticias extends Migration
 			$table->increments('id');
 			$table->string('titulo', 250);
 			$table->string('slug', 250)->unique();
-			$table->integer('categorias_id')->unsigned();
 			$table->text('contenido');
 			$table->text('contenido_html');
 			$table->text('resumen');
@@ -35,6 +34,21 @@ class Noticias extends Migration
 
 			$table->timestamps();
 			$table->softDeletes();
+		});
+
+		Schema::create('noticia_categoria', function (Blueprint $table) {
+			$table->integer('categoria_id')->unsigned();
+			$table->integer('noticia_id')->unsigned();
+
+			$table->foreign('categoria_id')
+				->references('id')->on('categorias')
+				->onDelete('cascade')->onUpdate('cascade');
+
+			$table->foreign('noticia_id')
+				->references('id')->on('noticias')
+				->onDelete('cascade')->onUpdate('cascade');
+
+			$table->timestamps();
 		});
 
 		Schema::create('imagenes', function (Blueprint $table) {

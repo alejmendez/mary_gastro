@@ -1,5 +1,5 @@
 <?php 
-namespace marygastro\Modules\Noticias\Database\Seeds;
+namespace Modules\Noticias\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;

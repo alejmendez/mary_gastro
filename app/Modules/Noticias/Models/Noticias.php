@@ -13,26 +13,7 @@ use marygastro\Modules\Noticias\Models\Categorias;
 class Noticias extends Modelo
 {
     protected $table = 'noticias';
-    protected $fillable = [
-        "titulo",
-        "slug",
-        "contenido",
-        "categorias_id",
-        "contenido_html",
-        "resumen",
-        "audio",
-        "published_at"
-    ];
-
-
-
-    protected $dates = [
-        'published_at',
-        'created_at',
-        'updated_at',
-        'deleted_at'
-    ];
-
+    protected $fillable = ["titulo","slug","contenido","categorias_id","contenido_html","resumen","audio","published_at"];
     protected $campos = [
         'titulo' => [
             'type' => 'text',
@@ -52,47 +33,31 @@ class Noticias extends Modelo
             'controller' => 'categorias'
         ]
     ];
-    public function setPublishedAtAttribute($value)
-    {
-        // 2016-06-27
-       
-        $formato = 'd/m/Y H:i';
-        if (preg_match('/^\d{4}-\d{1,2}-\d{1,2}$/', $value)){
-            $formato = 'Y-m-d H:i';
-        }
-        
-        $this->attributes['published_at'] = Carbon::createFromFormat($formato, $value);
-    }
-    public function getPublishedAtAttribute($value){
-       
-        return Carbon::parse($value)->format('d/m/Y H:i');
-    }
 
+
+
+    public function setPublishedAtAttribute($value){
+        $this->attributes['published_at'] = Carbon::createFromFormat('d/m/Y H:i', $value);
+    }
     // public function __construct(array $attributes = array())
     // {
     //     parent::__construct($attributes);
     //     $this->campos['categorias_id']['option'] = categorias::pluck('nombre', 'id');
     // }
 
+    protected $dates = ['published_at'];
+
     public function categorias()
     {
-        return $this->belongsTo('marygastro\Modules\Noticias\Models\Categorias', 'categorias_id');
+        return $this->belongsToMany('marygastro\Modules\Noticias\Models\Categorias', 'categorias_id');
     }
 
-    public function imagenes()
-    {
+    public function imagenes(){
         // belongsTo = "pertenece a" | hace relacion desde el detalle hasta el maestro
         return $this->hasMany('marygastro\Modules\Noticias\Models\Imagenes');
     }
 
-    public function imagen()
-    {
-        // belongsTo = "pertenece a" | hace relacion desde el detalle hasta el maestro
-        return $this->hasMany('marygastro\Modules\Noticias\Models\Imagenes')->first();
-    }
-
-    public function estatus()
-    {
+    public function estatus(){
         // belongsTo = "pertenece a" | hace relacion desde el detalle hasta el maestro
         return $this->belongsTo('marygastro\Modules\Noticias\Models\Estatus');
     }

@@ -1,33 +1,33 @@
-@extends(isset($layouts) ? $layouts : 'base::layouts.default')
+<?php $__env->startSection('content-top'); ?>
+    <?php echo $__env->make('base::partials.botonera', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-@section('content-top')
-    @include('base::partials.botonera')
+    <?php echo $__env->make('base::partials.ubicacion', ['ubicacion' => ['Noticias']], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    @include('base::partials.ubicacion', ['ubicacion' => ['Noticias']])
-
-    @include('base::partials.modal-busqueda', [
+    <?php echo $__env->make('base::partials.modal-busqueda', [
         'titulo' => 'Buscar Noticias.',
         'columnas' => [
             'id' => '33.3',
     		'Titulo' => '33.3',
     		'Resumen' => '33.3',
         ]
-    ])
-@endsection
+    ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="row col-md-12">
-            {!! Form::open(['id'=>'formulario', 'name'=>'formulario', 'method'=>'POST'])!!}
-                {{-- {!! $Noticias->generate() !!} --}}
-                {{ Form::bsSelect('categoria_id', $controller->categoria(), '', [
+            <?php echo Form::open(['id'=>'formulario', 'name'=>'formulario', 'method'=>'POST']); ?>
+
+                
+                <?php echo e(Form::bsSelect('categoria_id', $controller->categoria(), '', [
                     'label' => 'Categoria',
                     'class' => 'bs-select',
                     'multiple' => 'multiple',
                     'placeholder' => 'Categorias',
                     'class_cont' => 'col-md-2',
                     'name'          =>      'categoria_id[]'
-                ]) }}
+                ])); ?>
+
 
                 <div class="form-group col-md-4">
                     <label for="titulo" class="requerido">Titulo</label>
@@ -38,13 +38,14 @@
                     <input class="form-control" placeholder="Slug" required="required" id="slug" name="slug" type="text" value="">
                 </div>
 
-                @if ($controller->puedepublicar())
-    			{{ Form::bsText('published_at', '', [
+                <?php if($controller->puedepublicar()): ?>
+    			<?php echo e(Form::bsText('published_at', '', [
     				'label' => 'Fecha',
     				'placeholder' => 'Fecha de Publicación',
                     'class_cont' => 'col-md-2'
-    			]) }}
-    			@endif
+    			])); ?>
+
+    			<?php endif; ?>
                 <div class="col-md-12"></div>
                 <div class="form-group col-xs-12">
     				<label for="contenido_html">Contenido </label>
@@ -56,7 +57,8 @@
     				<textarea id="resumen" name="resumen" class="form-control" placeholder="Resumen de la Noticia" required="required"></textarea>
     			</div>
                 <input type="hidden" name="archivos" id="archivos">
-            {!! Form::close() !!}
+            <?php echo Form::close(); ?>
+
 
 
         </div>
@@ -125,9 +127,9 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('js')
+<?php $__env->startPush('js'); ?>
   <!-- The template to display files available for upload -->
   <script id="template-upload" type="text/x-tmpl">
     {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -203,4 +205,6 @@
       </tr>
     {% } %}
   </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make(isset($layouts) ? $layouts : 'base::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

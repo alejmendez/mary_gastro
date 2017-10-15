@@ -1,8 +1,8 @@
-<?php namespace marygastro\Modules\Noticias\Database\Seeders;
+<?php namespace App\Modules\Noticias\Database\Seeders;
 
 use DB;
 use Illuminate\Database\Seeder;
-use marygastro\Modules\Noticias\Model\Categorias;
+use App\Modules\Noticias\Model\Categorias;
 
 class CategoriasSeeder extends Seeder
 {
