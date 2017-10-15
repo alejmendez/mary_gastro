@@ -81,10 +81,10 @@ class NoticiasController extends Controller
             }
 
             $categoArray = [];
-            $categorias = Noticias_Categorias::select('categoria_id')->where('noticia_id', $id)->get();
+            $categorias = Noticias_Categorias::select('categorias_id')->where('noticias_id', $id)->get();
 
             foreach ($categorias as $key => $categoria) {
-                $categoArray[]=$categoria['categoria_id'];
+                $categoArray[]=$categoria['categorias_id'];
             }
 
             // dd($respuesta['categoria_id']->toArray());
@@ -92,7 +92,7 @@ class NoticiasController extends Controller
             $respuesta = array_merge($rs->toArray(),[
                 's'=>'s',
                 'msj'=>trans('controller.buscar'),
-                'categoria_id' => $categoArray,
+                'categorias_id' => $categoArray,
                 'files'=>$imgArray
             ]);
 
@@ -119,11 +119,11 @@ class NoticiasController extends Controller
     }
 
     protected function guardar_etiquetas($request, $id) {
-		Noticias_Categorias::where('noticia_id', $id)->delete();
-		foreach ($request['categoria_id'] as $categoria) {
+		Noticias_Categorias::where('noticias_id', $id)->delete();
+		foreach ($request['categorias_id'] as $categoria) {
 			Noticias_Categorias::create([
-				'noticia_id' => $id,
-				'categoria_id' => $categoria,
+				'noticias_id' => $id,
+				'categorias_id' => $categoria,
 			]);
 		}
         // dd($categorias);

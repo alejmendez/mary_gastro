@@ -68,7 +68,6 @@ class Controller extends BaseController
 		$noticias = Noticias::select([
 			'noticias.titulo',
 			'noticias.slug',
-			'noticias.categorias_id',
 			'noticias.resumen',
 			'noticias.published_at',
 			'imagenes.archivo'	
@@ -95,17 +94,22 @@ class Controller extends BaseController
 				$noticias = Noticias::select([
 					'noticias.titulo',
 					'noticias.slug',
-					
 					'noticias.resumen',
 					'noticias.published_at',
 					'imagenes.archivo'	
 				])
 				->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
-				->where('noticias.published_at','<=', date('Y-m-d H:i'))
-				->whereNull('noticias.deleted_at')
-				->paginate(4);
-				
-				
+				->where('noticias.published_at','<=', date('Y-m-d H:i'));
+				// ->paginate(4);
+
+				$categorias= [];
+				dd($noticias->first()->categorias);
+				foreach ($noticias->get() as $noticia) {  
+					dd($noticia->categorias);
+					//$categorias[]= $noticia->pivot->categorias_id; 
+				 }
+				 dd($categorias);
+				/*
 				$categorias = Categorias::select([
 					'categorias.nombre',
 					'categorias.id',
@@ -114,8 +118,7 @@ class Controller extends BaseController
 				->whereNull('categorias.deleted_at')
 				->leftJoin('noticias', 'noticias.categorias_id','=', 'categorias.id')
 				->groupby('categorias.nombre')
-				->groupby('categorias.id')->get();
-				
+				->groupby('categorias.id')->get();*/
 					
 				return $this->view('pagina::blog',[
 					'noticias'   => $noticias,

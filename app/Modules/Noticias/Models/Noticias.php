@@ -49,7 +49,8 @@ class Noticias extends Modelo
 
     public function categorias()
     {
-        return $this->belongsToMany('marygastro\Modules\Noticias\Models\Categorias', 'categorias_id');
+        return $this->belongsToMany('marygastro\Modules\Noticias\Models\Categorias', 'noticia_categoria')
+		->withPivot('noticias_id');
     }
 
     public function imagenes(){

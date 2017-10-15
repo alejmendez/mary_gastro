@@ -37,14 +37,14 @@ class Noticias extends Migration
 		});
 
 		Schema::create('noticia_categoria', function (Blueprint $table) {
-			$table->integer('categoria_id')->unsigned();
-			$table->integer('noticia_id')->unsigned();
+			$table->integer('categorias_id')->unsigned();
+			$table->integer('noticias_id')->unsigned();
 
-			$table->foreign('categoria_id')
+			$table->foreign('categorias_id')
 				->references('id')->on('categorias')
 				->onDelete('cascade')->onUpdate('cascade');
 
-			$table->foreign('noticia_id')
+			$table->foreign('noticias_id')
 				->references('id')->on('noticias')
 				->onDelete('cascade')->onUpdate('cascade');
 
