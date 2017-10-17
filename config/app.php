@@ -178,6 +178,7 @@ return [
         marygastro\Providers\RouteServiceProvider::class,
 
         Nwidart\Modules\LaravelModulesServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         Yajra\Datatables\DatatablesServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
@@ -239,6 +240,7 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         
         'Module'       => Nwidart\Modules\Facades\Module::class,
+        'Debugbar'     => Barryvdh\Debugbar\Facade::class,
         
         'Datatables'   => Yajra\Datatables\Datatables::class,
         'Form'         => Collective\Html\FormFacade::class,
