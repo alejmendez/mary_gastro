@@ -20,7 +20,7 @@
         <div class="row col-md-12">
             {!! Form::open(['id'=>'formulario', 'name'=>'formulario', 'method'=>'POST'])!!}
                 {{-- {!! $Noticias->generate() !!} --}}
-                {{ Form::bsSelect('categoria_id', $controller->categoria(), '', [
+                {{ Form::bsSelect('categorias_id', $controller->categoria(), '', [
                     'label' => 'Categoria',
                     'class' => 'bs-select',
                     'multiple' => 'multiple',

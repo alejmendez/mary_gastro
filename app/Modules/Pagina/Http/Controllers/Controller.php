@@ -18,7 +18,7 @@ use marygastro\Modules\Noticias\Models\Imagenes;
 class Controller extends BaseController
 {
 	public $app = 'Pagina';
-	
+
 	public $titulo = '';
 
 	public $autenticar = false;
@@ -31,7 +31,7 @@ class Controller extends BaseController
 		'public/js/pagina',
 	];
 
-	
+
 	public $meses =[
 		1=>'ENE',
 		'FEB',
@@ -55,7 +55,7 @@ class Controller extends BaseController
 	];
 
 	public $libreriasIniciales = [
-		'OpenSans', 'font-awesome', 
+		'OpenSans', 'font-awesome',
 		'animate', 'wow', 'bootstrap',
 		'pace', 'jquery-form', 'jquery-ui',
 		'blockUI',
@@ -70,33 +70,33 @@ class Controller extends BaseController
 			'noticias.slug',
 			'noticias.resumen',
 			'noticias.published_at',
-			'imagenes.archivo'	
+			'imagenes.archivo'
 		])
 		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
 		->where('noticias.published_at','<=', date('Y-m-d H:i'))->get()->take(3);
 
-	 	
+
 		return $this
 			->setTitulo('GastroPediatra en Acción')
 			->view('pagina::index',[
 				'noticias' => $noticias
 			]);
-	} 
-	
+	}
+
 	public function pagina(Request $request, $pag)
 	{
 		$dir = __DIR__ . '/../../Resources/views/';
-		
+
 		if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')){
-			
+
 			if($pag === 'blog'){
-				
+
 				$noticias = Noticias::select([
 					'noticias.titulo',
 					'noticias.slug',
 					'noticias.resumen',
 					'noticias.published_at',
-					'imagenes.archivo'	
+					'imagenes.archivo'
 				])
 				->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
 				->where('noticias.published_at','<=', date('Y-m-d H:i'));
@@ -104,9 +104,9 @@ class Controller extends BaseController
 
 				$categorias= [];
 				dd($noticias->first()->categorias);
-				foreach ($noticias->get() as $noticia) {  
+				foreach ($noticias->get() as $noticia) {
 					dd($noticia->categorias);
-					//$categorias[]= $noticia->pivot->categorias_id; 
+					//$categorias[]= $noticia->pivot->categorias_id;
 				 }
 				 dd($categorias);
 				/*
@@ -119,7 +119,7 @@ class Controller extends BaseController
 				->leftJoin('noticias', 'noticias.categorias_id','=', 'categorias.id')
 				->groupby('categorias.nombre')
 				->groupby('categorias.id')->get();*/
-					
+
 				return $this->view('pagina::blog',[
 					'noticias'   => $noticias,
 					'categorias' => $categorias
@@ -166,8 +166,8 @@ class Controller extends BaseController
 		->leftJoin('categorias', 'noticias.categorias_id','=', 'categorias.id')
 		->whereNull('categorias.deleted_at')
 		->where('categorias.slug', $request->id)->paginate(4);
-		
-		
+
+
 		$categorias = Categorias::select([
 			'categorias.id',
 			'categorias.nombre',
@@ -178,13 +178,13 @@ class Controller extends BaseController
 		->whereNull('categorias.deleted_at')
 		->whereNull('noticias.deleted_at')
 		->groupby('categorias.id')->get();
-		
-			
+
+
 		return $this->view('pagina::blog',[
 			'noticias'   => $noticias,
 			'categorias' => $categorias
 		]);
-	} 
+	}
 
 	public function detNoti ($slug){
 		$detNoti = Noticias::select([
@@ -193,7 +193,7 @@ class Controller extends BaseController
 			'noticias.categorias_id',
 			'noticias.contenido_html',
 			'noticias.published_at',
-			'imagenes.archivo'	
+			'imagenes.archivo'
 		])
 		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
 		->where('noticias.published_at','<=', date('Y-m-d H:i'))
@@ -212,17 +212,16 @@ class Controller extends BaseController
 		$noticias = Noticias::select([
 			'noticias.titulo',
 			'noticias.slug',
-			
 			'noticias.resumen',
 			'noticias.published_at',
-			'imagenes.archivo'	
+			'imagenes.archivo'
 		])
 		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
 		->where('noticias.published_at','<=', date('Y-m-d H:i'))
 		->whereNull('noticias.deleted_at')
 		->paginate(4);
 
-	 	
+
 		return $this
 			->setTitulo('GastroPediatra en Acción')
 			->view('pagina::detNoti',[
