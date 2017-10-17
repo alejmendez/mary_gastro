@@ -92,7 +92,7 @@ class NoticiasController extends Controller
             $respuesta = array_merge($rs->toArray(),[
                 's'=>'s',
                 'msj'=>trans('controller.buscar'),
-                'categorias_id' => $categoArray,
+                'categoria_id' => $categoArray,
                 'files'=>$imgArray
             ]);
 
@@ -120,7 +120,7 @@ class NoticiasController extends Controller
 
     protected function guardar_etiquetas($request, $id) {
 		Noticias_Categorias::where('noticias_id', $id)->delete();
-		foreach ($request['categorias_id'] as $categoria) {
+		foreach ($request['categoria_id'] as $categoria) {
 			Noticias_Categorias::create([
 				'noticias_id' => $id,
 				'categorias_id' => $categoria,

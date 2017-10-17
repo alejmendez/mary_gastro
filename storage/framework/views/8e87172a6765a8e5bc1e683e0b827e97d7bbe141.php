@@ -21,16 +21,16 @@
 <div class="auto-container">
 <div class="row clearfix">
 <!-- sidebar area -->
-<!--Content Side-->	
+<!--Content Side-->
 <div class="content-side  col-lg-9 col-md-8 col-sm-12 col-xs-12 ">
   <!--Default Section-->
   <section class="blog-classic-view">
     <!--Blog Post-->
     <!-- blog post item -->
-      
+
     <?php $__currentLoopData = $noticias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $noticia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <!-- Post -->
-      
+
       <div class="news-style-one list-style">
           <div class="inner-box">
               <div class="row clearfix">
@@ -44,7 +44,7 @@
                   <div class="content-column col-lg-8 col-md-7 col-sm-8 col-xs-12">
                       <div class="lower-content">
                           <?php
-                              $porciones = explode("/",$noticia->published_at);
+                              $porciones = explode("-",$noticia->published_at);
                               $dia = explode(" ",$porciones[2]);
                               $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[2];
                           ?>
@@ -60,15 +60,15 @@
       </div>
 
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-      
+
     <!-- blog post item -->
     <!-- Post -->
    <center><?php echo e($noticias->render()); ?></center>
-   
+
   </section>
 </div>
 <!--Content Side-->
-<!--Sidebar-->	
+<!--Sidebar-->
 <!-- sidebar area -->
 <div class="sidebar-side col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <aside class="sidebar">
@@ -109,7 +109,7 @@
               </a></figure>
             <div class="desc-text"><a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><?php echo e($noticia->titulo); ?> ...</a></div>
             <?php
-                $porciones = explode("/",$noticia->published_at);
+                $porciones = explode("-",$noticia->published_at);
                 $dia = explode(" ",$porciones[2]);
                 $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[2];
             ?>
@@ -121,4 +121,5 @@
   </aside>
 </div>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('pagina::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
