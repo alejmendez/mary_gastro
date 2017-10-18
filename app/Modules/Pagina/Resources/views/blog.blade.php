@@ -33,9 +33,19 @@
     <!--Blog Post-->
     <!-- blog post item -->
 
+
+
     @foreach($noticias as $noticia)
       <!-- Post -->
-
+	  		<?php
+			$ncat = clone $ncategoria;
+			$nomcat = clone $nombrecat;
+			$ncat = $ncat->where('noticias_id', $noticia->id)->get();
+			foreach ($ncat as $_categoria){
+				$nomcat = $nomcat->where('id',$_categoria->categorias_id)->first();
+				$_ncat[] = $nomcat->nombre;
+			}
+			?>
       <div class="news-style-one list-style">
           <div class="inner-box">
               <div class="row clearfix">
@@ -58,6 +68,12 @@
                           <div class="text">
                             <p>{!! str_replace("\n", '<br/>', $controller->limit_text($noticia->resumen,60)) !!}</p>
                           </div>
+						  <div class="">
+						  	@foreach($_ncat as $ncat)
+								<p>{{$ncat}}</p>
+								<?php $_ncat=''; ?>
+							@endforeach
+						  </div>
                       </div>
                   </div>
               </div>

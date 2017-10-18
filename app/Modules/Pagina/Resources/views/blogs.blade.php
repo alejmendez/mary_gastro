@@ -1,7 +1,7 @@
 @extends('pagina::layouts.default')
 
 @section('content')
-    
+
     <!--Page Title-->
 <section class="page-title" style="background-image:url('../wp-content/uploads/2016/11/bg-page-title-1.jpg');">
     <div class="auto-container">
@@ -18,12 +18,12 @@
     </div>
 </section>
 
-<div class="vc_row wpb_row vc_row-fluid sidebar-page-container"><div class="container"><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner "><div class="wpb_wrapper">   
+<div class="vc_row wpb_row vc_row-fluid sidebar-page-container"><div class="container"><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner "><div class="wpb_wrapper">
 
 
-<!--Content Side-->      
+<!--Content Side-->
 <div class="content-side">
- 
+
  <!--Blog List-->
  <section class="blog-list-view">
     @foreach($blogs as $blog)
@@ -63,7 +63,7 @@
         <a class="icon @if ( $blogs->currentPage() == 1 ) disabled @endif item" @if ( $blogs->currentPage() !== 1 ) href="{{ $blogs->previousPageUrl() }}" @endif>
             <i class="fa fa-caret-left"></i>
         </a>
-    </li> 
+    </li>
 
     @if ( $blogs->currentPage() > 1 )
         @for ($i = 1; $i < $blogs->currentPage(); $i++)
@@ -97,7 +97,7 @@
 </div></div></div><div class="sidebar-side wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper">
  <div class="wpb_widgetised_column wpb_content_element sidebar">
      <div class="wpb_wrapper">
-         
+
          <div id="search-3" class="widget sidebar-widget widget_search"><!-- Search Form -->
 <div class="widget search-box sidebar-widget">
  <form method="get" action="http://asianitbd.com/wp/healthcoach/">
@@ -118,11 +118,11 @@
  <li class="cat-item cat-item-26"><a href="http://asianitbd.com/wp/healthcoach/category/our-blog/">Our Blog</a> (5)
 </li>
      </ul>
-</div><div id="bunch_blog_recent_news-2" class="widget sidebar-widget widget_bunch_blog_recent_news">		
+</div><div id="bunch_blog_recent_news-2" class="widget sidebar-widget widget_bunch_blog_recent_news">
      <!-- Recent News -->
      <div class="recent-posts">
-         <div class="sidebar-title"><h3>Recents News</h3></div>			
-                     
+         <div class="sidebar-title"><h3>Recents News</h3></div>
+
                      <!-- Recent Posts -->
          <div class="post">
              <figure class="post-thumb"><img width="75" height="75" src="http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-75x75.jpg" class="attachment-75x75 size-75x75 wp-post-image" alt="5" srcset="http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-75x75.jpg 75w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-150x150.jpg 150w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-300x300.jpg 300w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-768x768.jpg 768w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-1024x1024.jpg 1024w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-107x107.jpg 107w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-270x270.jpg 270w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1-90x90.jpg 90w, http://asianitbd.com/wp/healthcoach/wp-content/uploads/2016/11/5-1.jpg 1170w" sizes="(max-width: 75px) 100vw, 75px"><a href="http://asianitbd.com/wp/healthcoach/2016/11/build-an-athletic-body-with-in-eight-weeks-time/" class="overlay-link"><span class="fa fa-link"></span></a></figure>
@@ -142,7 +142,7 @@
              <div class="time">November 18, 2016</div>
          </div>
      </div>
-     
+
      </div><div id="archives-3" class="widget sidebar-widget widget_archive"><div class="sidebar-title"><h3>News Archives</h3></div>		<ul>
          <li><a href="http://asianitbd.com/wp/healthcoach/2016/11/">November 2016</a>&nbsp;(27)</li>
      </ul>

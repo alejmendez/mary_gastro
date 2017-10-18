@@ -37,6 +37,7 @@ class Noticias extends Migration
 		});
 
 		Schema::create('noticia_categoria', function (Blueprint $table) {
+			$table->increments('id');
 			$table->integer('categorias_id')->unsigned();
 			$table->integer('noticias_id')->unsigned();
 

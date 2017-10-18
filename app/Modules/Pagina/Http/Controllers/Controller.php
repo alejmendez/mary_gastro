@@ -92,6 +92,7 @@ class Controller extends BaseController
 			if($pag === 'blog'){
 
 				$noticias = Noticias::select([
+					'id',
 					'titulo',
 					'slug',
 					'resumen',
@@ -100,22 +101,25 @@ class Controller extends BaseController
 				->where('published_at','<=', date('Y-m-d H:i'))
 				->paginate(4);
 
-				foreach($noticias as $noticia) {
-					dd($noticia->categorias);
-				}
+
+
+				// foreach($noticias as $noticia) {
+				// 	dd($noticia->categorias);
+				// }
 				// ->paginate(4);
 
-				$ncategoria= [];
+				$ncategoria = Noticias_Categorias::select('noticias_id', 'categorias_id');
+				$nombrecat = Categorias::select('nombre');
 
-				/*foreach ($noticias as $noticia) {
-					$_categorais = Noticias_Categorias::where('noticias_id', $noticia->id)->get();
-					foreach ($_categorais as $_categoria){
-						$nombre = Categorias::select('nombre')->where('id',$_categoria->categorias_id)->first();
-						$ncategoria[] = $nombre->nombre;
-					}
-				}*/
+				// foreach ($noticias as $noticia) {
+				// 	$ncategoria = Noticias_Categorias::where('noticias_id', $noticia->id)->get();
+				// 	foreach ($ncategoria as $_categoria){
+				// 		$nombre = Categorias::select('nombre')->where('id',$_categoria->categorias_id)->first();
+				// 		$__ncategoria[] = $nombre->nombre;
+				// 	}
+				// }
 
-				//  dd($ncategoria);
+
 
 				$categorias = Categorias::select([
 					'categorias.nombre',
@@ -130,6 +134,7 @@ class Controller extends BaseController
 				return $this->view('pagina::blog',[
 					'noticias'   => $noticias,
 					'ncategoria' => $ncategoria,
+					'nombrecat'  => $nombrecat,
 					'categorias' => $categorias
 				]);
 			}

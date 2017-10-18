@@ -28,9 +28,19 @@
     <!--Blog Post-->
     <!-- blog post item -->
 
+
+
     <?php $__currentLoopData = $noticias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $noticia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <!-- Post -->
-
+	  		<?php
+			$ncat = clone $ncategoria;
+			$nomcat = clone $nombrecat;
+			$ncat = $ncat->where('noticias_id', $noticia->id)->get();
+			foreach ($ncat as $_categoria){
+				$nomcat = $nomcat->where('id',$_categoria->categorias_id)->first();
+				$_ncat[] = $nomcat->nombre;
+			}
+			?>
       <div class="news-style-one list-style">
           <div class="inner-box">
               <div class="row clearfix">
@@ -53,6 +63,12 @@
                           <div class="text">
                             <p><?php echo str_replace("\n", '<br/>', $controller->limit_text($noticia->resumen,60)); ?></p>
                           </div>
+						  <div class="">
+						  	<?php $__currentLoopData = $_ncat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ncat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+								<p><?php echo e($ncat); ?></p>
+								<?php $_ncat=''; ?>
+							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+						  </div>
                       </div>
                   </div>
               </div>
