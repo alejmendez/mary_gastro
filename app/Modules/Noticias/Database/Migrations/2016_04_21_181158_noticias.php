@@ -22,6 +22,16 @@ class Noticias extends Migration
 			$table->softDeletes();
 		});
 
+		Schema::create('etiquetas', function (Blueprint $table) {
+			$table->increments('id');
+			$table->string('nombre', 250);
+			$table->string('slug', 250)->unique();
+			$table->text('descripcion', 250);
+
+			$table->timestamps();
+			$table->softDeletes();
+		});
+
 		Schema::create('noticias', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('titulo', 250);
@@ -47,6 +57,21 @@ class Noticias extends Migration
 
 			$table->foreign('noticias_id')
 				->references('id')->on('noticias')
+				->onDelete('cascade')->onUpdate('cascade');
+
+			$table->timestamps();
+		});
+
+		Schema::create('noticias_etiquetas', function (Blueprint $table) {
+			$table->integer('noticias_id')->unsigned();
+			$table->integer('etiquetas_id')->unsigned();
+
+			$table->foreign('noticias_id')
+				->references('id')->on('noticias')
+				->onDelete('cascade')->onUpdate('cascade');
+
+			$table->foreign('etiquetas_id')
+				->references('id')->on('etiquetas')
 				->onDelete('cascade')->onUpdate('cascade');
 
 			$table->timestamps();

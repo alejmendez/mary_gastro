@@ -70,7 +70,7 @@
                           </div>
 						  <div class="">
 						  	@foreach($_ncat as $ncat)
-								<p>{{$ncat}}</p>
+								{{$ncat}}
 								<?php $_ncat=''; ?>
 							@endforeach
 						  </div>
