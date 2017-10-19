@@ -3,12 +3,12 @@
 @section('content')
 	<section class="why-us">
     <div class="auto-container">
-        
+
         <div class="sec-title centered">
             <h2>GastroPediatra... <i>en Acción</i></h2>
             <div class="separator"></div>
             <div class="desc-text"  style="font-size: 16px;">
-                <p>Este eslogan nace de la necesidad de integrar a los familiares del paciente en este cambio de rutina ya que 
+                <p>Este eslogan nace de la necesidad de integrar a los familiares del paciente en este cambio de rutina ya que
                     determinadas enfermedades gastrointestinales pueden evitarse si se siguen unos hábitos y tratamientos dietéticos
                      adecuados.
                 </p>
@@ -18,7 +18,7 @@
                 </p>
              </div>
         </div>
-        
+
         <div class="row clearfix">
                         <!--Featured Service -->
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
@@ -39,11 +39,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
-            
+
                         <!--Featured Service -->
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -63,11 +63,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
-            
+
                         <!--Featured Service -->
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -87,17 +87,17 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
-            
+
                     </div>
-            
+
     </div>
 </section>
 
-</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">   
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
 
 <!--Services  Section-->
 <section class="services-section">
@@ -155,7 +155,7 @@
                 </div>
             </div>
                     </div>
-        
+
     </div>
 </section>
 
@@ -172,7 +172,7 @@
                     <a href="{{ url('testimonios') }}" class="req-btn styled-font">Ver Testimonios</a>
                 </div>
             </div>
-            
+
             <!--Fact Counter-->
             <div class="factcounter-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <!--Fact Counter-->
@@ -209,7 +209,7 @@
                 </div>
 
             </div>
-            
+
         </div>
     </div>
 </section>
@@ -235,13 +235,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <!--Accordions Column-->
             <div class="column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-box">
 
-                
-                
+
+
                     <!--Accordion Box-->
                     <ul class="accordion-box">
                                                 <!--Block-->
@@ -277,30 +277,30 @@
                                             </ul><!--End Accordion Box-->
                 </div>
             </div>
-            
+
         </div>
     </div>
 </section>
 
-</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">   
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
 
 <!--Testimonials Section-->
 <section class="testimonials-section">
     <div class="auto-container">
-        
+
         <div class="sec-title">
             <div class="clearfix">
                 <div class="pull-left">
                     <h2>Testimonios de mis Pacientes</h2>
                     <div class="separator"></div>
                  </div>
-                 
+
                  <div class="link-outer pull-right">
                     <a href="#" class="more-link theme-btn btn-style-three">Leer Más...</a>
                  </div>
              </div>
         </div>
-        
+
         <div class="carousel-outer">
             <div class="testimonials-carousel">
                                 <!--Slide Item-->
@@ -338,7 +338,7 @@
                 </div>
                             </div>
         </div>
-        
+
     </div>
 </section>
 
@@ -404,26 +404,26 @@
     </div>
 </section>
 
-</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"> 
-   
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
+
 
 <!--News Section-->
 <section class="news-section">
     <div class="auto-container">
-        
+
         <div class="sec-title">
             <div class="clearfix">
                 <div class="pull-left">
                     <h2>Noticias y Artículos</h2>
                     <div class="separator"></div>
                  </div>
-                 
+
                  <div class="link-outer pull-right">
                     <a href="{{ url('blog') }}" class="more-link theme-btn btn-style-three">Leer más...</a>
                  </div>
              </div>
         </div>
-        
+
         <div class="row clearfix">
             <!--News Style One-->
             @foreach($noticias as $noticia)
@@ -433,13 +433,13 @@
                     <a href="{{url('/blog/noticia/'. $noticia->slug)}}"><img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'.$noticia->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
                     <div class="lower-content">
                         <?php
-                            $porciones = explode("/",$noticia->published_at);
+                            $porciones = explode("-",$noticia->published_at);
                             $dia = explode(" ",$porciones[2]);
-                        
+
                             $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[0];
                         ?>
                         <div class="posted-info">{{$fecha}}</div>
-                       
+
                         <h3><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}}</a></h3>
                         <div class="text">{{$noticia->resumen}} ...</div>
                     </div>
@@ -447,7 +447,7 @@
             </div>
             @endforeach
         </div>
-        
+
     </div>
 </section>
 
@@ -455,19 +455,19 @@
 <!--Two Column Fluid Section-->
 <section class="two-col-fluid">
     <div class="outer-box clearfix">
-        
+
         <!--Image Column-->
         <div class="image-column" style=" background-image:url('public/img/featured-image-9.jpg');">
             <figure class="image-box"><img src="{{ asset('public/img/featured-image-9.jpg') }}" alt=""></figure>
         </div>
-        
+
         <!--Conent Column-->
         <div class="content-column">
             <div class="clearfix">
                 <div class="inner-box">
-                    
+
                     <div class="sec-title"><h2>Realiza una Consulta en Línea</h2><div class="separator"></div></div>
-                    
+
                     <div class="default-form">
                        <div role="form" class="wpcf7" id="wpcf7-f30-p7-o1" lang="en-US" dir="ltr">
 <div class="screen-reader-response"></div>
@@ -501,18 +501,18 @@
             <input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit theme-btn btn-style-one" />
         </div></div>
 </div>
-<div class="wpcf7-response-output wpcf7-display-none"></div></form></div> 
-                    </div> 
-                    
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
+                    </div>
+
                     <div class="text-content">
                         <p><strong>Consulta Online:</strong>  Normalmente atiendo rápido las consultas, por favor sea paciente. Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
                         <p><strong>Horario de Consulta Online:</strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
                     </div>
-                
+
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>
 @endsection

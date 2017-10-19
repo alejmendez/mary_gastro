@@ -18,6 +18,7 @@ use marygastro\Modules\Noticias\Http\Requests\noticiasRequest;
 //Modelos
 use marygastro\Modules\Noticias\Models\Noticias;
 use marygastro\Modules\Noticias\Models\Noticias_Categorias;
+use marygastro\Modules\Noticias\Models\Noticias_Etiquetas;
 use marygastro\Modules\Noticias\Models\Categorias;
 use marygastro\Modules\Noticias\Models\Imagenes;
 
@@ -87,12 +88,20 @@ class NoticiasController extends Controller
                 $categoArray[]=$categoria['categorias_id'];
             }
 
+            $etiquetaArray = [];
+            $etiquetas = Noticias_Categorias::select('etiquetas_id')->where('noticias_id', $id)->get();
+
+            foreach ($etiquetas as $key => $etiqueta) {
+                $etiquetaArray[]=$etiquetas['etiquetas_id'];
+            }
+
             // dd($respuesta['categoria_id']->toArray());
 
             $respuesta = array_merge($rs->toArray(),[
                 's'=>'s',
                 'msj'=>trans('controller.buscar'),
                 'categoria_id' => $categoArray,
+                'etiquetas_id' => $etiquetaArray,
                 'files'=>$imgArray
             ]);
 
@@ -169,6 +178,16 @@ class NoticiasController extends Controller
     protected function getRuta() {
         return date('Y') . '/' . date('m') . '/';
     }
+
+    protected function guardarEtiquetas($request, $id) {
+		Noticias_Etiquetas::where('noticias_id', $id)->delete();
+		foreach ($request['etiquetas_id'] as $etiqueta) {
+			noticias_etiquetas::create([
+				'noticias_id' => $id,
+				'etiquetas_id' => $etiqueta,
+			]);
+		}
+	}
 
     protected function guardarImagenes($archivos,$id=0){
         foreach ($archivos as $archivo => $data) {
@@ -306,15 +325,7 @@ class NoticiasController extends Controller
         return strtolower(auth()->user()->super) === 's' || $this->permisologia('publicar');
     }
 
-    protected function guardarEtiquetas($request, $id) {
-		Noticias_Etiquetas::where('noticias_id', $id)->delete();
-		foreach ($request['etiquetas_id'] as $etiqueta) {
-			noticias_etiquetas::create([
-				'noticias_id' => $id,
-				'etiquetas_id' => $etiqueta,
-			]);
-		}
-	}
+
 
     public function datatable() {
         $sql = Noticias::select([

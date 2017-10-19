@@ -65,7 +65,8 @@
                           </div>
 						  <div class="">
 						  	<?php $__currentLoopData = $_ncat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ncat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-								<p><?php echo e($ncat); ?></p>
+								<?php echo e($ncat); ?>
+
 								<?php $_ncat=''; ?>
 							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 						  </div>

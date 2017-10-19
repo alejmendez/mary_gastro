@@ -19,14 +19,6 @@
             <?php echo Form::open(['id'=>'formulario', 'name'=>'formulario', 'method'=>'POST']); ?>
 
                 
-                <?php echo e(Form::bsSelect('categoria_id', $controller->categoria(), '', [
-                    'label' => 'Categoria',
-                    'class' => 'bs-select',
-                    'multiple' => 'multiple',
-                    'placeholder' => 'Categorias',
-                    'class_cont' => 'col-md-2',
-                    'name'          =>      'categoria_id[]'
-                ])); ?>
 
 
                 <div class="form-group col-md-4">
@@ -46,6 +38,22 @@
     			])); ?>
 
     			<?php endif; ?>
+
+                <?php echo e(Form::bsSelect('categoria_id', $controller->categoria(), '', [
+                    'label' => 'Categoria',
+                    'class' => 'bs-select',
+                    'multiple' => 'multiple',
+                    'class_cont' => 'col-md-4',
+                    'name'          =>      'categoria_id[]'
+                ])); ?>
+
+                <?php echo e(Form::bsText('etiquetas_id', '', [
+                    'label'         => 'Etiquetas',
+                    'placeholder'   => 'Etiquetas',
+                    'class_cont'    => 'col-md-4',
+                    'name'          => 'etiquetas_id[]'
+                ])); ?>
+
                 <div class="col-md-12"></div>
                 <div class="form-group col-xs-12">
     				<label for="contenido_html">Contenido </label>
