@@ -13,7 +13,7 @@
   <div class="auto-container clearfix">
     <div class="breadcrumb-outer">
       <ul class="bread-crumb clearfix">
-        {{--   
+        {{--
         <li><a href="{{ url('/') }}">Inicio</a></li>
         <li><a href="index.html">Archive for 2016</a></li>
         --}}
@@ -26,16 +26,26 @@
 <div class="auto-container">
 <div class="row clearfix">
 <!-- sidebar area -->
-<!--Content Side-->	
+<!--Content Side-->
 <div class="content-side  col-lg-9 col-md-8 col-sm-12 col-xs-12 ">
   <!--Default Section-->
   <section class="blog-classic-view">
     <!--Blog Post-->
     <!-- blog post item -->
-      
+
+
+
     @foreach($noticias as $noticia)
       <!-- Post -->
-      
+	  		<?php
+			$ncat = clone $ncategoria;
+			$nomcat = clone $nombrecat;
+			$ncat = $ncat->where('noticias_id', $noticia->id)->get();
+			foreach ($ncat as $_categoria){
+				$nomcat = $nomcat->where('id',$_categoria->categorias_id)->first();
+				$_ncat[] = $nomcat->nombre;
+			}
+			?>
       <div class="news-style-one list-style">
           <div class="inner-box">
               <div class="row clearfix">
@@ -49,7 +59,7 @@
                   <div class="content-column col-lg-8 col-md-7 col-sm-8 col-xs-12">
                       <div class="lower-content">
                           <?php
-                              $porciones = explode("/",$noticia->published_at);
+                              $porciones = explode("-",$noticia->published_at);
                               $dia = explode(" ",$porciones[2]);
                               $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[2];
                           ?>
@@ -58,6 +68,12 @@
                           <div class="text">
                             <p>{!! str_replace("\n", '<br/>', $controller->limit_text($noticia->resumen,60)) !!}</p>
                           </div>
+						  <div class="">
+						  	@foreach($_ncat as $ncat)
+								{{$ncat}}
+								<?php $_ncat=''; ?>
+							@endforeach
+						  </div>
                       </div>
                   </div>
               </div>
@@ -65,15 +81,15 @@
       </div>
 
     @endforeach
-      
+
     <!-- blog post item -->
     <!-- Post -->
    <center>{{$noticias->render()}}</center>
-   
+
   </section>
 </div>
 <!--Content Side-->
-<!--Sidebar-->	
+<!--Sidebar-->
 <!-- sidebar area -->
 <div class="sidebar-side col-lg-3 col-md-4 col-sm-6 col-xs-12">
   <aside class="sidebar">
@@ -114,7 +130,7 @@
               </a></figure>
             <div class="desc-text"><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}} ...</a></div>
             <?php
-                $porciones = explode("/",$noticia->published_at);
+                $porciones = explode("-",$noticia->published_at);
                 $dia = explode(" ",$porciones[2]);
                 $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[2];
             ?>

@@ -92,36 +92,49 @@ class Controller extends BaseController
 			if($pag === 'blog'){
 
 				$noticias = Noticias::select([
-					'noticias.titulo',
-					'noticias.slug',
-					'noticias.resumen',
-					'noticias.published_at',
-					'imagenes.archivo'
+					'id',
+					'titulo',
+					'slug',
+					'resumen',
+					'published_at'
 				])
-				->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
-				->where('noticias.published_at','<=', date('Y-m-d H:i'));
+				->where('published_at','<=', date('Y-m-d H:i'))
+				->paginate(4);
+
+
+
+				// foreach($noticias as $noticia) {
+				// 	dd($noticia->categorias);
+				// }
 				// ->paginate(4);
 
-				$categorias= [];
-				dd($noticias->first()->categorias);
-				foreach ($noticias->get() as $noticia) {
-					dd($noticia->categorias);
-					//$categorias[]= $noticia->pivot->categorias_id;
-				 }
-				 dd($categorias);
-				/*
+				$ncategoria = Noticias_Categorias::select('noticias_id', 'categorias_id');
+				$nombrecat = Categorias::select('nombre');
+
+				// foreach ($noticias as $noticia) {
+				// 	$ncategoria = Noticias_Categorias::where('noticias_id', $noticia->id)->get();
+				// 	foreach ($ncategoria as $_categoria){
+				// 		$nombre = Categorias::select('nombre')->where('id',$_categoria->categorias_id)->first();
+				// 		$__ncategoria[] = $nombre->nombre;
+				// 	}
+				// }
+
+
+
 				$categorias = Categorias::select([
 					'categorias.nombre',
 					'categorias.id',
-					DB::raw('Count(noticias.id) as total'),
+					DB::raw('Count(noticia_categoria.noticias_id) as total'),
 				])
+				->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
 				->whereNull('categorias.deleted_at')
-				->leftJoin('noticias', 'noticias.categorias_id','=', 'categorias.id')
 				->groupby('categorias.nombre')
-				->groupby('categorias.id')->get();*/
+				->groupby('categorias.id')->get();
 
 				return $this->view('pagina::blog',[
 					'noticias'   => $noticias,
+					'ncategoria' => $ncategoria,
+					'nombrecat'  => $nombrecat,
 					'categorias' => $categorias
 				]);
 			}
