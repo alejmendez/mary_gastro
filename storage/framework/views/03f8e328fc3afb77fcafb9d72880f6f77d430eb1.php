@@ -25,11 +25,17 @@
 <!--Gallery Section-->
 <center>
 <!-- SnapWidget -->
-<iframe src="http://www.instabrowse.es/ffmo7iy1g5/widget.html" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:625px; height: 500px" ></iframe><a href="http://www.instabrowse.es/instagram-en-tu-blog.html" style="font-size: 10px; font-style:italic; color:#bebebe; " target="_blank">widget instabrowe.es</a>
-  
-<!-- <script src="//www.powr.io/powr.js" external-type="html"></script> 
- <div class="powr-instagram-feed" id="e8d7feb9_1507317524"></div> -->
+<div class="auto-container">
+    <div class="row">
+    <div class="col-lg-1 hidden-xs"></div>
+    <div class="col-lg-10 col-xs-12">
+        <iframe src="http://www.instabrowse.es/7xudxzlo4m/widget.html" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:1025px; height: 800px; " ></iframe><a href="http://www.instabrowse.es/instagram-en-tu-blog.html" style="font-size: 10px; font-style:italic; color:#bebebe; " target="_blank">#mary_gastro</a>
+    </div>
+    <div class="col-lg-1 hidden-xs"></div>
+    
+    </div>
+</div>
 
-</center>
+    </center>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('pagina::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

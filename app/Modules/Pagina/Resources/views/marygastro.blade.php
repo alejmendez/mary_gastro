@@ -189,67 +189,13 @@
 						</div>
 						<div class="carousel-outer">
 							<div class="certificates-carousel">
-								<!--Slide Item-->
-								<div class="slide-item">
+								@for($i=1;$i<=34;$i++)
+									<div class="slide-item">
 									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-1.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-1.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-2.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-2.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-3.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-3.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-4.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-4.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-1.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-1.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-2.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-2.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-3.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-3.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-4.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-4.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-1.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-1.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-2.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-2.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-3.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-3.jpg') }}"></a>
-									</figure>
-								</div><!--Slide Item-->
-								<div class="slide-item">
-									<figure class="image-box">
-										<a class="lightbox-image" href="{{ asset('public/img/certificate-image-4.jpg') }}" title="Caption Here"><img alt="" src="{{ asset('public/img/certificate-image-4.jpg') }}"></a>
+											<img alt="" src="{{ asset('public/img/certificate-image-'.$i.'.jpg') }}">
 									</figure>
 								</div>
+								@endfor
 							</div>
 						</div>
 					</div>

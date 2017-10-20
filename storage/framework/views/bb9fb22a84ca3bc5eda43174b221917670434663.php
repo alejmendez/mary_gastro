@@ -30,6 +30,42 @@
             </div>
         </div>
         
+        <!--Testimonial 0-->
+        <div class="slide-item">
+            <div class="inner-box">
+                <div class="slide-header">
+                    <figure class="author-thumb"><img width="90" height="90" src="<?php echo e(asset('public/img/author-thumb-0.jpg')); ?>" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-0" srcset="<?php echo e(asset('public/img/author-thumb-0.jpg')); ?> 90w, <?php echo e(asset('public/img/author-thumb-2-75x75.jpg')); ?> 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                    <h3>Valery</h3>
+                    <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
+                </div>
+                <div class="slide-content">
+                <p>Todo inicio aproximadamente a dos meses del nacimiento de nuestra Pequeña Valery, una diarrea extraña, en oportunidades
+                 con sangre, trazas de leche y moco. A los días siguientes un llanto incontrolable, apretaba sus manitos metiendolas a su 
+                 boca con desespero, tiraba de sus cabellos, su carita roja de tanto llanto, presencia de vómitos, erupcion en su piel, 
+                 pálida, no ganaba peso ni talla. En principio, todo para el pediatra era normal, luego el diagnóstico del siguiente pediatra
+                 amibiasis, cólicos, reflujo, etc. Inicio Tratamientos con antibióticos, suspensión de la lactancia materna por un período de
+                 tiempo, inclusión y cambio de fórmulas, parecía un tratamiento de ensayo y error ya que antibióticos no dejaban de salirse de
+                 las indicaciones solo que cambiaban los nombres y presentaciones. Allí el cuadro empezó a complicarse más, a tal grado que ya
+                 eran 9 pediatras que habíamos visitado desesperados, hasta que al llegar a uno de ellos con cara muy seria pero segura nos 
+                 dijo; a su hija hay que remitirla urgente a una consulta especializada no más experimento sin certeza, no más diagnósticos 
+                 errados, nos apoyo haciendo el enlace con la Dra. Maryraida y desde esa llamada Dios empezó a conducir nuestro camino, 
+                 inmediatamente viajamos a la Ciudad de Bolívar donde encontraríamos a esa Doctora que bien la llamaron "Especialista" 
+                 ciertamente así lo fue. El diagnóstico Gastropatia Inflamatoria, enterocolopatia inflamatoria, ectasia renal e Hipercalciuria
+                 e intolerancia alimentaria, a partir de allí inicio nuestro proceso de atención y monitoreo para con el tratamiento y cuidados
+                 de nuestra Pequeña, no fue fácil el transitar y los días, evaluaciones, exámenes de laboratorio, videoendoscopia que sumo al 
+                 diagnóstico Gastritis crónica, hemorragia y duodenitis inespecifica a correlaciónar con alimentación a través de una biopsia.
+                 A todo este diagnóstico, la evolución y tratamientos fueron lentos pero ACERTIVOS, seguimos sus indicaciones al pie de la 
+                 letra, siempre nos acompaño en todo momento, hoy agradecemos a Dios grandemente haber llegado a su consulta, desde ese día
+                 hasta el Sol de hoy encontramos una guía, rayitos de luz, esperanza, apoyo, Fe, optimismo, paciencia, una super y gran
+                 doctora, amiga, atenta e incondicional , persona 1000% humana y carismática, siempre palpito en nosotros ese positivismo
+                 que al llegar a su consulta nos invadía, con esas palabras que retiraban y cancelaba todo pensamiento NEGATIVO "TRANQUILOS
+                 QUE EL EQUIPO GANA", ciertamente así fue. Gracias Doctorisima por enseñarnos tanto, no sólo de un diagnóstico si no por el 
+                 acompañamiento para con el crecimiento, fortalecimiento y recuperación de Valery. </p>
+
+                <b><i>I LOVE Familia Ramirez Rendon.</i></b></div>
+            </div>
+        </div><!--End testimonial 0-->
+
         <!--Testimonial 1-->
         <div class="slide-item">
             <div class="inner-box">
