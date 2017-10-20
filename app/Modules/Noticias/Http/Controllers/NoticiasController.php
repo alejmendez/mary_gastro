@@ -156,7 +156,7 @@ class NoticiasController extends Controller
            }
 
 
-           $this->guardarEtiquetas($request, $Noticias->id);
+           //$this->guardarEtiquetas($request, $Noticias->id);
            $this->guardar_categorias($request, $Noticias->id);
            $this->guardarImagenes($archivos, $id);
 

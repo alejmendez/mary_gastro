@@ -182,11 +182,11 @@ class Controller extends BaseController
 
 
 		$categorias = Categorias::select([
-			'categorias.id',
 			'categorias.nombre',
-			DB::raw('Count(noticias.id) as total'),
+			'categorias.id',
+			DB::raw('Count(noticia_categoria.noticias_id) as total'),
 		])
-		->leftJoin('noticias', 'noticias.categorias_id','=', 'categorias.id')
+		->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
 		->groupby('categorias.nombre')
 		->whereNull('categorias.deleted_at')
 		->whereNull('noticias.deleted_at')
@@ -203,7 +203,6 @@ class Controller extends BaseController
 		$detNoti = Noticias::select([
 			'noticias.titulo',
 			'noticias.slug',
-			'noticias.categorias_id',
 			'noticias.contenido_html',
 			'noticias.published_at',
 			'imagenes.archivo'
@@ -212,13 +211,16 @@ class Controller extends BaseController
 		->where('noticias.published_at','<=', date('Y-m-d H:i'))
 		->where('slug', '=', $slug)->get();
 
+		$ncategoria = Noticias_Categorias::select('noticias_id', 'categorias_id');
+		$nombrecat = Categorias::select('nombre');
+
 		$categorias = Categorias::select([
 			'categorias.nombre',
 			'categorias.id',
-			DB::raw('Count(noticias.id) as total'),
+			DB::raw('Count(noticia_categoria.noticias_id) as total'),
 		])
+		->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
 		->whereNull('categorias.deleted_at')
-		->leftJoin('noticias', 'noticias.categorias_id','=', 'categorias.id')
 		->groupby('categorias.nombre')
 		->groupby('categorias.id')->get();
 
@@ -239,6 +241,8 @@ class Controller extends BaseController
 			->setTitulo('GastroPediatra en Acción')
 			->view('pagina::detNoti',[
 				'detNoti' 		=> $detNoti,
+				'ncategoria'	=> $ncategoria,
+				'nombrecat'		=> $nombrecat,
 				'categorias' 	=> $categorias,
 				'noticias' 		=> 	$noticias
 			]);

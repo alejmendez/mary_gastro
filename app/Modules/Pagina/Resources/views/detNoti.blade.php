@@ -47,7 +47,7 @@
             </figure>
             <div class="lower-content">
               <?php
-                  $porciones = explode("/",$detNotis->published_at);
+                  $porciones = explode("-",$detNotis->published_at);
                   $dia = explode(" ",$porciones[2]);
                   $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[2];
               ?>
@@ -113,7 +113,7 @@
               </a></figure>
             <div class="desc-text"><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}} ...</a></div>
             <?php
-                $porciones = explode("/",$noticia->published_at);
+                $porciones = explode("-",$noticia->published_at);
                 $dia = explode(" ",$porciones[2]);
                 $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[2];
             ?>

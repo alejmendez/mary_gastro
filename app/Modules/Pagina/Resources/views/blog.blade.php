@@ -53,7 +53,7 @@
                   <div class="image-column col-lg-4 col-md-5 col-sm-4 col-xs-12">
                       <figure class="image-box">
                       <a href="{{url('/blog/noticia/'. $noticia->slug)}}">
-                      <img width="270" height="247" src="{{ url('public/archivos/noticias/'.$noticia->archivo) }}" class="attachment-270x247 size-270x247 wp-post-image" alt="blog-image-15"></a></figure>
+                      <img width="270" height="247" src="{{ url('public/archivos/noticias/'.$noticia->imagenes[0]->archivo) }}" class="attachment-270x247 size-270x247 wp-post-image" alt="blog-image-15"></a></figure>
                   </div>
                   <!--Content Column-->
                   <div class="content-column col-lg-8 col-md-7 col-sm-8 col-xs-12">
