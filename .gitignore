@@ -1,7 +1,9 @@
 /node_modules
+/public/archivos/*
 /public/storage
 /public/hot
 /storage/*.key
+/storage/framework/views/*.php
 /vendor
 /.idea
 Homestead.json
