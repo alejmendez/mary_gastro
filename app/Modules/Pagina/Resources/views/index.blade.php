@@ -364,7 +364,6 @@
 
 <section class="news-section">
     <div class="auto-container">
-
         <div class="sec-title">
             <div class="clearfix">
                 <div class="pull-left">
@@ -389,7 +388,7 @@
                             $porciones = explode("-",$noticia->published_at);
                             $dia = explode(" ",$porciones[2]);
 
-                            $fecha = $controller->meses[$porciones[1]].' '. $dia[0] . ', '. $porciones[0];
+                            $fecha = $controller->meses[intval($porciones[1])].' '. $dia[0] . ', '. $porciones[0];
                         ?>
                         <div class="posted-info">{{$fecha}}</div>
 
@@ -407,15 +406,20 @@
 
 <section class="two-col-fluid">
     <div class="outer-box clearfix">
-        <div class="image-column" style=" background-image:url('public/img/featured-image-9.jpg');">
-            <figure class="image-box"><img src="{{ asset('public/img/featured-image-9.jpg') }}" alt=""></figure>
+        <div class="image-column" style="background-image:url('public/img/featured-image-9.jpg');">
+            <figure class="image-box">
+                <img src="{{ asset('public/img/featured-image-9.jpg') }}" alt="">
+            </figure>
         </div>
 
         <div class="content-column">
             <div class="clearfix">
                 <div class="inner-box">
 
-                    <div class="sec-title"><h2>Realiza una Consulta en Línea</h2><div class="separator"></div></div>
+                    <div class="sec-title">
+                        <h2>Realiza una Consulta en Línea</h2>
+                        <div class="separator"></div>
+                    </div>
 
                     <div class="default-form">
                        <div role="form" class="wpcf7" id="wpcf7-f30-p7-o1" lang="en-US" dir="ltr">
