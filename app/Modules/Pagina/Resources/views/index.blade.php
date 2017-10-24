@@ -384,13 +384,11 @@
                     <figure class="image-box">
                     <a href="{{url('/blog/noticia/'. $noticia->slug)}}"><img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'.$noticia->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
                     <div class="lower-content">
-                        <?php
-                            $porciones = explode("-",$noticia->published_at);
-                            $dia = explode(" ",$porciones[2]);
-
-                            $fecha = $controller->meses[intval($porciones[1])].' '. $dia[0] . ', '. $porciones[0];
-                        ?>
-                        <div class="posted-info">{{$fecha}}</div>
+                        <div class="posted-info">
+                            {{ $controller->meses[$noticia->published_at->month] }}
+                            {{ $noticia->published_at->day }},
+                            {{ $noticia->published_at->year }}
+                        </div>
 
                         <h3><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}}</a></h3>
                         <div class="text">{{$noticia->resumen}} ...</div>
