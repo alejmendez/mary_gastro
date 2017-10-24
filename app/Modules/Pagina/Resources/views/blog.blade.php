@@ -82,7 +82,7 @@
 			<div class="widget search-box sidebar-widget">
 				<form method="get" action="#">
 					<div class="form-group">
-						<input type="search" name="s" value="" placeholder="Search..">
+						<input type="search" name="s" value="" placeholder="Buscar..">
 						<button type="submit"><span class="icon fa fa-search"></span></button>
 					</div>
 				</form>
