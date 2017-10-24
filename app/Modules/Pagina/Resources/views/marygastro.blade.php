@@ -190,9 +190,9 @@
 						<div class="carousel-outer">
 							<div class="certificates-carousel">
 								@for($i=1;$i<=34;$i++)
-									<div class="slide-item">
+								<div class="slide-item">
 									<figure class="image-box">
-											<img alt="" src="{{ asset('public/img/certificate-image-'.$i.'.jpg') }}">
+										<img alt="" src="{{ asset('public/img/certificate-image-'.$i.'.jpg') }}">
 									</figure>
 								</div>
 								@endfor
