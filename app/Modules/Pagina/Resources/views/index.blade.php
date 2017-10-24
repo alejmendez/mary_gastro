@@ -3,7 +3,6 @@
 @section('content')
 	<section class="why-us">
     <div class="auto-container">
-
         <div class="sec-title centered">
             <h2>GastroPediatra... <i>en Acción</i></h2>
             <div class="separator"></div>
@@ -20,7 +19,6 @@
         </div>
 
         <div class="row clearfix">
-                        <!--Featured Service -->
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -29,7 +27,6 @@
                             <div class="icon"><span class="flaticon-check"></span></div>
                             <h4 class="title"><a href="#">Revisiones de Control</a></h4>
                         </div>
-                        <!--Overlay-->
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-check"></span></div>
                             <div class="overlay-inner">
@@ -44,7 +41,6 @@
                 </div>
             </div>
 
-                        <!--Featured Service -->
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -53,7 +49,6 @@
                             <div class="icon"><span class="flaticon-tropical-pineapple"></span></div>
                             <h4 class="title"><a href="#">Estrategias de Nutrición</a></h4>
                         </div>
-                        <!--Overlay-->
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-tropical-pineapple"></span></div>
                             <div class="overlay-inner">
@@ -63,12 +58,10 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-                        <!--Featured Service -->
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -87,13 +80,10 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-                    </div>
-
+        </div>
     </div>
 </section>
 
@@ -103,10 +93,9 @@
 <section class="services-section">
     <div class="auto-container">
         <div class="sec-title centered">
-        <h2>¿Quién es Marygastro?</h2>
+            <h2>¿Quién es Marygastro?</h2>
         </div>
         <div class="row clearfix">
-                        <!--Default Icon Column-->
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-brain"></span></div>
@@ -114,7 +103,6 @@
                     <div class="text">Apasaionada por el servicio y entrega a mis pacientes</div>
                 </div>
             </div>
-                        <!--Default Icon Column-->
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-medical"></span></div>
@@ -122,7 +110,6 @@
                     <div class="text">Especialista y al día con lo nuevo en la medicina moderna.</div>
                 </div>
             </div>
-                        <!--Default Icon Column-->
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-doctor-stethoscope"></span></div>
@@ -130,7 +117,6 @@
                     <div class="text">La buena salud del niño y el adolescente siempre es mi prioridad</div>
                 </div>
             </div>
-                        <!--Default Icon Column-->
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-stretching-exercises"></span></div>
@@ -138,7 +124,6 @@
                     <div class="text">Dios ha permitido la gracia de tener una hermosa familia</div>
                 </div>
             </div>
-                        <!--Default Icon Column-->
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-yoga-sitting-posture-of-a-man"></span></div>
@@ -146,7 +131,6 @@
                     <div class="text">Soy una mujer luchadora y 1000% positiva, sonriendo a la vida</div>
                 </div>
             </div>
-                        <!--Default Icon Column-->
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-heart-shape-outline-with-lifeline"></span></div>
@@ -154,17 +138,15 @@
                     <div class="text">Programas personalizados según las necesidades del paciente</div>
                 </div>
             </div>
-                    </div>
-
+        </div>
     </div>
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-<!--Experience Section-->
+
 <section class="experience-section" style="background-image:url(public/img/image-1-1.jpg);">
     <div class="auto-container">
         <div class="row clearfix">
-            <!--Title Column-->
             <div class="title-column col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <h2>Más de 15 Años de experiencia</h2>
@@ -173,12 +155,9 @@
                 </div>
             </div>
 
-            <!--Fact Counter-->
             <div class="factcounter-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                <!--Fact Counter-->
                 <div class="fact-counter">
                     <div class="row clearfix">
-                                                <!--Column-->
                         <article class="column counter-column col-md-4 col-sm-4 col-xs-12 wow fadeIn" data-wow-duration="0ms">
                             <div class="inner-box">
                                 <div class="icon"><span class="icon flaticon-doctor-stethoscope"></span></div>
@@ -187,7 +166,6 @@
                                 <h4 class="counter-title">Ultrasonidos</h4>
                             </div>
                         </article>
-                                                <!--Column-->
                         <article class="column counter-column col-md-4 col-sm-4 col-xs-12 wow fadeIn" data-wow-duration="0ms">
                             <div class="inner-box">
                                 <div class="icon"><span class="icon flaticon-heart-shape-outline-with-lifeline"></span></div>
@@ -196,7 +174,6 @@
                                 <h4 class="counter-title">Endoscopias</h4>
                             </div>
                         </article>
-                                                <!--Column-->
                         <article class="column counter-column col-md-4 col-sm-4 col-xs-12 wow fadeIn" data-wow-duration="0ms">
                             <div class="inner-box">
                                 <div class="icon"><span class="icon flaticon-smiling-emoticon-square-face"></span></div>
@@ -205,17 +182,15 @@
                                 <h4 class="counter-title">Pacientes Felices</h4>
                             </div>
                         </article>
-                                            </div>
+                    </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-<!--Default Section-->
+
 <section class="default-section">
     <div class="auto-container">
         <div class="row clearfix">
@@ -223,11 +198,8 @@
             <div class="sec-title centered">
                 <h2>Tips de MaryGastro</h2>
             </div>
-
-            <!--Text Column-->
             <div class="column video-column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-box">
-                    <!--featured-image-box-->
                     <div class="video-image-box">
                         <figure class="image"><img src="{{ asset('public/img/featured-image-4.jpg') }}" alt="" /><a href="{{ url('https://www.instagram.com/p/BYH0DKlh_Pj/?taken-by=mary_gastro') }}" class="overlay-link lightbox-image"><span class="icon flaticon-multimedia"></span></a></figure>
                         <div class="caption-box">Hijos sanos, padres felices... padres sanos, FAMILIAS FELICES
@@ -236,15 +208,9 @@
                 </div>
             </div>
 
-            <!--Accordions Column-->
             <div class="column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-box">
-
-
-
-                    <!--Accordion Box-->
                     <ul class="accordion-box">
-                                                <!--Block-->
                         <li class="accordion block ">
                             <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Una forma natural de mejorar su salud.</div>
                             <div class="acc-content ">
@@ -254,7 +220,6 @@
                                 </div>
                             </div>
                         </li>
-                                                <!--Block-->
                         <li class="accordion block active-block">
                             <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Crea rutinas de acción</div>
                             <div class="acc-content current">
@@ -264,7 +229,6 @@
                                 </div>
                             </div>
                         </li>
-                                                <!--Block-->
                         <li class="accordion block ">
                             <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Aprende enseñando a los demás</div>
                             <div class="acc-content ">
@@ -274,20 +238,17 @@
                                 </div>
                             </div>
                         </li>
-                                            </ul><!--End Accordion Box-->
+                    </ul>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
 
-<!--Testimonials Section-->
 <section class="testimonials-section">
     <div class="auto-container">
-
         <div class="sec-title">
             <div class="clearfix">
                 <div class="pull-left">
@@ -303,7 +264,6 @@
 
         <div class="carousel-outer">
             <div class="testimonials-carousel">
-                                <!--Slide Item-->
                 <div class="slide-item">
                     <div class="inner-box">
                         <div class="slide-header">
@@ -314,7 +274,6 @@
                         <div class="slide-content">Mi nombre es Yraimis Poueriet, soy madre de esta princesa llamada Ashley Nazareth, y la verdad es que conocer ... (Ver más)</div>
                     </div>
                 </div>
-                                <!--Slide Item-->
                 <div class="slide-item">
                     <div class="inner-box">
                         <div class="slide-header">
@@ -325,7 +284,6 @@
                         <div class="slide-content">Dra. Maryraida Canónico; un ángel enviado por Dios para Cesar Gallego Jaramillo nuestro hijo, ... (Ver más) </div>
                     </div>
                 </div>
-                                <!--Slide Item-->
                 <div class="slide-item">
                     <div class="inner-box">
                         <div class="slide-header">
@@ -336,19 +294,17 @@
                         <div class="slide-content">Agradecemos a Dios porque existen médicos profesionales  con  excelente calidad  como la Dra. Maryraida. (Ver más) </div>
                     </div>
                 </div>
-                            </div>
+            </div>
         </div>
-
     </div>
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-<!--Work Steps Section-->
+
 <section class="work-steps" style=" background-image:url('public/img/image-2-1.jpg');">
     <div class="auto-container">
         <div class="row clearfix">
-        <h2 style="text-align:center; margin-bottom:46px;">Se parte de nuestro team</h2>
-                        <!--Step COlumn-->
+            <h2 style="text-align:center; margin-bottom:46px;">Se parte de nuestro team</h2>
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -361,7 +317,7 @@
                     </div>
                 </div>
             </div>
-                        <!--Step COlumn-->
+
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -374,7 +330,7 @@
                     </div>
                 </div>
             </div>
-                        <!--Step COlumn-->
+            
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -387,7 +343,7 @@
                     </div>
                 </div>
             </div>
-                        <!--Step COlumn-->
+            
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -400,14 +356,12 @@
                     </div>
                 </div>
             </div>
-                    </div>
+        </div>
     </div>
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
 
-
-<!--News Section-->
 <section class="news-section">
     <div class="auto-container">
 
@@ -425,7 +379,6 @@
         </div>
 
         <div class="row clearfix">
-            <!--News Style One-->
             @foreach($noticias as $noticia)
             <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
@@ -447,21 +400,17 @@
             </div>
             @endforeach
         </div>
-
     </div>
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-<!--Two Column Fluid Section-->
+
 <section class="two-col-fluid">
     <div class="outer-box clearfix">
-
-        <!--Image Column-->
         <div class="image-column" style=" background-image:url('public/img/featured-image-9.jpg');">
             <figure class="image-box"><img src="{{ asset('public/img/featured-image-9.jpg') }}" alt=""></figure>
         </div>
 
-        <!--Conent Column-->
         <div class="content-column">
             <div class="clearfix">
                 <div class="inner-box">
@@ -470,49 +419,61 @@
 
                     <div class="default-form">
                        <div role="form" class="wpcf7" id="wpcf7-f30-p7-o1" lang="en-US" dir="ltr">
-<div class="screen-reader-response"></div>
-<form action="#wpcf7-f30-p7-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-<div style="display: none;">
-<input type="hidden" name="_wpcf7" value="30" />
-<input type="hidden" name="_wpcf7_version" value="4.5.1" />
-<input type="hidden" name="_wpcf7_locale" value="en_US" />
-<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f30-p7-o1" />
-<input type="hidden" name="_wpnonce" value="433c8fd4b8" />
-</div>
-<div class="row clearfix">
-<div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
-<div class="form-group">
-            <span class="wpcf7-form-control-wrap text-452"><input type="text" name="text-452" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Nombre" /></span>
-        </div>
-<div class="form-group">
-            <span class="wpcf7-form-control-wrap text-453"><input type="text" name="text-453" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Apellido" /></span>
-        </div>
-<div class="form-group">
-            <span class="wpcf7-form-control-wrap email-488"><input type="email" name="email-488" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="E-mail" /></span>
-        </div>
-<div class="form-group">
-            <span class="wpcf7-form-control-wrap text-454"><input type="text" name="text-454" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Teléfono" /></span>
-        </div></div>
-<div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
-<div class="form-group">
-            <span class="wpcf7-form-control-wrap textarea-356"><textarea name="textarea-356" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Su mensaje"></textarea></span>
-        </div>
-<div class="form-group">
-            <input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit theme-btn btn-style-one" />
-        </div></div>
-</div>
-<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
+                            <div class="screen-reader-response"></div>
+                            <form action="#wpcf7-f30-p7-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                                <div style="display: none;">
+                                    <input type="hidden" name="_wpcf7" value="30" />
+                                    <input type="hidden" name="_wpcf7_version" value="4.5.1" />
+                                    <input type="hidden" name="_wpcf7_locale" value="en_US" />
+                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f30-p7-o1" />
+                                    <input type="hidden" name="_wpnonce" value="433c8fd4b8" />
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <span class="wpcf7-form-control-wrap text-452">
+                                                <input type="text" name="text-452" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Nombre" />
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="wpcf7-form-control-wrap text-453">
+                                                <input type="text" name="text-453" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Apellido" />
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="wpcf7-form-control-wrap email-488">
+                                                <input type="email" name="email-488" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="E-mail" />
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="wpcf7-form-control-wrap text-454">
+                                                <input type="text" name="text-454" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Teléfono" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <span class="wpcf7-form-control-wrap textarea-356">
+                                                <textarea name="textarea-356" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Su mensaje"></textarea>
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit theme-btn btn-style-one" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wpcf7-response-output wpcf7-display-none"></div>
+                            </form>
+                        </div>
                     </div>
 
                     <div class="text-content">
                         <p><strong>Consulta Online:</strong>  Normalmente atiendo rápido las consultas, por favor sea paciente. Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
                         <p><strong>Horario de Consulta Online:</strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 @endsection
