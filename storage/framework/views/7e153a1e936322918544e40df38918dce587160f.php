@@ -210,29 +210,26 @@
                 <div class="inner-box">
                     <ul class="accordion-box">
                         <li class="accordion block ">
-                            <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Una forma natural de mejorar su salud.</div>
+                            <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Desayuna</div>
                             <div class="acc-content ">
                                 <div class="content clearfix">
-                                    <figure class="image"><img src="<?php echo e(asset('public/img/featured-thumb-1.jpg')); ?>" alt=""></figure>
-                                    <p>Health Coach look at exercise, eating, wellness and food not just as calories and weight loss, but also emotional, mental, physical, and spiritual terms. An Integrative with Nutrition Health Coach who’s providing services in area knows like state of mind, health history background, as well as sleep patterns.</p>
+                                    <p>El desayuno es la comida más importante del día, si no desayunamos nuestro cerebro ordena consumir las reservas de glucosa en el hígado y una vez agotadas éstas  lo hará de nuestros músculos, huesos y piel.  Cuando no desayunamos lo que sucede es que nos auto devoramos para poder obtener a como dé lugar una  fuente de energía.</p>
                                 </div>
                             </div>
                         </li>
                         <li class="accordion block active-block">
-                            <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Crea rutinas de acción</div>
+                            <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Hidratate</div>
                             <div class="acc-content current">
                                 <div class="content clearfix">
-                                    <figure class="image"><img src="<?php echo e(asset('public/img/featured-thumb-1.jpg')); ?>" alt=""></figure>
-                                    <p>Health Coach look at exercise, eating, wellness and food not just as calories and weight loss, but also emotional, mental, physical, and spiritual terms. An Integrative with Nutrition Health Coach who’s providing services in area knows like state of mind, health history background, as well as sleep patterns.</p>
+                                    <p>Somos Agua. El porcentaje corporal de aguade los niños es de aproximadamente 80% y en adultos 60-70%, el agua es fundamental para el transporte de nutrientes, eliminación de toxinas, regulación de la digestión y hasta la regulación de nuestra temperatura.</p>
                                 </div>
                             </div>
                         </li>
                         <li class="accordion block ">
-                            <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Aprende enseñando a los demás</div>
+                            <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Haz ejercicio y descansa</div>
                             <div class="acc-content ">
                                 <div class="content clearfix">
-                                    <figure class="image"><img src="<?php echo e(asset('public/img/featured-thumb-1.jpg')); ?>" alt=""></figure>
-                                    <p>Health Coach look at exercise, eating, wellness and food not just as calories and weight loss, but also emotional, mental, physical, and spiritual terms. An Integrative with Nutrition Health Coach who’s providing services in area knows like state of mind, health history background, as well as sleep patterns.</p>
+                                    <p>La actividad física es fundamental para nuestra salud, así dediquemos tan sólo una hora al día de ejercicio cardiovascular (por ejemplo caminar, bailar) este hábito será de mucho beneficio para nuestro corazón. Además podemos incluir en nuestra rutina ejercicios de estiramiento,  tonificación y musculación  de manera moderada. Es igualmente importante nuestras horas de descanso para recuperarnos.</p>
                                 </div>
                             </div>
                         </li>
