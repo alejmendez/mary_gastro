@@ -86,7 +86,7 @@ class NoticiasController extends Controller
                     'url'=>url('public/archivos/noticias/'.$img->archivo),
                     'thumbnailUrl'=>url('public/archivos/noticias/'.$img->archivo),
                     'deleteType'=>'DELETE',
-                    'deleteUrl'=>url($url.'/eliminarimagen'.$id_archivo),
+                    'deleteUrl'=>url($url.'/eliminarimagen/'.$id_archivo),
                     'data'=>[
                         'cordenadas'=>[],
                         'leyenda'=>$img->leyenda,
