@@ -44,10 +44,7 @@
 						<div class="content-column col-lg-8 col-md-7 col-sm-8 col-xs-12">
 							<div class="lower-content">
 								<div class="posted-info">
-									<?php echo e($controller->meses[$noticia->published_at->month]); ?>
-
-									<?php echo e($noticia->published_at->day); ?>,
-									<?php echo e($noticia->published_at->year); ?>
+									   <?php echo e($noticia->published_at); ?>
 
 								</div>
 								<h3>
@@ -112,10 +109,7 @@
 						</figure>
 						<div class="desc-text"><a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><?php echo e($noticia->titulo); ?> ...</a></div>
 						<div class="time">
-							<?php echo e($controller->meses[$noticia->published_at->month]); ?>
-
-							<?php echo e($noticia->published_at->day); ?>,
-							<?php echo e($noticia->published_at->year); ?>
+							   <?php echo e($noticia->published_at); ?>
 
 						</div>
 					</div>

@@ -63,6 +63,11 @@ class Noticias extends Modelo
     public function setPublishedAtAttribute($value){
         $this->attributes['published_at'] = Carbon::createFromFormat('d/m/Y H:i', $value);
     }
+
+    public function getPublishedAtAttribute($value){
+        return Carbon::parse($value)->format('d/m/Y H:i');
+    }
+
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);

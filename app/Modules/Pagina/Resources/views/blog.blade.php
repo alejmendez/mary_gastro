@@ -49,9 +49,7 @@
 						<div class="content-column col-lg-8 col-md-7 col-sm-8 col-xs-12">
 							<div class="lower-content">
 								<div class="posted-info">
-									{{ $controller->meses[$noticia->published_at->month] }}
-									{{ $noticia->published_at->day }},
-									{{ $noticia->published_at->year }}
+									   {{ $noticia->published_at}}
 								</div>
 								<h3>
 									<a href="{{url('/blog/noticia/'. $noticia->slug)}}">
@@ -113,9 +111,7 @@
 						</figure>
 						<div class="desc-text"><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}} ...</a></div>
 						<div class="time">
-							{{ $controller->meses[$noticia->published_at->month] }}
-							{{ $noticia->published_at->day }},
-							{{ $noticia->published_at->year }}
+							   {{ $noticia->published_at}}
 						</div>
 					</div>
 				@endforeach

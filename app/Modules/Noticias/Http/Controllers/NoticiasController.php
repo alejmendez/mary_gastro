@@ -175,11 +175,13 @@ class NoticiasController extends Controller
                if (empty($archivos)) {
                    unset($data['published_at']);
                }
+
                $Noticias = Noticias::find($id)->update($data);
+             
            }
 
-           $this->guardar_categorias($request, $Noticias->id);
-           $this->guardar_etiquetas($request, $Noticias->id);
+           $this->guardar_categorias($request,$id);
+           $this->guardar_etiquetas($request,$id);
            $this->guardarImagenes($archivos, $id);
 
 

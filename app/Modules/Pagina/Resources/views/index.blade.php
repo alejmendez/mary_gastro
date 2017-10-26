@@ -382,13 +382,14 @@
                     <a href="{{url('/blog/noticia/'. $noticia->slug)}}"><img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'.$noticia->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
                     <div class="lower-content">
                         <div class="posted-info">
-                            {{ $controller->meses[$noticia->published_at->month] }}
-                            {{ $noticia->published_at->day }},
-                            {{ $noticia->published_at->year }}
+                       {{ $noticia->published_at}}
+                        
                         </div>
 
                         <h3><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}}</a></h3>
-                        <div class="text">{{$noticia->resumen}} ...</div>
+                        <div class="text">
+                            {{str_limit($noticia->resumen, 120)}}...
+                        </div>
                     </div>
                 </div>
             </div>

@@ -380,15 +380,15 @@
                     <a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><img width="1170" height="1170" src="<?php echo e(asset('public/archivos/noticias/'.$noticia->archivo)); ?>" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
                     <div class="lower-content">
                         <div class="posted-info">
-                            <?php echo e($controller->meses[$noticia->published_at->month]); ?>
+                       <?php echo e($noticia->published_at); ?>
 
-                            <?php echo e($noticia->published_at->day); ?>,
-                            <?php echo e($noticia->published_at->year); ?>
-
+                        
                         </div>
 
                         <h3><a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><?php echo e($noticia->titulo); ?></a></h3>
-                        <div class="text"><?php echo e($noticia->resumen); ?> ...</div>
+                        <div class="text">
+                            <?php echo e(str_limit($noticia->resumen, 120)); ?>...
+                        </div>
                     </div>
                 </div>
             </div>
