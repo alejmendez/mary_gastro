@@ -66,20 +66,23 @@ class Controller extends BaseController
 	{
 
 		$noticias = Noticias::select([
+			'noticias.id',
 			'noticias.titulo',
 			'noticias.slug',
 			'noticias.resumen',
 			'noticias.published_at',
-			'imagenes.archivo'
+			
 		])
-		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
 		->where('noticias.published_at','<=', date('Y-m-d H:i'))->get()->take(3);
 
+	
+		$Imagenes = Imagenes::select(['archivo']);
 
 		return $this
 			->setTitulo('GastroPediatra en Acción')
 			->view('pagina::index',[
-				'noticias' => $noticias
+				'noticias' => $noticias,
+				'imagen' => $Imagenes
 			]);
 	}
 

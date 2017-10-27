@@ -379,7 +379,21 @@
             <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <figure class="image-box">
-                    <a href="{{url('/blog/noticia/'. $noticia->slug)}}"><img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'.$noticia->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
+                    <a href="{{url('/blog/noticia/'. $noticia->slug)}}">
+                    
+                        <?php	
+                            $imagen = clone $imagen;
+                            $imagen = $imagen->where('noticias_id', $noticia->id)
+                            ->first();
+
+                            if (!$imagen){
+                            $imagen = new stdClass();
+                            $imagen->leyenda = '';
+                            $imagen->archivo = 'gob.png';
+                        }
+                        ?>
+                    
+                    <img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'. $imagen->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
                     <div class="lower-content">
                         <div class="posted-info">
                        {{ $noticia->published_at}}
