@@ -31,7 +31,17 @@ class NoticiasController extends Controller
 
 {
 
-    public $js = ['Noticias'];
+    public $js = [
+       'Noticias',
+       'typeahead.bundle.min.js',
+       'app.js',
+       'app_bs3'
+    ];
+    public $css = [
+        'github',
+        'bootstrap-theme.min',
+        'app'
+    ];
 
     public $librerias = [
 
@@ -51,18 +61,18 @@ class NoticiasController extends Controller
 
         'jcrop',
 
-        'bootstrap-select'
+        'bootstrap-select',
+
+        'bootstrap-tagsinput'
 
     ];
-
-
 
     public $perfiles_publicar = [1];
 
     public function index(){
         return $this->view('noticias::Noticias', [
             'Noticias'=> new Noticias()
-    ]);
+        ]);
     }
 
     public function buscar(Request $request, $id =0){
@@ -102,17 +112,21 @@ class NoticiasController extends Controller
                 $categoArray[]=$categoria['categorias_id'];
             }
             $etiArray = [];
-            $etiquetas = Noticias_Etiquetas::select('etiquetas_id')->where('noticias_id', $id)->get();
+            $etiquetas = Noticias_Etiquetas::select('etiquetas.nombre')
+            ->where('noticia_etiqueta.noticias_id', $id)
+            ->leftJoin('etiquetas', 'etiquetas.id', '=', 'noticia_etiqueta.etiquetas_id')
+            ->get();
 
+            $etiArray = '';
             foreach ($etiquetas as $key => $etiqueta) {
-                $etiArray[]=$etiqueta['etiquetas_id'];
+                $etiArray .= ','. $etiqueta->nombre;
             }
 
             $respuesta = array_merge($rs->toArray(),[
                 's'=>'s',
                 'msj'=>trans('controller.buscar'),
                 'categoria_id' => $categoArray,
-                'etiquetas_id' => $etiArray,
+                'etiquetas' => $etiArray,
                 'files'=>$imgArray
             ]);
 
@@ -165,6 +179,7 @@ class NoticiasController extends Controller
     public function guardar(noticiasRequest $request,$id=0){
        DB::beginTransaction();
        try {
+
            $data = $this->data($request);
            $archivos = json_decode($request->archivos);
 
@@ -181,7 +196,32 @@ class NoticiasController extends Controller
            }
 
            $this->guardar_categorias($request,$id);
-           $this->guardar_etiquetas($request,$id);
+
+
+            //Etiquetas
+
+            if($request->etiquetas != ""){ 
+                dd('gho');
+                Noticias_Etiquetas::where('noticias_id',  $id)->delete();
+
+                $array = explode(",",$request->etiquetas);
+                $longitud = count($array);
+                    //se recorre el array para guardar el array
+                for($i =0; $i <$longitud; $i++){
+                
+                    $id_etiqueta = Etiquetas::updateOrCreate(
+                        ['slug' => str_slug($array[$i])],
+                        ['nombre' =>$array[$i]]
+                    );
+
+
+                Noticias_Etiquetas::create([
+                    'noticias_id'  => $id,
+                    'etiquetas_id' => $id_etiqueta->id
+                ]);
+                }
+            }
+         
            $this->guardarImagenes($archivos, $id);
 
 

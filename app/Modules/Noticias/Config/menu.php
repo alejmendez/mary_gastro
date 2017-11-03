@@ -11,11 +11,11 @@ $menu['noticias'] = [
                 'direccion' =>  'Noticias',
                 'icono'     =>  'fa fa-quote-right'
             ],
-            [
+            /* [
                 'nombre'    =>  'Publicar',
                 'direccion' =>  'publicar',
                 'icono'     =>  'fa fa-share-alt'
-            ],
+            ], */
             [
                 'nombre'    =>  'Categorias',
                 'direccion' =>  'Noticias/definiciones/categorias',

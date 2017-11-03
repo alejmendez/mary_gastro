@@ -18,9 +18,7 @@
         <div class="row col-md-12">
             <?php echo Form::open(['id'=>'formulario', 'name'=>'formulario', 'method'=>'POST']); ?>
 
-                
-
-
+        
                 <div class="form-group col-md-4">
                     <label for="titulo" class="requerido">Titulo</label>
                     <input class="form-control" required="required" id="titulo" name="titulo" type="text" v-model="message">
@@ -31,20 +29,29 @@
                 </div>
 
                 <?php if($controller->puedepublicar()): ?>
-    			<?php echo e(Form::bsText('published_at', '', [
-    				'label' => 'Fecha',
-    				'placeholder' => 'Fecha de Publicación',
+                  <?php echo e(Form::bsText('published_at', '', [
+                    'label' => 'Fecha',
+                    'placeholder' => 'Fecha de Publicación',
                     'class_cont' => 'col-md-2'
-    			])); ?>
+                  ])); ?>
 
-    			<?php endif; ?>
-
-                
-
-                <?php echo $Noticias->generate(['categoria_id', 'etiquetas_id']); ?>
-
+                  <?php endif; ?>
 
                 
+
+                <?php echo $Noticias->generate(['categoria_id']); ?>
+
+
+                
+                <div class="form-group col-md-12">             
+                  <div class="example example_typeahead">
+                    <div class="bs-example">
+                      <label for="etiquetas" >Etiquetas</label>
+                      <input type="text" id="etiquetas" class="form-control" data-role="tagsinput"  multiple name="etiquetas" value=""/>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="col-md-12"></div>
                 <div class="form-group col-xs-12">
     				<label for="contenido_html">Contenido </label>

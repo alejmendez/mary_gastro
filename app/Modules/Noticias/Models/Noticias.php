@@ -30,31 +30,11 @@ class Noticias extends Modelo
     protected $table = 'noticias';
     protected $fillable = ["titulo","slug","contenido","contenido_html","resumen","audio","published_at"];
     protected $campos = [
-        'titulo' => [
-            'type' => 'text',
-            'label' => 'Titulo',
-            'placeholder' => 'Titulo de la Noticias'
-        ],
-        'slug' => [
-            'type' => 'text',
-            'label' => 'Slug',
-            'placeholder' => 'Slug del Noticias'
-        ],
+       
         'categoria_id' => [
             'type'          => 'select',
             'label'         => 'Categoria',
-            'placeholder'   => 'Categoria',
-            'url'           => 'backend/Noticias/definiciones/categorias',
             'name'          => 'categoria_id[]',
-            'class'         => 'bs-select',
-            'multiple'      => 'multiple',
-        ],
-        'etiquetas_id' => [
-            'type'          => 'select',
-            'label'         => 'Etiquetas',
-            'placeholder'   => 'Etiquetas',
-            'url'           => 'backend/Noticias/definiciones/etiquetas',
-            'name'          => 'etiquetas_id[]',
             'class'         => 'bs-select',
             'multiple'      => 'multiple',
         ]
@@ -72,7 +52,7 @@ class Noticias extends Modelo
     {
         parent::__construct($attributes);
         $this->campos['categoria_id']['options'] = Categorias::pluck('nombre', 'id');
-        $this->campos['etiquetas_id']['options'] = Etiquetas::pluck('nombre', 'id');
+       
     }
 
     protected $dates = ['published_at'];

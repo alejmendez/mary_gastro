@@ -11,9 +11,12 @@ $(function() {
 			CKEDITOR.instances.contenido.setData('');
 			$('#archivos').val('');
 			$archivos = {};
-			$("table tbody tr", "#fileupload").remove();
+            $("table tbody tr", "#fileupload").remove();
+
+            $('#etiquetas').tagsinput('removeAll');
 		},
 	    'buscar' : function(r){
+            $('#etiquetas').tagsinput('removeAll');
 			CKEDITOR.instances.contenido.setData(r.contenido_html);
 			$('#btn1').click();
 
@@ -24,7 +27,10 @@ $(function() {
 			$archivos = {};
 			for(var i in archivos){
 				$archivos[archivos[i].id] = archivos[i].data;
-			}
+            }
+            console.log(r.etiquetas);
+            
+            $("#etiquetas").tagsinput('add', r.etiquetas);
 		}
 	});
 

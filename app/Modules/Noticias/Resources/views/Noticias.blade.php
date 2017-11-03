@@ -19,9 +19,7 @@
     <div class="row">
         <div class="row col-md-12">
             {!! Form::open(['id'=>'formulario', 'name'=>'formulario', 'method'=>'POST'])!!}
-                {{-- {!! $Noticias->generate() !!} --}}
-
-
+        
                 <div class="form-group col-md-4">
                     <label for="titulo" class="requerido">Titulo</label>
                     <input class="form-control" required="required" id="titulo" name="titulo" type="text" v-model="message">
@@ -32,32 +30,27 @@
                 </div>
 
                 @if ($controller->puedepublicar())
-    			{{ Form::bsText('published_at', '', [
-    				'label' => 'Fecha',
-    				'placeholder' => 'Fecha de Publicación',
+                  {{ Form::bsText('published_at', '', [
+                    'label' => 'Fecha',
+                    'placeholder' => 'Fecha de Publicación',
                     'class_cont' => 'col-md-2'
-    			]) }}
-    			@endif
+                  ]) }}
+                  @endif
 
-                {{-- {{ Form::bsSelect('categoria_id', $controller->categoria(), '', [
-                    'label'             => 'Categoria',
-                    'class'             => 'bs-select',
-                    'multiple'          => 'multiple',
-                    'placeholder'       => 'Categorias',
-                    'class_cont'        => 'col-md-2',
-                    'name'              => 'categoria_id[]'
-                ]) }} --}}
+                
 
-                {!! $Noticias->generate(['categoria_id', 'etiquetas_id']) !!}
+                {!! $Noticias->generate(['categoria_id']) !!}
 
-                {{-- {{ Form::bsSelect('etiquetas_id', $controller->etiquetas(), '', [
-                    'label'             => 'Etiquetas',
-                    'class'             => 'bs-select',
-                    'multiple'          => 'multiple',
-                    'placeholder'       => 'Etiquetas',
-                    'class_cont'        => 'col-md-2',
-                    'name'              => 'etiquetas_id[]'
-                ]) }} --}}
+                
+                <div class="form-group col-md-12">             
+                  <div class="example example_typeahead">
+                    <div class="bs-example">
+                      <label for="etiquetas" >Etiquetas</label>
+                      <input type="text" id="etiquetas" class="form-control" data-role="tagsinput"  multiple name="etiquetas" value=""/>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="col-md-12"></div>
                 <div class="form-group col-xs-12">
     				<label for="contenido_html">Contenido </label>
