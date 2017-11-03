@@ -26,9 +26,7 @@ $html['titulo'] = 'Inicio de Sesión';
 			<?php echo Form::open(array('id' => 'formulario', 'url' => 'login')); ?>
 
 				<h3 class="form-title font-green"><?php echo e($controller->conf('nombre')); ?></h3>
-				<div>
-					<img alt="" class="profile-img"  id="foto" src="<?php echo e(url('public/img/usuarios/user.png')); ?>">
-				</div>
+				
 				<div class="form-group">
 					<label class="control-label visible-ie8 visible-ie9"><?php echo e(Lang::get('login.user')); ?></label>
 					<?php echo Form::text('nombre', '', ['class' => 'form-control form-control-solid placeholder-no-fix user', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.user')]); ?>
@@ -41,6 +39,8 @@ $html['titulo'] = 'Inicio de Sesión';
 
 				</div>
 
+				
+				<br>
 				<label class="rememberme check mt-checkbox mt-checkbox-outline">
 					<?php echo Form::checkbox('recordar', '1', false); ?>
 
@@ -48,37 +48,21 @@ $html['titulo'] = 'Inicio de Sesión';
 
 					<span></span>
 				</label>
-
+				 <a href="javascript:;" id="forget-password" class="forget-password">Recuperar Contraseña?</a>
 				<div class="form-actions" style="text-align: center;">
 					<?php echo Form::button(Lang::get('login.log_in'), ['class' => 'btn green uppercase']); ?>
 
 				</div>
-				
-				<!-- <div class="login-options">
-					<h4>&Oacute; Iniciar sesi&oacute;n como</h4>
-					<ul class="social-icons">
-						<li>
-							<a class="social-icon-color facebook" data-original-title="facebook" href="javascript:;"></a>
-						</li>
-						<li>
-							<a class="social-icon-color twitter" data-original-title="Twitter" href="javascript:;"></a>
-						</li>
-						<li>
-							<a class="social-icon-color googleplus" data-original-title="Goole Plus" href="javascript:;"></a>
-						</li>
-						<li>
-							<a class="social-icon-color linkedin" data-original-title="Linkedin" href="javascript:;"></a>
-						</li>
-					</ul>
-				</div> -->
-
 				<div class="create-account">
-					<p><?php echo e(date('Y')); ?> &copy; MaryGastro.</p>
+                    <p>
+                        <a href="<?php echo e(url(\Config::get('admin.prefix').'/registro')); ?>" id="register-btn" class="uppercase">Crear Cuenta</a>
+                    </p>
+                </div>
+			
 					<!-- 	
 						Desarrollado por:  
 						Alejandro Mendez alejmendez.87@gmail.com 	
 					-->
-				</div>
 			<?php echo Form::close(); ?>
 
 		</div>

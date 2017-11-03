@@ -16,7 +16,7 @@
                     
                     <!--Top Right-->
                     <div class="top-right pull-right">
-                    	<a href="#"  class="theme-btn" >CONSULTAS EN LINEA</a>
+                    	<a href="{{ url('/backend') }}"  class="theme-btn" >CONSULTAS EN LINEA</a>
                     </div>
                     
                 </div>
@@ -51,34 +51,28 @@
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
                                     <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-7 current_page_item menu-item-9 active"><a title="Inicio" href="{{ url('/') }}" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
-<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-35"><a title="¿Quién soy?" href="{{ url('marygastro') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Mary Gastro</a>
-</li>
-<li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-104"><a title="Mis Fotos" href="{{ url('fotos') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Galería</a>
-</li>
-<li id="menu-item-171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-171"><a title="¿Qué dicen mis pacientes?" href="{{ url('testimonios') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Testimonios</a>
-</li>
-<li id="menu-item-232" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-232"><a title="Descubre sobre mis artículos" href="{{ url('blog') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Blog</a>
-</li>
-<li id="menu-item-423" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-423"><a title="Realiza una consulta en línea" href="{{ url('consulta') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Citas</a>
-</li>
-<li id="menu-item-292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a title="¿Tienes alguna sugerencia?" href="{{ url('contacto') }}" data-scroll data-options="easing: easeOutQuart">Contacto</a></li>
-                                    
-                                 </ul>
-                            </div>
-                        </nav><!-- Main Menu End-->
-                        
-                    </div><!--Nav Outer End-->
+                                    <li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-35"><a title="¿Quién soy?" href="{{ url('marygastro') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Mary Gastro</a>
+                                    </li>
+                                    <li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-104"><a title="Mis Fotos" href="{{ url('fotos') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Galería</a>
+                                    </li>
+                                    <li id="menu-item-171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-171"><a title="¿Qué dicen mis pacientes?" href="{{ url('testimonios') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Testimonios</a>
+                                    </li>
+                                    <li id="menu-item-232" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-232"><a title="Descubre sobre mis artículos" href="{{ url('blog') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Blog</a>
+                                    </li>
+                                    <li id="menu-item-423" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-423"><a title="Realiza una consulta en línea" href="{{ url('consulta') }}" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Citas</a>
+                                    </li>
+                                    <li id="menu-item-292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a title="¿Tienes alguna sugerencia?" href="{{ url('contacto') }}" data-scroll data-options="easing: easeOutQuart">Contacto</a></li>
+                                                                
+                                </ul>
+                        </div>
+                    </nav><!-- Main Menu End-->
                     
-                    <!-- Hidden Nav Toggler -->
-                    <div class="nav-toggler">
-                    <button class="hidden-bar-opener"><span class="icon fa fa-bars"></span></button>
-                    </div><!-- / Hidden Nav Toggler -->
-                    
-                    <!--Cart Btn-->
-                                        <a href="#" class="cart-btn-outer cart-btn"><span class="fa fa-user"></span><span class="count">0</span></a>
-                                	</div>    
-            </div>
-        </div>
+                </div><!--Nav Outer End-->
+            
+            <!-- Hidden Nav Toggler -->
+        
+    </div>
+</div>
     
     </header>
     <!--End Main Header -->

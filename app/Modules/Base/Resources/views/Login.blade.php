@@ -25,9 +25,7 @@ $html['titulo'] = 'Inicio de Sesión';
 		<div class="content">
 			{!! Form::open(array('id' => 'formulario', 'url' => 'login')) !!}
 				<h3 class="form-title font-green">{{$controller->conf('nombre')}}</h3>
-				<div>
-					<img alt="" class="profile-img"  id="foto" src="{{ url('public/img/usuarios/user.png') }}">
-				</div>
+				
 				<div class="form-group">
 					<label class="control-label visible-ie8 visible-ie9">{{ Lang::get('login.user') }}</label>
 					{!! Form::text('nombre', '', ['class' => 'form-control form-control-solid placeholder-no-fix user', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.user')]) !!}
@@ -38,41 +36,27 @@ $html['titulo'] = 'Inicio de Sesión';
 					{!! Form::password('password', ['class' => 'form-control form-control-solid placeholder-no-fix', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.password')]) !!}
 				</div>
 
+				
+				<br>
 				<label class="rememberme check mt-checkbox mt-checkbox-outline">
 					{!! Form::checkbox('recordar', '1', false) !!}
 					{{ Lang::get('login.remember_me') }}
 					<span></span>
 				</label>
-
+				 <a href="javascript:;" id="forget-password" class="forget-password">Recuperar Contraseña?</a>
 				<div class="form-actions" style="text-align: center;">
 					{!! Form::button(Lang::get('login.log_in'), ['class' => 'btn green uppercase']) !!}
 				</div>
-				
-				<!-- <div class="login-options">
-					<h4>&Oacute; Iniciar sesi&oacute;n como</h4>
-					<ul class="social-icons">
-						<li>
-							<a class="social-icon-color facebook" data-original-title="facebook" href="javascript:;"></a>
-						</li>
-						<li>
-							<a class="social-icon-color twitter" data-original-title="Twitter" href="javascript:;"></a>
-						</li>
-						<li>
-							<a class="social-icon-color googleplus" data-original-title="Goole Plus" href="javascript:;"></a>
-						</li>
-						<li>
-							<a class="social-icon-color linkedin" data-original-title="Linkedin" href="javascript:;"></a>
-						</li>
-					</ul>
-				</div> -->
-
 				<div class="create-account">
-					<p>{{ date('Y') }} &copy; MaryGastro.</p>
+                    <p>
+                        <a href="{{ url(\Config::get('admin.prefix').'/registro') }}" id="register-btn" class="uppercase">Crear Cuenta</a>
+                    </p>
+                </div>
+			
 					<!-- 	
 						Desarrollado por:  
 						Alejandro Mendez alejmendez.87@gmail.com 	
 					-->
-				</div>
 			{!! Form::close() !!}
 		</div>
 		<script type="text/javascript" charset="utf-8" async defer>

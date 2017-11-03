@@ -24,7 +24,7 @@ class Controller extends BaseController
 	public $autenticar = false;
 	public $paginar = 12;
 
-	protected $patch_js = [
+	public $patch_js = [
 		'public/js',
 		'public/plugins',
 		'app/Modules/Pagina/Assets/js',
@@ -48,7 +48,7 @@ class Controller extends BaseController
 
 	];
 
-	protected $patch_css = [
+	public $patch_css = [
 		'public/css',
 		'public/plugins',
 		'app/Modules/Pagina/Assets/css',
@@ -59,10 +59,11 @@ class Controller extends BaseController
 		'animate', 'wow', 'bootstrap',
 		'pace', 'jquery-form', 'jquery-ui',
 		'blockUI',
-		'modernizr'
+		'modernizr',
+		'pnotify'
 	];
 
-	 public function index(Request $request)
+	public function index(Request $request)
 	{
 
 		$noticias = Noticias::select([
@@ -104,26 +105,10 @@ class Controller extends BaseController
 				->where('published_at','<=', date('Y-m-d H:i'))
 				->paginate(4);
 
-
-
-				// foreach($noticias as $noticia) {
-				// 	dd($noticia->categorias);
-				// }
-				// ->paginate(4);
-
 				$ncategoria = Noticias_Categorias::select('noticias_id', 'categorias_id');
 				$nombrecat = Categorias::select('nombre');
 
-				// foreach ($noticias as $noticia) {
-				// 	$ncategoria = Noticias_Categorias::where('noticias_id', $noticia->id)->get();
-				// 	foreach ($ncategoria as $_categoria){
-				// 		$nombre = Categorias::select('nombre')->where('id',$_categoria->categorias_id)->first();
-				// 		$__ncategoria[] = $nombre->nombre;
-				// 	}
-				// }
-
-
-
+		
 				$categorias = Categorias::select([
 					'categorias.nombre',
 					'categorias.id',
@@ -141,6 +126,7 @@ class Controller extends BaseController
 					'categorias' => $categorias
 				]);
 			}
+
 			return $this->view('pagina::' . $pag);
 		}
 
