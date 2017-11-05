@@ -15,12 +15,18 @@
                     </div>
                     
                     <!--Top Right-->
-                    <div class="top-right pull-right">
-                    	<a href="{{ url('/backend') }}"  class="theme-btn" >CONSULTAS EN LINEA</a>
-                    </div>
-                    
+
+                    @if (Auth::check()) 
+                         <div class="top-right pull-right">
+                          
+                             <a href="{{ url('/backend') }}"  class="theme-btn" >{{ Auth::user()->usuario}}</a>
+                         </div>
+                    @else
+                        <div class="top-right pull-right">
+                            <a href="{{ url('/backend') }}"  class="theme-btn" >CONSULTAS EN LINEA</a>
+                        </div>
+                    @endif 
                 </div>
-                
             </div>
         </div><!-- Header Top End -->
     
@@ -32,7 +38,7 @@
                     <div class="logo-box">
                         <div class="logo">
                         	<a href="{{ url('/') }}"><img src="{{ asset('public/img/logo.png') }}" alt="" title="MaryGastro"></a>
-                                                    </div>
+                        </div>
                     </div>
                     
                     <!--Nav Outer-->

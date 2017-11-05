@@ -3,6 +3,7 @@ $controller = app('marygastro\Modules\Base\Http\Controllers\Controller');
 $controller->css[] = 'login.min.css';
 $controller->js[] = 'login.js';
 
+
 $data = $controller->_app();
 extract($data);
 
@@ -15,7 +16,6 @@ $html['titulo'] = 'Inicio de Sesión';
 <head>
 	@include('base::partials.head')
 </head><!--/head-->
-
 	<body class="login">
 		<div class="logo">
 			<a href="{{ url(\Config::get('admin.prefix')) }}">
@@ -23,46 +23,92 @@ $html['titulo'] = 'Inicio de Sesión';
 			</a>
 		</div>
 		<div class="content">
-			{!! Form::open(array('id' => 'formulario', 'url' => 'login')) !!}
-				<h3 class="form-title font-green">{{$controller->conf('nombre')}}</h3>
-				
-				<div class="form-group">
-					<label class="control-label visible-ie8 visible-ie9">{{ Lang::get('login.user') }}</label>
-					{!! Form::text('nombre', '', ['class' => 'form-control form-control-solid placeholder-no-fix user', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.user')]) !!}
-				</div>
+			<div id="login"> 
+				{!! Form::open(array('id' => 'formulario', 'url' => 'login')) !!}
+					<h3 class="form-title font-green">Iniciar sesión</h3>
+					
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">{{ Lang::get('login.user') }}</label>
+						{!! Form::text('nombre', '', ['class' => 'form-control form-control-solid placeholder-no-fix user', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.user')]) !!}
+					</div>
 
-				<div class="form-group">
-					<label class="control-label visible-ie8 visible-ie9">{{ Lang::get('login.password') }}</label>
-					{!! Form::password('password', ['class' => 'form-control form-control-solid placeholder-no-fix', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.password')]) !!}
-				</div>
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">{{ Lang::get('login.password') }}</label>
+						{!! Form::password('password', ['class' => 'form-control form-control-solid placeholder-no-fix', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.password')]) !!}
+					</div>
 
+					<br>
+					<label class="rememberme check mt-checkbox mt-checkbox-outline">
+						{!! Form::checkbox('recordar', '1', false) !!}
+						{{ Lang::get('login.remember_me') }}
+						<span></span>
+					</label>
+					<a href="javascript:;" id="forget-password" class="forget-password">Recuperar Contraseña?</a>
+					<div class="form-actions" style="text-align: center;">
+						{!! Form::button(Lang::get('login.log_in'), ['class' => 'btn green uppercase']) !!}
+					</div>
+					<div class="create-account">
+						<p>
+							<a href="javascript:;"  id="register-btn" class="uppercase">Crear Cuenta</a>
+						</p>
+					</div>
 				
-				<br>
-				<label class="rememberme check mt-checkbox mt-checkbox-outline">
-					{!! Form::checkbox('recordar', '1', false) !!}
-					{{ Lang::get('login.remember_me') }}
-					<span></span>
-				</label>
-				 <a href="javascript:;" id="forget-password" class="forget-password">Recuperar Contraseña?</a>
-				<div class="form-actions" style="text-align: center;">
-					{!! Form::button(Lang::get('login.log_in'), ['class' => 'btn green uppercase']) !!}
-				</div>
-				<div class="create-account">
-                    <p>
-                        <a href="{{ url(\Config::get('admin.prefix').'/registro') }}" id="register-btn" class="uppercase">Crear Cuenta</a>
-                    </p>
-                </div>
-			
 					<!-- 	
 						Desarrollado por:  
-						Alejandro Mendez alejmendez.87@gmail.com 	
+						Alejandro Mendez alejmendez.87@gmail.com 
+						Miguelangel Gutierrez Drummermiguelangel@gmail.com	
 					-->
-			{!! Form::close() !!}
+				{!! Form::close() !!}
+			</div>
+			<div id="registro" style="display: none;">
+				{!! Form::open(array('id' => 'formulario2')) !!}
+					<h3 class="font-green">Nuevo Usuario</h3>
+					<p class="hint"> </p>
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">N° Cedula</label>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="N° Cedula" name="dni" /> 
+					</div>
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Nombres y Apellidos</label>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Nombres y Apellidos" name="nombres" /> 
+					</div>
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Correo</label>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" /> 
+					</div>
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Contraseña</label>
+						<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Contraseña" name="password" /> </div>
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Repita su Contraseña</label>
+						<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Repita su Contraseña"  id="rpassword" name="rpassword" /> </div>
+					
+					<div class="form-actions">
+						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline">Back</button>
+						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+					</div>
+				{!! Form::close() !!}
+			</div>
+			<div id="recuperar" style="display: none;">
+				{!! Form::open(array('id' => 'formulario3')) !!}
+					<h3 class="font-green">Nuevo Usuario</h3>
+					<p class="hint"> </p>
+					
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Correo</label>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" /> 
+					</div>
+				
+					<div class="form-actions">
+						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline ">Back</button>
+						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+					</div>
+				{!! Form::close() !!}
+			</div>
+			
 		</div>
-		<script type="text/javascript" charset="utf-8" async defer>
-		var ruta= "{{ asset('public/img/usuarios') }}";
-		</script>
-		
+		 <div class="copyright">MaryGastro © 2017 por <a href="http://www.tumundoclick.com/" class="author-name">www.tumundoclick.com</a></div>
+	
 		@include('base::partials.footer')
 	</body>
 </html>

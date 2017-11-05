@@ -28,7 +28,7 @@ use marygastro\Modules\Base\Models\Sector;
 class PerfilController extends Controller {
 	protected $titulo = 'Perfil';
 
-	//public $autenticar = false;
+	public $autenticar = false;
 	public $css = [
 		'Perfil'
 	];

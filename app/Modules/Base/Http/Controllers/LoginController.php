@@ -5,8 +5,9 @@ namespace marygastro\Modules\Base\Http\Controllers;
 //Dependencias
 use Illuminate\Support\Facades\Auth;
 use Session;
-
+use DB;
 //Request
+use marygastro\Modules\Base\Http\Requests\RegistrarUserRequest;
 use marygastro\Modules\Base\Http\Requests\LoginRequest;
 use marygastro\Modules\Base\Http\Requests\LoginfotoRequest;
 //Controlador Padre
@@ -15,6 +16,7 @@ use marygastro\Modules\Base\Http\Controllers\Controller;
 //Modelos
 use marygastro\Modules\Base\Models\Usuario;
 use marygastro\Modules\Base\Models\Personas;
+use marygastro\Modules\Base\Models\PersonasCorreo;
 
 class LoginController extends Controller {
 	public $autenticar = false;
@@ -85,5 +87,48 @@ class LoginController extends Controller {
 		$foto = Personas::select('foto')->where('id','=',$user->personas_id)->first();
 
 		return ['foto'=>$foto->foto];
+	}
+
+	public function registro(RegistrarUserRequest $request){
+		DB::beginTransaction();
+		try {
+			
+			$data = $request->all();
+		
+			$persona = Personas::create([
+				"tipo_persona_id" => 1,
+				"dni" => $request->dni,
+				"nombres"=> $request->nombres,
+				"foto" => 'usuario.png'
+			]);
+			$data['personas_id'] = $persona->id;
+
+		
+			$data['perfil_id'] = 9;
+			$data['usuario'] = $data['correo'];
+
+			PersonasCorreo::create([
+				"personas_id" => $data['personas_id'],
+				"correo" => $data['correo'],
+				"principal" => true
+			]);
+			
+			
+			$usuario = Usuario::create($data);
+			$id = $usuario->id;
+			
+			
+		} catch (Exception $e) {
+			DB::rollback();
+			return $e->errorInfo[2];
+		}
+
+		DB::commit();
+		return [
+			'id' => $usuario->id, 
+			'texto' => $usuario->nombre, 
+			's' => 's', 
+			'msj' => trans('controller.incluir')
+		];
 	}
 }

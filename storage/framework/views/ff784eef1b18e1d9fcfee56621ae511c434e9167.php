@@ -106,11 +106,6 @@
 								</li>
 								<li class="divider"> </li>
 								<li>
-									<a href="<?php echo e(url(Config::get('admin.prefix').'/login/bloquear')); ?>">
-										<i class="icon-lock"></i> Bloquear Pantalla
-									</a>
-								</li>
-								<li>
 									<a href="<?php echo e(url(Config::get('admin.prefix').'/login/salir')); ?>">
 										<i class="icon-logout"></i> Salir
 									</a>

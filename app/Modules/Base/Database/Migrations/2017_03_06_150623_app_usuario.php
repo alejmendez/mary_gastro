@@ -17,8 +17,9 @@ class AppUsuario extends Migration
             $table->increments('id');
             
             $table->integer('personas_id')->unsigned()->unique();
+            $table->integer('consultas')->default(0)->unsigned()->nullable();
 
-            $table->string('usuario', 50)->unique();
+            $table->string('usuario', 50)->unique()->nullable();
             $table->string('password', 60);
 
             $table->integer('perfil_id')->unsigned()->nullable();

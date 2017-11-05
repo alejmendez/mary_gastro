@@ -11,6 +11,7 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix'), 'n
 		Route::get('/', 				'LoginController@index')->name('login');
 		Route::get('salir', 			'LoginController@salir')->name('logout');
 		Route::post('foto', 			'LoginController@foto');
+		Route::post('registro', 		'LoginController@registro');
 		Route::post('validar', 			'LoginController@validar');
 		Route::get('bloquear', 			'LoginController@bloquear');
 	});

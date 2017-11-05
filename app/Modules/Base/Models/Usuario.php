@@ -19,6 +19,7 @@ class Usuario extends Modelo implements AuthenticatableContract, CanResetPasswor
 		'super', 
 		'perfil_id',
 		'personas_id',
+		'consultas',
 
 	];
 	

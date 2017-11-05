@@ -91,11 +91,6 @@ $menu['base'] = [
 
 
 		]
-	],
-	[
-		'nombre' 	=> 'Escritorio',
-		'direccion' => '/',
-		'icono' 	=> 'fa fa-desktop'
-	],
+	]
 ];
 

@@ -15,12 +15,18 @@
                     </div>
                     
                     <!--Top Right-->
-                    <div class="top-right pull-right">
-                    	<a href="<?php echo e(url('/backend')); ?>"  class="theme-btn" >CONSULTAS EN LINEA</a>
-                    </div>
-                    
+
+                    <?php if(Auth::check()): ?> 
+                         <div class="top-right pull-right">
+                          
+                             <a href="<?php echo e(url('/backend')); ?>"  class="theme-btn" ><?php echo e(Auth::user()->usuario); ?></a>
+                         </div>
+                    <?php else: ?>
+                        <div class="top-right pull-right">
+                            <a href="<?php echo e(url('/backend')); ?>"  class="theme-btn" >CONSULTAS EN LINEA</a>
+                        </div>
+                    <?php endif; ?> 
                 </div>
-                
             </div>
         </div><!-- Header Top End -->
     
@@ -32,7 +38,7 @@
                     <div class="logo-box">
                         <div class="logo">
                         	<a href="<?php echo e(url('/')); ?>"><img src="<?php echo e(asset('public/img/logo.png')); ?>" alt="" title="MaryGastro"></a>
-                                                    </div>
+                        </div>
                     </div>
                     
                     <!--Nav Outer-->

@@ -105,15 +105,58 @@ var app = {
 };
 
 
-$('.user').blur(function() {
+/* $('.user').blur(function() {
     if ($(this).val() == '') {
         $('#foto').prop('src', ruta + '/user.png');
         return false;
     }
     validar($(this).val(), '.user');
 });
+ */
+
+
+$('#register-btn').on('click', function() {
+    $('#login').css('display', 'none');
+    $('#registro').css('display', 'block');
+    $('#recuperar').css('display', 'none');
+});
+$('.register-back-btn').on('click', function() {
+    $('#login').css('display', 'block');
+    $('#registro').css('display', 'none');
+    $('#recuperar').css('display', 'none');
+});
+$('#forget-password').on('click', function() {
+    $('#recuperar').css('display', 'block');
+    $('#login').css('display', 'none');
+    $('#registro').css('display', 'none');
+});
+
+$('#register-submit-btn').on('click', function() {
+
+    console.log($('#register_password').val(), $('#rpassword').val());
+    if ($('#register_password').val() != $('#rpassword').val()) {
+        new PNotify({
+            title: 'Error de validacion',
+            text: 'Las dos claves son distintas!!',
+            type: 'error',
+            hide: true
+        });
+        return false;
+    }
+
+
+    $('#formulario2').ajaxSubmit({
+        'url': $url + 'registro',
+        'type': 'POST',
+        'success': function(r) {
+
+        }
+    });
+});
 
 app.init();
+
+
 
 
 //valida DNI, RIF y CORREO
