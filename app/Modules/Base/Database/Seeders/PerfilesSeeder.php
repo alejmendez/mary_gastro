@@ -24,6 +24,7 @@ class PerfilesSeeder extends Seeder
             'Secretaria',
             'Administracion',
             'Contador',
+            'Ususarios',
         ];
 
         foreach ($perfiles as $perfil) {

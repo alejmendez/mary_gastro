@@ -6,16 +6,17 @@ use marygastro\Http\Requests\Request;
 
 class UsuariosRequest extends Request {
 	protected $reglasArr = [
-		'usuario'        => ['required', 'usuario', 'min:3', 'max:50', 'unique:app_usuario,usuario'],
+		'usuario'        => ['required', 'unique:app_usuario,usuario'],
 		'password'       => ['required', 'password', 'min:8', 'max:50'],
 		'dni'            => ['required', 'integer', 'unique:personas,dni'],
-		'nombres'         => ['required', 'nombre', 'min:3', 'max:50'],
+		'nombres'        => ['required', 'nombre', 'min:3', 'max:50'],
 		'correo'         => ['max:50', 'unique:personas_correo,correo'],
 		'telefono'       => ['telefono', 'min:3', 'max:15'],
 		//'foto'           => ['mimes:jpeg,png,jpg'],
 		'perfil_id'	     => ['required', 'integer'],
 		//'autenticacion'  => ['required'],
-		'super'          => ['required'],
+		//'super'          => ['required'],
+		'consultas'      => ['required'],
 	
 	
 	];

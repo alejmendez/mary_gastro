@@ -7,6 +7,9 @@ use Yajra\Datatables\Datatables;
 use Illuminate\Routing\Controller as BaseController;
 
 use marygastro\Modules\Base\Models\Configuracion;
+use marygastro\Modules\Base\Models\Notificaciones;
+use marygastro\Modules\Base\Models\Usuario;
+
 
 abstract class Controller extends BaseController {
 	protected $titulo = 'Backend';
@@ -211,5 +214,62 @@ abstract class Controller extends BaseController {
         }
 
         return true;
+	}
+	
+	public function notificacion($tipo,$usuario,$enviado,$mensaje,$operacion_id = '')
+    {
+    	/*
+			$tipo = tipo de Notificacion
+			$usuario = el id del user adonde va...
+			$mensaje = el id del menseaje...
+			$enviado = usuario quien mando la solicitud
+			
+			usuario_id
+			enviado_id
+			mensaje_id
+			visto
+			tipo_notificacion_id
+    	*/
+
+		DB::beginTransaction();
+		try{
+			Notificaciones::create([
+				'tipo_notificacion_id'  => intval($tipo),
+				'usuario_id' 			=> intval($usuario),
+				'enviado_id' 			=> intval($enviado),
+				'mensaje_id' 			=> intval($mensaje),
+				'operacion_id'  		=> intval($operacion_id)
+			]);
+		}catch(\Exception $e){
+			DB::rollback();
+			dd($e);
+			abort(500, $e->getMessage());
+			return $e->errorInfo[2];	
+		}
+
+		DB::commit();
+
+		return ['s' => 's'];
+    }
+
+    public function vernotificaciones()
+    {
+    	$usuario = auth()->user();
+    	$notificaciones = array();
+    	$nuevas = 0;
+    	if ($usuario) {
+	    	$notificaciones = Notificaciones::where('usuario_id', $usuario->id)
+		    	->orderby('created_at','DESC')
+		    	->take(10)
+				->get();
+				
+
+	    	$nuevas = Notificaciones::where('usuario_id', $usuario->id)
+	    	 	->where('visto', 0)
+	    	 	->count();
+    	}
+
+
+    	return ['notificaciones' => $notificaciones, 'contador' => $nuevas];
     }
 }

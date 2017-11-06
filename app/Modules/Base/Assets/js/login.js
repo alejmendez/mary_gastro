@@ -150,6 +150,16 @@ $('#register-submit-btn').on('click', function() {
         'type': 'POST',
         'success': function(r) {
 
+            if(r.s == 's'){
+                new PNotify({
+                    title: 'success',
+                    text: r.msj,
+                    type: 'success',
+                    hide: true
+                });
+
+                location.reload();
+            }
         }
     });
 });

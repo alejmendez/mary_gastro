@@ -294,7 +294,7 @@ class GeneradorController extends Controller {
         return;
     }
 
-    protected function route(){
+    protected function route(){ 
         $gestor = Storage::disk('modules');
         $archivo = $this->modulo . '/Http/routes.php';
 
@@ -316,7 +316,7 @@ class GeneradorController extends Controller {
             if (strpos($linea, '//{{route}}') !== false && !$insercion){
                 $insercion = true;
                 $linea = "
-    Route::group(['prefix' => '$this->tabla'], function() {
+        Route::group(['prefix' => '$this->tabla'], function() {
         Route::get('/',                 '$class@index');
         Route::get('nuevo',             '$class@nuevo');
         Route::get('cambiar/{id}',      '$class@cambiar');
@@ -331,7 +331,7 @@ class GeneradorController extends Controller {
         Route::delete('destruir/{id}',  '$class@destruir');
 
         Route::get('datatable',         '$class@datatable');
-    });\n\n" . $linea;
+     });\n\n" . $linea;
             }
             $contenido .= $linea . "\n";
         }

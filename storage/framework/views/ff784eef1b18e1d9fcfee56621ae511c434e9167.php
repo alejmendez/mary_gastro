@@ -1,4 +1,10 @@
-	<div class="page-header">
+	<?php 
+		$_notificaciones = $controller->vernotificaciones();
+		$notificaciones = $_notificaciones['notificaciones'];
+		
+	?>
+    
+    <div class="page-header">
 		<!-- BEGIN HEADER TOP -->
 		<div class="page-header-top">
 			<div class="container-fluid">
@@ -17,77 +23,53 @@
 					<ul class="nav navbar-nav pull-right">
 						<!-- BEGIN USER LOGIN DROPDOWN -->
 						<li class="dropdown dropdown-extended dropdown-inbox dropdown-dark" id="header_inbox_bar">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <span class="circle">3</span>
-                                <span class="corner"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="external">
-                                    <h3>You have
-                                        <strong>7 New</strong> Messages</h3>
-                                    <a href="app_inbox.html">view all</a>
-                                </li>
-                                <li>
-                                    <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
-                                        <li>
-                                            <a href="#">
-                                                <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                        <span class="from"> Lisa Wong </span>
-                                                <span class="time">Just Now </span>
-                                                </span>
-                                                <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                        <span class="from"> Richard Doe </span>
-                                                <span class="time">16 mins </span>
-                                                </span>
-                                                <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                        <span class="from"> Bob Nilson </span>
-                                                <span class="time">2 hrs </span>
-                                                </span>
-                                                <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                        <span class="from"> Lisa Wong </span>
-                                                <span class="time">40 mins </span>
-                                                </span>
-                                                <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
-                                                <span class="subject">
-                                                        <span class="from"> Richard Doe </span>
-                                                <span class="time">46 mins </span>
-                                                </span>
-                                                <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+	                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+	                            <span class="circle"><?php echo e($_notificaciones['contador']); ?></span>
+	                            <span class="corner"></span>
+	                        </a>
+	                        <ul class="dropdown-menu">
+	                            <li class="external">
+	                                <h3>Tienes <strong><?php echo e($_notificaciones['contador']); ?> Nuevas</strong> Notificaciones</h3>
+	                               	
+	                            </li>
+	                            <li>
+	                                <ul class="dropdown-menu-list scroller" style="height: 400px; overflow:auto;" data-handle-color="#637283">
+
+	                                	<?php $__currentLoopData = $notificaciones; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notificacion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+		                                	<li>
+												<?php if($notificacion->operacion_id != null): ?>
+												   <a data-id = "<?php echo e($notificacion->id); ?>" class="notifi" href="<?php echo e(url(Config::get('admin.prefix').'/'.$notificacion->TipoNotificacion->ruta.'/'.$notificacion->operacion_id)); ?> ">  
+												
+												<?php else: ?>
+													<a data-id = "<?php echo e($notificacion->id); ?>" class="notifi" href="<?php echo e(url(Config::get('admin.prefix').'/'.$notificacion->TipoNotificacion->ruta)); ?> ">  
+												
+												<?php endif; ?>
+													<span class="photo">
+														
+															<img alt="" class="img-circle" src="<?php echo e(url('img/usuarios/40x40/user.png')); ?>">
+													</span>
+													<?php if($notificacion->visto == 0): ?>
+														<span class="subject">
+															<span class="from"><u><b><?php echo e($notificacion->enviado()); ?></b></u></span>
+															<span class="time"></span>
+														</span>
+															<span class="message"><b><?php echo e($notificacion->mensaje->mensaje); ?></b></span>
+													<?php else: ?>
+														<span class="subject">
+															<span class="from"><?php echo e($notificacion->enviado()); ?></span>
+															<span class="time"></span>
+														</span>
+															<span class="message"><?php echo e($notificacion->mensaje->mensaje); ?></span>
+													<?php endif; ?>  
+												</a>
+		                                    </li>
+	                                	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                  
+	                                </ul>
+	                            </li>
+	                        </ul>
+	                    </li>
+    
 						<li class="dropdown dropdown-user dropdown-dark">
 							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 								<?php if(is_file('public/img/usuarios/' . $usuario->personas->foto)): ?>

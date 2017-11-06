@@ -8,13 +8,13 @@ use Yajra\Datatables\Datatables;
 
 //Controlador Padre
 use marygastro\Modules\Incidencias\Http\Controllers\Controller;
-
+ 
 //Request
 use marygastro\Http\Requests\Request;
 
 
 //Modelos
-
+use marygastro\Modules\Base\Models\Usuario;
 
 class EscritorioUsuariosController extends Controller {
 	protected $titulo = 'Escritorio';
@@ -29,7 +29,9 @@ class EscritorioUsuariosController extends Controller {
 	];
 
 	public function index() {	
-		return $this->view('incidencias::escritoriousuarios');
+		return $this->view('incidencias::escritoriousuarios',[
+			'consultas' => Usuario::find(\Auth::user()->id)->consultas,
+		]);
     }
     
 

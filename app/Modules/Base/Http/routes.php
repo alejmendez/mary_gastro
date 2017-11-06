@@ -2,6 +2,7 @@
 
 Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix'), 'namespace' => 'marygastro\\Modules\Base\Http\Controllers'], function() {
     Route::get('/', 'EscritorioController@getIndex');
+    Route::post('/notificaciones/ver', 'NotificacionesController@guardar');
 	 
 	/**
 	 * Login

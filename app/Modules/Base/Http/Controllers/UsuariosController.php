@@ -140,8 +140,18 @@ class UsuariosController extends Controller {
 				$usuario = Usuario::create($data);
 				$id = $usuario->id;
 			}else{
+				$usuario = Usuario::find($id);
+				
+				if(intval($data['consultas']) > $usuario->consultas){
+				
+					//notificacion($tipo,$usuario,$enviado,$mensaje,$operacion_id = '')
+					/*$tipo = tipo de Notificacion
+					$usuario = el id del user adonde va...
+					$mensaje = el id del menseaje...
+					$enviado = usuario quien mando la solicitud */
+					$this->notificacion(1, $id, \Auth::user()->id, 1, '');
+				}
 				$usuario = Usuario::find($id)->update($data);
-
 				$usuario = Usuario::find($id);
 				Personas::find($usuario->personas_id)->update($data);
 			}

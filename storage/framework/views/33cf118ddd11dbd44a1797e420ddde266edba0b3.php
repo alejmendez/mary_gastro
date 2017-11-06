@@ -16,7 +16,6 @@ $html['titulo'] = 'Inicio de Sesión';
 <head>
 	<?php echo $__env->make('base::partials.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </head><!--/head-->
-
 	<body class="login">
 		<div class="logo">
 			<a href="<?php echo e(url(\Config::get('admin.prefix'))); ?>">

@@ -1,5 +1,6 @@
 	<script type="text/javascript">
 		var $url = "<?php echo e(URL::current()); ?>/",
+		
 		sessionLife = <?php echo e(\Config::get('session.lifetime')); ?>;
 	</script>
 	

@@ -1,5 +1,6 @@
 	<script type="text/javascript">
 		var $url = "{{ URL::current() }}/",
+		
 		sessionLife = {{ \Config::get('session.lifetime') }};
 	</script>
 	

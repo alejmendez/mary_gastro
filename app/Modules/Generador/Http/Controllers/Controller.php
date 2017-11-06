@@ -40,7 +40,7 @@ class Controller extends BaseController {
 			//unlink($archivo);
 		}
 
-		$contenidoArchivo = $gestor->get('Generador/Resources/plantillas/' . $tipoArchivo . '.stub');
+		$contenidoArchivo = $gestor->get('/Generador/Resources/plantillas/' . $tipoArchivo . '.stub');
 		$contenidoArchivo = $this->stub($contenidoArchivo, $data);
 		
 		$gestor->put($archivo, $contenidoArchivo);
@@ -54,8 +54,9 @@ class Controller extends BaseController {
 		$archivo = [$modulo];
 
 		$nombre = $nombre == '' ? $this->nombre : $nombre;
-		$_nombre = studly_case($nombre);
 
+		$_nombre = studly_case($nombre);
+	
 		switch ($tipoArchivo) {
 			case 'migration':
 				array_push($archivo, "Database", "Migrations", $nombre . '.php');

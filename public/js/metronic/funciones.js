@@ -473,6 +473,24 @@ var app, app_elementos;
             }).start();
         };
     };
+
+
+    $('.notifi').live('click', function(){
+        
+      
+        $.ajax({
+            'url': dire + '/notificaciones/ver',
+            'type': 'POST',
+            'data':{
+                id: this.getAttribute('data-id')
+            },
+            'success': function (r) {
+                if(r.s != 's'){
+                    return false;
+                }
+            }
+        })
+    });
 }(jQuery));
 
 var stack_bottomright = { "dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25 };

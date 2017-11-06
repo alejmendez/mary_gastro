@@ -79,6 +79,12 @@
 								'label' => 'Perfil',
 								'required' => 'required'
 							]) }}
+							
+							{{ Form::bsNumber('consultas', '', [
+								'label' => 'Consultas',
+								'placeholder' => 'Login del Consultas',
+								'required' => 'required'
+							]) }}
 
 							@if ($usuario->super === 's')
 								{{ Form::bsSelect('super', [
@@ -89,15 +95,14 @@
 									'label' => '&iquest;Es Super Usuario?',
 									'required' => 'required'
 								]) }}
+
+								<div class="form-group col-xs-12">
+									<label for="arbol">Permisos:</label>
+									<input id="input_buscar" name="input_buscar" class="form-control" type="text" placeholder="Buscar" value="" /><br />
+									<div id="arbol"></div>
+								</div>
 							@endif
 
-							
-				     
-							<div class="form-group col-xs-12">
-								<label for="arbol">Permisos:</label>
-								<input id="input_buscar" name="input_buscar" class="form-control" type="text" placeholder="Buscar" value="" /><br />
-								<div id="arbol"></div>
-							</div>
 						</div>
 					</div>
 					<div class="tab-pane" id="tab_1">

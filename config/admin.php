@@ -5,7 +5,7 @@ return [
 	'prefix'          => 'backend',
 	'libreriaEntorno' => 'interna', //interna, externa
 	'grupos_apps'     => [
-		'base'        => ['base','noticias', 'incidencias'],
+		'base'        => ['base','noticias', 'Incidencias'],
 	],
 	'librerias' => [
 		'externa' => [
@@ -138,6 +138,11 @@ return [
 				],
 				'js' => [
 					'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js'
+				]
+			],
+			'maskMoney' => [
+				'js' => [
+					'jquery.maskMoney.js',
 				]
 			],
 			'bootstrap-fileinput' => [
@@ -493,6 +498,11 @@ return [
 					'metronic/init_plantilla.js',
 					'metronic/init.js',
 					'metronic/funciones.js'
+				]
+			],
+			'maskMoney' => [
+				'js' => [
+					'jquery.maskMoney.js',
 				]
 			],
 			'ie' => [
