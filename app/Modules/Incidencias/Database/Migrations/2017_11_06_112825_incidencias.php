@@ -19,6 +19,7 @@ class Incidencias extends Migration
             $table->integer('estatus')->default(0);//pendiente
             $table->string('caso', 100);
             $table->text('descripcion');
+            $table->date('cierre')->nullable();
         
             $table->timestamps();
             $table->softDeletes();

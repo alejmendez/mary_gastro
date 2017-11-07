@@ -41,6 +41,10 @@ class Personas extends modelo
     {
         return $this->hasMany('marygastro\Modules\Base\Models\Usuario', 'personas_id');
     }
+    public function chats()
+    {
+        return $this->hasMany('marygastro\Modules\Incidencias\Models\IncidenciasChat', 'personas_id');
+    }
 
     public function tipo_persona()
     {

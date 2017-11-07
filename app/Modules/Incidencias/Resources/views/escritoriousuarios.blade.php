@@ -43,7 +43,7 @@
 				<a href="#" class="list-group-item active"><center>Opciones</center></a>
 				<a href="{{ url('/') }}" class="list-group-item"><i class="fa fa-home" aria-hidden="true"></i> Ir ha Pagina web </a>
 		
-			{{--  	<a href="{{ url('/pagos/') }}" class="list-group-item "><i class="fa fa-usd" aria-hidden="true"></i> Registro de pagos</a>  --}}
+		    	<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias') }}" class="list-group-item "><i class="fa fa-plus" aria-hidden="true"></i> Nueva Consulta</a>
 
 				{{--  <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
 				

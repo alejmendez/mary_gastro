@@ -6,7 +6,38 @@
 
 @section('content')
 	
-<div class="main_section">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+			<div class="panel-group accordion" id="accordion3">
+		        <div class="panel panel-primary">
+		            <div class="panel-heading">
+		                <h4 class="panel-title">
+		                	<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1"><center><h3 class="panel-title"></h3></center> </a>
+		                </h4>
+		            </div>
+		            <div id="collapse_3_1" class="panel-collapse in">
+		                <div class="panel-body">
+		            		<center><table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
+								<thead>
+									<tr>
+										<td style="width: 10%; text-align: center;">Caso</td>
+										<td style="width: 90%; ">{{$incidencia->caso}}</td>	
+									</tr>
+									<tr>
+										<td style="width: 10%; text-align: center;">Descripcion</td>
+										<td style="width: 90%; ">{{$incidencia->descripcion}}</td>	
+									</tr>
+								</thead>
+							</table></center>
+		                </div>
+		            </div>
+		        </div>
+		    </div>	
+		</div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="main_section">
         <div class="chat_container">
             <div class="col-sm-1 col-md-1"></div>
             <!--chat_sidebar-->
@@ -19,42 +50,38 @@
                         </div>
                     </div>
                     <div class="chat_area">
-                        <ul class="list-unstyled">
-                            <li class="left clearfix">
-                            <span class="chat-img1 pull-left">
-                            <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
-                            </span>
-                            <div class="chat-body1 clearfix">
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
-                            <div class="chat_time pull-right">09:40PM</div>
-                            </div>
-                            </li>
-                            
-                
-                            <li class="left clearfix admin_chat">
-                            <span class="chat-img1 pull-right">
-                            <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
-                            </span>
-                            <div class="chat-body1 clearfix">
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</p>
-                            <div class="chat_time pull-left">09:40PM</div>
-                            </div>
-                            </li>
+                        <ul class="list-unstyled"  id="msj">
+
+                          
                         
                         </ul>
                     </div><!--chat_area-->
                     <div class="message_write">
-                        <textarea class="form-control" placeholder="type a message"></textarea>
+                        {!! Form::open(['id' => 'formulario', 'name' => 'formulario', 'method' => 'POST' ]) !!}
+
+                            <textarea class="form-control"  id="texto" placeholder="type a message" name="msj"></textarea>
                             <div class="clearfix"></div>
-                                <div class="chat_bottom"><a href="#" class="pull-left upload_btn"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                                 Add Files</a>
-                                <a href="#" class="pull-right btn btn-success">
-                                Send</a>
-                            </div>
-                        </div>
+                                <div class="chat_bottom">
+                                    <input id="upload" name="archivo"  class="pull-left  btn-file" type="file"/> 
+                                
+                                    <input type="hidden" name ="incidencia_id" value="{{$incidencia->id}}">
+                                    <button id="" type="submit" class=" pull-right btn blue tooltips" >
+                                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                        <span class="visible-lg-inline visible-md-inline">Enviar</span>
+                                    </button>
+                                </div>
+                            </div>   
+                        {!! Form::close() !!}   
                     </div>
                 </div> <!--message_section-->
             </div>
-             <div class="col-sm-1 col-md-1"></div>
-        </div>  
+            <div class="col-sm-1 col-md-1"></div>
+        </div> 
+    </div> 
 @endsection
+@push('js')
+	<script>
+		var $id   = "{{$incidencia->id}}";
+        var $foto = "{{ url('public/img/usuarios/') }}";
+	</script>
+@endpush

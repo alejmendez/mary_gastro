@@ -13,11 +13,29 @@ $menu['inicio'] = [
         'icono'     =>  'fa fa-home'
     ]
 ];
-$menu['buzon'] = [	
-    [
-        'nombre'    =>  'Buzon',
-        'direccion' =>  'incidencias/buzon',
-        'icono'     =>  'fa fa-envelope-o'
-    ]  
+$menu['incidencias'] = [
+	[
+		'nombre' 	=> 'Consultas',
+		'direccion' => '#Consultas',
+		'icono' 	=> 'fa fa-gear',
+		'menu' 		=> [
+			[
+				'nombre' 	=> 'Nueva Consulta',
+				'direccion' => 'incidencias/incidencias',
+				'icono' 	=> 'fa fa-plus'
+			],
+			[
+				'nombre' 	=> 'Perfiles',
+				'direccion' => 'perfiles',
+				'icono' 	=> 'fa fa-users'
+			],
+			[
+				'nombre' 	=> 'Configuracion',
+				'direccion' => 'configuracion',
+				'icono' 	=> 'fa fa-gear'
+			],
+		]
+	]
 ];
+
  ?>
