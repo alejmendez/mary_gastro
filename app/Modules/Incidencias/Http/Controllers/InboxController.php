@@ -23,10 +23,15 @@ use marygastro\Modules\Base\Models\Usuario;
 
 class InboxController extends Controller {
 	protected $titulo = 'Inbox';
-
+	public $autenticar = false;
 	public $js = ['inbox'];
 	public $css = ['inbox'];
 
+	public function __construct() {
+		parent::__construct();
+
+		$this->middleware('auth');
+	}
 	public $librerias = [
 		'alphanum', 
 		'maskedinput', 
@@ -36,7 +41,6 @@ class InboxController extends Controller {
 
 	public function index(Request $request, $id = 0) {
 			
-		
 		return $this->view('incidencias::inbox',[
 			'incidencia' => Incidencias::find($id)
 		]);
@@ -95,7 +99,21 @@ class InboxController extends Controller {
 				'msj'			 => $request->msj,
 				'archivo'        => $archivo
 			]);
+				//notificacion($tipo,$usuario,$enviado,$mensaje,$operacion_id = '')
+				/*$tipo = tipo de Notificacion
+				$usuario = el id del user adonde va...
+				$mensaje = el id del menseaje...
+				$enviado = usuario quien mando la solicitud */
 
+			$user = Incidencias::find($request->incidencia_id);
+			
+			if(\Auth::user()->id == $user->personas_id){
+				$id = 1;
+			}else{
+				$id = $user->personas_id;
+			}
+			
+			$this->notificacion(2, $id, \Auth::user()->id, 2, $request->incidencia_id);
         } catch(QueryException $e) {
             DB::rollback();
             return $e->getMessage();

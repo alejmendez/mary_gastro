@@ -46,7 +46,7 @@ class Permisologia {
 			return $this->ruta;
 		}
 
-		$this->ruta = \Route::current()->getUri();
+		$this->ruta = \Route::current()->uri();
 		$this->ruta = trim(preg_replace('/\{\w+\?\}/i', '', $this->ruta), '/');
 
 		return $this->ruta;
@@ -68,7 +68,7 @@ class Permisologia {
 		$ruta = preg_replace('/({.+})+/', '', $ruta);
 
 		$ruta = trim($ruta, '/');
-		
-		return $usuario_permisos->search($ruta);
+
+		return $usuario_permisos->search($ruta) !== false;
 	}
 }

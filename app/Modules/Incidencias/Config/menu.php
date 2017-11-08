@@ -1,16 +1,16 @@
 <?php
 $menu['escritorio'] = [	    
     [
-        'nombre'    =>  'Escritorio',
-        'direccion' =>  'incidencias/escritorios/tecnicos',
-        'icono'     =>  'fa fa-desktop'
+        'nombre'    => 'Escritorio',
+        'direccion' => 'incidencias/escritorios/tecnicos',
+        'icono'     => 'fa fa-desktop'
     ]
 ];
 $menu['inicio'] = [	
     [
         'nombre'    => 'Inicio',
-        'direccion' =>  'incidencias/inicio/usuarios',
-        'icono'     =>  'fa fa-home'
+        'direccion' => 'incidencias/inicio/usuarios',
+        'icono'     => 'fa fa-home'
     ]
 ];
 $menu['incidencias'] = [
@@ -37,5 +37,3 @@ $menu['incidencias'] = [
 		]
 	]
 ];
-
- ?>

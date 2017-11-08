@@ -242,7 +242,7 @@ abstract class Controller extends BaseController {
 			]);
 		}catch(\Exception $e){
 			DB::rollback();
-			dd($e);
+			
 			abort(500, $e->getMessage());
 			return $e->errorInfo[2];	
 		}

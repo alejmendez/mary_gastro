@@ -92,8 +92,8 @@ $html['titulo'] = 'Inicio de Sesión';
 						<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Repita su Contraseña"  id="rpassword" name="rpassword" /> </div>
 					
 					<div class="form-actions">
-						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline">Back</button>
-						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline">Atras</button>
+						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Registrar</button>
 					</div>
 				<?php echo Form::close(); ?>
 
@@ -110,8 +110,8 @@ $html['titulo'] = 'Inicio de Sesión';
 					</div>
 				
 					<div class="form-actions">
-						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline ">Back</button>
-						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
+						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline ">Atras</button>
+						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Registrar</button>
 					</div>
 				<?php echo Form::close(); ?>
 

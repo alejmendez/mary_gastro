@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="row">
+    <div class="row">
 		<div class="col-md-4">
 			<div class="dashboard-stat  green-jungle ">
 				<div class="visual">
