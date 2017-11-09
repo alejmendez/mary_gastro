@@ -124,6 +124,7 @@ function buscar_template($adonde, $persona_id, $template, $button, $div) {
 
     $.ajax({
         'url': $url + $adonde,
+
         'data': {
             'id': $persona_id
         },

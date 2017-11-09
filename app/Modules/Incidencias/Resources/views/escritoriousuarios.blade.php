@@ -28,10 +28,10 @@
 					<i class="fa fa-times-circle-o"></i>
 				</div>
 				<div class="details">
-					<div class="number">00</div>
-					<div class="desc"> Resultos </div>
+					<div class="number">{{$casos_resultos}}</div>
+					<div class="desc"> Resueltos </div>
 				</div>
-				<a class="more" href="javascript:;" data-tipo="3"> Total casos Resultos
+				<a class="more" href="javascript:;" data-tipo="3"> Total casos Resueltos
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>

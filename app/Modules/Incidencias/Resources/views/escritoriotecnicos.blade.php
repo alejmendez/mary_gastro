@@ -6,13 +6,13 @@
 
 @section('content')
     <div class="row">
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<div class="dashboard-stat  green-jungle ">
 				<div class="visual">
 					<i class="fa fa-check"></i>
 				</div>
 				<div class="details">
-					<div class="number">00</div>
+					<div class="number">{{$casos_resultos}}</div>
 					<div class="desc"> Casos resultos </div>
 				</div>
 				<a class="more" href="javascript:;" data-tipo="1"> Total casos resultos
@@ -20,30 +20,16 @@
 				</a>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<div class="dashboard-stat  yellow ">
 				<div class="visual">
 					<i class="fa fa-calendar-times-o"></i>
 				</div>
 				<div class="details">
-					<div class="number">00</div>
+					<div class="number">{{$incidencias_activas}}</div>
 					<div class="desc"> Casos Pendientes </div>
 				</div>
 				<a class="more" href="javascript:;" data-tipo="2"> Total Casos Pendientes
-					<i class="m-icon-swapright m-icon-white"></i>
-				</a>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="dashboard-stat  red-thunderbird ">
-				<div class="visual">
-					<i class="fa fa-times-circle-o"></i>
-				</div>
-				<div class="details">
-					<div class="number">00</div>
-					<div class="desc"> Solicitudes de Pagos </div>
-				</div>
-				<a class="more" href="javascript:;" data-tipo="3"> Total Solicitudes de Pagos
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
@@ -77,10 +63,11 @@
 		            		<center><table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
 								<thead>
 									<tr>
-										<th style="width: 25%; text-align: center;">Fecha de Inicio</th>
-										<th style="width: 25%; text-align: center;">Tipo de Consulta</th>
-										<th style="width: 25%; text-align: center;">Usuario</th>
-										<th style="width: 25%; text-align: center;">Estatus</th>
+										<th style="width: 20%; text-align: center;">Fecha de Inicio</th>
+										<th style="width: 20%; text-align: center;">Tipo de Consulta</th>
+										<th style="width: 20%; text-align: center;">N° cedula</th>
+										<th style="width: 20%; text-align: center;">Nombres</th>
+										<th style="width: 20%; text-align: center;">Estatus</th>
 										
 									</tr>
 								</thead>
@@ -103,11 +90,12 @@
 						<table id="tabla2" class="table table-striped table-hover table-bordered tables-text">
 							<thead>
 								<tr>
-									<th style="width: 10%; text-align: center;">Planilla</th>
-									<th style="width: 15%; text-align: center;">Fecha Cargado</th>
-									<th style="width: 15%; text-align: center;">Fecha Contrato</th>
-									<th style="width: 30%; text-align: center;">Titular</th>
-									<th style="width: 15%; text-align: center;">Sucursal</th>
+									<th style="width: 16.66%; text-align: center;">Fecha de Inicio</th>
+									<th style="width: 16.66%; text-align: center;">Tipo de Consulta</th>
+									<th style="width: 16.66%; text-align: center;">N° cedula</th>
+									<th style="width: 16.66%; text-align: center;">Nombres</th>
+									<th style="width: 16.66%; text-align: center;">Estatus</th>
+									<th style="width: 16.66%; text-align: center;">Cierre</th>
 								</tr>
 							</thead>
 						</table>

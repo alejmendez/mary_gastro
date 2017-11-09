@@ -20,7 +20,6 @@ use marygastro\Modules\Incidencias\Models\Incidencias;
 use marygastro\Modules\Incidencias\Models\IncidenciasChat;
 use marygastro\Modules\Base\Models\Usuario;
 
-
 class InboxController extends Controller {
 	protected $titulo = 'Inbox';
 	public $autenticar = false;
@@ -29,9 +28,9 @@ class InboxController extends Controller {
 
 	public function __construct() {
 		parent::__construct();
-
 		$this->middleware('auth');
 	}
+
 	public $librerias = [
 		'alphanum', 
 		'maskedinput', 
@@ -75,6 +74,7 @@ class InboxController extends Controller {
 		}
 		return $data_chat;
 	}
+
 	public function msj(Request $request) {
 
 		DB::beginTransaction();
@@ -108,12 +108,33 @@ class InboxController extends Controller {
 			$user = Incidencias::find($request->incidencia_id);
 			
 			if(\Auth::user()->id == $user->personas_id){
-				$id = 1;
+				$id = 2;
 			}else{
 				$id = $user->personas_id;
 			}
 			
 			$this->notificacion(2, $id, \Auth::user()->id, 2, $request->incidencia_id);
+        } catch(QueryException $e) {
+            DB::rollback();
+            return $e->getMessage();
+        } catch(Exception $e) {
+            DB::rollback();
+            return $e->errorInfo[2];
+        }
+        DB::commit();
+
+        return [
+            's'     => 's',
+            'msj'   => trans('controller.incluir')
+        ];
+	}
+
+	public function cierre(Request $request){
+		DB::beginTransaction();
+        try{
+			$incidencias = Incidencias::where('id', $request->id)->update([
+				'cierre' => Carbon::now()
+			]);
         } catch(QueryException $e) {
             DB::rollback();
             return $e->getMessage();

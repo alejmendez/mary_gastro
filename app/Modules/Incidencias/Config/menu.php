@@ -23,17 +23,7 @@ $menu['incidencias'] = [
 				'nombre' 	=> 'Nueva Consulta',
 				'direccion' => 'incidencias/incidencias',
 				'icono' 	=> 'fa fa-plus'
-			],
-			[
-				'nombre' 	=> 'Perfiles',
-				'direccion' => 'perfiles',
-				'icono' 	=> 'fa fa-users'
-			],
-			[
-				'nombre' 	=> 'Configuracion',
-				'direccion' => 'configuracion',
-				'icono' 	=> 'fa fa-gear'
-			],
+			]
 		]
 	]
 ];

@@ -29,7 +29,15 @@
 										<td style="width: 90%; ">{{$incidencia->descripcion}}</td>	
 									</tr>
 								</thead>
-							</table></center>
+							</table>
+                            @if(\Auth::user()->perfil_id == '2' and   $incidencia->cierre == null)
+                                
+                                <button id="cerrar" type="button" class="btn red tooltips" >
+                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                    <span class="visible-lg-inline visible-md-inline">Cerrar Caso</span>
+                                </button>
+                            @endif
+                            </center>
 		                </div>
 		            </div>
 		        </div>
@@ -56,23 +64,26 @@
                         
                         </ul>
                     </div><!--chat_area-->
-                    <div class="message_write">
-                        {!! Form::open(['id' => 'formulario', 'name' => 'formulario', 'method' => 'POST' ]) !!}
 
-                            <textarea class="form-control"  id="texto" placeholder="type a message" name="msj"></textarea>
-                            <div class="clearfix"></div>
-                                <div class="chat_bottom">
-                                    <input id="upload" name="archivo"  class="pull-left  btn-file" type="file"/> 
-                                
-                                    <input type="hidden" name ="incidencia_id" value="{{$incidencia->id}}">
-                                    <button id="" type="submit" class=" pull-right btn blue tooltips" >
-                                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                                        <span class="visible-lg-inline visible-md-inline">Enviar</span>
-                                    </button>
-                                </div>
-                            </div>   
-                        {!! Form::close() !!}   
-                    </div>
+                    @if($incidencia->cierre == null)
+                        <div class="message_write">
+                            {!! Form::open(['id' => 'formulario', 'name' => 'formulario', 'method' => 'POST' ]) !!}
+
+                                <textarea class="form-control"  id="texto" placeholder="type a message" name="msj"></textarea>
+                                <div class="clearfix"></div>
+                                    <div class="chat_bottom">
+                                        <input id="upload" name="archivo"  class="pull-left  btn-file" type="file"/> 
+                                        
+                                        <input type="hidden" name ="incidencia_id" value="{{$incidencia->id}}">
+                                        <button id="" type="submit" class=" pull-right btn blue tooltips" >
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                            <span class="visible-lg-inline visible-md-inline">Enviar</span>
+                                        </button>
+                                    </div>
+                                </div>   
+                            {!! Form::close() !!}   
+                        </div>
+                    @endif
                 </div> <!--message_section-->
             </div>
             <div class="col-sm-1 col-md-1"></div>

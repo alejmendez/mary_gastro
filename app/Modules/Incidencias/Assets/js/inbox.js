@@ -21,6 +21,19 @@ $(function() {
         return false;
     });
 
+    $('#cerrar').on('click', function() {
+        $.ajax({
+            'url': dire + '/incidencias/inbox/inbox/cierre',
+            'method': 'POST',
+            'data': {
+                'id': $id
+            },
+            'success': function(r) {
+                location.reload();
+            }
+        });
+    });
+
     setInterval('chats($id)', 2000);
 });
 

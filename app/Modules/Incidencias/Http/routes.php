@@ -6,6 +6,8 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix').'/i
        
     Route::group(['prefix' => 'escritorios/tecnicos'], function() {
         Route::get('/', 	'EscritorioTecnicosController@index');
+        Route::get('/activas', 	'EscritorioTecnicosController@activas');
+        Route::get('/cerrados', 	'EscritorioTecnicosController@cerrados');
     });
 		
     
@@ -19,9 +21,10 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix').'/i
         Route::post('/guardar', 	'IncidenciasController@guardar');
     });
     Route::group(['prefix' => 'inbox'], function() {
-        Route::get('inbox/{id}', 	'InboxController@index');
+        Route::get('inbox/{id}', 	    'InboxController@index');
         Route::post('inbox/chats', 	    'InboxController@chats');
         Route::post('inbox/msj', 	    'InboxController@msj');
+        Route::post('inbox/cierre', 	'InboxController@cierre');
     });
         
 	

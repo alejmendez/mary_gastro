@@ -30,8 +30,10 @@ class EscritorioUsuariosController extends Controller {
 	];
 
 	public function index() {	
+		$casos_resultos = Incidencias::where('cierre', '!=','')->count();
 		return $this->view('incidencias::escritoriousuarios',[
 			'consultas' => Usuario::find(\Auth::user()->id)->consultas,
+			'casos_resultos' => $casos_resultos
 		]);
 	}
 	
@@ -61,10 +63,7 @@ class EscritorioUsuariosController extends Controller {
 					   return "En respera de respuesta";
 					   break;
 				   case 1:
-					   return "Activo";
-					   break;
-				   case 2:
-					   return "Caso Resulto";
+					   return "Caso Resultos";
 					   break;
 				   
 				   default:
