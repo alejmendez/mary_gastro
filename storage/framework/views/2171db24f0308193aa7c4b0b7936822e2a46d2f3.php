@@ -65,7 +65,7 @@
                                     </li>
                                     <li id="menu-item-232" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-232"><a title="Descubre sobre mis artículos" href="<?php echo e(url('blog')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Blog</a>
                                     </li>
-                                    <li id="menu-item-423" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-423"><a title="Realiza una consulta en línea" href="<?php echo e(url('consulta')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Citas</a>
+
                                     </li>
                                     <li id="menu-item-292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a title="¿Tienes alguna sugerencia?" href="<?php echo e(url('contacto')); ?>" data-scroll data-options="easing: easeOutQuart">Contacto</a></li>
                                                                 

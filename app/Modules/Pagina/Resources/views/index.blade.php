@@ -443,39 +443,14 @@
                                     <input type="hidden" name="_wpnonce" value="433c8fd4b8" />
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                                    
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="form-group">
-                                            <span class="wpcf7-form-control-wrap text-452">
-                                                <input type="text" name="text-452" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Nombre" />
-                                            </span>
-                                        </div>
-                                        <div class="form-group">
-                                            <span class="wpcf7-form-control-wrap text-453">
-                                                <input type="text" name="text-453" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Apellido" />
-                                            </span>
-                                        </div>
-                                        <div class="form-group">
-                                            <span class="wpcf7-form-control-wrap email-488">
-                                                <input type="email" name="email-488" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="E-mail" />
-                                            </span>
-                                        </div>
-                                        <div class="form-group">
-                                            <span class="wpcf7-form-control-wrap text-454">
-                                                <input type="text" name="text-454" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Teléfono" />
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <span class="wpcf7-form-control-wrap textarea-356">
-                                                <textarea name="textarea-356" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Su mensaje"></textarea>
-                                            </span>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit theme-btn btn-style-one" />
+                                           <center>  <a href="{{ url('/backend') }}"  class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 wpcf7-form-control wpcf7-submit theme-btn btn-style-one" >CONSULTAS EN LINEA</a></center>
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <div class="wpcf7-response-output wpcf7-display-none"></div>
                             </form>
                         </div>

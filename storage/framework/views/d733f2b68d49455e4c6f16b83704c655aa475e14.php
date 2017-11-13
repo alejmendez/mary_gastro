@@ -13,7 +13,7 @@
                      <div class="widget-content">
                         <div class="text">Médico  CUMLAUDE, Pediatra Puericultor<br>
                         Especialista en Gastroenterología Pediátrica.</div>
-                        <a href="<?php echo e(url('consulta')); ?>" class="theme-btn btn-style-four">Consulta Online</a>
+                        <a href="<?php echo e(url('/backend')); ?>" class="theme-btn btn-style-four">Consulta Online</a>
                      </div>
                   </div>
                </div>
@@ -36,7 +36,7 @@
                               </div>
                               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                  <ul class="list">
-                                    <li><a href="<?php echo e(url('consulta')); ?>">Citas</a></li>
+                                    <li><a href="<?php echo e(url('/backend')); ?>">Citas</a></li>
                                     <li><a href="<?php echo e(url('https://www.instagram.com/mary_gastro/')); ?>">Instagram</a></li>
                                     <li><a href="<?php echo e(url('')); ?>">Tips MaryGastro</a></li>
                                     <li><a href="<?php echo e(url('contacto')); ?>">Contacto</a></li>
