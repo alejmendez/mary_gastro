@@ -20,6 +20,11 @@ $menu['noticias'] = [
                 'nombre'    =>  'Categorias',
                 'direccion' =>  'Noticias/definiciones/categorias',
                 'icono'     =>  'fa fa-pencil-square-o'
+            ],
+            [
+                'nombre'    =>  'Tips',
+                'direccion' =>  'Noticias/tips',
+                'icono'     =>  'fa fa-pencil-square-o'
             ]
         ]
 	]

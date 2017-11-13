@@ -43,6 +43,22 @@ Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/
 		Route::post('cambio', 			'EtiquetasController@cambio');
 		Route::get('datatable', 		'EtiquetasController@datatable');
 	});
+    Route::group(['prefix' => 'tips'], function() {
+		Route::get('/', 				'TipsController@index');
+		Route::get('buscar/{id}', 		'TipsController@buscar');
+		Route::get('nuevo', 		    'TipsController@nuevo');
+
+		Route::get('cambiar/{id}', 		'TipsController@cambiar');
+		Route::post('guardar',			'TipsController@guardar');
+		Route::put('guardar/{id}', 		'TipsController@guardar');
+
+		Route::delete('eliminar/{id}', 	'TipsController@eliminar');
+		Route::post('restaurar/{id}', 	'TipsController@restaurar');
+		Route::delete('destruir/{id}', 	'TipsController@destruir');
+
+		Route::post('cambio', 			'TipsController@cambio');
+		Route::get('datatable', 		'TipsController@datatable');
+	});
 });
 
 Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/publicar', 'namespace' => 'App\\Modules\Noticias\Http\Controllers'], function()

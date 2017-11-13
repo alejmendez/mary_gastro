@@ -14,7 +14,7 @@ class Notificaciones extends Modelo
     protected $fillable = ["usuario_id","enviado_id","mensaje_id","visto","tipo_notificacion_id","operacion_id","created_at"];
     protected $campos = [];
 
-  /*   public static function boot(){
+   /* public static function boot(){
         parent::boot();
 
         static::created(function($model) {
@@ -33,7 +33,7 @@ class Notificaciones extends Modelo
             $model->historico('creado', $model->id);
             return true;
         });
-    } */
+    }  */
 
     public function usuario()
     {
