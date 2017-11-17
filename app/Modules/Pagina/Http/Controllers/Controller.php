@@ -66,6 +66,10 @@ class Controller extends BaseController
 	public function index(Request $request)
 	{
 
+
+		return $this->view('pagina::contador');
+
+
 		$noticias = Noticias::select([
 			'noticias.id',
 			'noticias.titulo',
