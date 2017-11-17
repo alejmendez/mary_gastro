@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="{{url('App/Modules/Pagina/Assets/css/stylescsoom.css')}}">
+    <link rel="stylesheet" href="{{url('app/Modules/Pagina/Assets/css/stylescsoom.css')}}">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <!--[if lt IE 9]>
@@ -58,23 +58,23 @@
                             <div class="clock-countdown">
                                 <div class="site-config" data-date="12/01/2018 00:00:00" data-date-timezone="+0"></div>
                                 <div class="coundown-timer">
-                                    <div class="single-counter"><span class="days">00</span><span class="normal">Days</span></div>
-                                    <div class="single-counter"><span class="hours">00</span><span class="normal">Hours</span></div>
-                                    <div class="single-counter"><span class="minutes">00</span><span class="normal">Minutes</span></div>
-                                    <div class="single-counter"><span class="seconds">00</span><span class="normal">Seconds</span></div>
+                                    <div class="single-counter"><span class="days">00</span><span class="normal">Dias</span></div>
+                                    <div class="single-counter"><span class="hours">00</span><span class="normal">Horas</span></div>
+                                    <div class="single-counter"><span class="minutes">00</span><span class="normal">Minutos</span></div>
+                                    <div class="single-counter"><span class="seconds">00</span><span class="normal">Segundos</span></div>
                                 </div>
                             </div>
-                            <h3>Our Website</h3>
-                            <h1 class="visible-xs">Coming Soon</h1>
+                            <h3>Nuestra página web</h3>
+                            <h1 class="visible-xs">Próximamente</h1>
                             <h1 class="hidden-xs cd-headline clip is-full-width">
                                 <!--<span class="hero-text">Coming</span>-->
                                 <span class="cd-words-wrapper">
-                                    <b class="is-visible">Coming Soon</b>
-                                    <b>Subscribe To</b>
-                                    <b>Get Updates</b>
+                                    <b class="is-visible">Próximamente</b>
+                                    <b>Suscribirse a</b>
+                                    <b>Obtener actualizaciones</b>
                                 </span>
                             </h1>
-                            <div class="subscriber-form">
+                            {{--  <div class="subscriber-form">
                                 <!-- <form action="#">
                                     <input type="email" name="email" id="email" placeholder="Enter Your Email">
                                     <button type="submit">Get Notify</button>
@@ -88,7 +88,7 @@
                             <div class="home-button">
                                 <a class="contact-button" href="#">Contact Us</a>
                                 <a class="info-button" href="#">About Us</a>
-                            </div>
+                            </div>  --}}
                         </div>
                     </div>
                 </div>
@@ -103,12 +103,12 @@
                 <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
             </ul>
         </div>
-        <div class="information-contact">
+       {{--   <div class="information-contact">
             <ul>
                 <li><a class="contact-button" href="#"><i class="fa fa-envelope-o"></i></a></li>
                 <li><a class="info-button" href="#"><i class="fa fa-info"></i></a></li>
             </ul>
-        </div>
+        </div>  --}}
         <!--WELCOME AREA CONTENT END-->
 
         <!--LEFT CONTACT CONTENT-->
@@ -339,6 +339,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="{{url('App/Modules/Pagina/Assets/js/javascript.js')}}"></script>
+    <script src="{{url('app/Modules/Pagina/Assets/js/javascript.js')}}"></script>
 </body>
 </html>
