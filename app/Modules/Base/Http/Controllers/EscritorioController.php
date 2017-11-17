@@ -17,11 +17,13 @@ class EscritorioController extends Controller {
     }
 
     public function getIndex() {
-        $data = '';
-        $user ='';
+        $data = [
+            'mensaje' => 'Este es el cuerpo del msj'
+        ];
+        $user = \Auth::user();
         \Mail::send('pagina::emails.notificacion', $data, function ($message) use ($user){
             $message->subject('Asunto del correo');
-            $message->to('drummermiguelangel@gmail.com');
+            $message->to('alejmendez.87@gmail.com');
         });
         
         $permisos = [
@@ -37,15 +39,16 @@ class EscritorioController extends Controller {
                 $ultimoPermiso = $permiso;
             }
         }
-        /* if(\Auth::user()->super == 's'){
-            
+        /*
+        if($user->super == 's'){
             return $this->view('base::Escritorio');
-        } */
+        }
+        */
         
-        if(\Auth::user()->perfil->nombre == "Usuarios") {
+        if($user->perfil->nombre == "Usuarios") {
             return redirect($this->prefijo . '/incidencias/inicio/usuarios');
         }
-        if(\Auth::user()->perfil->nombre == "Tecnicos") {
+        if($user->perfil->nombre == "Tecnicos") {
             return redirect($this->prefijo . '/incidencias/escritorios/tecnicos');
         }
         
