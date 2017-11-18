@@ -56,7 +56,7 @@
                     <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
                         <div class="welcome-text text-center">
                             <div class="clock-countdown">
-                                <div class="site-config" data-date="12/01/2018 00:00:00" data-date-timezone="+0"></div>
+                                <div class="site-config" data-date="11/24/2017 00:00:00" data-date-timezone="+0"></div>
                                 <div class="coundown-timer">
                                     <div class="single-counter"><span class="days">00</span><span class="normal">Dias</span></div>
                                     <div class="single-counter"><span class="hours">00</span><span class="normal">Horas</span></div>
@@ -64,14 +64,15 @@
                                     <div class="single-counter"><span class="seconds">00</span><span class="normal">Segundos</span></div>
                                 </div>
                             </div>
-                            <h3>Nuestra página web</h3>
-                            <h1 class="visible-xs">Próximamente</h1>
+                            <h3>Próximamente en www.marygastro.com.ve</h3>
+                            <h1 class="visible-xs"></h1>
                             <h1 class="hidden-xs cd-headline clip is-full-width">
                                 <!--<span class="hero-text">Coming</span>-->
                                 <span class="cd-words-wrapper">
-                                    <b class="is-visible">Próximamente</b>
-                                    <b>Suscribirse a</b>
-                                    <b>Obtener actualizaciones</b>
+                                    <b class="is-visible">Consultas Online</b>
+                                    <b>Tips Nutricionales</b>
+                                    <b>Consejos Medicos</b>
+                                    
                                 </span>
                             </h1>
                             {{--  <div class="subscriber-form">
@@ -96,19 +97,17 @@
         </div>
         <div class="social-book-mark">
             <ul>
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="https://www.facebook.com/Maryraida?lst=1312639878%3A1160595543%3A1502303458"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="{{ url('https://www.instagram.com/mary_gastro/') }}'"><span class="fa fa-instagram"></span></a></li>
             </ul>
         </div>
-       {{--   <div class="information-contact">
+        {{--
+        <div class="information-contact">
             <ul>
                 <li><a class="contact-button" href="#"><i class="fa fa-envelope-o"></i></a></li>
                 <li><a class="info-button" href="#"><i class="fa fa-info"></i></a></li>
             </ul>
-        </div>  --}}
+        </div>
         <!--WELCOME AREA CONTENT END-->
 
         <!--LEFT CONTACT CONTENT-->
@@ -205,7 +204,7 @@
             </div>
         </div>
         <!--LEFT CONTACT CONTENT END-->
-
+        
         <!--RIGHT ABOUT AREA-->
         <div class="right-details-content">
             <div class="push-content-close"><i class="fa fa-close"></i></div>
@@ -329,6 +328,7 @@
                 </div>
             </div>
         </div>
+        --}}
     </div>
 
     <!--====== SCRIPTS JS ======-->
