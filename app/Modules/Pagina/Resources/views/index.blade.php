@@ -7,11 +7,11 @@
             <h2>TRANQUILOS QUE EL <i>EQUIPO GANA</i></h2>
             <div class="separator"></div>
             <div class="desc-text"  style="font-size: 16px;">
-                <p>El eslogan nace de la necesidad de integrar a los familiares del paciente en cambios de rutina ya que
+                <p>El eslogan nace de la necesidad de integrar a los familiares del paciente en cambios del estilo de vida ya que
                     determinadas enfermedades gastrointestinales pueden evitarse si se siguen unos hábitos y tratamientos dietéticos
                      adecuados.
                 </p>
-                <p>Las intolerancias, alergias alimentarias o enfermedades celiaca, afectan diversos sistemas, tales como: dolor,
+                <p>Las intolerancias, alergias alimentarias o enfermedad celíaca, afectan diversos sistemas, tales como: dolor,
                      reflujo, vómitos, dermatitis o afecciones respiratorias inclusive que afectan al niño y también la calidad de
                       vida de sus padres.
                 </p>
