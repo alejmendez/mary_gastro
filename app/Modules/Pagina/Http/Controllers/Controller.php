@@ -45,7 +45,6 @@ class Controller extends BaseController
 		'OCT',
 		'NOV',
 		'DIC'
-
 	];
 
 	public $patch_css = [
@@ -65,10 +64,7 @@ class Controller extends BaseController
 
 	public function index(Request $request)
 	{
-
-
-		return $this->view('pagina::contador');
-
+		//return $this->view('pagina::contador');
 
 		$noticias = Noticias::select([
 			'noticias.id',
@@ -76,11 +72,9 @@ class Controller extends BaseController
 			'noticias.slug',
 			'noticias.resumen',
 			'noticias.published_at',
-			
 		])
-		->where('noticias.published_at','<=', date('Y-m-d H:i'))->get()->take(3);
+		->where('noticias.published_at','<=', Carbon::now())->get()->take(3);
 
-	
 		$Imagenes = Imagenes::select(['archivo']);
 
 		return $this
@@ -157,7 +151,6 @@ class Controller extends BaseController
 		return $this;
 	}
 
-
 	public function categorias(Request $request){
 		$noticias = Noticias::select([
 			'noticias.titulo',
@@ -192,17 +185,10 @@ class Controller extends BaseController
 		]);
 	}
 
-	public function detNoti ($slug){
-		$detNoti = Noticias::select([
-			'noticias.titulo',
-			'noticias.slug',
-			'noticias.contenido_html',
-			'noticias.published_at',
-			'imagenes.archivo'
-		])
-		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
-		->where('noticias.published_at','<=', date('Y-m-d H:i'))
-		->where('slug', '=', $slug)->get();
+	public function detNoti ($slug) {
+		$detNoti = Noticias::where('published_at','<=', Carbon::now())
+			->where('slug', $slug)
+			->first();
 
 		$ncategoria = Noticias_Categorias::select('noticias_id', 'categorias_id');
 		$nombrecat = Categorias::select('nombre');
@@ -212,33 +198,22 @@ class Controller extends BaseController
 			'categorias.id',
 			DB::raw('Count(noticia_categoria.noticias_id) as total'),
 		])
-		->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
-		->whereNull('categorias.deleted_at')
-		->groupby('categorias.nombre')
-		->groupby('categorias.id')->get();
+			->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
+			->whereNull('categorias.deleted_at')
+			->groupby('categorias.nombre')
+			->groupby('categorias.id')
+			->get();
 
-		$noticias = Noticias::select([
-			'noticias.titulo',
-			'noticias.slug',
-			'noticias.resumen',
-			'noticias.published_at',
-			'imagenes.archivo'
-		])
-		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
-		->where('noticias.published_at','<=', date('Y-m-d H:i'))
-		->whereNull('noticias.deleted_at')
-		->paginate(4);
-
+		$noticias = Noticias::where('published_at', '<=', Carbon::now())->take(4);
 
 		return $this
 			->setTitulo('GastroPediatra en Acción')
-			->view('pagina::detNoti',[
-				'detNoti' 		=> $detNoti,
+			->view('pagina::detNoti', [
+				'noticia' 		=> $detNoti,
 				'ncategoria'	=> $ncategoria,
 				'nombrecat'		=> $nombrecat,
 				'categorias' 	=> $categorias,
-				'noticias' 		=> 	$noticias
+				'noticias' 		=> $noticias
 			]);
 	}
-
 }

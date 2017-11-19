@@ -29,8 +29,15 @@ class Noticias extends Modelo
 	);
     protected $table = 'noticias';
     protected $fillable = ["titulo","slug","contenido","contenido_html","resumen","audio","published_at"];
+    
+    protected $dates = [
+        'published_at',
+        'created_at',
+		'updated_at',
+		'deleted_at'
+    ];
+
     protected $campos = [
-       
         'categoria_id' => [
             'type'          => 'select',
             'label'         => 'Categoria',
@@ -44,18 +51,12 @@ class Noticias extends Modelo
         $this->attributes['published_at'] = Carbon::createFromFormat('d/m/Y H:i', $value);
     }
 
-    public function getPublishedAtAttribute($value){
-        return Carbon::parse($value)->format('d/m/Y H:i');
-    }
-
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
         $this->campos['categoria_id']['options'] = Categorias::pluck('nombre', 'id');
        
     }
-
-    protected $dates = ['published_at'];
 
     public function categorias()
     {

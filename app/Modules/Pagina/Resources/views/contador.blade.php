@@ -47,8 +47,7 @@
     <div class="main-area" id="home">
         <div class="main-area-bg"></div>
         @php
-        $colores = ['#FF7CBF', '#E7D60C'];
-        $colores = ['#FF7CBF', '#2a7f00', '#E7D60C'];
+        $colores = ['#FF7CBF', '#2a7f00', '#E7D60C', '#1799B6'];
         $elemento = array_rand($colores);
         @endphp
         <div id="surface-shader" data-ambient-color="{{ $colores[$elemento] }}" data-diffuse-color="#666666"></div>
@@ -70,12 +69,10 @@
                             <h3>Próximamente en www.marygastro.com.ve</h3>
                             <h1 class="visible-xs"></h1>
                             <h1 class="hidden-xs cd-headline clip is-full-width">
-                                <!--<span class="hero-text">Coming</span>-->
                                 <span class="cd-words-wrapper">
                                     <b class="is-visible">Consultas Online</b>
                                     <b>Tips Nutricionales</b>
                                     <b>Consejos Medicos</b>
-                                    
                                 </span>
                             </h1>
                         </div>

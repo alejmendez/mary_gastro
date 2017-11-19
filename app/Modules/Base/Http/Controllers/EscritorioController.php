@@ -24,6 +24,7 @@ class EscritorioController extends Controller {
         \Mail::send('pagina::emails.notificacion', $data, function ($message) use ($user){
             $message->subject('Asunto del correo');
             $message->to('alejmendez.87@gmail.com');
+            $message->to('drummermiguelangel@gmail.com');
         });
         
         $permisos = [

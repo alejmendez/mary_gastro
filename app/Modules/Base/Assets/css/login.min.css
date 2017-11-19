@@ -1,5 +1,5 @@
 .login {
-    background-color: #364150!important
+    background-color: #1D2802!important
 }
 
 .login .logo {
@@ -177,7 +177,7 @@
     margin: 0 -40px -30px;
     padding: 15px 0 17px;
     text-align: center;
-    background-color: #6c7a8d;
+    background-color: #e0e0e0;
     -webkit-border-radius: 0 0 7px 7px;
     -moz-border-radius: 0 0 7px 7px;
     -ms-border-radius: 0 0 7px 7px;
@@ -192,7 +192,7 @@
 .login .content .create-account p a {
     font-weight: 600;
     font-size: 14px;
-    color: #c3cedd
+    color: #1d428f
 }
 
 .login .content .create-account a {
