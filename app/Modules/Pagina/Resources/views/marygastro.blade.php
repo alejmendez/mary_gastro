@@ -37,7 +37,7 @@
 											<img alt="Disfruto los momentos que comparto con mis pacientes" src="{{ asset('public/img/featured2.jpg') }}">
 										</figure>
 										<div class="caption-box">
-											Motivadora al 1000% con energía positiva que incentiva a tener un estilo de vida saludable con un enfoque integral (fisico y emocional)
+											Motivadora al 1000% con energía positiva que incentiva a tener un estilo de vida saludable con un enfoque integral (físico y emocional)
 										</div>
 									</div>
 								</div>
@@ -50,7 +50,7 @@
 									</div>
 									<div class="signature-image"><img alt="" src="{{ asset('public/img/signature.png') }}"></div>
 									<div class="about-owner">
-										<h4>Dra. Maryraida Canonicco, <span class="designation">Cumlaude en Pediatra – Puericultor <br>Especialista en gastroenterología infantil</span></h4>
+										<h4>Dra. Maryraida Canónicco, <span class="designation">Médico Cirujano Mención Honorífica CUMLAUDE, Pediatra, Puericultor <br>Especialista en gastroenterología infantil</span></h4>
 										<div class="company-title styled-font">
 											MaryGastro
 										</div>
@@ -65,10 +65,10 @@
 					<div class="auto-container">
 						<div class="row clearfix">
 							<div class="column text-column col-md-6 col-sm-12 col-xs-12">
-								<h2>¿Que problema resuelves?</a></h2>
+								<h2>¿Que problema resuelvo?</a></h2>
 								<div class="inner-box">
 									<div class="text">
-										<p>Todas las enfermedades del aparato digestivo del niño y adolescente. En especial las Intolerancias y alergias alimentarias (como por ejemplo a la leche de vaca, al gluten o mixtas) o la enfermedad celiaca, las cuales no se diagnostican oportunamente y que generan problemas diversos como dolor abdominal, estreñimiento o diarrea, vómito o reflujo gastroesofagico, distensión abdominal, flatulencias,  manifestaciones en piel como dermatitis o respiratorias inclusive que afectan al niño y también la calidad de vida de sus padres.</p>
+										<p>Todas las enfermedades del aparato digestivo del niño y adolescente. En especial las Intolerancias y alergias alimentarias (como por ejemplo a la leche de vaca, al gluten o mixtas) o la enfermedad celiaca, las cuales no se diagnostican oportunamente y generan problemas diversos como dolor abdominal, estreñimiento o diarrea, vómito o reflujo gastroesofagico, distensión abdominal, flatulencias,  manifestaciones en piel como dermatitis o respiratorias inclusive que afectan al niño y también la calidad de vida de sus padres.</p>
 										<p>Ayudo a superar las Intolerancias/alergias  alimentarias y asesoro a los padres para el manejo nutricional adecuado del niño así como del grupo familiar.</p>
 										<p>Incentivo a las madres y padres a salir de la rutina y dedicarse un tiempo de calidad para la actividad física y su salud,dando así el mejor ejemplo a seguir para sus hijos.</p><br>
 										<h2>Solución</h2>

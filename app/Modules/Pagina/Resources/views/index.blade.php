@@ -4,15 +4,15 @@
 	<section class="why-us">
     <div class="auto-container">
         <div class="sec-title centered">
-            <h2>GastroPediatra... <i>en Acción</i></h2>
+            <h2>TRANQUILOS QUE EL <i>EQUIPO GANA</i></h2>
             <div class="separator"></div>
             <div class="desc-text"  style="font-size: 16px;">
-                <p>Este eslogan nace de la necesidad de integrar a los familiares del paciente en este cambio de rutina ya que
+                <p>El eslogan nace de la necesidad de integrar a los familiares del paciente en cambios de rutina ya que
                     determinadas enfermedades gastrointestinales pueden evitarse si se siguen unos hábitos y tratamientos dietéticos
                      adecuados.
                 </p>
-                <p>Las intolerancias, alergias alimentarias o enfermedades celiaca, generan diversos sistemas, tales como: dolores,
-                     reflujos, vómitos, dermatitis o afecciones respiratorias inclusive que afectan al niño y también la calidad de
+                <p>Las intolerancias, alergias alimentarias o enfermedades celiaca, afectan diversos sistemas, tales como: dolor,
+                     reflujo, vómitos, dermatitis o afecciones respiratorias inclusive que afectan al niño y también la calidad de
                       vida de sus padres.
                 </p>
              </div>
@@ -100,33 +100,33 @@
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-brain"></span></div>
                     <h3>Médico  CUMLAUDE</h3>
-                    <div class="text">Apasaionada por el servicio y entrega a mis pacientes</div>
+                    <div class="text">Apasionada por el servicio y entrega a mis pacientes</div>
                 </div>
             </div>
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-medical"></span></div>
                     <h3>Pediatra Puericultor</h3>
-                    <div class="text">Especialista y al día con lo nuevo en la medicina moderna.</div>
+                    <div class="text">Especialista en Pediatría actualizada en nuevas tendencias en medicina.</div>
                 </div>
             </div>
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-doctor-stethoscope"></span></div>
-                    <h3>Gastroenterologa Pediátrica</h3>
+                    <h3>Gastroenterologo Pediátrica</h3>
                     <div class="text">La buena salud del niño y el adolescente siempre es mi prioridad</div>
                 </div>
             </div>
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
-                    <div class="icon-box"><span class="flaticon-stretching-exercises"></span></div>
+                    <div class="icon-box"><span class="flaticon-yoga-sitting-posture-of-a-man"></span></div>
                     <h3>Esposa y Madre</h3>
                     <div class="text">Dios ha permitido la gracia de tener una hermosa familia</div>
                 </div>
             </div>
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
-                    <div class="icon-box"><span class="flaticon-yoga-sitting-posture-of-a-man"></span></div>
+                    <div class="icon-box"><span class="flaticon-stretching-exercises"></span></div>
                     <h3>Motivadora</h3>
                     <div class="text">Soy una mujer luchadora y 1000% positiva, sonriendo a la vida</div>
                 </div>
@@ -149,8 +149,8 @@
         <div class="row clearfix">
             <div class="title-column col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <h2>Más de 15 Años de experiencia</h2>
-                    <div class="text">En pediatría – puericultor y especialista en gastroenterólogo, gracias al aporte que realiza en cada uno sus pacientes cada día reafirma su vocación por la gastropediatría.</div>
+                    <h2>14 Años de experiencia</h2>
+                    <div class="text">En pediatría y puericultora, especialista en gastroenterología infanil, cada uno de mis pacientes me ha permitido ir creciento como profesional y como persona, cada día reafirmo mi vocación como gastropediatra.</div>
                     <a href="{{ url('testimonios') }}" class="req-btn styled-font">Ver Testimonios</a>
                 </div>
             </div>

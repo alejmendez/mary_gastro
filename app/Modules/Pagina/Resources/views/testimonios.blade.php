@@ -64,7 +64,7 @@
                  QUE EL EQUIPO GANA", ciertamente así fue. Gracias Doctorisima por enseñarnos tanto, no sólo de un diagnóstico si no por el 
                  acompañamiento para con el crecimiento, fortalecimiento y recuperación de Valery. </p>
 
-                <b><i>I LOVE Familia Ramirez Rendon.</i></b></div>
+                <b><i>I LOVE YOU Familia Ramirez Rendon.</i></b></div>
             </div>
         </div><!--End testimonial 0-->
 
@@ -80,7 +80,7 @@
                 <p>Mi nombre es Yraimis Poueriet, soy madre de esta princesa llamada Ashley Nazareth, y la verdad es que conocer a la Doc
                 Maryraida fue una bendicion para nuestras vidas, ya que mi hija padecia de una patologia bien compleja que 10 pediatras
                 no pudieron detectar, era intolerante a la caseina (La proteina de la leche de vaca), y tenia un cruce alergico con la 
-                soya. El cual gracias a nuestra Doctora y a mi cumplimiento del tratamiento, hpy por hpy tengo una niña sana inmune a 
+                soya. El cual gracias a nuestra Doctora y a mi cumplimiento del tratamiento, hoy por hoy tengo una niña sana inmune a 
                 todo, y muy feliz gracias a Dios, y a nuestro angel terrenal, como lo es nuestra doctora!</p>
                 <b><i>Bendiciones infinitas</i></b></div>
             </div>
@@ -91,7 +91,7 @@
             <div class="inner-box">
                 <div class="slide-header">
                     <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-2.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
-                    <h3>Carlos Gallego</h3>
+                    <h3>Familia Gallego Jaramillo</h3>
                     <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
                 </div>
                 <div class="slide-content">
