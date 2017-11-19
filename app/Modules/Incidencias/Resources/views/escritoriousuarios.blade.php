@@ -4,34 +4,42 @@
 	@include('base::partials.ubicacion', ['ubicacion' => ['Escritorio']])
 @endsection
 
-@section('content')
+@push('css')
+<style>
+.dashboard-stat .more {
+    font-size: 16px;
+}
+</style>
+@endpush
+
+@section('content') 
 
     <div class="row">
 		<div class="col-md-6">
-			<div class="dashboard-stat  green-jungle ">
+			<div class="dashboard-stat  blue ">
 				<div class="visual">
-					<i class="fa fa-check"></i>
+					<i class="fa fa-book"></i>
 				</div>
 				<div class="details">
-					<div class="number">{{$consultas}}</div>
-					<div class="desc"> disponibles </div>
+					<div class="number">{{ $consultas }}</div>
+					<div class="desc"> DISPONIBLES </div>
 				</div>
-				<a class="more" href="javascript:;" data-tipo="1"> Numero de casos disponibles
+				<a class="more" href="javascript:;" data-tipo="1"> Número de consultas disponibles
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
 		</div>
 		
 		<div class="col-md-6">
-			<div class="dashboard-stat  red-thunderbird ">
+			<div class="dashboard-stat  green-jungle ">
 				<div class="visual">
-					<i class="fa fa-times-circle-o"></i>
+					<i class="fa fa-check"></i>
 				</div>
 				<div class="details">
 					<div class="number">{{$casos_resultos}}</div>
-					<div class="desc"> Resueltos </div>
+					<div class="desc"> RESUELTOS </div>
 				</div>
-				<a class="more" href="javascript:;" data-tipo="3"> Total casos Resueltos
+				<a class="more" href="javascript:;" data-tipo="3"> Total casos resueltos
 					<i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
@@ -56,7 +64,11 @@
 		        <div class="panel panel-primary">
 		            <div class="panel-heading">
 		                <h4 class="panel-title">
-		                	<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1"><center><h3 class="panel-title">Consultas</h3></center> </a>
+		                	<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
+								<center>
+									<h3 class="panel-title">Consultas</h3>
+								</center> 
+							</a>
 		                </h4>
 		            </div>
 		            <div id="collapse_3_1" class="panel-collapse in">

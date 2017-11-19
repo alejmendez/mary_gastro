@@ -1,18 +1,20 @@
 <?php
+$menu['inicio'] = [	
+	[
+		'nombre'    => 'Inicio',
+		'direccion' => 'incidencias/inicio/usuarios',
+		'icono'     => 'fa fa-home'
+	]
+];
+
 $menu['escritorio'] = [	    
     [
         'nombre'    => 'Escritorio',
         'direccion' => 'incidencias/escritorios/tecnicos',
-        'icono'     => 'fa fa-desktop'
+        'icono'     => 'fa fa-comments'
     ]
 ];
-$menu['inicio'] = [	
-    [
-        'nombre'    => 'Inicio',
-        'direccion' => 'incidencias/inicio/usuarios',
-        'icono'     => 'fa fa-home'
-    ]
-];
+
 $menu['incidencias'] = [
 	[
 		'nombre' 	=> 'Consultas',
