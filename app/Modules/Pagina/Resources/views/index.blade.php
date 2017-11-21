@@ -76,7 +76,7 @@
                             <div class="overlay-inner">
                                 <div class="overlay-content">
                                     <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
-                                    <div class="text">Para todo existe una solución y sobretodo si se puede corregir a tiempo, siempre actitud positiva</div>
+                                    <div class="text">Soy imagen de #soloproteinas, Adquierelas con la clave Marygastro o SOM0033 </div>
                                 </div>
                             </div>
                         </div>
@@ -413,7 +413,8 @@
                 <div class="inner-box">
 
                     <div class="sec-title">
-                        <h2>Realiza una Consulta en Línea</h2>
+                        <h2>Gastropediatra en Acción, Asesorías Online</h2>
+                        <p>Recibirás de Regalo una copia de mi guía <b>"3 pasos para saber si mi hijo es alérgico"</b>, al confirmar tu subscripción en la bandeja de entrada</p>
                         <div class="separator"></div>
                     </div>
 
@@ -443,8 +444,8 @@
                     </div>
 
                     <div class="text-content">
-                        <p><strong>Consulta Online:</strong>Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
-                        <p><strong>Horario de Consulta Online:</strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
+                        <p><strong>Consulta Online: </strong> Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
+                        <p><strong>Horario de Consulta Online: </strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
                     </div>
                 </div>
             </div>
