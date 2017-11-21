@@ -64,7 +64,13 @@ class Controller extends BaseController
 
 	public function index(Request $request)
 	{
-		//return $this->view('pagina::contador');
+		$estreno = Carbon::create(2017, 11, 24, 18, 0, 0);
+		$serverName = request()->server->get('SERVER_NAME');
+		if (($serverName == 'marygastro.com.ve' || $serverName == 'www.marygastro.com.ve') && $estreno->gt(Carbon::now())) {
+			return $this->view('pagina::contador', [
+				'estreno' => $estreno
+			]);
+		}
 
 		$noticias = Noticias::select([
 			'noticias.id',

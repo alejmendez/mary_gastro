@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="{{url('app/Modules/Pagina/Assets/css/stylescsoom.css')}}">
+    <link rel="stylesheet" href="{{url('app/Modules/Pagina/Assets/css/stylescsoom.css')}}?v=1.0.1">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <!--[if lt IE 9]>
@@ -45,9 +45,9 @@
     </div>
 
     <div class="main-area" id="home">
-        <div class="main-area-bg"></div>
+        
         @php
-        $colores = ['#FF7CBF', '#2a7f00', '#E7D60C', '#1799B6'];
+        $colores = ['#692f93', '#2a7f00', '#E7D60C', '#1799B6'];
         $elemento = array_rand($colores);
         @endphp
         <div id="surface-shader" data-ambient-color="{{ $colores[$elemento] }}" data-diffuse-color="#666666"></div>
@@ -58,17 +58,17 @@
                     <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
                         <div class="welcome-text text-center">
                             <div class="clock-countdown">
-                                <div class="site-config" data-date="11/24/2017 00:00:00" data-date-timezone="+0"></div>
+                                <div class="site-config" data-date="{{ $estreno->format('m/d/Y H:m:s') }}" data-date-timezone="-4"></div>
                                 <div class="coundown-timer">
                                     <div class="single-counter"><span class="days">00</span><span class="normal">Dias</span></div>
                                     <div class="single-counter"><span class="hours">00</span><span class="normal">Horas</span></div>
-                                    <div class="single-counter"><span class="minutes">00</span><span class="normal">Minutos</span></div>
-                                    <div class="single-counter"><span class="seconds">00</span><span class="normal">Segundos</span></div>
+                                    <div class="single-counter"><span class="minutes">00</span><span class="normal">Min</span></div>
+                                    <div class="single-counter"><span class="seconds">00</span><span class="normal">Seg</span></div>
                                 </div>
                             </div>
                             <h3>Próximamente en www.marygastro.com.ve</h3>
                             <h1 class="visible-xs"></h1>
-                            <h1 class="hidden-xs cd-headline clip is-full-width">
+                            <h1 class="cd-headline clip is-full-width">
                                 <span class="cd-words-wrapper">
                                     <b class="is-visible">Consultas Online</b>
                                     <b>Tips Nutricionales</b>

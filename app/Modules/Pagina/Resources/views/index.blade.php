@@ -9,11 +9,11 @@
             <div class="desc-text"  style="font-size: 16px;">
                 <p>El eslogan nace de la necesidad de integrar a los familiares del paciente en cambios del estilo de vida ya que
                     determinadas enfermedades gastrointestinales pueden evitarse si se siguen unos hábitos y tratamientos dietéticos
-                     adecuados.
+                    adecuados.
                 </p>
                 <p>Las intolerancias, alergias alimentarias o enfermedad celíaca, afectan diversos sistemas, tales como: dolor,
-                     reflujo, vómitos, dermatitis o afecciones respiratorias inclusive que afectan al niño y también la calidad de
-                      vida de sus padres.
+                    reflujo, vómitos, dermatitis o afecciones respiratorias inclusive que afectan al niño y también la calidad de
+                    vida de sus padres.
                 </p>
              </div>
         </div>
