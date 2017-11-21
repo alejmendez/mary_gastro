@@ -180,63 +180,55 @@ class NoticiasController extends Controller
        DB::beginTransaction();
        try {
 
-           $data = $this->data($request);
-           $archivos = json_decode($request->archivos);
+            $data = $this->data($request);
+            $archivos = json_decode($request->archivos);
 
-           if ($id === 0) {
-               $Noticias = Noticias::create($data);
-               $id = $Noticias->id;
-           }else {
-               if (empty($archivos)) {
-                   unset($data['published_at']);
-               }
+            if ($id === 0) {
+                $Noticias = Noticias::create($data);
+                $id = $Noticias->id;
+            }else {
+                if (empty($archivos)) {
+                    unset($data['published_at']);
+                }
 
-               $Noticias = Noticias::find($id)->update($data);
-             
-           }
+                $Noticias = Noticias::find($id)->update($data);
+            }
 
-           $this->guardar_categorias($request,$id);
-
+            $this->guardar_categorias($request,$id);
 
             //Etiquetas
-
             if($request->etiquetas != ""){ 
-                dd('gho');
                 Noticias_Etiquetas::where('noticias_id',  $id)->delete();
 
                 $array = explode(",",$request->etiquetas);
                 $longitud = count($array);
-                    //se recorre el array para guardar el array
-                for($i =0; $i <$longitud; $i++){
                 
+                //se recorre el array para guardar el array
+                for($i = 0; $i < $longitud; $i++){
                     $id_etiqueta = Etiquetas::updateOrCreate(
-                        ['slug' => str_slug($array[$i])],
-                        ['nombre' =>$array[$i]]
+                        ['slug'   => str_slug($array[$i])],
+                        ['nombre' => $array[$i]]
                     );
 
-
-                Noticias_Etiquetas::create([
-                    'noticias_id'  => $id,
-                    'etiquetas_id' => $id_etiqueta->id
-                ]);
+                    Noticias_Etiquetas::create([
+                        'noticias_id'  => $id,
+                        'etiquetas_id' => $id_etiqueta->id
+                    ]);
                 }
             }
-         
-           $this->guardarImagenes($archivos, $id);
 
-
-           //$this->procesar_permisos($request, $id);
+            $this->guardarImagenes($archivos, $id);
+            //$this->procesar_permisos($request, $id);
        } catch (QueryException $e) {
-           DB::rollback();
-           return $e->getMessage();
+            DB::rollback();
+            return $e->getMessage();
        } catch (Exception $e) {
-           DB::rollback();
-           return $e->errorInfo[2];
+            DB::rollback();
+            return $e->errorInfo[2];
        }
 
        DB::commit();
        return ['s' => 's', 'msj' => trans('controller.incluir')];
-
     }
 
     protected function getRuta() {
@@ -248,7 +240,6 @@ class NoticiasController extends Controller
             if (!preg_match("/^(\d{4})\-(\d{2})\-([0-9a-z\.]+)\.(jpe?g|png)$/i", $archivo)) {
                 continue;
             }
-
 
             $archivo = str_replace('-','/',$archivo);
             $imagen = Image::make(public_path('archivos/noticias/' . $archivo));
