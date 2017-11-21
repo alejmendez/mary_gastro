@@ -12,8 +12,8 @@ Route::group(['middleware' => 'web', 'namespace' => 'marygastro\Modules\Pagina\H
 	if (!(($serverName == 'marygastro.com.ve' || $serverName == 'www.marygastro.com.ve') && $estreno->gt(Carbon::now()))) {
 		Route::get('{pag}', 'Controller@pagina')->where('pag', '[a-zA-Z0-9\-]+')->name('pag.pagina');
 		
-		Route::get('/blog/{id}', 'Controller@categorias'); 
-		Route::get('/blog/noticia/{slug}', 'Controller@detNoti'); 
+		Route::get('/categoria/{slug}', 'Controller@categorias')->name('pag.categoria');
+		Route::get('/blog/{slug}', 'Controller@blog')->name('pag.blog');
 		
 		Route::post('send-mail', 'Controller@sendMail')->name('pag.sendmail');
 	}
