@@ -215,7 +215,7 @@ class Controller extends BaseController
 	}
 
 	public function blogs() 
-	{Carbon::now()
+	{
 		$noticias = Noticias::select([
 			'id',
 			'titulo',

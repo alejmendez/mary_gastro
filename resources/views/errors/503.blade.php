@@ -22,23 +22,23 @@ if (is_null($usuario)){
 
 @extends('base::layouts.default')
 @section('content')
-	<div class="page-content-wrapper">
-		<div class="page-content">
-			<div class="container">
-				<div class="page-content-inner">
-					<div class="row">
-						<div class="col-md-12 page-404">
-							<div class="number font-green"> 503 </div>
-							<div class="details">
-								<h3>Servicio no disponible.</h3>
-								<p>
-									Intenta acceder m&aacute;s tarde.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="page-title" style="background-image:url('http://asianitbd.com/wp/healthcoach/wp-content/themes/healthcoach/images/background/bg-page-title-1.jpg');">
+    <div class="auto-container">
+        <h1>503 Error Page</h1>
+    </div>
+</section>
+<div class="error_page container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  <!-- /.shop aside use for styling input search box -->
+            <div class="page-error">
+                <p>
+					Servicio no disponible.
+				</p>
+				<p>
+                	Intenta acceder m&aacute;s tarde.
+				</p>
+        	</div>
+        </div>
+	</div> <!-- /row -->
+</div>
 @endsection
