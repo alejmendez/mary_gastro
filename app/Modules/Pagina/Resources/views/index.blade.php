@@ -7,12 +7,12 @@
             <h2>TRANQUILOS QUE EL <i>EQUIPO GANA</i></h2>
             <div class="separator"></div>
             <div class="desc-text"  style="font-size: 16px;">
-                <p>El eslogan nace de la necesidad de integrar a los familiares del paciente en cambios del estilo de vida ya que
-                    determinadas enfermedades gastrointestinales pueden evitarse si se siguen unos hábitos y tratamientos dietéticos
-                    adecuados.
+                <p>Somos un equipo: #teamMarygastro. Este eslogan nace de la necesidad de integrar a los miembros de la familia en cambios del estilo de vida, ya que
+                    determinadas enfermedades gastrointestinales pueden evitarse con hábitos saludables y tratamiento dietético 
+                    adecuado.
                 </p>
-                <p>Las intolerancias, alergias alimentarias o enfermedad celíaca, afectan diversos sistemas, tales como: dolor,
-                    reflujo, vómitos, dermatitis o afecciones respiratorias inclusive que afectan al niño y también la calidad de
+                <p>Las intolerancias, alergias alimentarias o sensibilidad al gluten afectan diversos sistemas generando síntomas como: reflujo,
+                dolor, vómitos, dermatitis o manifestaciones respiratorias inclusive, que afectan al niño y también la calidad de
                     vida de sus padres.
                 </p>
              </div>
@@ -113,7 +113,7 @@
             <div class="icon-column-default col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <div class="icon-box"><span class="flaticon-doctor-stethoscope"></span></div>
-                    <h3>Gastroenterologo Pediátrica</h3>
+                    <h3>Gastroenterologo Pediatra</h3>
                     <div class="text">La buena salud del niño y el adolescente siempre es mi prioridad</div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
             <div class="title-column col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <h2>14 Años de experiencia</h2>
-                    <div class="text">En pediatría y puericultora, especialista en gastroenterología infanil, cada uno de mis pacientes me ha permitido ir creciento como profesional y como persona, cada día reafirmo mi vocación como gastropediatra.</div>
+                    <div class="text">En pediatría y puericultura, especialista en gastroenterología infanil, cada uno de mis pacientes me ha permitido ir creciento como profesional y como persona, cada día reafirmo mi vocación como gastropediatra.</div>
                     <a href="{{ url('testimonios') }}" class="req-btn styled-font">Ver Testimonios</a>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                             <div class="inner-box">
                                 <div class="icon"><span class="icon flaticon-doctor-stethoscope"></span></div>
                                 <div class="separator"></div>
-                                <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="936">0</span>+</div>
+                                <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="5000">0</span>+</div>
                                 <h4 class="counter-title">Ultrasonidos</h4>
                             </div>
                         </article>
@@ -223,7 +223,7 @@
                             <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Hidratate</div>
                             <div class="acc-content current">
                                 <div class="content clearfix">
-                                    <p>Somos Agua. El porcentaje corporal de aguade los niños es de aproximadamente 80% y en adultos 60-70%, el agua es fundamental para el transporte de nutrientes, eliminación de toxinas, regulación de la digestión y hasta la regulación de nuestra temperatura.</p>
+                                    <p>Somos Agua. El porcentaje corporal de agua de los niños es de aproximadamente 80% y en adultos 60-70%, el agua es fundamental para el transporte de nutrientes, eliminación de toxinas, regulación de la digestión y hasta la regulación de nuestra temperatura.</p>
                                 </div>
                             </div>
                         </li>
@@ -457,7 +457,7 @@
                     </div>
 
                     <div class="text-content">
-                        <p><strong>Consulta Online:</strong>  Normalmente atiendo rápido las consultas, por favor sea paciente. Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
+                        <p><strong>Consulta Online:</strong>Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
                         <p><strong>Horario de Consulta Online:</strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
                     </div>
                 </div>

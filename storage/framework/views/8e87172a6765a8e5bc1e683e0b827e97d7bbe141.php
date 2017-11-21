@@ -37,14 +37,14 @@
 						<div class="image-column col-lg-4 col-md-5 col-sm-4 col-xs-12">
 							<figure class="image-box">
 								<a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>">
-									<img width="270" height="247" src="<?php echo e(url('public/archivos/noticias/'.$noticia->imagenes[0]->archivo)); ?>" class="attachment-270x247 size-270x247 wp-post-image" alt="blog-image-15">
+									<img width="270" height="247" src="<?php echo e(url('public/archivos/noticias/'.$noticia->imagenes->first()->archivo)); ?>" class="attachment-270x247 size-270x247 wp-post-image" alt="blog-image-15">
 								</a>
 							</figure>
 						</div>
 						<div class="content-column col-lg-8 col-md-7 col-sm-8 col-xs-12">
 							<div class="lower-content">
 								<div class="posted-info">
-									   <?php echo e($noticia->published_at); ?>
+									<?php echo e($noticia->published_at->format('d/m/Y h:m a')); ?>
 
 								</div>
 								<h3>
@@ -102,14 +102,17 @@
 				<?php $__currentLoopData = $noticias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $noticia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					<div class="post">
 						<figure class="post-thumb">
-							<img width="75" height="75" src="<?php echo e(url('public/archivos/noticias/'.$noticia->archivo)); ?>" class="attachment-75x75 size-75x75 wp-post-image" alt="5"  sizes="(max-width: 75px) 100vw, 75px" />
+							<img width="75" height="75" src="<?php echo e(url('public/archivos/noticias/'.$noticia->imagenes->first())); ?>" class="attachment-75x75 size-75x75 wp-post-image" alt="5"  sizes="(max-width: 75px) 100vw, 75px" />
 							<a href="#" class="overlay-link">
 								<span class="fa fa-link"></span>
 							</a>
 						</figure>
 						<div class="desc-text"><a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><?php echo e($noticia->titulo); ?> ...</a></div>
 						<div class="time">
-							   <?php echo e($noticia->published_at); ?>
+							<?php echo e($controller->meses[$noticia->published_at->month]); ?>
+
+							<?php echo e($noticia->published_at->day); ?>,
+							<?php echo e($noticia->published_at->year); ?>
 
 						</div>
 					</div>
