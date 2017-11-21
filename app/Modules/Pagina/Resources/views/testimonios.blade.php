@@ -141,6 +141,38 @@
             </div>
         </div><!--End testimonial 3-->
 
+        <!--Testimonial 4-->
+        <div class="slide-item">
+            <div class="inner-box">
+                <div class="slide-header">
+                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-4.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-0" srcset="{{ asset('public/img/author-thumb-4.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                    <h3>Liliana Pinel</h3>
+                    <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
+                </div>
+                <div class="slide-content">
+                <p>Mi Historia comenzó un 22 de Octubre del 2016, sorpresa! se adelanto el parto teniendo 36 semanas,
+                 oh susto y todo aquello que trae tener un bebe prematuro, mi hermoso regalo peso a penas 1 kilo 900 
+                 gramos y midio 47 ctms, estuvo 15 días en el reten‚ que alegría cuando por fin me la puedo llevar; 
+                 ay papá comenzó el dolor de cabeza, mi beba lloraba y lloraba, pegaba la noche con el día, siendo 
+                 ella tan pequeña y por su condición de prematura eran muchos los comentarios que te suelen decir, 
+                 sin embargo allí descubrí que es el instinto de madre y me dije, no‚ esto no es normal aquí pasa 
+                 algo tengo que llevarla a un especialista y debe ser gastroenterólogo‚ me daba cuenta que eran 
+                 cólicos. Comento a mi amiga que es como mi hermana, conchale estoy estresada la niña no se me calma 
+                 con nada no deja de llorar, entonces  ella me dice: ya la llevaste al pediatra? Si claro pero 
+                 quisiera alguien que fuera gastroenterólogo, me dice mi amiga, bueno llevala con la pediatra de mi 
+                 hijo, ella te explica todo desde la A hasta la z es súper chevere y es excelente; por supuesto no 
+                 dude en llevarla, y taran al llegar a su consulta un día martes del mes de noviembre del 2016 quede 
+                 enganchada al notar en primer lugar el trato, la sencillez, la humildad y el profesionalismo de la 
+                 Dra. Y al comenzar a cumplir al pie de la letra todas sus indicaciones y el tratamiento, mi muñeca 
+                 fue mejorando pues resultó que sus llantos se debían a la intolerancia a la caseina y no por ser 
+                 prematura como me decían y gracias a Dios en primer lugar que me permitió llegar a la Dra Maryraida 
+                 y a ella‚ hoy por hoy mi niña come de todo, sus palabras en aquella primera consulta quedaron 
+                 grabadas para siempre en mi memoria, “el camino es largo pero paciencia que el equipo gana”  </p>
+
+                <b><i>Muchas gracias mi Dra. como usted ninguna.</i></b></div>
+            </div>
+        </div><!--End testimonial 4-->
+
         
         </div>
         
