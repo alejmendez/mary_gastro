@@ -129,36 +129,48 @@ class Controller extends BaseController
 
 	public function categorias(Request $request)
 	{
-		$noticias = Noticias::select([
-			'noticias.titulo',
-			'noticias.slug',
-			'noticias.categorias_id',
-			'noticias.resumen',
-			'noticias.published_at',
-			'imagenes.archivo'
-
+		$noticias = Noticias::with('categorias')->select([
+			'id',
+			'titulo',
+			'slug',
+			'resumen',
+			'published_at'
 		])
-		->leftJoin('imagenes', 'imagenes.noticias_id','=', 'noticias.id')
-		->leftJoin('categorias', 'noticias.categorias_id','=', 'categorias.id')
-		->whereNull('categorias.deleted_at')
-		->where('categorias.slug', $request->id)->paginate(4);
+			->where('published_at', '<=', date('Y-m-d H:i'))
+			->whereHas('categorias', function ($query) use ($request) {
+				$query->where('slug', $request->slug);
+			})
+			->orderByDesc('published_at');
 
+		$noticias = $noticias
+			->paginate(4);
+		
+		$listaNoticias = Noticias::select([
+			'id',
+			'titulo',
+			'slug',
+			'resumen',
+			'published_at'
+		])
+			->where('published_at', '<=', date('Y-m-d H:i'))
+			->orderByDesc('published_at')
+			->take(4);
 
 		$categorias = Categorias::select([
 			'categorias.nombre',
 			'categorias.id',
 			DB::raw('Count(noticia_categoria.noticias_id) as total'),
 		])
-		->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
-		->groupby('categorias.nombre')
-		->whereNull('categorias.deleted_at')
-		->whereNull('noticias.deleted_at')
-		->groupby('categorias.id')->get();
+			->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
+			->orderBy('categorias.nombre')
+			->groupby('categorias.nombre')
+			->groupby('categorias.id')
+			->get();
 
-
-		return $this->view('pagina::blog',[
-			'noticias'   => $noticias,
-			'categorias' => $categorias
+		return $this->view('pagina::blogs',[
+			'noticias'      => $noticias,
+			'listaNoticias' => $listaNoticias,
+			'categorias'    => $categorias
 		]);
 	}
 

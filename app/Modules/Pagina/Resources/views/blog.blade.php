@@ -7,18 +7,6 @@
 		<h3 class="styled-font">Consejos y Recomendaciones</h3>
 	</div>
 </section>
-<section class="page-info">
-	<div class="auto-container clearfix">
-		<div class="breadcrumb-outer">
-			<ul class="bread-crumb clearfix">
-				{{--   
-				<li><a href="{{ url('/') }}">Inicio</a></li>
-				<li><a href="index.html">Archive for 2016</a></li>
-				--}}
-			</ul>
-		</div>
-	</div>
-</section>
 
 <div class="sidebar-page-container">
 <div class="auto-container">
@@ -41,7 +29,7 @@
 						</div>
 						<h3><a href="#">{{$noticia->titulo}}</a></h3>
 						<div class="text">
-							<p>{!!$noticia->contenido_html!!}</p>
+							<p>{!! $noticia->contenido_html !!}</p>
 						</div>
 					</div>
 				</div>
