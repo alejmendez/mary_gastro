@@ -73,13 +73,16 @@ class Controller extends BaseController
 		}
 
 		$noticias = Noticias::select([
-			'noticias.id',
-			'noticias.titulo',
-			'noticias.slug',
-			'noticias.resumen',
-			'noticias.published_at',
+			'id',
+			'titulo',
+			'slug',
+			'resumen',
+			'published_at',
 		])
-		->where('noticias.published_at','<=', Carbon::now())->get()->take(3);
+		->where('published_at', '<=', Carbon::now())
+		->orderByDesc('published_at')
+		->take(3)
+		->get();
 
 		$Imagenes = Imagenes::select(['archivo']);
 
@@ -136,7 +139,7 @@ class Controller extends BaseController
 			'resumen',
 			'published_at'
 		])
-			->where('published_at', '<=', date('Y-m-d H:i'))
+			->where('published_at', '<=', Carbon::now())
 			->whereHas('categorias', function ($query) use ($request) {
 				$query->where('slug', $request->slug);
 			})
@@ -152,7 +155,7 @@ class Controller extends BaseController
 			'resumen',
 			'published_at'
 		])
-			->where('published_at', '<=', date('Y-m-d H:i'))
+			->where('published_at', '<=', Carbon::now())
 			->orderByDesc('published_at')
 			->take(4);
 
@@ -198,7 +201,7 @@ class Controller extends BaseController
 			'resumen',
 			'published_at'
 		])
-			->where('published_at', '<=', date('Y-m-d H:i'))
+			->where('published_at', '<=', Carbon::now())
 			->orderByDesc('published_at')
 			->paginate(4);
 
@@ -212,7 +215,7 @@ class Controller extends BaseController
 	}
 
 	public function blogs() 
-	{
+	{Carbon::now()
 		$noticias = Noticias::select([
 			'id',
 			'titulo',
