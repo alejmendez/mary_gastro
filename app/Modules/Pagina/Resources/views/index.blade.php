@@ -379,28 +379,14 @@
             <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <figure class="image-box">
-                    <a href="{{url('/blog/noticia/'. $noticia->slug)}}">
-                    
-                        <?php	
-                            $imagen = clone $imagen;
-                            $imagen = $imagen->where('noticias_id', $noticia->id)
-                            ->first();
-
-                            if (!$imagen){
-                            $imagen = new stdClass();
-                            $imagen->leyenda = '';
-                            $imagen->archivo = 'gob.png';
-                        }
-                        ?>
-                    
-                    <img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'. $imagen->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
+                    <a href="{{ route('pag.blog', ['slug' => $noticia->slug]) }}">
+                    <img width="1170" height="1170" src="{{ asset('public/archivos/noticias/'. $noticia->imagenes->first()->archivo) }}" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
                     <div class="lower-content">
                         <div class="posted-info">
-                       {{ $noticia->published_at}}
-                        
+                            {{ $noticia->published_at->format('d/m/Y h:m a') }}
                         </div>
 
-                        <h3><a href="{{url('/blog/noticia/'. $noticia->slug)}}">{{$noticia->titulo}}</a></h3>
+                        <h3><a href="{{ route('pag.blog', ['slug' => $noticia->slug]) }}">{{$noticia->titulo}}</a></h3>
                         <div class="text">
                             {{str_limit($noticia->resumen, 120)}}...
                         </div>
