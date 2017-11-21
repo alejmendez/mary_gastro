@@ -8,19 +8,6 @@
 	</div>
 </section>
 
-<section class="page-info">
-	<div class="auto-container clearfix">
-		<div class="breadcrumb-outer">
-			<ul class="bread-crumb clearfix">
-				{{--
-				<li><a href="{{ url('/') }}">Inicio</a></li>
-				<li><a href="index.html">Archive for 2016</a></li>
-				--}}
-			</ul>
-		</div>
-	</div>
-</section>
-
 <div class="sidebar-page-container">
 <div class="auto-container">
 <div class="row clearfix">

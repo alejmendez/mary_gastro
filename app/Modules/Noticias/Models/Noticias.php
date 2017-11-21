@@ -60,12 +60,12 @@ class Noticias extends Modelo
 
     public function categorias()
     {
-        return $this->belongsToMany('marygastro\Modules\Noticias\Models\Categorias', 'noticia_categoria', 'categorias_id', 'noticias_id');
+        return $this->belongsToMany('marygastro\Modules\Noticias\Models\Categorias', 'noticia_categoria', 'noticias_id', 'categorias_id');
     }
 
     public function etiquetas()
     {
-        return $this->belongsToMany('marygastro\Modules\Noticias\Models\Etiquetas', 'etiquetas', 'etiquetas_id', 'noticias_id');
+        return $this->belongsToMany('marygastro\Modules\Noticias\Models\Etiquetas', 'noticia_etiqueta', 'noticias_id', 'etiquetas_id');
     }
 
     public function imagenes(){
