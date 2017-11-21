@@ -97,38 +97,8 @@ class Controller extends BaseController
 
 		if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')){
 
-			if($pag === 'blog'){
-
-				$noticias = Noticias::select([
-					'id',
-					'titulo',
-					'slug',
-					'resumen',
-					'published_at'
-				])
-				->where('published_at','<=', date('Y-m-d H:i'))
-				->paginate(4);
-
-				$ncategoria = Noticias_Categorias::select('noticias_id', 'categorias_id');
-				$nombrecat = Categorias::select('nombre');
-
-		
-				$categorias = Categorias::select([
-					'categorias.nombre',
-					'categorias.id',
-					DB::raw('Count(noticia_categoria.noticias_id) as total'),
-				])
-				->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
-				->whereNull('categorias.deleted_at')
-				->groupby('categorias.nombre')
-				->groupby('categorias.id')->get();
-
-				return $this->view('pagina::blog',[
-					'noticias'   => $noticias,
-					'ncategoria' => $ncategoria,
-					'nombrecat'  => $nombrecat,
-					'categorias' => $categorias
-				]);
+			if ($pag === 'blogs') {
+				return $this->blogs();
 			}
 
 			return $this->view('pagina::' . $pag);
@@ -157,7 +127,8 @@ class Controller extends BaseController
 		return $this;
 	}
 
-	public function categorias(Request $request){
+	public function categorias(Request $request)
+	{
 		$noticias = Noticias::select([
 			'noticias.titulo',
 			'noticias.slug',
@@ -191,13 +162,11 @@ class Controller extends BaseController
 		]);
 	}
 
-	public function detNoti ($slug) {
-		$detNoti = Noticias::where('published_at','<=', Carbon::now())
+	public function blog ($slug)
+	{
+		$noticia = Noticias::where('published_at','<=', Carbon::now())
 			->where('slug', $slug)
 			->first();
-
-		$ncategoria = Noticias_Categorias::select('noticias_id', 'categorias_id');
-		$nombrecat = Categorias::select('nombre');
 
 		$categorias = Categorias::select([
 			'categorias.nombre',
@@ -210,16 +179,65 @@ class Controller extends BaseController
 			->groupby('categorias.id')
 			->get();
 
-		$noticias = Noticias::where('published_at', '<=', Carbon::now())->take(4);
+		$listaNoticias = Noticias::select([
+			'id',
+			'titulo',
+			'slug',
+			'resumen',
+			'published_at'
+		])
+			->where('published_at', '<=', date('Y-m-d H:i'))
+			->orderByDesc('published_at')
+			->paginate(4);
 
 		return $this
 			->setTitulo('GastroPediatra en Acción')
-			->view('pagina::detNoti', [
-				'noticia' 		=> $detNoti,
-				'ncategoria'	=> $ncategoria,
-				'nombrecat'		=> $nombrecat,
+			->view('pagina::blog', [
+				'noticia' 		=> $noticia,
 				'categorias' 	=> $categorias,
-				'noticias' 		=> $noticias
+				'listaNoticias' => $listaNoticias,
 			]);
+	}
+
+	public function blogs() 
+	{
+		$noticias = Noticias::select([
+			'id',
+			'titulo',
+			'slug',
+			'resumen',
+			'published_at'
+		])
+			->where('published_at', '<=', date('Y-m-d H:i'))
+			->orderByDesc('published_at')
+			->paginate(4);
+		
+		$listaNoticias = Noticias::select([
+			'id',
+			'titulo',
+			'slug',
+			'resumen',
+			'published_at'
+		])
+			->where('published_at', '<=', date('Y-m-d H:i'))
+			->orderByDesc('published_at')
+			->take(4);
+
+		$categorias = Categorias::select([
+			'categorias.nombre',
+			'categorias.id',
+			DB::raw('Count(noticia_categoria.noticias_id) as total'),
+		])
+			->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
+			->orderBy('categorias.nombre')
+			->groupby('categorias.nombre')
+			->groupby('categorias.id')
+			->get();
+
+		return $this->view('pagina::blogs',[
+			'noticias'      => $noticias,
+			'listaNoticias' => $listaNoticias,
+			'categorias'    => $categorias
+		]);
 	}
 }
