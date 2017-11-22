@@ -74,7 +74,7 @@
                             <div class="overlay-inner">
                                 <div class="overlay-content">
                                     <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
-                                    <div class="text">Soy imagen de Soloproteinas, Adquierelas con la clave Marygastro o SOM0033, síguenos en instagram por #soloproteinas </div>
+                                    <div class="text">Soy imagen de <a href="https://www.instagram.com/soloproteinas/?hl=es">#soloproteinas</a>, Adquierelas con la clave Marygastro o SOM0033 </div>
                                 </div>
                             </div>
                         </div>
@@ -377,29 +377,17 @@
             <div class="news-style-one col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box">
                     <figure class="image-box">
-                    <a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>">
-                    
-                        <?php	
-                            $imagen = clone $imagen;
-                            $imagen = $imagen->where('noticias_id', $noticia->id)
-                            ->first();
-
-                            if (!$imagen){
-                            $imagen = new stdClass();
-                            $imagen->leyenda = '';
-                            $imagen->archivo = 'gob.png';
-                        }
-                        ?>
-                    
-                    <img width="1170" height="1170" src="<?php echo e(asset('public/archivos/noticias/'. $imagen->archivo)); ?>" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
+                    <a href="<?php echo e(route('pag.blog', ['slug' => $noticia->slug])); ?>">
+                    <?php if($noticia->imagenes->first()): ?>
+                    <img width="1170" height="1170" src="<?php echo e(asset('public/archivos/noticias/'. $noticia->imagenes->first()->archivo)); ?>" class="attachment-370x230 size-370x230 wp-post-image" alt="4"  /></a></figure>
+                    <?php endif; ?>
                     <div class="lower-content">
                         <div class="posted-info">
-                       <?php echo e($noticia->published_at); ?>
+                            <?php echo e($noticia->published_at->format('d/m/Y h:m a')); ?>
 
-                        
                         </div>
 
-                        <h3><a href="<?php echo e(url('/blog/noticia/'. $noticia->slug)); ?>"><?php echo e($noticia->titulo); ?></a></h3>
+                        <h3><a href="<?php echo e(route('pag.blog', ['slug' => $noticia->slug])); ?>"><?php echo e($noticia->titulo); ?></a></h3>
                         <div class="text">
                             <?php echo e(str_limit($noticia->resumen, 120)); ?>...
                         </div>

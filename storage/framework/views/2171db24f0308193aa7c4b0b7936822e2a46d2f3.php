@@ -56,19 +56,36 @@
                             
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-7 current_page_item menu-item-9 active"><a title="Inicio" href="<?php echo e(url('/')); ?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">Inicio</a></li>
-                                    <li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-35"><a title="¿Quién soy?" href="<?php echo e(url('marygastro')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Mary Gastro</a>
+                                    <li class="menu-item <?php echo e(Request::is('/') ? 'current-menu-item active' : ''); ?>">
+                                        <a title="Inicio" href="<?php echo e(url('/')); ?>" class="hvr-underline-from-left1" data-scroll data-options="easing: easeOutQuart">
+                                            Inicio
+                                        </a>
                                     </li>
-                                    <li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-104"><a title="Mis Fotos" href="<?php echo e(url('fotos')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Galería</a>
+                                    <li class="menu-item <?php echo e(Request::is('marygastro') ? 'current-menu-item active' : ''); ?>">
+                                        <a title="¿Quién soy?" href="<?php echo e(url('marygastro')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">
+                                            Mary Gastro
+                                        </a>
                                     </li>
-                                    <li id="menu-item-171" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-171"><a title="¿Qué dicen mis pacientes?" href="<?php echo e(url('testimonios')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Testimonios</a>
+                                    <li class="menu-item <?php echo e(Request::is('fotos') ? 'current-menu-item active' : ''); ?>">
+                                        <a title="Mis Fotos" href="<?php echo e(url('fotos')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">
+                                            Galería
+                                        </a>
                                     </li>
-                                    <li id="menu-item-232" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-232"><a title="Descubre sobre mis artículos" href="<?php echo e(url('blog')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">Blog</a>
+                                    <li class="menu-item <?php echo e(Request::is('testimonios') ? 'current-menu-item active' : ''); ?>">
+                                        <a title="¿Qué dicen mis pacientes?" href="<?php echo e(url('testimonios')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">
+                                            Testimonios
+                                        </a>
                                     </li>
-
+                                    <li class="menu-item <?php echo e(Request::is('blogs') ? 'current-menu-item active' : ''); ?>">
+                                        <a title="Descubre sobre mis artículos" href="<?php echo e(url('blogs')); ?>" data-toggle="dropdown1" aria-expanded="false" data-scroll data-options="easing: easeOutQuart">
+                                            Blog
+                                        </a>
                                     </li>
-                                    <li id="menu-item-292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a title="¿Tienes alguna sugerencia?" href="<?php echo e(url('contacto')); ?>" data-scroll data-options="easing: easeOutQuart">Contacto</a></li>
-                                                                
+                                    <li class="menu-item <?php echo e(Request::is('contacto') ? 'current-menu-item active' : ''); ?>">
+                                        <a title="¿Tienes alguna sugerencia?" href="<?php echo e(url('contacto')); ?>" data-scroll data-options="easing: easeOutQuart">
+                                            Contacto
+                                        </a>
+                                    </li>
                                 </ul>
                         </div>
                     </nav><!-- Main Menu End-->

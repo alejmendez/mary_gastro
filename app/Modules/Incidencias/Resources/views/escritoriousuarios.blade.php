@@ -60,12 +60,19 @@
 			</div>
 			<div class="list-group">
 				<a href="#" class="list-group-item active"><center>Información de pago</center></a>
-				<a href="javascript:;" class="list-group-item"> Transferencias electrónicas en Venezuela 
-				<i class="fa fa-hashtag" aria-hidden="true"></i> 13798940</a>
-				<a href="javascript:;" class="list-group-item"><i class="fa fa-user-md" aria-hidden="true"></i> MARYRAIDA CANONICCO.</a>
-				<a href="javascript:;" class="list-group-item"><i class="fa fa-university" aria-hidden="true"></i> CUENTA CORRIENTE BANCO PROVINCIAL</a>
-				<a href="javascript:;" class="list-group-item"><i class="fa fa-hashtag" aria-hidden="true"></i> 01080076530100207774</a>
-				<a href="javascript:;" class="list-group-item"><i class="fa fa-envelope-o" aria-hidden="true"></i> Maryraida@hotmail.com</a>
+				<a href="javascript:;" class="list-group-item"> Transferencias electrónicas en Venezuela,
+				<i class="fa fa-university" aria-hidden="true"></i> BANCO PROVINCIAL, cuenta corriente
+				<i class="fa fa-hashtag" aria-hidden="true"></i> 01080076530100207774
+				<i class="fa fa-user-md" aria-hidden="true"></i> MARYRAIDA CANONICCO 
+				<i class="fa fa-hashtag" aria-hidden="true"></i> 13798940
+				<i class="fa fa-envelope-o" aria-hidden="true"></i> Maryraida@hotmail.com</a>
+
+				<a href="javascript:;" class="list-group-item">Transferencias en dólares
+				<i class="fa fa-university" aria-hidden="true"></i> CITIBANK</a>
+				<i class="fa fa-hashtag" aria-hidden="true"></i> 927340498
+
+				<a href="javascript:;" class="list-group-item">PYONEER
+				<i class="fa fa-university" aria-hidden="true"></i> Maryraida@hotmail.com</a>
 		
 		    	
 				

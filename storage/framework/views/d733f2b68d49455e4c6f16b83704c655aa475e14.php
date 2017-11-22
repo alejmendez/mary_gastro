@@ -31,7 +31,7 @@
                                     <li><a href="<?php echo e(url('marygastro')); ?>">¿Quién Soy?</a></li>
                                     <li><a href="<?php echo e(url('fotos')); ?>">Fotos</a></li>
                                     <li><a href="<?php echo e(url('testimonios')); ?>">Testimonios</a></li>
-                                    <li><a href="<?php echo e(url('blog')); ?>">Blog</a></li>
+                                    <li><a href="<?php echo e(url('blogs')); ?>">Blog</a></li>
                                  </ul>
                               </div>
                               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
