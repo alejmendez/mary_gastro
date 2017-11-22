@@ -45,11 +45,11 @@ class Notificaciones extends Modelo
     }  
     public function mensaje()
     {
-        return $this->belongsTo('marygastro\Modules\base\Models\Mensaje', 'mensaje_id');
+        return $this->belongsTo('marygastro\Modules\Base\Models\Mensaje', 'mensaje_id');
     }
     public function TipoNotificacion()
     {
-        return $this->belongsTo('marygastro\Modules\base\Models\TipoNotificacion', 'tipo_notificacion_id');
+        return $this->belongsTo('marygastro\Modules\Base\Models\TipoNotificacion', 'tipo_notificacion_id');
     }
   
     public function getCreatedAtAttribute($value){

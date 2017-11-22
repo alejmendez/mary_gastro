@@ -28,8 +28,8 @@ use marygastro\Modules\Base\Models\PersonasCorreo;
 class UsuariosController extends Controller {
 	protected $titulo = 'Usuarios';
 
-	public $js = ['Usuarios'];
-	public $css = ['Usuarios'];
+	public $js = ['usuarios'];
+	public $css = ['usuarios'];
 
 	public $librerias = [
 		'alphanum', 
