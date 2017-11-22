@@ -76,7 +76,7 @@
                             <div class="overlay-inner">
                                 <div class="overlay-content">
                                     <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
-                                    <div class="text">Soy imagen de #soloproteinas, Adquierelas con la clave Marygastro o SOM0033 </div>
+                                    <div class="text">Soy imagen de <a href="https://www.instagram.com/soloproteinas/?hl=es">#soloproteinas</a>, Adquierelas con la clave Marygastro o SOM0033 </div>
                                 </div>
                             </div>
                         </div>
