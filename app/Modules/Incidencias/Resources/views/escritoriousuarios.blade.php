@@ -80,20 +80,26 @@
 		
 		</div> 
 		<div class="col-md-9">
+			<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank"  >
+				<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class=""style="width: 100%;" />
+			</a>
+		</div>
+		<div class="col-md-9">
+
 			<div class="panel-group accordion" id="accordion3">
-		        <div class="panel panel-primary">
-		            <div class="panel-heading">
-		                <h4 class="panel-title">
-		                	<a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
 								<center>
 									<h3 class="panel-title">Consultas</h3>
 								</center> 
 							</a>
-		                </h4>
-		            </div>
-		            <div id="collapse_3_1" class="panel-collapse in">
-		                <div class="panel-body">
-		            		<center><table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
+						</h4>
+					</div>
+					<div id="collapse_3_1" class="panel-collapse in">
+						<div class="panel-body">
+							<center><table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
 								<thead>
 									<tr>
 										<th style="width: 25%; text-align: center;">Fecha de Solicitud</th>
@@ -103,10 +109,11 @@
 									</tr>
 								</thead>
 							</table></center>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 	  

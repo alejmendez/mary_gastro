@@ -23,11 +23,11 @@ class IncidenciasController extends Controller
     protected $titulo = 'incidencias';
 
     public $js = [
-        'incidencias'
+        'Incidencias'
     ];
     
     public $css = [
-        'incidencias'
+        'Incidencias'
     ];
 
     public $librerias = [
