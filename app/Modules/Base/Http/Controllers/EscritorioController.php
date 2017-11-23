@@ -17,15 +17,7 @@ class EscritorioController extends Controller {
     }
 
     public function getIndex() {
-        $data = [
-            'mensaje' => 'Este es el cuerpo del msj'
-        ];
         $user = \Auth::user();
-        \Mail::send('pagina::emails.notificacion', $data, function ($message) use ($user){
-            $message->subject('Asunto del correo');
-            $message->to('alejmendez.87@gmail.com');
-            $message->to('drummermiguelangel@gmail.com');
-        });
         
         $permisos = [
             'incidencias/inicio/usuarios',
