@@ -19,16 +19,16 @@ class Notificaciones extends Migration
 
             $table->timestamps();
             $table->softDeletes();
-        });
+        }); //nuevo user
 
         Schema::create('tipo_notificacion', function(Blueprint $table){
             $table->increments('id');
             $table->string('nombre', 200);//mjs nuevo
-            $table->string('ruta');// "/msj"
+            $table->string('ruta');
             $table->timestamps();
             $table->softDeletes();
         });
-        // "/msj/3"
+        
         Schema::create('notificaciones', function(Blueprint $table){
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
