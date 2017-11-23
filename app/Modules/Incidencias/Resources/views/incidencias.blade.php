@@ -144,48 +144,6 @@
 							<p>La APLV es común en niños, especialmente en lactantes. Adultos rara vez tienen alergia a la leche de vaca, generalmente asociada a diagnósticos tardíos, falta de inmunoterapia o falla en inmunomodulacion. </p>
 							<p>Las señales o síntomas de APLV son uno o más de los siguientes: vómitos, cólico, diarrea, dolor abdominal, sangre en heces, dermatitis (erupción en la piel, descamación, engrosamiento en la piel, mejillas ásperas y hasta pequeñas ampollas), problemas respiratorios (broncoespasmo, rinitis) y pérdida de peso o peso estacionario. Pueden ocurrir después de algunos minutos, horas o días después de la ingestión de leche de vaca o derivados (reacciones tempranas o tardías), de forma persistente o repetitiva. </p>
 							<p>El diagnóstico lo hace el médico mediante observación de síntomas, exámenes en sangre  (IgE especifica de leche de vaca, caseína, alfa o betalactoalbumina, IgG, IgG4) o cutáneos (PRICK test) que pueden realizarse, sin embargo son usados en niños mayores de 1 año de edad en vista de la inmadurez del sistema inmunológico en recién nacidos y lactantes menores) , en casos de alergia no mediada por IgE es fundamental el interrogatorio de manifestaciones clínicas y puede ser necesario el estudio endoscópico. Finalmente la respuesta clínica satisfactoria a la exclusión de leche de vaca y sus derivados con posterior reaparición de sintomatología con el desafío o reintroducción de los mismos confirma el diagnóstico. </p>
-			
-							<ol>
-
-								<li><p><b>Consulta express</b> 
-									Este tipo de consulta permite  
-									que en el transcurso de 24 h estemos 
-									en contacto y recibas asesoría VIP, 
-									personalizada en cualquier problema 
-									digestivo de tu hijo.
-									<ul>	
-										<li type="square">30 $ Residentes Venezuela 70milbsF</li>
-									</ul>
-
-								</p></li>
-								<li><p><b>Tu gastopediatra en Acción</b> 
-									Si tu hijo tiene síntomas como vómito, 
-									reflujo,  cólico, irritabilidad, diarrea, estreñimiento,  
-									pujo, erupciones en el cuerpo, trastornos del sueño, 
-									cuadros respiratorios recurrentes, flatulencias,
-									sensación de plenitud,  dolor abdominal u otra afectación intestinal,
-									tu gastropediatra en acción tiene la solución para ti.   3 consultas 
-									que garantizan su mejoría  en 24 h- 72 h y el seguimiento en la primera 
-									semana de diagnóstico y tratamiento. 
-									<ol>
-										<li> Reconocimiento y evaluación inicial</li>
-										<li> Evolución a las 48h </li>
-										<li> Seguimiento (7mo dia)</li>
-									</ol>
-									<ul>	
-										<li type="square">60$ 150milBsF residentes VE</li>
-									</ul>
-								</p></li>
-								<li>
-									<p>Consulta 1&1 Siempre tenemos dudas de acuerdo a la dieta de nuestros niños y más cuando ya ha presentado algunos síntomas y  tenemos un diagnóstico, pero realmente, ¿qué puede comer mi hijo? ¿que puede comer una madre lactando a un niño con intolerancia alimentaria? </p> 
-									<p>Esta  consulta es la respuesta para tus interrogantes en la  alimentación del niño con intolerancias, alergias alimentarias o sensibilidad al gluten y de la madre que amamanta. </p>
-
-									<ul>	
-										<li type="square">30$  70milbsF residentes VE</li>
-									</ul>
-								</li>
-
-							</ol>
 						</div>
 					</div>
 				</div>
