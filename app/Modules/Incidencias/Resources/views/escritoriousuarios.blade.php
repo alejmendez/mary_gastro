@@ -81,18 +81,18 @@
 		
 		</div> 
 		<div class="col-md-9">
-			<div class="panel-group accordion" id="accordion3">
+			<div class="panel-group accordion" id="accordion">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h4 class="panel-title">
-							<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
+							<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion3" href="#collapse_3">
 								<center>
 									<center><h2  class="panel-title">¿Alérgico o Intolerante a algún alimento?</h2></center>
 								</center> 
 							</a>
 						</h4>
 					</div>
-					<div id="collapse_3_1" class="panel-collapse in">
+					<div id="collapse_3" class="panel-collapse in">
 						<div class="panel-body" style="overflow: auto;max-height: 300px;">
 							<p>Es diferente ser intolerante o ser alérgico a uno o varios alimentos a pesar de que comparten similitudes, como que provocan efectos nocivos en el organismo a causa de la ingesta de determinados alimentos.</p>
 							<p>Para iniciar vamos a definir los conceptos y luego describir cuales son los signos para poder responder nuestra pregunta. </p> 
