@@ -401,7 +401,58 @@
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-
+<section class="services-section">
+    <div class="auto-container">
+        <div class="sec-title centered">
+            <h2>¿Quién es Marygastro?</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
+                <div class="inner-box">
+                    <div class="icon-box"><span class="flaticon-brain"></span></div>
+                    <h3>Consulta express</h3>
+                    <div class="text">
+                        <p style="text-align: justify;">Este tipo de consulta permite  
+                        que en el transcurso de 24 h estemos 
+                        en contacto y recibas asesoría VIP, 
+                        personalizada en cualquier problema 
+                        digestivo de tu hijo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
+                <div class="inner-box">
+                    <div class="icon-box"><span class="flaticon-medical"></span></div>
+                    <h3>Tu gastopediatra en Acción</h3>
+                    <div class="text">
+                       <p style="text-align: justify;"> Si tu hijo tiene síntomas como vómito, 
+                        reflujo,  cólico, irritabilidad, diarrea, estreñimiento,  
+                        pujo, erupciones en el cuerpo, trastornos del sueño, 
+                        cuadros respiratorios recurrentes, flatulencias,
+                        sensación de plenitud,  dolor abdominal u otra afectación intestinal,
+                        tu gastropediatra en acción tiene la solución para ti.   3 consultas 
+                        que garantizan su mejoría  en 24 h- 72 h y el seguimiento en la primera 
+                        semana de diagnóstico y tratamiento. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
+                <div class="inner-box">
+                    <div class="icon-box"><span class="flaticon-doctor-stethoscope"></span></div>
+                    <h3>Consulta 1&1</h3>
+                    <div class="text">
+                     <p style="text-align: justify;">Siempre tenemos dudas de acuerdo
+                      a la dieta de nuestros niños y más 
+                      cuando ya ha presentado algunos síntomas y  
+                      tenemos un diagnóstico, pero realmente, ¿qué puede comer 
+                      mi hijo? ¿que puede comer una madre lactando a un niño con 
+                      intolerancia alimentaria?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="two-col-fluid">
     <div class="outer-box clearfix">
         <div class="image-column" style="background-image:url('public/img/featured-image-9.jpg');">
@@ -446,11 +497,16 @@
                     </div>
 
                     <div class="text-content">
-                        <p><strong>Consulta Online: </strong> Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
+                       
+                        
+                        
+                        
                         <p><strong>Horario de Consulta Online: </strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
+                   
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
