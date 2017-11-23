@@ -416,8 +416,8 @@
 
                     <div class="sec-title">
                         <h2>Gastropediatra en Acción, Asesorías Online</h2>
-                        <p>Recibirás de Regalo una copia de mi guía <b>"3 pasos para saber si mi hijo es alérgico"</b>, al confirmar tu subscripción en la bandeja de entrada</p>
                         <div class="separator"></div>
+                        <p>Recibirás de Regalo una copia de mi guía <b>"3 pasos para saber si mi hijo es alérgico"</b>, al confirmar tu subscripción en la bandeja de entrada</p>
                     </div>
 
                     <div class="default-form">
