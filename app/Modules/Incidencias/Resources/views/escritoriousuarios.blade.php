@@ -51,13 +51,9 @@
 			<div class="list-group">
 				<a href="#" class="list-group-item active"><center>Opciones</center></a>
 				<a href="{{ url('/') }}" class="list-group-item"><i class="fa fa-home" aria-hidden="true"></i> Ir ha Pagina web </a>
-		
 		    	<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias') }}" class="list-group-item "><i class="fa fa-plus" aria-hidden="true"></i> Nueva Consulta</a>
-
 				{{--  <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
-				
 				{{--  <a href="{{ url('ventas/escritorio/planesactivos') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Planes Activos</a>  --}}
-				
 			</div>
 			<div class="list-group">
 				<a href="#" class="list-group-item active"><center>Información de pago</center></a>
@@ -74,9 +70,6 @@
 
 				<a href="javascript:;" class="list-group-item">PYONEER<br>
 				<i class="fa fa-university" aria-hidden="true"></i> Maryraida@hotmail.com</a>
-		
-		    	
-				
 			</div>
 		
 		</div> 
@@ -261,14 +254,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-9">
-			<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank"  >
-				<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class=""style="width: 100%;" />
+			
+			<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
+				<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class="" style="margin: 20px 0; width: 100%;" />
 			</a>
-		</div>
-		<div class="col-md-9">
-
+			
 			<div class="panel-group accordion" id="accordion3">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
