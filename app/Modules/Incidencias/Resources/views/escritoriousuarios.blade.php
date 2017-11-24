@@ -79,7 +79,7 @@
 				<i class="fa fa-university" aria-hidden="true"></i> Maryraida@hotmail.com</a>
 			</div>
 		
-		</div> 
+		</div>
 		<div class="col-md-9">
 			<div class="panel-group accordion" id="accordion">
 				<div class="panel panel-primary">
@@ -102,7 +102,7 @@
 									personalizada en cualquier problema 
 									digestivo de tu hijo.
 									<ul>	
-										<li type="square">30 $ Residentes Venezuela 70 mil BsF</li>
+										<li type="square">30 $ Residentes Venezuela 70.000,<small>00</small> BsF</li>
 									</ul>
 
 								</p></li>
@@ -113,7 +113,7 @@
 									cuadros respiratorios recurrentes, flatulencias,
 									sensación de plenitud,  dolor abdominal u otra afectación intestinal,
 									tu gastropediatra en acción tiene la solución para ti.   3 consultas 
-									que garantizan su mejoría  en 24 h- 72 h y el seguimiento en la primera 
+									que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
 									semana de diagnóstico y tratamiento. 
 									<ol>
 										<li> Reconocimiento y evaluación inicial</li>
@@ -121,7 +121,7 @@
 										<li> Seguimiento (7mo dia)</li>
 									</ol>
 									<ul>	
-										<li type="square">60$ 150milBsF residentes VE</li>
+										<li type="square">60 $ 150.000,<small>00</small> BsF residentes VE</li>
 									</ul>
 								</p></li>
 								<li>
@@ -129,7 +129,7 @@
 									<p>Esta  consulta es la respuesta para tus interrogantes en la  alimentación del niño con intolerancias, alergias alimentarias o sensibilidad al gluten y de la madre que amamanta. </p>
 
 									<ul>	
-										<li type="square">30$  70milbsF residentes VE</li>
+										<li type="square">30 $  70.000,<small>00</small> BsF residentes VE</li>
 									</ul>
 								</li>
 
