@@ -1,3 +1,11 @@
+<?php $__env->startPush('css'); ?>
+<style>
+p {
+	text-align: justify;
+}
+</style>
+<?php $__env->stopPush(); ?>
+
 <?php $__env->startSection('content'); ?>
     
 <section class="page-title" style="background-image:url('public/img/bg-page-title-1.jpg');">
@@ -81,7 +89,7 @@
 									<!--featured-image-box-->
 									<div class="video-image-box">
 										<figure class="image">
-											<img alt="" src="<?php echo e(asset('public/img/featured-image-4.jpg')); ?>"><a class="overlay-link lightbox-image" href="#"><span class="icon flaticon-multimedia"></span></a>
+											<img alt="" src="<?php echo e(asset('public/img/team-image-1.png')); ?>">
 										</figure>
 										<div class="caption-box">
 											Aprenda como puede cambiar su vida y la salud de su familia con las rutinas de mi programa diario
@@ -163,7 +171,7 @@
 							</div><!--Image-column-->
 							<div class="image-column col-md-4 col-sm-12 col-xs-12">
 								<figure class="image-box wow slideInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-									<img alt="" src="<?php echo e(asset('public/img/team-image-1.png')); ?>">
+									<img alt="" src="<?php echo e(asset('public/img/featured-image-4.jpg')); ?>">
 								</figure>
 							</div>
 						</div>

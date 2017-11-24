@@ -232,11 +232,13 @@
 <section class="call-to-action">
     <div class="container">
         <div class="row">
-    	    <div class="col-md-8 col-sm-8 text-right m-text-center">
-                <h1 style="color:#fff">¿También quieres dejar tu testimonio?</h1>
-            </div>
-             <div class="col-md-4 col-sm-4 m-text-center">
+    	    <div class="col-md-9 col-sm-9 text-right m-text-center" style="margin-top:8%">
+                <h1 style="color:#fff" >¿También quieres dejar tu testimonio?</h1>
                 <a href="{{ url('contacto') }}" class="btn btn-white">Comenta</a> 
+            </div>
+            
+            <div class="col-md-3 col-sm-3 m-text-center">
+                <img src="{{ asset('public/img/gabi2.jpg') }}" /> 
             </div>
         </div>
     </div>
@@ -248,7 +250,7 @@
 
 
 <style>
-section {background:#6BE06B; padding:40px 0;}
+section {background:#ff7cbf; padding:40px 0;}
 
 .btn {
     border-radius: 5px;

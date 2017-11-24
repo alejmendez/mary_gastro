@@ -28,32 +28,47 @@
                 <!--form-box-->
                 <div class="form-box default-form">
                     <div class="contact-form default-form">
-                        <div role="form" class="wpcf7" id="wpcf7-f293-p290-o1" lang="en-US" dir="ltr">
-<div class="screen-reader-response"></div>
-<form action="http://asianitbd.com/wp/healthcoach/contact/#wpcf7-f293-p290-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                        <div role="form" class="wpcf7">
+<div class="screen-reader-response">
+    <?php echo e($msj); ?>
+
+</div>
+<form action="<?php echo e(url('send-mail')); ?>" method="post" class="wpcf7-form" novalidate="novalidate">
+    <?php echo e(csrf_field()); ?>
+
 <div style="display: none;">
-<input type="hidden" name="_wpcf7" value="293" />
-<input type="hidden" name="_wpcf7_version" value="4.5.1" />
-<input type="hidden" name="_wpcf7_locale" value="en_US" />
-<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f293-p290-o1" />
-<input type="hidden" name="_wpnonce" value="bd91612d6d" />
 </div>
 <div id="contact-form">
 <div class="row clearfix">
 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-        <span class="wpcf7-form-control-wrap text-36"><input type="text" name="text-36" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Nombre y Apellido" /></span>
+        <span class="wpcf7-form-control-wrap text-36">
+            <input type="text" name="nombre" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Nombre y Apellido" />
+        </span>
     </div>
 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-        <span class="wpcf7-form-control-wrap email-927"><input type="email" name="email-927" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="E-mail" /></span>
+        <span class="wpcf7-form-control-wrap email-927">
+            <input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="E-mail" />
+        </span>
     </div>
 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-        <span class="wpcf7-form-control-wrap text-37"><input type="text" name="text-37" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Número de Contacto" /></span>
+        <span class="wpcf7-form-control-wrap text-37">
+            <input type="text" name="telefono" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Número de Contacto" />
+        </span>
     </div>
 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-        <span class="wpcf7-form-control-wrap menu-398"><select name="menu-398" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value="Subject">Asunto</option><option value="Wooden Flooring">Personal</option><option value="Metal Flooring">Urgente</option><option value="Concrete Flooring">Sugerencia</option></select></span>
-    </div>
+    <span class="wpcf7-form-control-wrap menu-398">
+        <select name="asunto" class="wpcf7-form-control wpcf7-select" aria-invalid="false">
+            <option value="Asunto">Asunto</option>
+            <option value="Personal">Personal</option>
+            <option value="Urgente">Urgente</option>
+            <option value="Sugerencia">Sugerencia</option>
+        </select>
+    </span>
+</div>
 <div class="form-group col-md-12 col-sm-12 col-xs-12">
-        <span class="wpcf7-form-control-wrap textarea-178"><textarea name="textarea-178" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Ingrese su mensaje"></textarea></span>
+        <span class="wpcf7-form-control-wrap textarea-178">
+            <textarea name="mensaje" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Ingrese su mensaje"></textarea>
+        </span>
     </div>
 <div class="form-group col-md-12 col-sm-12 col-xs-12">
         <input type="submit" value="Enviar" class="wpcf7-form-control wpcf7-submit theme-btn btn-style-one" />
@@ -66,26 +81,27 @@
             
             <!--Column-->
             <div class="column info-column pull-left col-lg-6 col-md-8 col-sm-12 col-xs-12">
-                <div class="sec-title"><h2>Consultorio</h2><div class="separator"></div></div>
+                <div class="sec-title">
+                    <h2>Consultorio</h2>
+                    <div class="separator"></div>
+                </div>
                 <!--Info Tabs-->
                 <div class="tabs-box info-tabs">
                     <!--Tab Buttons-->
                     <ul class="tab-buttons clearfix">
-                                                
                     	<li class="tab-btn active-btn" data-tab="#info-tab-11">Venezuela</li>
-                    	                        
                     </ul>
                     
                     <!--Tabs Content-->
-                    <div class="tabs-content">
-                                               
-                                                <!--Tab / Active Tab-->
+                    <div class="tabs-content"> 
+                        <!--Tab / Active Tab-->
                         <div class="tab active-tab" id="info-tab-11">
                             <div class="desc-text">Puede solicitar una cita previa en mi consultorio.</div>
+                            
                             <h3 class="location-title">Estado Bolívar</h3>
                             <div class="info-style-one">
                                 <ul>
-                                    <li><div class="icon-box"><span class="fa fa-globe"></span></div><h4>Consultorio :</h4><div class="text">Centro Clinico Cardiovascular, S.A. Edif. Nolly Lc 01 <br> Ciudad Bolívar - Venezuela.</div></li>
+                                    <li><div class="icon-box"><span class="fa fa-globe"></span></div><h4>Consultorio :</h4><div class="text">Centro Cardiovascular Integral, S.A. Edif. Nolly Lc 01 <br> Ciudad Bolívar - Venezuela.</div></li>
                                     <li><div class="icon-box"><span class="flaticon-envelope"></span></div><h4>¿Más Información?:</h4><div class="text">info@marygastro.com.ve</div></li>
                                     <li><div class="icon-box"><span class="flaticon-technology-1"></span></div><h4>Telf:</h4><div class="text"> +58 285 654 62 94</div></li>
                                 </ul>

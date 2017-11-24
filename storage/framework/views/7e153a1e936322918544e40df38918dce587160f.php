@@ -20,7 +20,7 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-1.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-1.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-1-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#forma_parte_nuestro_team"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-1.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-1.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-1-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-check"></span></div>
                             <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
@@ -29,7 +29,7 @@
                             <div class="icon-box"><span class="flaticon-check"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="#teamMarygastro">Revisiones de Control</a></h4>
+                                    <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
                                     <div class="text">Si sospechas de algún problema gastrico podría ayudarte a salir de dudas</div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                             <div class="icon-box"><span class="flaticon-tropical-pineapple"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="#">Estrategias de Nutrición</a></h4>
+                                    <h4 class="title"><a href="teamMarygastro">Estrategias de Nutrición</a></h4>
                                     <div class="text">Somos lo que consumimos, para los niños y adolescentes es importante supervisar su nutrición</div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                             <div class="icon-box"><span class="flaticon-rocket-launch"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
+                                    <h4 class="title"><a href="teamMarygastro">Ayuda y Motivación</a></h4>
                                     <div class="text">
                                     Si lo crees es posible, el secreto está en ti. 
                                     Tu gastropediatra en acción es imagen de 
@@ -279,8 +279,8 @@
                 <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
                     <div class="inner-box">
                         <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="<?php echo e(asset('public/img/author-thumb-2.jpg')); ?>" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" srcset="<?php echo e(asset('public/img/author-thumb-2.jpg')); ?> 90w, <?php echo e(asset('public/img/author-thumb-2-75x75.jpg')); ?> 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
-                            <h4>Carlos Gallego</h4>
+                            <figure class="author-thumb"><img width="90" height="90" src="<?php echo e(asset('public/img/author-thumb-2.jpg')); ?>" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" /></figure>
+                            <h4>Familia Gallego Jaramillo</h4>
                             <div class="designation">Diagnóstico acertado</div>
                         </div>
                         <div class="slide-content">Dra. Maryraida Canónico; un ángel enviado por Dios para Cesar Gallego Jaramillo nuestro hijo, ... (Ver más) </div>
@@ -482,9 +482,9 @@
 </section>
 <section class="two-col-fluid">
     <div class="outer-box clearfix">
-        <div class="image-column" style="background-image:url('public/img/featured-image-9.jpg');">
+        <div class="image-column" style="background-image:url('public/img/featured-image-9.jpg?');">
             <figure class="image-box">
-                <img src="<?php echo e(asset('public/img/featured-image-9.jpg')); ?>" alt="" />>
+                <img src="<?php echo e(asset('public/img/featured-image-9.jpg?')); ?>" alt="" />>
             </figure>
         </div>
 
