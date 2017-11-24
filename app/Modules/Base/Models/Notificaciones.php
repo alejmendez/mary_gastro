@@ -26,7 +26,7 @@ class Notificaciones extends Modelo
                 'mensaje' => $model->mensaje->mensaje . ' de ' . $usuario_recibe->nombre
             ], function($message) use($usuario) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
-                $message->to($usuario->correo, $usuario->nombre)
+                $message->to($usuario->personas->correo, $usuario->personas->nombre)
                 ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
             });
 
