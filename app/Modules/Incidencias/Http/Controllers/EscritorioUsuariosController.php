@@ -74,5 +74,4 @@ class EscritorioUsuariosController extends Controller {
             ->make(true);
     } 
     
-
 }

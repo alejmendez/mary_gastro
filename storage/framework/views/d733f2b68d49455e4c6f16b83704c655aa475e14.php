@@ -38,7 +38,7 @@
                                  <ul class="list">
                                     <li><a href="<?php echo e(url('/backend')); ?>">Citas</a></li>
                                     <li><a href="<?php echo e(url('https://www.instagram.com/mary_gastro/')); ?>">Instagram</a></li>
-                                    <li><a href="<?php echo e(url('')); ?>">Tips MaryGastro</a></li>
+                                    <li><a href="#tipsMarygastro">Tips MaryGastro</a></li>
                                     <li><a href="<?php echo e(url('contacto')); ?>">Contacto</a></li>
                                  </ul>
                               </div>
@@ -53,7 +53,7 @@
             <div id="bunch_contact_us-2"  class="col-md-4 col-sm-6 col-xs-12 footer-column widget_bunch_contact_us">
                <div class="footer-widget">
                   <div class="contact-widget">
-                     <h2>Mis Redes</h2>
+                     <h2>Contacto</h2>
                      <div class="widget-content">
                         <ul class="contact-info">
                            <li><span class="icon flaticon-telephone-1"></span><strong>Telf:</strong> +58 285 654 62 94</li>
@@ -73,13 +73,14 @@
       <div class="auto-container">
          <div class="clearfix">
             <div class="pull-left">
-               <div class="copyright">MaryGastro © 2017 por <a href="#" class="author-name">www.tumundoclick.com</a></div>
+               <div class="copyright">MaryGastro © 2017 por <a href="http://www.tumundoclick.com" class="author-name">www.tumundoclick.com</a></div>
+               <div class="copyright">Centro Cardiovascular Integral, S.A.</div>
             </div>
             <div class="pull-right">
                <ul class="footer-social">
                   <li>Sígueme</li>
-                  <li><a href="<?php echo e(url('https://www.facebook.com/Maryraida?lst=1312639878%3A1160595543%3A1502303458')); ?>'">maryraida <span class="fa fa-facebook"></span></a></li>
-                  <li><a href="<?php echo e(url('https://www.instagram.com/mary_gastro/')); ?>'">#mary_gastro <span class="fa fa-instagram"></span></a></li>
+                  <li><a href="https://www.facebook.com/Maryraida?lst=1312639878%3A1160595543%3A1502303458">maryraida <span class="fa fa-facebook"></span></a></li>
+                  <li><a href="https://www.instagram.com/mary_gastro/">@mary_gastro  <span class="fa fa-instagram"></span></a></li>
                </ul>
             </div>
          </div>
