@@ -44,16 +44,16 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-2.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-2.jpg') }} 370w, {{ asset('public/img/featured-image-2-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#tipsMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-2.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-2.jpg') }} 370w, {{ asset('public/img/featured-image-2-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-tropical-pineapple"></span></div>
-                            <h4 class="title"><a href="#teamMarygastro">Estrategias de Nutrición</a></h4>
+                            <h4 class="title"><a href="#tipsMarygastro">Estrategias de Nutrición</a></h4>
                         </div>
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-tropical-pineapple"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="teamMarygastro">Estrategias de Nutrición</a></h4>
+                                    <h4 class="title"><a href="#tipsMarygastro">Estrategias de Nutrición</a></h4>
                                     <div class="text">Somos lo que consumimos, para los niños y adolescentes es importante supervisar su nutrición</div>
                                 </div>
                             </div>
@@ -65,17 +65,17 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-3.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-3.jpg') }} 370w, {{ asset('public/img/featured-image-3-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#tipsMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-3.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-3.jpg') }} 370w, {{ asset('public/img/featured-image-3-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-rocket-launch"></span></div>
-                            <h4 class="title"><a href="#teamMarygastro">Ayuda y Motivación</a></h4>
+                            <h4 class="title"><a href="#tipsMarygastro">Ayuda y Motivación</a></h4>
                         </div>
                         <!--Overlay-->
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-rocket-launch"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="teamMarygastro">Ayuda y Motivación</a></h4>
+                                    <h4 class="title"><a href="#tipsMarygastro">Ayuda y Motivación</a></h4>
                                     <div class="text">
                                     Si lo crees es posible, el secreto está en ti. 
                                     Tu gastropediatra en acción es imagen de 
