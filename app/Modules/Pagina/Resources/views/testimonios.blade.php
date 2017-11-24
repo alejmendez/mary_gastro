@@ -230,12 +230,12 @@
                 <div class="slide-header">
                     <figure class="author-thumb">
                     <img width="90" height="90" 
-                    src="{{ asset('public/img/author-thumb-5.jpg') }}" 
+                    src="{{ asset('public/img/author-thumb-6.jpg') }}" 
                     class="attachment-90x90 size-90x90 wp-post-image" 
-                    alt="author-thumb-5" 
+                    alt="author-thumb-6" 
                     /></figure>
                     <h3>Familia Casado Giunta</h3>
-                    <div class="designation" style="font-size: 24px">Como mi doctora, ninguna</div>
+                    <div class="designation" style="font-size: 24px">Mi doctora en la distancia</div>
                 </div>
                 <div class="slide-content">
                 <p>
@@ -251,9 +251,40 @@
                 estar mas agradecidos con tan increíble profesional.
                 </p>
 
-                <b><i>Contamos con usted a pesar de la distancia.</i></b></div>
+                </div>
             </div>
         </div><!--End testimonial 6-->
+        
+        
+        <!--Testimonial 7-->
+        <div class="slide-item">
+            <div class="inner-box">
+                <div class="slide-header">
+                    <figure class="author-thumb">
+                    <img width="90" height="90" 
+                    src="{{ asset('public/img/author-thumb-7.jpg') }}" 
+                    class="attachment-90x90 size-90x90 wp-post-image" 
+                    alt="author-thumb-6" 
+                    /></figure>
+                    <h3>Familia Rondon</h3>
+                    <div class="designation" style="font-size: 24px">Mi doctora favorita</div>
+                </div>
+                <div class="slide-content">
+                <p>
+                    Esta hermosa niña se llama Yaniuska Rondon,
+                    tiene diez años, en la actualidad en control con la 
+                    Dra Maryraida Canonico, hace tres años ella llego 
+                    grave a su consultorio, con un problema de alergia 
+                    cronica en el colon y estomago causada por la 
+                    intolerancia a la lactosa y al gluten, gracias a 
+                    Dios primeramente y a esta grandisa profesional 
+                    hoy en dia Yaniuska presenta una mejoria de noventa 
+                    por ciento, la recomiendo ampliamente.
+                </p>
+
+                </div>
+            </div>
+        </div><!--End testimonial 7-->
 
         
         </div>

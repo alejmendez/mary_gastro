@@ -173,7 +173,7 @@ p {
 							</div><!--Image-column-->
 							<div class="image-column col-md-4 col-sm-12 col-xs-12">
 								<figure class="image-box wow slideInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-									<img alt="" src="{{ asset('public/img/featured-image-4.jpg') }}">
+									<img alt="" src="{{ asset('public/img/featured-image-8.jpg') }}?_=1">
 								</figure>
 							</div>
 						</div>
