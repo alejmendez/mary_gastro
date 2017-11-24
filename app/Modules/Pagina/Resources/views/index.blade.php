@@ -162,7 +162,7 @@
                             <div class="inner-box">
                                 <div class="icon"><span class="icon flaticon-doctor-stethoscope"></span></div>
                                 <div class="separator"></div>
-                                <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="5000">0</span>+</div>
+                                <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="6800">0</span>+</div>
                                 <h4 class="counter-title">Ultrasonidos</h4>
                             </div>
                         </article>
@@ -436,14 +436,14 @@
                     <div class="icon-box"><span class="flaticon-gym"></span></div>
                     <h2 style="font-weight: bold;">Tu gastopediatra en Acción</h2>
                     <div class="text">
-                       <p style="text-align: justify; font-size: 18px;">
-                       Si tu hijo tiene síntomas como vómito, 
+                        <p style="text-align: justify; font-size: 18px;">
+                        Si tu hijo tiene síntomas como vómito, 
                         reflujo, cólico, irritabilidad, diarrea, estreñimiento, 
                         pujo, erupciones en el cuerpo, trastornos del sueño, 
                         cuadros respiratorios recurrentes, flatulencias,
-                        sensación de plenitud, dolor abdominal u otra afectación intestinal,
+                        sensación de llenura, dolor abdominal u otra afectación intestinal,
                         tu gastropediatra en acción tiene la solución para ti. 3 consultas 
-                        que garantizan su mejoría en 24 h- 72 h y el seguimiento en la primera 
+                        que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
                         semana de diagnóstico y tratamiento.
                         </p>
                     </div>
