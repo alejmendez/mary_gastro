@@ -32,7 +32,7 @@
                             <div class="overlay-inner">
                                 <div class="overlay-content">
                                     <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
-                                    <div class="text">Si sospechas de algún problema gastrico podría ayudarte a salir de dudas</div>
+                                    <div class="text">Si sospechas de algún problema gástrico podría ayudarte a salir de dudas</div>
                                 </div>
                             </div>
                         </div>
