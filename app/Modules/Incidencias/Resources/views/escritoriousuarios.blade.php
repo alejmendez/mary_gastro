@@ -158,34 +158,34 @@
 						</div>
 						<div id="collapse_informacion_pago" class="panel-collapse in">
 							<div id="collapse_informacion_pago" class="list-group">
-								<a href="javascript:;" class="list-group-item"> Datos Bancarios en Venezuela<br />
+								<a href="javascript:;" class="list-group-item"> <b>DATOS BANCARIOS EN VENEZUELA</b><br />
 								<i class="fa fa-university" aria-hidden="true"></i> BANCO PROVINCIAL, cuenta corriente<br />
 								<i class="fa fa-hashtag" aria-hidden="true"></i> 01080076530100207774<br />>
 								<i class="fa fa-user-md" aria-hidden="true"></i> Maryraida Canónicco <br />
 								<i class="fa fa-circle" aria-hidden="true"></i> 13798940<br />
 								<i class="fa fa-envelope-o" aria-hidden="true"></i> info@marygastro.com.ve</a>
 		
-								<a href="javascript:;" class="list-group-item">Pagos Internacionales<br />
+								<a href="javascript:;" class="list-group-item"><b>PAGOS INTERNACIONALES</b><br />
 								<i class="fa fa-user-md" aria-hidden="true"></i> Maryraida Canónicco <br />
 								<i class="fa fa-university" aria-hidden="true"></i> CITIBANK<br />
 								<i class="fa fa-hashtag" aria-hidden="true"></i> Account 927340498<br />
 								<i class="fa fa-hashtag" aria-hidden="true"></i> Aba o Swift 271070801<br />
 								<i class="fa fa-address-book" aria-hidden="true"></i> 394 SHADOW CREEK LN RIVERWOODS IL 60015-3873</a>
 		
-								<a href="javascript:;" class="list-group-item">Datos de Pyoneer<br />
+								<a href="javascript:;" class="list-group-item"><b>DATOS DE PYONEER</b><br />
 								<i class="fa fa-envelope-o" aria-hidden="true"></i> Maryraida@hotmail.com</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-6">
-						Debe realizar el pago de el paquete que usted ha seleccionado,
-						puede elegir la forma de pago que usted requiera
+						Debe realizar el pago del paquete que usted ha seleccionado,
+						puede elegir la forma de pago que usted prefiera y notificar el pago 
+						al siguiente correo: <a href="mailto:pagos@marygastro.com.ve">pagos@marygastro.com.ve</a>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				<button type="button" class="btn btn-primary">Guardar</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
@@ -237,7 +237,7 @@
 										</div>
 									</div>
 									<div class="col-md-3 cta-button">
-										<a href="#" class="btn btn-lg btn-block btn-default" data-toggle="modal" data-target="#modal_pago1">Comprar</a>
+										<a href="#" class="btn btn-lg btn-block btn-default" data-toggle="modal" data-target="#modal_pago1">Adquirir</a>
 									</div>
 								</div>
 							</div>
@@ -267,7 +267,7 @@
 										</div>
 									</div>
 									<div class="col-md-3 cta-button">
-										<a href="#" class="btn btn-lg btn-block btn-default" data-toggle="modal" data-target="#modal_pago2">Comprar</a>
+										<a href="#" class="btn btn-lg btn-block btn-default" data-toggle="modal" data-target="#modal_pago1">Adquirir</a>
 									</div>
 								</div>
 							</div>
@@ -298,7 +298,7 @@
 										</div>
 									</div>
 									<div class="col-md-3 cta-button">
-										<a href="#" class="btn btn-lg btn-block btn-default" data-toggle="modal" data-target="#modal_pago3">Comprar</a>
+										<a href="#" class="btn btn-lg btn-block btn-default" data-toggle="modal" data-target="#modal_pago1">Adquirir</a>
 									</div>
 								</div>
 							</div>
@@ -314,7 +314,6 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
 			
 			<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
 				<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class="" style="margin: 20px 0; width: 100%;" />
@@ -333,57 +332,23 @@
 					</div>
 					<div id="collapse_3_1" class="panel-collapse in">
 						<div class="panel-body">
-							<center><table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
-								<thead>
-									<tr>
-										<th style="width: 25%; text-align: center;">Fecha de Solicitud</th>
-										<th style="width: 25%; text-align: center;">Tipo de Consulta</th>
-										<th style="width: 25%; text-align: center;">Estatus</th>
-										<th style="width: 25%; text-align: center;">Fecha cierre</th>
-									</tr>
-								</thead>
-							</table></center>
+							<center>
+								<table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
+									<thead>
+										<tr>
+											<th style="width: 25%; text-align: center;">Fecha de Solicitud</th>
+											<th style="width: 25%; text-align: center;">Tipo de Consulta</th>
+											<th style="width: 25%; text-align: center;">Estatus</th>
+											<th style="width: 25%; text-align: center;">Fecha cierre</th>
+										</tr>
+									</thead>
+								</table>
+							</center>
 						</div>
 					</div>
 				</div>
 			</div>
-			
-=======
 		</div>
-		
-		<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
-			<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class="" style="margin: 20px 0; width: 100%;" />
-		</a>
-		{{--  
-		<div class="panel-group accordion" id="accordion3">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
-							<center>
-								<h3 class="panel-title">Consultas</h3>
-							</center> 
-						</a>
-					</h4>
-				</div>
-				<div id="collapse_3_1" class="panel-collapse in">
-					<div class="panel-body">
-						<center><table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
-							<thead>
-								<tr>
-									<th style="width: 25%; text-align: center;">Fecha de Solicitud</th>
-									<th style="width: 25%; text-align: center;">Tipo de Consulta</th>
-									<th style="width: 25%; text-align: center;">Estatus</th>
-									<th style="width: 25%; text-align: center;">Fecha cierre</th>
-								</tr>
-							</thead>
-						</table></center>
-					</div>
-				</div>
-			</div>
->>>>>>> 5761a7ba33e800aaf6adc7b68362dc8750ca587f
-		</div>
-		--}}
 	</div>
 </div>
 	  
