@@ -58,7 +58,7 @@
                         <ul class="contact-info">
                            <li><span class="icon flaticon-telephone-1"></span><strong>Telf:</strong> +58 285 654 62 94</li>
                            <li><span class="icon flaticon-interface-4"></span><strong>E-mail:</strong> info@marygastro.com.ve</li>
-                           <li><span class="icon flaticon-location"></span><strong>Consultorio:</strong> Centro Clinico Cardiovascular, S.A. Edif. Nolly Lc 01, Ciudad Bolívar - Venezuela</li>
+                           <li><span class="icon flaticon-location"></span><strong>Consultorio:</strong> Centro Cardiovascular Integral, S.A. Edif. Nolly Lc 01, Ciudad Bolívar - Venezuela</li>
                         </ul>
                      </div>
                   </div>
@@ -73,7 +73,7 @@
       <div class="auto-container">
          <div class="clearfix">
             <div class="pull-left">
-               <div class="copyright">MaryGastro © 2017 por <a href="http://www.tumundoclick.com" class="author-name">www.tumundoclick.com</a></div>
+               <div class="copyright">MaryGastro © 2017 por <a href="http://www.tumundoclick.com/" class="author-name">www.tumundoclick.com</a></div>
                <div class="copyright">Centro Cardiovascular Integral, S.A.</div>
             </div>
             <div class="pull-right">
