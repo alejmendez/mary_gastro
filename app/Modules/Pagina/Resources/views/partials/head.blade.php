@@ -26,7 +26,7 @@
 <link rel='stylesheet' type='text/css' id='fancybox-css'  href="{{ asset('public/css/pagina/jquery.fancybox.css') }}?v={{ env('APP_VERSION') }}" />
 <link rel='stylesheet' type='text/css' id='mCustomScrollbar-css'  href="{{ asset('public/css/pagina/jquery.mCustomScrollbar.min.css') }}?v={{ env('APP_VERSION') }}" />
 <link rel='stylesheet' type='text/css' id='bootstrap-touchspin-css'  href="{{ asset('public/css/pagina/jquery.bootstrap-touchspin.css') }}?v={{ env('APP_VERSION') }}" />
-<link rel='stylesheet' type='text/css' id='healthcoach_main-style-css'  href="{{ asset('public/css/pagina/style.css?') }}?v={{ env('APP_VERSION') }}" />
+<link rel='stylesheet' type='text/css' id='healthcoach_main-style-css'  href="{{ asset('public/css/pagina/style.css') }}?v={{ env('APP_VERSION') }}" />
 <link rel='stylesheet' type='text/css' id='healthcoach_custom-style-css'  href="{{ asset('public/css/pagina/custom.css') }}?v={{ env('APP_VERSION') }}" />
 <link rel='stylesheet' type='text/css' id='healthcoach_responsive-css'  href="{{ asset('public/css/pagina/responsive.css') }}?v={{ env('APP_VERSION') }}" />
 <link rel='stylesheet' type='text/css' id='ecomanic-theme-slug-fonts-css'  href="https://fonts.googleapis.com/css?family=Open%20Sans:300,300i,400,400i|Poppins:300,400,500,600,700|Shadows+Into+Light|Shadows%20Into%20Light&subset=latin,latin-ext" />
