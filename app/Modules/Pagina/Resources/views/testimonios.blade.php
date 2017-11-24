@@ -222,6 +222,38 @@
                 <b><i>Muchas gracias mi Dra. como usted ninguna.</i></b></div>
             </div>
         </div><!--End testimonial 5-->
+        
+        
+        <!--Testimonial 6-->
+        <div class="slide-item">
+            <div class="inner-box">
+                <div class="slide-header">
+                    <figure class="author-thumb">
+                    <img width="90" height="90" 
+                    src="{{ asset('public/img/author-thumb-5.jpg') }}" 
+                    class="attachment-90x90 size-90x90 wp-post-image" 
+                    alt="author-thumb-5" 
+                    /></figure>
+                    <h3>Familia Casado Giunta</h3>
+                    <div class="designation" style="font-size: 24px">Como mi doctora, ninguna</div>
+                </div>
+                <div class="slide-content">
+                <p>
+                La familia Casado Giunta nos encontramos agradecidos con la 
+                Dra.Maryraida Canónico, excelente ser humano y profesional, 
+                que nos ha guiado desde el primer mes de vida de nuestra hija 
+                Alessia, diagnosticada con alergia alimentaria, gracias a su 
+                compromiso y entrega pudimos salir adelante y mejorar su estado 
+                de salud, por ello confiamos plenamente en sus indicaciones 
+                actualmente nos encontramos viviendo en Santiago de Chile, y a 
+                pesar de la distancia hemos contado con su profesionalismo, amor, 
+                compromiso, entrega y dedicación de maneras desinteresada no pódemos 
+                estar mas agradecidos con tan increíble profesional.
+                </p>
+
+                <b><i>Contamos con usted a pesar de la distancia.</i></b></div>
+            </div>
+        </div><!--End testimonial 6-->
 
         
         </div>

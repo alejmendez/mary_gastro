@@ -22,7 +22,7 @@ class Controller extends BaseController
 	public $titulo = '';
 
 	public $autenticar = false;
-	public $paginar = 12;
+	public $paginar = 8;
 
 	public $patch_js = [
 		'public/js',
@@ -150,7 +150,7 @@ class Controller extends BaseController
 			->orderByDesc('published_at');
 
 		$noticias = $noticias
-			->paginate(4);
+			->paginate($this->paginar);
 		
 		$listaNoticias = Noticias::select([
 			'id',
@@ -245,7 +245,7 @@ class Controller extends BaseController
 			});
 		}
 		
-		$noticias = $noticias->paginate(4);
+		$noticias = $noticias->paginate($this->paginar);
 		
 		if ($request->q) {
 			$noticias->appends(['q' => $request->q]);
