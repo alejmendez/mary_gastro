@@ -73,13 +73,13 @@
       <div class="auto-container">
          <div class="clearfix">
             <div class="pull-left">
-               <div class="copyright">MaryGastro © 2017 por <a href="#" class="author-name">www.tumundoclick.com</a></div>
+               <div class="copyright">MaryGastro © 2017 por <a href="http://www.tumundoclick.com" class="author-name">www.tumundoclick.com</a></div>
             </div>
             <div class="pull-right">
                <ul class="footer-social">
                   <li>Sígueme</li>
                   <li><a href="{{ url('https://www.facebook.com/Maryraida?lst=1312639878%3A1160595543%3A1502303458') }}'">maryraida <span class="fa fa-facebook"></span></a></li>
-                  <li><a href="{{ url('https://www.instagram.com/mary_gastro/') }}'">#mary_gastro <span class="fa fa-instagram"></span></a></li>
+                  <li><a href="{{ url('https://www.instagram.com/mary_gastro/') }}'">@mary_gastro <span class="fa fa-instagram"></span></a></li>
                </ul>
             </div>
          </div>

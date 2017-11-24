@@ -420,56 +420,62 @@
                 sea ni&ntilde;o o adulto, a trav&eacute;s de las consultas a distancia
                 te invito a formar parte de este grandioso team compartiendo experiencias 
                 y conocimiento, ayudando a cambiar estilos de vida favorables para
-                el grupo familiar, tranquilo que <b>&iexcl;el equipo gana!</b>
+                el grupo familiar, tranquilo que <b>&iexcl;EL EQUIPO GANA!</b>
             </div>
 
             <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box">
-                    <div class="icon-box"><span class="flaticon-clock"></span></div>
-                    <h2 style="font-weight: bold;">Consulta express</h2>
-                    <div class="text">
-                        <p style="text-align: justify; font-size: 18px;">
-                        Este tipo de consulta permite  
-                        que en el transcurso de 24 h estemos 
-                        en contacto y recibas asesoría VIP, 
-                        personalizada en cualquier problema 
-                        digestivo de tu hijo.
-                        </p>
-                    </div>
+                    <a href="{{ url('backend') }}" style="color: #4a4a4a;">
+                        <div class="icon-box"><span class="flaticon-clock"></span></div>
+                        <h2 style="font-weight: bold;">Consulta express</h2>
+                        <div class="text">
+                            <p style="text-align: justify; font-size: 18px;">
+                            Este tipo de consulta permite  
+                            que en el transcurso de 24 h estemos 
+                            en contacto y recibas asesoría VIP, 
+                            personalizada en cualquier problema 
+                            digestivo de tu hijo.
+                            </p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box">
-                    <div class="icon-box"><span class="flaticon-gym"></span></div>
-                    <h2 style="font-weight: bold;">Tu gastopediatra en Acción</h2>
-                    <div class="text">
-                        <p style="text-align: justify; font-size: 18px;">
-                        Si tu hijo tiene síntomas como vómito, 
-                        reflujo, cólico, irritabilidad, diarrea, estreñimiento, 
-                        pujo, erupciones en el cuerpo, trastornos del sueño, 
-                        cuadros respiratorios recurrentes, flatulencias,
-                        sensación de llenura, dolor abdominal u otra afectación intestinal,
-                        tu gastropediatra en acción tiene la solución para ti. 3 consultas 
-                        que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
-                        semana de diagnóstico y tratamiento.
-                        </p>
-                    </div>
+                    <a href="{{ url('backend') }}" style="color: #4a4a4a;">
+                        <div class="icon-box"><span class="flaticon-gym"></span></div>
+                        <h2 style="font-weight: bold;">Tu gastopediatra en Acción</h2>
+                        <div class="text">
+                            <p style="text-align: justify; font-size: 18px;">
+                            Si tu hijo tiene síntomas como vómito, 
+                            reflujo, cólico, irritabilidad, diarrea, estreñimiento, 
+                            pujo, erupciones en el cuerpo, trastornos del sueño, 
+                            cuadros respiratorios recurrentes, flatulencias,
+                            sensación de llenura, dolor abdominal u otra afectación intestinal,
+                            tu gastropediatra en acción tiene la solución para ti. 3 consultas 
+                            que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
+                            semana de diagnóstico y tratamiento.
+                            </p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box">
-                    <div class="icon-box"><span class="flaticon-person-exercise-heating"></span></div>
-                    <h2 style="font-weight: bold;">Consulta 1 &amp; 1</h2>
-                    <div class="text">
-                     <p style="text-align: justify; font-size: 18px;">
-                     Siempre tenemos dudas de acuerdo
-                      a la dieta de nuestros niños y más 
-                      cuando ya ha presentado algunos síntomas y  
-                      tenemos un diagnóstico, pero realmente, ¿qué puede comer 
-                      mi hijo? ¿que puede comer una madre lactando a un niño con 
-                      intolerancia alimentaria?
-                      </p>
-                    </div>
+                    <a href="{{ url('backend') }}" style="color: #4a4a4a;">
+                        <div class="icon-box"><span class="flaticon-person-exercise-heating"></span></div>
+                        <h2 style="font-weight: bold;">Consulta 1 &amp; 1</h2>
+                        <div class="text">
+                        <p style="text-align: justify; font-size: 18px;">
+                        Siempre tenemos dudas de acuerdo
+                        a la dieta de nuestros niños y más 
+                        cuando ya ha presentado algunos síntomas y  
+                        tenemos un diagnóstico, pero realmente, ¿qué puede comer 
+                        mi hijo? ¿que puede comer una madre lactando a un niño con 
+                        intolerancia alimentaria?
+                        </p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
