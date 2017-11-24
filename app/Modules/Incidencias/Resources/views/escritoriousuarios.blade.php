@@ -220,6 +220,13 @@
 					</div>
 					<div id="collapse_3" class="panel-collapse in">
 						<div class="panel-body">
+							<div class="col-sm-12" style="font-size: 18px; text-align: justify;">
+								Puedes realizar la consulta desde el lugar donde te encuentres, 
+								la distancia ya no es un problema, te brindo esta herramienta 
+								digital ideal para solucionar los problemas o inquietudes en 
+								temas de gastroenterología infantil. Elige cual de éstos planes 
+								se adaptan más a ti.
+							</div>
 							<div class="col-sm-12">
 								<div class="bs-calltoaction bs-calltoaction-info">
 									<div class="row">

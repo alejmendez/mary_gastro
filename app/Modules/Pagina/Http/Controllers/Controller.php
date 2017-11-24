@@ -115,13 +115,15 @@ class Controller extends BaseController
 		\Mail::send("pagina::emails.mail", ['request' => $request], function($message) use($request) {
 			$message->from('info@marygastro.com.ve', 'marygastro');
 			$message->to('info@marygastro.com.ve', 'marygastro')
-				->subject("Contacto de " . $request->nombre . ".");
+				->subject($request->asunto);
 
 			$message->cc('alejmendez.87@gmail.com', 'alejandro mendez');
 			$message->cc('leonardoberti21@gmail.com', 'Leonardo Berti');
 		});
-
-		return 'correo enviado satisfactoriamente';
+		
+		return $this->view('pagina::contacto', [
+			'msj' => 'correo enviado satisfactoriamente'
+		]);
 	}
 
 	public function setTitulo($titulo)
