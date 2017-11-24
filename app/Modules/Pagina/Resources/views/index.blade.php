@@ -282,7 +282,7 @@
                     <div class="inner-box">
                         <div class="slide-header">
                             <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" /></figure>
-                            <h4>Carlos Gallego</h4>
+                            <h4>Familia Gallego Jaramillo</h4>
                             <div class="designation">Diagnóstico acertado</div>
                         </div>
                         <div class="slide-content">Dra. Maryraida Canónico; un ángel enviado por Dios para Cesar Gallego Jaramillo nuestro hijo, ... (Ver más) </div>
