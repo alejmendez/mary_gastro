@@ -311,9 +311,10 @@
             <h2 style="text-align:center; margin-bottom:46px;">Sigue estos sencillos pasos</h2>
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <a href="{{ url('backend') }}" style="font-size: 20px;">
                     <div class="image-box">
                         <figure class="image"><img src="{{ asset('public/img/featured-image-5.jpg') }}" alt=""></figure>
-                           <div class="count" style="font-size:x-large;">1</div>
+                        <div class="count" style="font-size:x-large;">1</div>
                     </div>
                     <div class="lower-content">
                         <a href="{{ url('backend') }}" style="font-size: 20px;">Ingresa y regístrate</a>
