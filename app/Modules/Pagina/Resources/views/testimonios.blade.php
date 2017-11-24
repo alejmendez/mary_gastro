@@ -192,8 +192,8 @@
                     class="attachment-90x90 size-90x90 wp-post-image" 
                     alt="author-thumb-5" 
                     /></figure>
-                    <h3>Liliana Pinel</h3>
-                    <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
+                    <h3>Familia Bortolin Lanza</h3>
+                    <div class="designation" style="font-size: 24px">Como mi doctora, ninguna</div>
                 </div>
                 <div class="slide-content">
                 <p>

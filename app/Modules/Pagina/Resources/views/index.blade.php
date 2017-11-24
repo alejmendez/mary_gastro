@@ -530,12 +530,10 @@
                     </div>
 
                     <div class="text-content">
-                       
-                        
-                        
-                        
-                        <p><strong>Horario de Consulta Online: </strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
-                   
+                        <p>
+                            <strong>Horario de Consulta Online: </strong> 
+                            de Lunes de Domingo, su requerimiento será atendido a la brevedad.
+                        </p>
                     </div>
                 </div>
             </div>
