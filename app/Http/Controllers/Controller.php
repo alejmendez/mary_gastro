@@ -238,7 +238,7 @@ abstract class Controller extends BaseController {
 				'usuario_id' 			=> intval($usuario),
 				'enviado_id' 			=> intval($enviado),
 				'mensaje_id' 			=> intval($mensaje),
-				'operacion_id'  		=> intval($operacion_id)
+				'operacion_id'  		=> $operacion_id === '' ? null : intval($operacion_id)
 			]);
 		}catch(\Exception $e){
 			DB::rollback();
