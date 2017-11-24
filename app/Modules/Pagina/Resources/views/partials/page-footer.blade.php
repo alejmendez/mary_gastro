@@ -38,7 +38,7 @@
                                  <ul class="list">
                                     <li><a href="{{ url('/backend') }}">Citas</a></li>
                                     <li><a href="{{ url('https://www.instagram.com/mary_gastro/') }}">Instagram</a></li>
-                                    <li><a href="{{ url('') }}">Tips MaryGastro</a></li>
+                                    <li><a href="#tipsMarygastro">Tips MaryGastro</a></li>
                                     <li><a href="{{ url('contacto') }}">Contacto</a></li>
                                  </ul>
                               </div>

@@ -1,7 +1,7 @@
 @extends('pagina::layouts.banners')
 
 @section('content')
-	<section class="why-us">
+	<section id="teamMarygastro" class="why-us">
     <div class="auto-container">
         <div class="sec-title centered">
             <h2>TRANQUILOS QUE EL <i>EQUIPO GANA</i></h2>
@@ -25,13 +25,13 @@
                         <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-1.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-1.jpg') }} 370w, {{ asset('public/img/featured-image-1-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-check"></span></div>
-                            <h4 class="title"><a href="#">Revisiones de Control</a></h4>
+                            <h4 class="title"><a href="#teamMarygastro">Revisiones de Control</a></h4>
                         </div>
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-check"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="#">Revisiones de Control</a></h4>
+                                    <h4 class="title"><a href="#teamMarygastro">Revisiones de Control</a></h4>
                                     <div class="text">Si sospechas de algún problema gastrico podría ayudarte a salir de dudas</div>
                                 </div>
                             </div>
@@ -44,10 +44,10 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-2.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-2.jpg') }} 370w, {{ asset('public/img/featured-image-2-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-2.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-2.jpg') }} 370w, {{ asset('public/img/featured-image-2-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-tropical-pineapple"></span></div>
-                            <h4 class="title"><a href="#">Estrategias de Nutrición</a></h4>
+                            <h4 class="title"><a href="#teamMarygastro">Estrategias de Nutrición</a></h4>
                         </div>
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-tropical-pineapple"></span></div>
@@ -65,10 +65,10 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-3.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-3.jpg') }} 370w, {{ asset('public/img/featured-image-3-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-3.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-3.jpg') }} 370w, {{ asset('public/img/featured-image-3-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-rocket-launch"></span></div>
-                            <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
+                            <h4 class="title"><a href="#teamMarygastro">Ayuda y Motivación</a></h4>
                         </div>
                         <!--Overlay-->
                         <div class="overlay-box">
@@ -191,17 +191,18 @@
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
 
-<section class="default-section">
+<section id="tipsMarygastro" class="default-section">
     <div class="auto-container">
         <div class="row clearfix">
-
             <div class="sec-title centered">
                 <h2>Tips de MaryGastro</h2>
             </div>
             <div class="column video-column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-box">
                     <div class="video-image-box">
-                        <figure class="image"><img src="{{ asset('public/img/featured-image-4.jpg') }}" alt="" /><a href="{{ url('https://www.instagram.com/p/BYH0DKlh_Pj/?taken-by=mary_gastro') }}" class="overlay-link lightbox-image"><span class="icon flaticon-multimedia"></span></a></figure>
+                        <figure class="image">
+                            <img src="{{ asset('public/img/featured-image-4.jpg') }}" alt="" />
+                        </figure>
                         <div class="caption-box">Hijos sanos, padres felices... padres sanos, FAMILIAS FELICES
                         </div>
                     </div>
@@ -254,14 +255,14 @@
                  </div>
 
                  <div class="link-outer pull-right">
-                    <a href="#" class="more-link theme-btn btn-style-three">Leer Más...</a>
+                    <a href="{{ url('testimonios') }}" class="more-link theme-btn btn-style-three">Leer Más...</a>
                  </div>
              </div>
         </div>
 
         <div class="carousel-outer">
-            <div class="testimonials-carousel">
-                <div class="slide-item">
+            <div class="testimonials">
+                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
                     <div class="inner-box">
                         <div class="slide-header">
                             <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-1.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-1.jpg') }} 90w, {{ asset('public/img/author-thumb-1-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
@@ -271,7 +272,7 @@
                         <div class="slide-content">Mi nombre es Yraimis Poueriet, soy madre de esta princesa llamada Ashley Nazareth, y la verdad es que conocer ... (Ver más)</div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
                     <div class="inner-box">
                         <div class="slide-header">
                             <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" srcset="{{ asset('public/img/author-thumb-2.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
@@ -281,7 +282,7 @@
                         <div class="slide-content">Dra. Maryraida Canónico; un ángel enviado por Dios para Cesar Gallego Jaramillo nuestro hijo, ... (Ver más) </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
                     <div class="inner-box">
                         <div class="slide-header">
                             <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-3.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-3" srcset="{{ asset('public/img/author-thumb-3.jpg') }} 90w, {{ asset('public/img/author-thumb-3-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
@@ -369,7 +370,7 @@
                  </div>
 
                  <div class="link-outer pull-right">
-                    <a href="{{ url('blog') }}" class="more-link theme-btn btn-style-three">Leer más...</a>
+                    <a href="{{ url('blogs') }}" class="more-link theme-btn btn-style-three">Leer más...</a>
                  </div>
              </div>
         </div>

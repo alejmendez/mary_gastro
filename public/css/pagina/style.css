@@ -139,12 +139,16 @@ p{
 	
 }
 
+ul {
+	margin-left: 20px;
+}
+/*
 ul,li{
 	list-style:none;
 	padding:0px;
 	margin:0px;	
 }
-
+*/
 .theme-btn{
 	display:inline-block;
 	transition:all 0.3s ease;

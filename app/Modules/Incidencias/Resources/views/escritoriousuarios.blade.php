@@ -14,7 +14,7 @@
 
 @section('content') 
 
-    
+    {{-- 
 	<div class="row">
 		<div class="col-md-6">
 			<div class="dashboard-stat  blue ">
@@ -46,13 +46,14 @@
 			</div>
 		</div>
 	</div>
+	--}}
 	<div class="row">
 		<div class="col-md-3">	
 			<div class="list-group">
 				<a href="#" class="list-group-item active"><center>Links</center></a>
 				<a href="{{ url('/') }}" class="list-group-item"><i class="fa fa-home" aria-hidden="true"></i> Ir ha Pagina web </a>
 		    	<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias') }}" class="list-group-item "><i class="fa fa-plus" aria-hidden="true"></i> Nueva Consulta</a>
-				{{--  <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
+				 <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
 				{{--  <a href="{{ url('ventas/escritorio/planesactivos') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Planes Activos</a>  --}}
 			</div>
 			<div class="list-group">
