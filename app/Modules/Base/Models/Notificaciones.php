@@ -14,26 +14,26 @@ class Notificaciones extends Modelo
     protected $fillable = ["usuario_id","enviado_id","mensaje_id","visto","tipo_notificacion_id","operacion_id","created_at"];
     protected $campos = [];
 
-   /* public static function boot(){
+    public static function boot(){
         parent::boot();
 
         static::created(function($model) {
-            $usuario = Usuario::find(Estructura::find($model->enviado_id)->usuario_id);
-            $usuario_recibe = Usuario::find(Estructura::find($model->usuario_id)->usuario_id);
+            $usuario = Usuario::find($model->enviado_id); ;
+            $usuario_recibe = Usuario::find($model->usuario_id);
 
             \Mail::send("pagina::emails.notificacion", [
                 'usuario' => $usuario,
                 'mensaje' => $model->mensaje->mensaje . ' de ' . $usuario_recibe->nombre
             ], function($message) use($usuario) {
-                $message->from('no_responder@dineroland.com', 'Dineroland.com');
-                $message->to($usuario->correo, $usuario->nombre)
-                    ->subject("NOTIFICACION DEL SISTEMA ONLINE DINEROLAND.");
+                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                $message->to($usuario->personas->correo, $usuario->personas->nombres)
+                ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
             });
 
             $model->historico('creado', $model->id);
             return true;
         });
-    }  */
+    }   
 
     public function usuario()
     {

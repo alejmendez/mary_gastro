@@ -48,7 +48,23 @@
 				</div>
 			</div>
 		@endforeach
-		<center>{{$noticias->render()}}</center>
+		<center>
+			@if ($noticias->lastPage() > 1)
+			<ul class="pagination">
+				<li class="{{ ($noticias->currentPage() == 1) ? ' disabled' : '' }}">
+					<a href="{{ $noticias->url(1) }}">Previous</a>
+				</li>
+				@for ($i = 1; $i <= $noticias->lastPage(); $i++)
+					<li class="{{ ($noticias->currentPage() == $i) ? ' active' : '' }}">
+						<a href="{{ $noticias->url($i) }}">{{ $i }}</a>
+					</li>
+				@endfor
+				<li class="{{ ($noticias->currentPage() == $noticias->lastPage()) ? ' disabled' : '' }}">
+					<a href="{{ $noticias->url($noticias->currentPage()+1) }}" >Next</a>
+				</li>
+			</ul>
+			@endif
+		</center>
 	</section>
 </div>
 
@@ -56,9 +72,9 @@
 	<aside class="sidebar">
 		<div id="search-3" class="widget sidebar-widget widget_search">
 			<div class="widget search-box sidebar-widget">
-				<form method="get" action="#">
+				<form method="get" action="{{ url('blogs') }}">
 					<div class="form-group">
-						<input type="search" name="s" value="" placeholder="Buscar..">
+						<input type="text" name="q" value="" placeholder="Buscar...">
 						<button type="submit"><span class="icon fa fa-search"></span></button>
 					</div>
 				</form>

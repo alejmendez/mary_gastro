@@ -15,7 +15,15 @@
 <section class="page-info">
     <div class="auto-container clearfix">
         <div class="breadcrumb-outer">
-            <ul class="bread-crumb clearfix"><li><a href="{{ url('/') }}">Inicio</a></li><li>¿Quién es Mary Gastro?</li></ul>            </div>
+            <ul class="bread-crumb clearfix">
+                <li>
+                    <a href="{{ url('/') }}">Inicio</a>
+                </li>
+                <li>
+                    ¿Quién es Mary Gastro?
+                </li>
+            </ul>
+        </div>
     </div>
 </section>
 
@@ -28,7 +36,7 @@
                 <div class="pull-left">
                     <h2>Testimonios de mis Pacientes</h2>
                     <div class="separator"></div>
-                </div>                 
+                </div>
             </div>
         </div>
         
@@ -36,7 +44,7 @@
         <div class="slide-item">
             <div class="inner-box">
                 <div class="slide-header">
-                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-0.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-0" srcset="{{ asset('public/img/author-thumb-0.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-0.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-0" /></figure>
                     <h3>Valery</h3>
                     <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
                 </div>
@@ -72,7 +80,7 @@
         <div class="slide-item">
             <div class="inner-box">
                 <div class="slide-header">
-                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-1.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-1.jpg') }} 90w, {{ asset('public/img/author-thumb-1-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-1.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" /></figure>
                     <h3>Yraimis Poueriet</h3>
                     <div class="designation" style="font-size: 24px">Intoleracia a la caseina</div>
                 </div>
@@ -90,7 +98,7 @@
         <div class="slide-item">
             <div class="inner-box">
                 <div class="slide-header">
-                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-2.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" /></figure>
                     <h3>Familia Gallego Jaramillo</h3>
                     <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
                 </div>
@@ -123,7 +131,8 @@
         <div class="slide-item">
             <div class="inner-box">
                 <div class="slide-header">
-                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-3.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-3.jpg') }} 90w, {{ asset('public/img/author-thumb-3-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                    <figure class="author-thumb">
+                    <img width="90" height="90" src="{{ asset('public/img/author-thumb-3.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-3" /></figure>
                     <h3>Orlenis Pulido</h3>
                     <div class="designation" style="font-size: 24px">Mi Dra. para el hogar</div>
                 </div>
@@ -145,7 +154,7 @@
         <div class="slide-item">
             <div class="inner-box">
                 <div class="slide-header">
-                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-4.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-0" srcset="{{ asset('public/img/author-thumb-4.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
+                    <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-4.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-4" /></figure>
                     <h3>Liliana Pinel</h3>
                     <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
                 </div>
@@ -173,6 +182,47 @@
             </div>
         </div><!--End testimonial 4-->
 
+        <!--Testimonial 5-->
+        <div class="slide-item">
+            <div class="inner-box">
+                <div class="slide-header">
+                    <figure class="author-thumb">
+                    <img width="90" height="90" 
+                    src="{{ asset('public/img/author-thumb-5.jpg') }}" 
+                    class="attachment-90x90 size-90x90 wp-post-image" 
+                    alt="author-thumb-5" 
+                    /></figure>
+                    <h3>Liliana Pinel</h3>
+                    <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
+                </div>
+                <div class="slide-content">
+                <p>
+                La familia Bortolin Lanza agradece a Dios primeramente y 
+                a mi Dra Maryraida como le dice mi arco iris de amor, la 
+                pava como la llama mi esposo, y la artista todo terreno 
+                como la llama mi hijo de 17 años también paciente con mucha 
+                pena por la edad de el, es un ser maravilloso en peligro 
+                de extinción, agradezco a Dios q la tenemos en nuestro 
+                país y le estamos agradecidos por que es la que ayudo a 
+                mi arco iris de amor yulianna Bortolin a tener una mejor 
+                salud cm la regulación de su hábito de alimentación ya 
+                q a los 3 años la atendió muy mal venía de estar 6 días 
+                hospitalizada con vómitos repetitivos, y de repetidas 
+                consultas casi diarias desde los 6 meses de vida a diferentes 
+                médicos y no lograban dar con ningun diagnóstico ella 
+                diagnóstico colopatia inflamatoria, alérgia a los cítricos, 
+                lácteos y trigo, todo esto le ocasionaba dolores intestinales 
+                fuerte q no podía ni dormir, comer lloraba, entre otros 
+                síntomas y este ángel digo ángel xq con su buen trato y 
+                seguridad de su diagnóstico nuestra hija logró tener una 
+                mejor salud y bienestar de vida, Dios te bendiga siempre 
+                mi bella!!
+                </p>
+
+                <b><i>Muchas gracias mi Dra. como usted ninguna.</i></b></div>
+            </div>
+        </div><!--End testimonial 5-->
+
         
         </div>
         
@@ -186,7 +236,7 @@
                 <h1 style="color:#fff">¿También quieres dejar tu testimonio?</h1>
             </div>
              <div class="col-md-4 col-sm-4 m-text-center">
-                <a class="btn btn-white">Comenta</a> 
+                <a href="{{ url('contacto') }}" class="btn btn-white">Comenta</a> 
             </div>
         </div>
     </div>

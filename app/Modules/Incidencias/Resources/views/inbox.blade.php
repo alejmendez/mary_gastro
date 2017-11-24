@@ -48,7 +48,6 @@
     <div class="main_section">
         <div class="chat_container">
             <div class="col-sm-1 col-md-1"></div>
-            <!--chat_sidebar-->
             <div class="col-sm-10 col-md-10 message_section">
                 <div class="row">
                     <div class="new_message_head">
@@ -59,11 +58,8 @@
                     </div>
                     <div class="chat_area">
                         <ul class="list-unstyled"  id="msj">
-
-                          
-                        
                         </ul>
-                    </div><!--chat_area-->
+                    </div>
 
                     @if($incidencia->cierre == null)
                         <div class="message_write">
@@ -84,7 +80,7 @@
                             {!! Form::close() !!}   
                         </div>
                     @endif
-                </div> <!--message_section-->
+                </div>
             </div>
             <div class="col-sm-1 col-md-1"></div>
         </div> 

@@ -1,7 +1,7 @@
 @extends('pagina::layouts.banners')
 
 @section('content')
-	<section class="why-us">
+	<section id="teamMarygastro" class="why-us">
     <div class="auto-container">
         <div class="sec-title centered">
             <h2>TRANQUILOS QUE EL <i>EQUIPO GANA</i></h2>
@@ -22,16 +22,16 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-1.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-1.jpg') }} 370w, {{ asset('public/img/featured-image-1-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#forma_parte_nuestro_team"><img width="370" height="250" src="{{ asset('public/img/featured-image-1.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-1.jpg') }} 370w, {{ asset('public/img/featured-image-1-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-check"></span></div>
-                            <h4 class="title"><a href="#">Revisiones de Control</a></h4>
+                            <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
                         </div>
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-check"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="#">Revisiones de Control</a></h4>
+                                    <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
                                     <div class="text">Si sospechas de algún problema gastrico podría ayudarte a salir de dudas</div>
                                 </div>
                             </div>
@@ -44,16 +44,16 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-2.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-2.jpg') }} 370w, {{ asset('public/img/featured-image-2-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-2.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-2.jpg') }} 370w, {{ asset('public/img/featured-image-2-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-tropical-pineapple"></span></div>
-                            <h4 class="title"><a href="#">Estrategias de Nutrición</a></h4>
+                            <h4 class="title"><a href="#teamMarygastro">Estrategias de Nutrición</a></h4>
                         </div>
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-tropical-pineapple"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="#">Estrategias de Nutrición</a></h4>
+                                    <h4 class="title"><a href="teamMarygastro">Estrategias de Nutrición</a></h4>
                                     <div class="text">Somos lo que consumimos, para los niños y adolescentes es importante supervisar su nutrición</div>
                                 </div>
                             </div>
@@ -65,18 +65,24 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-3.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-3.jpg') }} 370w, {{ asset('public/img/featured-image-3-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="{{ asset('public/img/featured-image-3.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-3.jpg') }} 370w, {{ asset('public/img/featured-image-3-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-rocket-launch"></span></div>
-                            <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
+                            <h4 class="title"><a href="#teamMarygastro">Ayuda y Motivación</a></h4>
                         </div>
                         <!--Overlay-->
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-rocket-launch"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
-                                    <div class="text">Soy imagen de <a href="https://www.instagram.com/soloproteinas/?hl=es">#soloproteinas</a>, Adquierelas con la clave Marygastro o SOM0033 </div>
+                                    <h4 class="title"><a href="teamMarygastro">Ayuda y Motivación</a></h4>
+                                    <div class="text">
+                                    Si lo crees es posible, el secreto está en ti. 
+                                    Tu gastropediatra en acción es imagen de 
+                                    <a href="https://www.instagram.com/soloproteinas/?hl=es">@soloproteinas</a>
+                                    y tiene maravillosos descuentos para ti con la 
+                                    mención de mi código SPM0033 o marygastro.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +156,7 @@
             <div class="title-column col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <h2>14 Años de experiencia</h2>
-                    <div class="text">En pediatría y puericultura, especialista en gastroenterología infanil, cada uno de mis pacientes me ha permitido ir creciento como profesional y como persona, cada día reafirmo mi vocación como gastropediatra.</div>
+                    <div class="text">En pediatría y puericultura, especialista en gastroenterología infantil, cada uno de mis pacientes me ha permitido ir creciento como profesional y como persona, cada día reafirmo mi vocación como gastropediatra.</div>
                     <a href="{{ url('testimonios') }}" class="req-btn styled-font">Ver Testimonios</a>
                 </div>
             </div>
@@ -162,7 +168,7 @@
                             <div class="inner-box">
                                 <div class="icon"><span class="icon flaticon-doctor-stethoscope"></span></div>
                                 <div class="separator"></div>
-                                <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="5000">0</span>+</div>
+                                <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="6800">0</span>+</div>
                                 <h4 class="counter-title">Ultrasonidos</h4>
                             </div>
                         </article>
@@ -191,17 +197,18 @@
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
 
-<section class="default-section">
+<section id="tipsMarygastro" class="default-section">
     <div class="auto-container">
         <div class="row clearfix">
-
             <div class="sec-title centered">
                 <h2>Tips de MaryGastro</h2>
             </div>
             <div class="column video-column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-box">
                     <div class="video-image-box">
-                        <figure class="image"><img src="{{ asset('public/img/featured-image-4.jpg') }}" alt="" /><a href="{{ url('https://www.instagram.com/p/BYH0DKlh_Pj/?taken-by=mary_gastro') }}" class="overlay-link lightbox-image"><span class="icon flaticon-multimedia"></span></a></figure>
+                        <figure class="image">
+                            <img src="{{ asset('public/img/featured-image-4.jpg') }}" alt="" />
+                        </figure>
                         <div class="caption-box">Hijos sanos, padres felices... padres sanos, FAMILIAS FELICES
                         </div>
                     </div>
@@ -254,14 +261,14 @@
                  </div>
 
                  <div class="link-outer pull-right">
-                    <a href="#" class="more-link theme-btn btn-style-three">Leer Más...</a>
+                    <a href="{{ url('testimonios') }}" class="more-link theme-btn btn-style-three">Leer Más...</a>
                  </div>
              </div>
         </div>
 
         <div class="carousel-outer">
-            <div class="testimonials-carousel">
-                <div class="slide-item">
+            <div class="testimonials">
+                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
                     <div class="inner-box">
                         <div class="slide-header">
                             <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-1.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-1.jpg') }} 90w, {{ asset('public/img/author-thumb-1-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
@@ -271,17 +278,17 @@
                         <div class="slide-content">Mi nombre es Yraimis Poueriet, soy madre de esta princesa llamada Ashley Nazareth, y la verdad es que conocer ... (Ver más)</div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
                     <div class="inner-box">
                         <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" srcset="{{ asset('public/img/author-thumb-2.jpg') }} 90w, {{ asset('public/img/author-thumb-2-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
-                            <h4>Carlos Gallego</h4>
+                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" /></figure>
+                            <h4>Familia Gallego Jaramillo</h4>
                             <div class="designation">Diagnóstico acertado</div>
                         </div>
                         <div class="slide-content">Dra. Maryraida Canónico; un ángel enviado por Dios para Cesar Gallego Jaramillo nuestro hijo, ... (Ver más) </div>
                     </div>
                 </div>
-                <div class="slide-item">
+                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
                     <div class="inner-box">
                         <div class="slide-header">
                             <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-3.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-3" srcset="{{ asset('public/img/author-thumb-3.jpg') }} 90w, {{ asset('public/img/author-thumb-3-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
@@ -301,7 +308,7 @@
 <section class="work-steps" style=" background-image:url('public/img/image-2-1.jpg');">
     <div class="auto-container">
         <div class="row clearfix">
-            <h2 style="text-align:center; margin-bottom:46px;">Se parte de nuestro team</h2>
+            <h2 style="text-align:center; margin-bottom:46px;">Sigue estos sencillos pasos</h2>
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -309,7 +316,7 @@
                            <div class="count" style="font-size:x-large;">1</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Ingresa y regístrate</h3>
+                        <a href="{{ url('backend') }}" style="font-size: 20px;">Ingresa y regístrate</a>
                         <div class="text">Consultas en líneas desde cualquier parte del mundo</div>
                     </div>
                 </div>
@@ -322,7 +329,7 @@
                         <div class="count" style="font-size:x-large;">2</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Lee mis artículos</h3>
+                        <a href="{{ url('blogs') }}" style="font-size: 20px;">Lee mis artículos</a>
                         <div class="text">Siempre tengo algo maravilloso que explicar</div>
                     </div>
                 </div>
@@ -335,7 +342,7 @@
                         <div class="count" style="font-size:x-large;">3</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Asesorías y talleres</h3>
+                        <a href="{{ url('backend') }}" style="font-size: 20px;">Asesorías y talleres</a>
                         <div class="text">Brindamos un acompañamiento integral al paciente</div>
                     </div>
                 </div>
@@ -348,7 +355,7 @@
                         <div class="count" style="font-size:x-large;">4</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Celebremos tu éxito</h3>
+                        <a href="{{ url('testimonios') }}" style="font-size: 20px;">Celebremos tu éxito</a>
                         <div class="text">Compártenos tu caso de éxito, es importante para nosotros</div>
                     </div>
                 </div>
@@ -369,7 +376,7 @@
                  </div>
 
                  <div class="link-outer pull-right">
-                    <a href="{{ url('blog') }}" class="more-link theme-btn btn-style-three">Leer más...</a>
+                    <a href="{{ url('blogs') }}" class="more-link theme-btn btn-style-three">Leer más...</a>
                  </div>
              </div>
         </div>
@@ -401,12 +408,84 @@
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
+<section id="forma_parte_nuestro_team" class="services-section">
+    <div class="auto-container">
+        <div class="sec-title centered">
+            <h2>¿Cómo Formar Parte de Nuestro Team?</h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-xs-12" style="text-align: justify;font-size: 21px; line-height: 2em; margin-bottom: 40px;">
+                La distancia ya no es excusa, no saben cuanto me alegra 
+                cada uno de sus mensajes; cada vez que mejora un paciente, 
+                sea ni&ntilde;o o adulto, a trav&eacute;s de las consultas a distancia
+                te invito a formar parte de este grandioso team compartiendo experiencias 
+                y conocimiento, ayudando a cambiar estilos de vida favorables para
+                el grupo familiar, tranquilo que <b>&iexcl;EL EQUIPO GANA!</b>
+            </div>
 
+            <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
+                <div class="inner-box">
+                    <a href="{{ url('backend') }}" style="color: #4a4a4a;">
+                        <div class="icon-box"><span class="flaticon-clock"></span></div>
+                        <h2 style="font-weight: bold;">CONSULTA EXPRESS</h2>
+                        <div class="text">
+                            <p style="text-align: justify; font-size: 18px;">
+                            Este tipo de consulta permite  
+                            que en el transcurso de 24 h estemos 
+                            en contacto y recibas asesoría VIP, 
+                            personalizada en cualquier problema 
+                            digestivo de tu hijo.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
+                <div class="inner-box">
+                    <a href="{{ url('backend') }}" style="color: #4a4a4a;">
+                        <div class="icon-box"><span class="flaticon-gym"></span></div>
+                        <h2 style="font-weight: bold;">TU GASTOPEDIATRA EN ACCIÓN</h2>
+                        <div class="text">
+                            <p style="text-align: justify; font-size: 18px;">
+                            Si tu hijo tiene síntomas como vómito, 
+                            reflujo, cólico, irritabilidad, diarrea, estreñimiento, 
+                            pujo, erupciones en el cuerpo, trastornos del sueño, 
+                            cuadros respiratorios recurrentes, flatulencias,
+                            sensación de llenura, dolor abdominal u otra afectación intestinal,
+                            tu gastropediatra en acción tiene la solución para ti. 3 consultas 
+                            que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
+                            semana de diagnóstico y tratamiento.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="icon-column-default col-md-12 col-sm-12 col-xs-12">
+                <div class="inner-box">
+                    <a href="{{ url('backend') }}" style="color: #4a4a4a;">
+                        <div class="icon-box"><span class="flaticon-person-exercise-heating"></span></div>
+                        <h2 style="font-weight: bold;">CONSULTA 1 &amp; 1</h2>
+                        <div class="text">
+                        <p style="text-align: justify; font-size: 18px;">
+                        Siempre tenemos dudas de acuerdo
+                        a la dieta de nuestros niños y más 
+                        cuando ya ha presentado algunos síntomas y  
+                        tenemos un diagnóstico, pero realmente, ¿qué puede comer 
+                        mi hijo? ¿que puede comer una madre lactando a un niño con 
+                        intolerancia alimentaria?
+                        </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="two-col-fluid">
     <div class="outer-box clearfix">
-        <div class="image-column" style="background-image:url('public/img/featured-image-9.jpg');">
+        <div class="image-column" style="background-image:url('public/img/featured-image-9.jpg?');">
             <figure class="image-box">
-                <img src="{{ asset('public/img/featured-image-9.jpg') }}" alt="">
+                <img src="{{ asset('public/img/featured-image-9.jpg?') }}" alt="" />>
             </figure>
         </div>
 
@@ -417,7 +496,11 @@
                     <div class="sec-title">
                         <h2>Gastropediatra en Acción, Asesorías Online</h2>
                         <div class="separator"></div>
-                        <p>Recibirás de Regalo una copia de mi guía <b>"3 pasos para saber si mi hijo es alérgico"</b>, al confirmar tu subscripción en la bandeja de entrada</p>
+                        <p>
+                            Recibirás de Regalo una copia de mi guía 
+                            <b>"3 pasos para saber si mi hijo es alérgico"</b>, 
+                            al confirmar tu suscripción en la bandeja de entrada
+                        </p>
                     </div>
 
                     <div class="default-form">
@@ -446,11 +529,16 @@
                     </div>
 
                     <div class="text-content">
-                        <p><strong>Consulta Online: </strong> Si es un caso de emergencia por favor haga <a href="#">clic aquí</a></p>
+                       
+                        
+                        
+                        
                         <p><strong>Horario de Consulta Online: </strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
+                   
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

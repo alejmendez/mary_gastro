@@ -70,7 +70,7 @@
 
 			
 			style="z-index: 7; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);">
-				<div class="text">Un slogan que nos define, únete a nuestro equipo… un equipo ganador</div> 
+				<div class="text">Un eslogan que nos define, únete a nuestro equipo… un equipo ganador</div> 
 		</div>
 
 		<!-- LAYER NR. 4 -->
@@ -91,7 +91,7 @@
 			data-responsive_offset="on" 
 
 			
-			style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);"><a href="<?php echo e(url('marygastro')); ?>" class="theme-btn btn-style-one">Sobre mí</a>&nbsp;&nbsp;&nbsp;<a href="<?php echo e(url('consulta')); ?>" class="theme-btn btn-style-two">Consulta Online</a> </div>
+			style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);"><a href="<?php echo e(url('marygastro')); ?>" class="theme-btn btn-style-one">Sobre mí</a>&nbsp;&nbsp;&nbsp;<a href="<?php echo e(url('backend')); ?>" class="theme-btn btn-style-two">Consulta Online</a> </div>
 	</li>
 	<!-- SLIDE  -->
 	<li data-index="rs-3" data-transition="boxslide,slotslide-horizontal,slotslide-vertical,boxfade" data-slotamount="default,default,default,default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default,default,default,default" data-easeout="default,default,default,default" data-masterspeed="default,default,default,default"  data-thumb="<?php echo e(asset('public/img/image-2-100x50.jpg')); ?>"  data-rotate="0,0,0,0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
@@ -249,7 +249,7 @@
 
 			
 			style="z-index: 7; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);">
-			<div class="text">Mantenerse motivado nos garantiza un equipo comprometido con los objetivos</div>
+			<div class="text">Mantener la moticación nos garantiza un equipo comprometido con los objetivos</div>
 		</div>
 
 		<!-- LAYER NR. 4 -->
