@@ -20,4 +20,7 @@ $(function() {
                 { data: 'cierre', name: 'cierre' },
             ]
         });
+    setTimeout(function(){
+        $('#collapse_3_1').collapse('hide')
+    }, 1000);
 });

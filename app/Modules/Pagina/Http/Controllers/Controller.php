@@ -104,7 +104,9 @@ class Controller extends BaseController
 		$dir = __DIR__ . '/../../Resources/views/';
 
 		if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')){
-			return $this->view('pagina::' . $pag);
+			return $this->view('pagina::' . $pag, [
+				'msj' => ''
+			]);
 		}
 
 		abort(404);

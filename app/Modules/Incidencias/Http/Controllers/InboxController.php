@@ -19,6 +19,10 @@ use marygastro\Modules\Base\Http\Requests\UsuariosRequest;
 use marygastro\Modules\Incidencias\Models\Incidencias;
 use marygastro\Modules\Incidencias\Models\IncidenciasChat;
 use marygastro\Modules\Base\Models\Usuario;
+use marygastro\Modules\Base\Models\Personas;
+use marygastro\Modules\Base\Models\PersonasCorreo;
+use marygastro\Modules\Base\Models\Mensaje;
+
 
 class InboxController extends Controller {
 	protected $titulo = 'Inbox';
@@ -107,13 +111,29 @@ class InboxController extends Controller {
 
 			$user = Incidencias::find($request->incidencia_id);
 			
-			if(\Auth::user()->id == $user->personas_id){
+			if(\Auth::user()->personas->id == $user->personas_id){
 				$id = 2;
 			}else{
 				$id = $user->personas_id;
 			}
 			
 			$this->notificacion(2, $id, \Auth::user()->id, 2, $request->incidencia_id);
+
+			$usuario = Usuario::find( \Auth::user()->id);
+			$usuario_recibe = Usuario::find($id);
+			
+            $correo = PersonasCorreo::where('personas_id', \Auth::user()->personas->id)
+            ->where('principal', 1)->first();
+			$msj= Mensaje::find(2);
+            \Mail::send("pagina::emails.notificacion", [
+                'usuario' => $usuario,
+                'mensaje' => $msj->mensaje . ' de ' . $usuario_recibe->personas->nombres
+            ], function($message) use($usuario, $correo) {
+                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                $message->to($correo->correo, $usuario->personas->nombres)
+                ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
+            });
+
         } catch(QueryException $e) {
             DB::rollback();
             return $e->getMessage();
