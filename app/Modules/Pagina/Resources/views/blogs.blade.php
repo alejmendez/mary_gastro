@@ -49,38 +49,20 @@
 			</div>
 		@endforeach
 		<center>
-			
-			<!-- Previous Page Link -->
-			@if ($noticias->onFirstPage())
-				<li class="disabled"><span>&laquo;</span></li>
-			@else
-				<li><a href="{{ $noticias->previousPageUrl() }}" rel="prev">&laquo;</a></li>
-			@endif
-
-			<!-- Pagination Elements -->
-			@foreach ($elements as $element)
-				<!-- "Three Dots" Separator -->
-				@if (is_string($element))
-					<li class="disabled"><span>{{ $element }}</span></li>
-				@endif
-
-				<!-- Array Of Links -->
-				@if (is_array($element))
-					@foreach ($element as $page => $url)
-						@if ($page == $noticias->currentPage())
-							<li class="active"><span>{{ $page }}</span></li>
-						@else
-							<li><a href="{{ $url }}">{{ $page }}</a></li>
-						@endif
-					@endforeach
-				@endif
-			@endforeach
-
-			<!-- Next Page Link -->
-			@if ($noticias->hasMorePages())
-				<li><a href="{{ $noticias->nextPageUrl() }}" rel="next">&raquo;</a></li>
-			@else
-				<li class="disabled"><span>&raquo;</span></li>
+			@if ($noticias->lastPage() > 1)
+			<ul class="pagination">
+				<li class="{{ ($noticias->currentPage() == 1) ? ' disabled' : '' }}">
+					<a href="{{ $noticias->url(1) }}">Previous</a>
+				</li>
+				@for ($i = 1; $i <= $noticias->lastPage(); $i++)
+					<li class="{{ ($noticias->currentPage() == $i) ? ' active' : '' }}">
+						<a href="{{ $noticias->url($i) }}">{{ $i }}</a>
+					</li>
+				@endfor
+				<li class="{{ ($noticias->currentPage() == $noticias->lastPage()) ? ' disabled' : '' }}">
+					<a href="{{ $noticias->url($noticias->currentPage()+1) }}" >Next</a>
+				</li>
+			</ul>
 			@endif
 		</center>
 	</section>
