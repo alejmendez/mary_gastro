@@ -7,7 +7,7 @@ $menu['noticias'] = [
         'menu'      =>  [
 
             [
-                'nombre'    => 'Noticas',
+                'nombre'    => 'Noticias',
                 'direccion' =>  'Noticias',
                 'icono'     =>  'fa fa-quote-right'
             ],

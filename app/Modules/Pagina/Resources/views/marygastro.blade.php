@@ -91,7 +91,7 @@ p {
 									<!--featured-image-box-->
 									<div class="video-image-box">
 										<figure class="image">
-											<img alt="" src="{{ asset('public/img/featured-image-4.jpg') }}">
+											<img alt="" src="{{ asset('public/img/team-image-1.png') }}">
 										</figure>
 										<div class="caption-box">
 											Aprenda como puede cambiar su vida y la salud de su familia con las rutinas de mi programa diario
@@ -173,7 +173,7 @@ p {
 							</div><!--Image-column-->
 							<div class="image-column col-md-4 col-sm-12 col-xs-12">
 								<figure class="image-box wow slideInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-									<img alt="" src="{{ asset('public/img/team-image-1.png') }}">
+									<img alt="" src="{{ asset('public/img/featured-image-4.jpg') }}">
 								</figure>
 							</div>
 						</div>
