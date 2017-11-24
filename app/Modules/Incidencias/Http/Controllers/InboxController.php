@@ -21,6 +21,7 @@ use marygastro\Modules\Incidencias\Models\IncidenciasChat;
 use marygastro\Modules\Base\Models\Usuario;
 use marygastro\Modules\Base\Models\Personas;
 use marygastro\Modules\Base\Models\PersonasCorreo;
+use marygastro\Modules\Base\Models\Mensaje;
 
 
 class InboxController extends Controller {
@@ -123,10 +124,10 @@ class InboxController extends Controller {
 			
             $correo = PersonasCorreo::where('personas_id', \Auth::user()->personas->id)
             ->where('principal', 1)->first();
-
+			$msj= Mensaje::find(2);
             \Mail::send("pagina::emails.notificacion", [
                 'usuario' => $usuario,
-                'mensaje' => $model->mensaje->mensaje . ' de ' . $usuario_recibe->personas->nombres
+                'mensaje' => $msj->mensaje . ' de ' . $usuario_recibe->personas->nombres
             ], function($message) use($usuario, $correo) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                 $message->to($correo->correo, $usuario->personas->nombres)
