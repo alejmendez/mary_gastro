@@ -25,7 +25,7 @@
                         <figure class="image"><a href="#"><img width="370" height="250" src="{{ asset('public/img/featured-image-1.jpg') }}" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="{{ asset('public/img/featured-image-1.jpg') }} 370w, {{ asset('public/img/featured-image-1-300x203.jpg') }} 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-check"></span></div>
-                            <h4 class="title"><a href="#teamMarygastro">Revisiones de Control</a></h4>
+                            <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
                         </div>
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-check"></span></div>
@@ -408,7 +408,7 @@
 </section>
 
 </div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
-<section class="services-section">
+<section id="forma_parte_nuestro_team" class="services-section">
     <div class="auto-container">
         <div class="sec-title centered">
             <h2>¿Cómo Formar Parte de Nuestro Team?</h2>
@@ -427,7 +427,7 @@
                 <div class="inner-box">
                     <a href="{{ url('backend') }}" style="color: #4a4a4a;">
                         <div class="icon-box"><span class="flaticon-clock"></span></div>
-                        <h2 style="font-weight: bold;">Consulta express</h2>
+                        <h2 style="font-weight: bold;">CONSULTA EXPRESS</h2>
                         <div class="text">
                             <p style="text-align: justify; font-size: 18px;">
                             Este tipo de consulta permite  
@@ -444,7 +444,7 @@
                 <div class="inner-box">
                     <a href="{{ url('backend') }}" style="color: #4a4a4a;">
                         <div class="icon-box"><span class="flaticon-gym"></span></div>
-                        <h2 style="font-weight: bold;">Tu gastopediatra en Acción</h2>
+                        <h2 style="font-weight: bold;">TU GASTOPEDIATRA EN ACCIÓN</h2>
                         <div class="text">
                             <p style="text-align: justify; font-size: 18px;">
                             Si tu hijo tiene síntomas como vómito, 
@@ -464,7 +464,7 @@
                 <div class="inner-box">
                     <a href="{{ url('backend') }}" style="color: #4a4a4a;">
                         <div class="icon-box"><span class="flaticon-person-exercise-heating"></span></div>
-                        <h2 style="font-weight: bold;">Consulta 1 &amp; 1</h2>
+                        <h2 style="font-weight: bold;">CONSULTA 1 &amp; 1</h2>
                         <div class="text">
                         <p style="text-align: justify; font-size: 18px;">
                         Siempre tenemos dudas de acuerdo

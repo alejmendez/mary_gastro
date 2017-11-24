@@ -96,14 +96,14 @@ class Controller extends BaseController
 
 	public function pagina(Request $request, $pag)
 	{
+		if ($pag === 'blogs') {
+			dd('as');
+			return $this->blogs($request);
+		}
+
 		$dir = __DIR__ . '/../../Resources/views/';
 
 		if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')){
-
-			if ($pag === 'blogs') {
-				return $this->blogs();
-			}
-
 			return $this->view('pagina::' . $pag);
 		}
 
@@ -113,8 +113,8 @@ class Controller extends BaseController
 	public function sendMail(ContactoRequest $request)
 	{
 		\Mail::send("pagina::emails.mail", ['request' => $request], function($message) use($request) {
-			$message->from('no_responder@marygastro', 'marygastro');
-			$message->to('info@marygastro', 'marygastro')
+			$message->from('info@marygastro.com.ve', 'marygastro');
+			$message->to('info@marygastro.com.ve', 'marygastro')
 				->subject("Contacto de " . $request->nombre . ".");
 
 			$message->cc('alejmendez.87@gmail.com', 'alejandro mendez');
@@ -157,7 +157,11 @@ class Controller extends BaseController
 		])
 			->where('published_at', '<=', Carbon::now())
 			->orderByDesc('published_at')
-			->take(4);
+			->whereHas('categorias', function ($query) use ($request) {
+				$query->where('slug', $request->slug);
+			})
+			->take(4)
+			->get();
 
 		$categorias = Categorias::select([
 			'categorias.nombre',
@@ -177,7 +181,7 @@ class Controller extends BaseController
 		]);
 	}
 
-	public function blog ($slug)
+	public function blog (Request $request, $slug)
 	{
 		$noticia = Noticias::where('published_at','<=', Carbon::now())
 			->where('slug', $slug)
@@ -203,7 +207,8 @@ class Controller extends BaseController
 		])
 			->where('published_at', '<=', Carbon::now())
 			->orderByDesc('published_at')
-			->paginate(4);
+			->take(4)
+			->get();
 
 		return $this
 			->setTitulo('GastroPediatra en Acción')
@@ -214,7 +219,7 @@ class Controller extends BaseController
 			]);
 	}
 
-	public function blogs() 
+	public function blogs(Request $request) 
 	{
 		$noticias = Noticias::select([
 			'id',
@@ -224,8 +229,23 @@ class Controller extends BaseController
 			'published_at'
 		])
 			->where('published_at', '<=', date('Y-m-d H:i'))
-			->orderByDesc('published_at')
-			->paginate(4);
+			->orderByDesc('published_at');
+
+		if ($request->q) {
+			$busqueda = strtolower($request->q);
+			$busqueda = '%' . implode('%%', explode(' ', $busqueda)) . '%';
+
+			$noticias = $noticias->where(function($q) use ($busqueda) {
+				$q->where('titulo', 'like', $busqueda)
+					->orWhere('contenido', 'like', $busqueda);
+			});
+		}
+		
+		$noticias = $noticias->paginate(4);
+		
+		if ($request->q) {
+			$noticias->appends(['q' => $request->q]);
+		}
 		
 		$listaNoticias = Noticias::select([
 			'id',
@@ -234,9 +254,10 @@ class Controller extends BaseController
 			'resumen',
 			'published_at'
 		])
-			->where('published_at', '<=', date('Y-m-d H:i'))
+			->where('published_at', '<=', Carbon::now())
 			->orderByDesc('published_at')
-			->take(4);
+			->take(4)
+			->get();
 
 		$categorias = Categorias::select([
 			'categorias.nombre',

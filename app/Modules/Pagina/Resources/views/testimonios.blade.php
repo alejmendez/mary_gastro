@@ -236,7 +236,7 @@
                 <h1 style="color:#fff">¿También quieres dejar tu testimonio?</h1>
             </div>
              <div class="col-md-4 col-sm-4 m-text-center">
-                <a class="btn btn-white">Comenta</a> 
+                <a href="{{ url('contacto') }}" class="btn btn-white">Comenta</a> 
             </div>
         </div>
     </div>

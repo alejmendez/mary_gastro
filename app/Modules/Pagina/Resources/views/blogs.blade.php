@@ -56,9 +56,9 @@
 	<aside class="sidebar">
 		<div id="search-3" class="widget sidebar-widget widget_search">
 			<div class="widget search-box sidebar-widget">
-				<form method="get" action="#">
+				<form method="get" action="{{ url('blogs') }}">
 					<div class="form-group">
-						<input type="search" name="s" value="" placeholder="Buscar..">
+						<input type="text" name="q" value="" placeholder="Buscar...">
 						<button type="submit"><span class="icon fa fa-search"></span></button>
 					</div>
 				</form>

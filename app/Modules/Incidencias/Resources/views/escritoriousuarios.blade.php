@@ -6,9 +6,119 @@
 
 @push('css')
 <style>
-.dashboard-stat .more {
-    font-size: 16px;
-}
+	.dashboard-stat .more {
+		font-size: 16px;
+	}
+
+	.bs-calltoaction{
+		position: relative;
+		width:auto;
+		padding: 15px 25px;
+		border: 1px solid black;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		border-radius: 5px;
+	}
+
+		.bs-calltoaction > .row{
+			display:table;
+			width: calc(100% + 30px);
+		}
+		
+			.bs-calltoaction > .row > [class^="col-"],
+			.bs-calltoaction > .row > [class*=" col-"]{
+				float:none;
+				display:table-cell;
+				vertical-align:middle;
+			}
+
+				.cta-contents{
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+
+					.cta-title{
+						margin: 0 auto 15px;
+						padding: 0;
+					}
+
+					.cta-desc{
+						padding: 0;
+					}
+
+					.cta-desc p:last-child{
+						margin-bottom: 0;
+					}
+
+				.cta-button{
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+
+	@media (max-width: 991px){
+		.bs-calltoaction > .row{
+			display:block;
+			width: auto;
+		}
+
+			.bs-calltoaction > .row > [class^="col-"],
+			.bs-calltoaction > .row > [class*=" col-"]{
+				float:none;
+				display:block;
+				vertical-align:middle;
+				position: relative;
+			}
+
+			.cta-contents{
+				text-align: center;
+			}
+	}
+
+
+
+	.bs-calltoaction.bs-calltoaction-default{
+		color: #333;
+		background-color: #fff;
+		border-color: #ccc;
+	}
+
+	.bs-calltoaction.bs-calltoaction-primary{
+		color: #fff;
+		background-color: #337ab7;
+		border-color: #2e6da4;
+	}
+
+	.bs-calltoaction.bs-calltoaction-info{
+		color: #fff;
+		background-color: #5bc0de;
+		border-color: #46b8da;
+	}
+
+	.bs-calltoaction.bs-calltoaction-success{
+		color: #fff;
+		background-color: #5cb85c;
+		border-color: #4cae4c;
+	}
+
+	.bs-calltoaction.bs-calltoaction-warning{
+		color: #fff;
+		background-color: #f0ad4e;
+		border-color: #eea236;
+	}
+
+	.bs-calltoaction.bs-calltoaction-danger{
+		color: #fff;
+		background-color: #d9534f;
+		border-color: #d43f3a;
+	}
+
+	.bs-calltoaction.bs-calltoaction-primary .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-info .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-success .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-warning .cta-button .btn,
+	.bs-calltoaction.bs-calltoaction-danger .cta-button .btn{
+		border-color:#fff;
+	}
 </style>
 @endpush
 
@@ -62,23 +172,39 @@
 				{{--  <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
 				{{--  <a href="{{ url('ventas/escritorio/planesactivos') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Planes Activos</a>  --}}
 			</div>
-			<div class="list-group">
-				<a href="#" class="list-group-item active"><center>Información de Pago</center></a>
-				<a href="javascript:;" class="list-group-item"> Datos Bancarios en Venezuela<br>
-				<i class="fa fa-university" aria-hidden="true"></i> BANCO PROVINCIAL, cuenta corriente<br>
-				<i class="fa fa-hashtag" aria-hidden="true"></i> 01080076530100207774<br>
-				<i class="fa fa-user-md" aria-hidden="true"></i> MARYRAIDA CANONICCO <br>
-				<i class="fa fa-circle" aria-hidden="true"></i> 13798940<br>
-				<i class="fa fa-envelope-o" aria-hidden="true"></i> info@marygastro.com.ve</a>
+			<div class="panel-group accordion" id="accordion_informacion_pago">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion_informacion_pago" href="#collapse_informacion_pago">
+								<center>
+									<h3 class="panel-title">Información de Pago</h3>
+								</center> 
+							</a>
+						</h4>
+					</div>
+					<div id="collapse_informacion_pago" class="panel-collapse in">
+						<div id="collapse_informacion_pago" class="list-group">
+							<a href="javascript:;" class="list-group-item"> Datos Bancarios en Venezuela<br />
+							<i class="fa fa-university" aria-hidden="true"></i> BANCO PROVINCIAL, cuenta corriente<br />
+							<i class="fa fa-hashtag" aria-hidden="true"></i> 01080076530100207774<br />>
+							<i class="fa fa-user-md" aria-hidden="true"></i> Maryraida Canónicco <br />
+							<i class="fa fa-circle" aria-hidden="true"></i> 13798940<br />
+							<i class="fa fa-envelope-o" aria-hidden="true"></i> info@marygastro.com.ve</a>
 
-				<a href="javascript:;" class="list-group-item">Pagos Internacionales<br>
-				<i class="fa fa-university" aria-hidden="true"></i> CITIBANK<br>
-				<i class="fa fa-hashtag" aria-hidden="true"></i> Aba o Swift 271070801</a>
+							<a href="javascript:;" class="list-group-item">Pagos Internacionales<br />
+							<i class="fa fa-user-md" aria-hidden="true"></i> Maryraida Canónicco <br />
+							<i class="fa fa-university" aria-hidden="true"></i> CITIBANK<br />
+							<i class="fa fa-hashtag" aria-hidden="true"></i> Account 927340498<br />
+							<i class="fa fa-hashtag" aria-hidden="true"></i> Aba o Swift 271070801<br />
+							<i class="fa fa-address-book" aria-hidden="true"></i> 394 SHADOW CREEK LN RIVERWOODS IL 60015-3873</a>
 
-				<a href="javascript:;" class="list-group-item">Datos de Pyoneer<br>
-				<i class="fa fa-university" aria-hidden="true"></i> Maryraida@hotmail.com</a>
+							<a href="javascript:;" class="list-group-item">Datos de Pyoneer<br />
+							<i class="fa fa-university" aria-hidden="true"></i> Maryraida@hotmail.com</a>
+						</div>
+					</div>
+				</div>
 			</div>
-		
 		</div>
 		<div class="col-md-9">
 			<div class="panel-group accordion" id="accordion">
@@ -93,43 +219,109 @@
 						</h4>
 					</div>
 					<div id="collapse_3" class="panel-collapse in">
-						<div class="panel-body" style="overflow: auto;max-height: 300px;">
+						<div class="panel-body">
+							<div class="col-sm-12">
+								<div class="bs-calltoaction bs-calltoaction-info">
+									<div class="row">
+										<div class="col-md-9 cta-contents">
+											<h1 class="cta-title">Consulta express</h1>
+											<div class="cta-desc">
+												<p>
+													Este tipo de consulta permite  
+													que en el transcurso de 24 h estemos 
+													en contacto y recibas asesoría VIP, 
+													personalizada en cualquier problema 
+													digestivo de tu hijo.
+												</p>
+											</div>
+										</div>
+										<div class="col-md-3 cta-button">
+											<a href="#" class="btn btn-lg btn-block btn-default">Comprar</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-12">
+								<div class="bs-calltoaction bs-calltoaction-primary">
+									<div class="row">
+										<div class="col-md-9 cta-contents">
+											<h1 class="cta-title">Tu gastopediatra en Acción</h1>
+											<div class="cta-desc">
+												<p>
+													Si tu hijo tiene síntomas como vómito, 
+													reflujo,  cólico, irritabilidad, diarrea, estreñimiento,  
+													pujo, erupciones en el cuerpo, trastornos del sueño, 
+													cuadros respiratorios recurrentes, flatulencias,
+													sensación de plenitud,  dolor abdominal u otra afectación intestinal,
+													tu gastropediatra en acción tiene la solución para ti.   3 consultas 
+													que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
+													semana de diagnóstico y tratamiento. 
+												</p>
+												<ol>
+													<li> Reconocimiento y evaluación inicial</li>
+													<li> Evolución a las 48 Horas </li>
+													<li> Seguimiento (7mo dia)</li>
+												</ol>
+											</div>
+										</div>
+										<div class="col-md-3 cta-button">
+											<a href="#" class="btn btn-lg btn-block btn-default">Comprar</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-12">
+								<div class="bs-calltoaction bs-calltoaction-success">
+									<div class="row">
+										<div class="col-md-9 cta-contents">
+											<h1 class="cta-title">Consulta 1 &amp; 1</h1>
+											<div class="cta-desc">
+												<p>
+													Siempre tenemos dudas de acuerdo a la 
+													dieta de nuestros niños y más cuando ya 
+													ha presentado algunos síntomas y tenemos 
+													un diagnóstico, pero realmente, ¿qué 
+													puede comer mi hijo? ¿que puede comer 
+													una madre lactando a un niño con 
+													intolerancia alimentaria? 
+												</p> 
+												<p>
+													Esta consulta es la respuesta para tus 
+													interrogantes en la alimentación del 
+													niño con intolerancias, alergias alimentarias 
+													o sensibilidad al gluten y de la madre que 
+													amamanta.
+												</p>
+											</div>
+										</div>
+										<div class="col-md-3 cta-button">
+											<a href="#" class="btn btn-lg btn-block btn-default">Comprar</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							
 							<ol>
 								<li><p><b>Consulta express</b> 
-									Este tipo de consulta permite  
-									que en el transcurso de 24 h estemos 
-									en contacto y recibas asesoría VIP, 
-									personalizada en cualquier problema 
-									digestivo de tu hijo.
+									
 									<ul>	
 										<li type="square">30 $ Residentes Venezuela 70.000,<small>00</small> BsF</li>
 									</ul>
 
 								</p></li>
 								<li><p><b>Tu gastopediatra en Acción</b> 
-									Si tu hijo tiene síntomas como vómito, 
-									reflujo,  cólico, irritabilidad, diarrea, estreñimiento,  
-									pujo, erupciones en el cuerpo, trastornos del sueño, 
-									cuadros respiratorios recurrentes, flatulencias,
-									sensación de plenitud,  dolor abdominal u otra afectación intestinal,
-									tu gastropediatra en acción tiene la solución para ti.   3 consultas 
-									que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
-									semana de diagnóstico y tratamiento. 
-									<ol>
-										<li> Reconocimiento y evaluación inicial</li>
-										<li> Evolución a las 48h </li>
-										<li> Seguimiento (7mo dia)</li>
-									</ol>
+									
 									<ul>	
 										<li type="square">60 $ 150.000,<small>00</small> BsF residentes VE</li>
 									</ul>
 								</p></li>
 								<li>
-									<p><b>Consulta 1 &amp; 1 </b> Siempre tenemos dudas de acuerdo a la dieta de nuestros niños y más cuando ya ha presentado algunos síntomas y  tenemos un diagnóstico, pero realmente, ¿qué puede comer mi hijo? ¿que puede comer una madre lactando a un niño con intolerancia alimentaria? </p> 
-									<p>Esta  consulta es la respuesta para tus interrogantes en la  alimentación del niño con intolerancias, alergias alimentarias o sensibilidad al gluten y de la madre que amamanta. </p>
+									<p><b>Consulta 1 &amp; 1 </b>  </p>
 
 									<ul>	
-										<li type="square">30 $  70.000,<small>00</small> BsF residentes VE</li>
+										<li type="square">30 $ 70.000,<small>00</small> BsF residentes VE</li>
 									</ul>
 								</li>
 

@@ -28,7 +28,15 @@ class Noticias extends Modelo
 		'showLabels'    => true
 	);
     protected $table = 'noticias';
-    protected $fillable = ["titulo","slug","contenido","contenido_html","resumen","audio","published_at"];
+    protected $fillable = [
+        "titulo",
+        "slug",
+        "contenido",
+        "contenido_html",
+        "resumen",
+        "audio",
+        "published_at"
+    ];
     
     protected $dates = [
         'published_at',
@@ -55,7 +63,6 @@ class Noticias extends Modelo
     {
         parent::__construct($attributes);
         $this->campos['categoria_id']['options'] = Categorias::pluck('nombre', 'id');
-       
     }
 
     public function categorias()

@@ -68,26 +68,27 @@
             
             <!--Column-->
             <div class="column info-column pull-left col-lg-6 col-md-8 col-sm-12 col-xs-12">
-                <div class="sec-title"><h2>Consultorio</h2><div class="separator"></div></div>
+                <div class="sec-title">
+                    <h2>Consultorio</h2>
+                    <div class="separator"></div>
+                </div>
                 <!--Info Tabs-->
                 <div class="tabs-box info-tabs">
                     <!--Tab Buttons-->
                     <ul class="tab-buttons clearfix">
-                                                
                     	<li class="tab-btn active-btn" data-tab="#info-tab-11">Venezuela</li>
-                    	                        
                     </ul>
                     
                     <!--Tabs Content-->
-                    <div class="tabs-content">
-                                               
-                                                <!--Tab / Active Tab-->
+                    <div class="tabs-content"> 
+                        <!--Tab / Active Tab-->
                         <div class="tab active-tab" id="info-tab-11">
                             <div class="desc-text">Puede solicitar una cita previa en mi consultorio.</div>
+                            
                             <h3 class="location-title">Estado Bolívar</h3>
                             <div class="info-style-one">
                                 <ul>
-                                    <li><div class="icon-box"><span class="fa fa-globe"></span></div><h4>Consultorio :</h4><div class="text">Centro Clinico Cardiovascular, S.A. Edif. Nolly Lc 01 <br> Ciudad Bolívar - Venezuela.</div></li>
+                                    <li><div class="icon-box"><span class="fa fa-globe"></span></div><h4>Consultorio :</h4><div class="text">Centro Cardiovascular Integral, S.A. Edif. Nolly Lc 01 <br> Ciudad Bolívar - Venezuela.</div></li>
                                     <li><div class="icon-box"><span class="flaticon-envelope"></span></div><h4>¿Más Información?:</h4><div class="text">info@marygastro.com.ve</div></li>
                                     <li><div class="icon-box"><span class="flaticon-technology-1"></span></div><h4>Telf:</h4><div class="text"> +58 285 654 62 94</div></li>
                                 </ul>
