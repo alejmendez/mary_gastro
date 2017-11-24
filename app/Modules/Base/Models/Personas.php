@@ -60,6 +60,10 @@ class Personas extends modelo
     {
         return $this->hasOne('marygastro\Modules\Base\Models\PersonasDireccion', 'personas_id');
     } 
+    public function personascorreo()
+    {
+        return $this->hasOne('marygastro\Modules\Base\Models\PersonasCorreo', 'personas_id');
+    } 
     public function personastelefono()
     {
         return $this->hasMany('marygastro\Modules\Base\Models\PersonasTelefono', 'personas_id');

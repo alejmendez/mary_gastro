@@ -341,7 +341,7 @@
 			<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
 				<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class="" style="margin: 20px 0; width: 100%;" />
 			</a>
-			{{--  
+			
 			<div class="panel-group accordion" id="accordion3">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
@@ -369,7 +369,7 @@
 					</div>
 				</div>
 			</div>
-			--}}
+			
 		</div>
 	</div>
 	  

@@ -70,6 +70,16 @@ class IncidenciasController extends Controller
                 'consultas' => $consultas
             ]);
 
+
+           /*  \Mail::send("pagina::emails.notificacion", [
+                'usuario' => $usuario,
+                'mensaje' => $model->mensaje->mensaje . ' de ' . $usuario_recibe->personas->nombres
+            ], function($message) use($usuario, $correo) {
+                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                $message->to($correo->correo, $usuario->personas->nombres)
+                ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
+            }); */
+
         } catch(QueryException $e) {
             DB::rollback();
             return $e->getMessage();
@@ -78,7 +88,7 @@ class IncidenciasController extends Controller
             return $e->errorInfo[2];
         }
         DB::commit();
-
+        
         return [
             'id'    => $Incidencias->id,
             'texto' => $Incidencias->titulo,

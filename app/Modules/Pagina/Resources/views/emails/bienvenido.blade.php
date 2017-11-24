@@ -119,7 +119,7 @@
 																			<tr>
 																				<td align="left" class="textContent">
 																					<div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-																						Bienvenido a Mary Gastro.
+																						Bienvenido a MaryGastro.
 																					</div>
 																				</td>
 																			</tr>
@@ -144,7 +144,6 @@
 								</td>
 							</tr>
 						</table>
-						
 						<table bgcolor="#FFFFFF"  border="0" cellpadding="0" cellspacing="0" width="500" id="emailBody">
 							<tr>
 								<td align="center" valign="top">
@@ -157,14 +156,12 @@
 															<table border="0" cellpadding="30" cellspacing="0" width="100%">
 																<tr>
 																	<td align="center" valign="top" class="textContent">
-																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Bienvenido a</h1>
-																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">www.marygastro.com.ve</h2>
-																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Msj que poner</div>
+																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Bienvenido</h1>
+																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">marygastro.com.ve</h2>
 																	</td>
 																</tr>
 															</table>
 															<!-- // CONTENT TABLE -->
-
 														</td>
 													</tr>
 												</table>
@@ -176,7 +173,7 @@
 								</td>
 							</tr>
 
-														<!-- MODULE ROW // -->
+							<!-- MODULE ROW // -->
 							<tr>
 								<td align="center" valign="top">
 									<!-- CENTERING TABLE // -->
@@ -195,8 +192,8 @@
 																		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 																			<tr>
 																				<td valign="top" class="textContent">
-																					<h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Msj</h3>
-																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">msj</div>
+																					<h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Bienvenido a marygastro.com.ve</h3>
+																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">{!! $mensaje !!}</div>
 																				</td>
 																			</tr>
 																		</table>
@@ -216,6 +213,7 @@
 								</td>
 							</tr>
 							<!-- // MODULE ROW -->
+
 						</table>
 
 						<table bgcolor="#E1E1E1" border="0" cellpadding="0" cellspacing="0" width="500" id="emailFooter">
@@ -257,8 +255,10 @@
 									<!-- // CENTERING TABLE -->
 								</td>
 							</tr>
+
 						</table>
 						<!-- // END -->
+
 					</td>
 				</tr>
 			</table>
