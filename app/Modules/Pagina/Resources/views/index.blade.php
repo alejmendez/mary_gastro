@@ -76,7 +76,13 @@
                             <div class="overlay-inner">
                                 <div class="overlay-content">
                                     <h4 class="title"><a href="#">Ayuda y Motivación</a></h4>
-                                    <div class="text">Soy imagen de <a href="https://www.instagram.com/soloproteinas/?hl=es">#soloproteinas</a>, Adquierelas con la clave Marygastro o SOM0033 </div>
+                                    <div class="text">
+                                    Si lo crees es posible, el secreto está en ti. 
+                                    Tu gastropediatra en acción es imagen de 
+                                    <a href="https://www.instagram.com/soloproteinas/?hl=es">@soloproteinas</a>
+                                    y tiene maravillosos descuentos para ti con la 
+                                    mención de mi código SPM0033 o marygastro.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -302,7 +308,7 @@
 <section class="work-steps" style=" background-image:url('public/img/image-2-1.jpg');">
     <div class="auto-container">
         <div class="row clearfix">
-            <h2 style="text-align:center; margin-bottom:46px;">Se parte de nuestro team</h2>
+            <h2 style="text-align:center; margin-bottom:46px;">Sigue estos sencillos pasos</h2>
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
@@ -310,7 +316,7 @@
                            <div class="count" style="font-size:x-large;">1</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Ingresa y regístrate</h3>
+                        <a href="{{ url('backend') }}" style="font-size: 20px;">Ingresa y regístrate</a>
                         <div class="text">Consultas en líneas desde cualquier parte del mundo</div>
                     </div>
                 </div>
@@ -323,7 +329,7 @@
                         <div class="count" style="font-size:x-large;">2</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Lee mis artículos</h3>
+                        <a href="{{ url('blogs') }}" style="font-size: 20px;">Lee mis artículos</a>
                         <div class="text">Siempre tengo algo maravilloso que explicar</div>
                     </div>
                 </div>
@@ -336,7 +342,7 @@
                         <div class="count" style="font-size:x-large;">3</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Asesorías y talleres</h3>
+                        <a href="{{ url('backend') }}" style="font-size: 20px;">Asesorías y talleres</a>
                         <div class="text">Brindamos un acompañamiento integral al paciente</div>
                     </div>
                 </div>
@@ -349,7 +355,7 @@
                         <div class="count" style="font-size:x-large;">4</div>
                     </div>
                     <div class="lower-content">
-                        <h3>Celebremos tu éxito</h3>
+                        <a href="{{ url('testimonios') }}" style="font-size: 20px;">Celebremos tu éxito</a>
                         <div class="text">Compártenos tu caso de éxito, es importante para nosotros</div>
                     </div>
                 </div>
@@ -484,7 +490,11 @@
                     <div class="sec-title">
                         <h2>Gastropediatra en Acción, Asesorías Online</h2>
                         <div class="separator"></div>
-                        <p>Recibirás de Regalo una copia de mi guía <b>"3 pasos para saber si mi hijo es alérgico"</b>, al confirmar tu subscripción en la bandeja de entrada</p>
+                        <p>
+                            Recibirás de Regalo una copia de mi guía 
+                            <b>"3 pasos para saber si mi hijo es alérgico"</b>, 
+                            al confirmar tu suscripción en la bandeja de entrada
+                        </p>
                     </div>
 
                     <div class="default-form">
