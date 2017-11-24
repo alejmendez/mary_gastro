@@ -64,7 +64,7 @@ class Controller extends BaseController
 
 	public function index(Request $request)
 	{
-		$estreno = Carbon::create(2017, 11, 24, 19, 0, 0);
+		$estreno = Carbon::create(2017, 11, 24, 18, 50, 0);
 		$serverName = request()->server->get('SERVER_NAME');
 		if (($serverName == 'marygastro.com.ve' || $serverName == 'www.marygastro.com.ve') && $estreno->gt(Carbon::now())) {
 			return $this->view('pagina::contador', [
@@ -96,11 +96,6 @@ class Controller extends BaseController
 
 	public function pagina(Request $request, $pag)
 	{
-		if ($pag === 'blogs') {
-			dd('as');
-			return $this->blogs($request);
-		}
-
 		$dir = __DIR__ . '/../../Resources/views/';
 
 		if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')){
