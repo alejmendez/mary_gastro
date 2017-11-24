@@ -314,6 +314,41 @@
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
+			
+			<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
+				<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class="" style="margin: 20px 0; width: 100%;" />
+			</a>
+			
+			<div class="panel-group accordion" id="accordion3">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
+								<center>
+									<h3 class="panel-title">Consultas</h3>
+								</center> 
+							</a>
+						</h4>
+					</div>
+					<div id="collapse_3_1" class="panel-collapse in">
+						<div class="panel-body">
+							<center><table id="tabla1" class="table table-striped table-hover table-bordered tables-text">
+								<thead>
+									<tr>
+										<th style="width: 25%; text-align: center;">Fecha de Solicitud</th>
+										<th style="width: 25%; text-align: center;">Tipo de Consulta</th>
+										<th style="width: 25%; text-align: center;">Estatus</th>
+										<th style="width: 25%; text-align: center;">Fecha cierre</th>
+									</tr>
+								</thead>
+							</table></center>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+=======
 		</div>
 		
 		<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
@@ -346,6 +381,7 @@
 					</div>
 				</div>
 			</div>
+>>>>>>> 5761a7ba33e800aaf6adc7b68362dc8750ca587f
 		</div>
 		--}}
 	</div>

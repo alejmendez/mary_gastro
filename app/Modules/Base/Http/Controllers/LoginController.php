@@ -117,6 +117,8 @@ class LoginController extends Controller {
 			$usuario = Usuario::create($data);
 			$id = $usuario->id;
 			
+
+			
 			
 		} catch (Exception $e) {
 			DB::rollback();
@@ -124,6 +126,15 @@ class LoginController extends Controller {
 		}
 
 		DB::commit();
+
+            \Mail::send("pagina::emails.bienvenido", [
+                'usuario' => $usuario,
+                'mensaje' => 'Bienvenido a Marygastro.com.ve'
+            ], function($message) use($usuario, $data) {
+                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                $message->to($data['correo'], $usuario->personas->nombres)
+                ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
+            });
 		return [
 			'id' => $usuario->id, 
 			'texto' => $usuario->nombre, 
