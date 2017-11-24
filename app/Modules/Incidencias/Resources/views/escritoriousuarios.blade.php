@@ -73,7 +73,7 @@
 
 				<a href="javascript:;" class="list-group-item">Pagos Internacionales<br>
 				<i class="fa fa-university" aria-hidden="true"></i> CITIBANK<br>
-				<i class="fa fa-hashtag" aria-hidden="true"></i> 927340498</a>
+				<i class="fa fa-hashtag" aria-hidden="true"></i> Aba o Swift 271070801</a>
 
 				<a href="javascript:;" class="list-group-item">Datos de Pyoneer<br>
 				<i class="fa fa-university" aria-hidden="true"></i> Maryraida@hotmail.com</a>
