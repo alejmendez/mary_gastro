@@ -50,26 +50,32 @@
 	<div class="row">
 		<div class="col-md-3">	
 			<div class="list-group">
-				<a href="#" class="list-group-item active"><center>Links</center></a>
-				<a href="{{ url('/') }}" class="list-group-item"><i class="fa fa-home" aria-hidden="true"></i> Ir ha Pagina web </a>
-		    	<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias') }}" class="list-group-item "><i class="fa fa-plus" aria-hidden="true"></i> Nueva Consulta</a>
-				 <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
+				<a href="#" class="list-group-item active"><center>Acceso Directo</center></a>
+				<a href="{{ url('/') }}" class="list-group-item">
+					<i class="fa fa-home" aria-hidden="true"></i> 
+					Ir a Pagina Web 
+				</a>
+		    	<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias') }}" class="list-group-item ">
+					<i class="fa fa-plus" aria-hidden="true"></i> 
+					Nueva Consulta
+				</a>
+				{{--  <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
 				{{--  <a href="{{ url('ventas/escritorio/planesactivos') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Planes Activos</a>  --}}
 			</div>
 			<div class="list-group">
-				<a href="#" class="list-group-item active"><center>Información de pago</center></a>
-				<a href="javascript:;" class="list-group-item"> Transferencias electrónicas en Venezuela,<br>
+				<a href="#" class="list-group-item active"><center>Información de Pago</center></a>
+				<a href="javascript:;" class="list-group-item"> Datos Bancarios en Venezuela<br>
 				<i class="fa fa-university" aria-hidden="true"></i> BANCO PROVINCIAL, cuenta corriente<br>
 				<i class="fa fa-hashtag" aria-hidden="true"></i> 01080076530100207774<br>
 				<i class="fa fa-user-md" aria-hidden="true"></i> MARYRAIDA CANONICCO <br>
 				<i class="fa fa-circle" aria-hidden="true"></i> 13798940<br>
-				<i class="fa fa-envelope-o" aria-hidden="true"></i> Maryraida@hotmail.com</a>
+				<i class="fa fa-envelope-o" aria-hidden="true"></i> info@marygastro.com.ve</a>
 
-				<a href="javascript:;" class="list-group-item">Transferencias en dólares<br>
+				<a href="javascript:;" class="list-group-item">Pagos Internacionales<br>
 				<i class="fa fa-university" aria-hidden="true"></i> CITIBANK<br>
 				<i class="fa fa-hashtag" aria-hidden="true"></i> 927340498</a>
 
-				<a href="javascript:;" class="list-group-item">PYONEER<br>
+				<a href="javascript:;" class="list-group-item">Datos de Pyoneer<br>
 				<i class="fa fa-university" aria-hidden="true"></i> Maryraida@hotmail.com</a>
 			</div>
 		
@@ -81,7 +87,7 @@
 						<h4 class="panel-title">
 							<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion3" href="#collapse_3">
 								<center>
-									<center><h2  class="panel-title">Planes de nuestro Team</h2></center>
+									<center><h2  class="panel-title">Planes de Nuestro Team</h2></center>
 								</center> 
 							</a>
 						</h4>
@@ -96,7 +102,7 @@
 									personalizada en cualquier problema 
 									digestivo de tu hijo.
 									<ul>	
-										<li type="square">30 $ Residentes Venezuela 70milbsF</li>
+										<li type="square">30 $ Residentes Venezuela 70 mil BsF</li>
 									</ul>
 
 								</p></li>
@@ -136,7 +142,7 @@
 			<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
 				<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="" class="" style="margin: 20px 0; width: 100%;" />
 			</a>
-			
+			{{--  
 			<div class="panel-group accordion" id="accordion3">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
@@ -164,7 +170,7 @@
 					</div>
 				</div>
 			</div>
-			
+			--}}
 		</div>
 	</div>
 	  

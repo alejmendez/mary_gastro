@@ -156,7 +156,7 @@
             <div class="title-column col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <h2>14 Años de experiencia</h2>
-                    <div class="text">En pediatría y puericultura, especialista en gastroenterología infanil, cada uno de mis pacientes me ha permitido ir creciento como profesional y como persona, cada día reafirmo mi vocación como gastropediatra.</div>
+                    <div class="text">En pediatría y puericultura, especialista en gastroenterología infantil, cada uno de mis pacientes me ha permitido ir creciento como profesional y como persona, cada día reafirmo mi vocación como gastropediatra.</div>
                     <a href="{{ url('testimonios') }}" class="req-btn styled-font">Ver Testimonios</a>
                 </div>
             </div>
