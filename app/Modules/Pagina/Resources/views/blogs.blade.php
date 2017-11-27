@@ -52,7 +52,7 @@
 			@if ($noticias->lastPage() > 1)
 			<ul class="pagination">
 				<li class="{{ ($noticias->currentPage() == 1) ? ' disabled' : '' }}">
-					<a href="{{ $noticias->url(1) }}">Previos</a>
+					<a href="{{ $noticias->url(1) }}">Anteriores</a>
 				</li>
 				@for ($i = 1; $i <= $noticias->lastPage(); $i++)
 					<li class="{{ ($noticias->currentPage() == $i) ? ' active' : '' }}">

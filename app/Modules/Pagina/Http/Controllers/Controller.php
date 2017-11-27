@@ -22,7 +22,7 @@ class Controller extends BaseController
 	public $titulo = '';
 
 	public $autenticar = false;
-	public $paginar = 12;
+	public $paginar = 8;
 
 	public $patch_js = [
 		'public/js',
@@ -66,7 +66,7 @@ class Controller extends BaseController
 	{
 		$estreno = Carbon::create(2017, 11, 24, 19, 0, 0);
 		$serverName = request()->server->get('SERVER_NAME');
-		if (($serverName == 'marygastro.com.ve' || $serverName == 'www.marygastro.com.ve') && $estreno->gt(Carbon::now())) {
+		if ($estreno->gt(Carbon::now())) {
 			return $this->view('pagina::contador', [
 				'estreno' => $estreno
 			]);
@@ -96,11 +96,6 @@ class Controller extends BaseController
 
 	public function pagina(Request $request, $pag)
 	{
-		if ($pag === 'blogs') {
-			dd('as');
-			return $this->blogs($request);
-		}
-
 		$dir = __DIR__ . '/../../Resources/views/';
 
 		if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')){
@@ -150,7 +145,7 @@ class Controller extends BaseController
 			->orderByDesc('published_at');
 
 		$noticias = $noticias
-			->paginate(4);
+			->paginate($this->paginar);
 		
 		$listaNoticias = Noticias::select([
 			'id',
@@ -245,7 +240,7 @@ class Controller extends BaseController
 			});
 		}
 		
-		$noticias = $noticias->paginate(4);
+		$noticias = $noticias->paginate($this->paginar);
 		
 		if ($request->q) {
 			$noticias->appends(['q' => $request->q]);

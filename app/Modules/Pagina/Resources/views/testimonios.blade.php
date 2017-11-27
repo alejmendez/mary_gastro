@@ -192,8 +192,8 @@
                     class="attachment-90x90 size-90x90 wp-post-image" 
                     alt="author-thumb-5" 
                     /></figure>
-                    <h3>Liliana Pinel</h3>
-                    <div class="designation" style="font-size: 24px">Diagnóstico acertado</div>
+                    <h3>Familia Bortolin Lanza</h3>
+                    <div class="designation" style="font-size: 24px">Como mi doctora, ninguna</div>
                 </div>
                 <div class="slide-content">
                 <p>
@@ -222,6 +222,69 @@
                 <b><i>Muchas gracias mi Dra. como usted ninguna.</i></b></div>
             </div>
         </div><!--End testimonial 5-->
+        
+        
+        <!--Testimonial 6-->
+        <div class="slide-item">
+            <div class="inner-box">
+                <div class="slide-header">
+                    <figure class="author-thumb">
+                    <img width="90" height="90" 
+                    src="{{ asset('public/img/author-thumb-6.jpg') }}" 
+                    class="attachment-90x90 size-90x90 wp-post-image" 
+                    alt="author-thumb-6" 
+                    /></figure>
+                    <h3>Familia Casado Giunta</h3>
+                    <div class="designation" style="font-size: 24px">Mi doctora en la distancia</div>
+                </div>
+                <div class="slide-content">
+                <p>
+                La familia Casado Giunta nos encontramos agradecidos con la 
+                Dra.Maryraida Canónico, excelente ser humano y profesional, 
+                que nos ha guiado desde el primer mes de vida de nuestra hija 
+                Alessia, diagnosticada con alergia alimentaria, gracias a su 
+                compromiso y entrega pudimos salir adelante y mejorar su estado 
+                de salud, por ello confiamos plenamente en sus indicaciones 
+                actualmente nos encontramos viviendo en Santiago de Chile, y a 
+                pesar de la distancia hemos contado con su profesionalismo, amor, 
+                compromiso, entrega y dedicación de maneras desinteresada no pódemos 
+                estar mas agradecidos con tan increíble profesional.
+                </p>
+
+                </div>
+            </div>
+        </div><!--End testimonial 6-->
+        
+        
+        <!--Testimonial 7-->
+        <div class="slide-item">
+            <div class="inner-box">
+                <div class="slide-header">
+                    <figure class="author-thumb">
+                    <img width="90" height="90" 
+                    src="{{ asset('public/img/author-thumb-7.jpg') }}" 
+                    class="attachment-90x90 size-90x90 wp-post-image" 
+                    alt="author-thumb-6" 
+                    /></figure>
+                    <h3>Familia Rondon</h3>
+                    <div class="designation" style="font-size: 24px">Mi doctora favorita</div>
+                </div>
+                <div class="slide-content">
+                <p>
+                    Esta hermosa niña se llama Yaniuska Rondon,
+                    tiene diez años, en la actualidad en control con la 
+                    Dra Maryraida Canonico, hace tres años ella llego 
+                    grave a su consultorio, con un problema de alergia 
+                    cronica en el colon y estomago causada por la 
+                    intolerancia a la lactosa y al gluten, gracias a 
+                    Dios primeramente y a esta grandisa profesional 
+                    hoy en dia Yaniuska presenta una mejoria de noventa 
+                    por ciento, la recomiendo ampliamente.
+                </p>
+
+                </div>
+            </div>
+        </div><!--End testimonial 7-->
 
         
         </div>

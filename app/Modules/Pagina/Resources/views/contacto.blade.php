@@ -62,6 +62,7 @@
             <option value="Personal">Personal</option>
             <option value="Urgente">Urgente</option>
             <option value="Sugerencia">Sugerencia</option>
+            <option value="Testimonio">Testimonio</option>
         </select>
     </span>
 </div>
