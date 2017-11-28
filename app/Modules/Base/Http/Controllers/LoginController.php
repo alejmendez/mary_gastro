@@ -137,7 +137,7 @@ class LoginController extends Controller {
 			
 			\Mail::send("pagina::emails.confirmacion", [
                 'usuario' => $usuario,
-                'mensaje' => ' marygastro.com.ve/backend/confirmacion/'. $code_verificacion 
+                'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion 
             ], function($message) use($usuario, $data) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                 $message->to($data['correo'], $usuario->personas->nombres)

@@ -137,8 +137,20 @@ class UsuariosController extends Controller {
 					]);
 				}
 				
+				$code_verificacion = $this->random_string(20);
+				$data['code_autenticacion'] = $code_verificacion;
 				$usuario = Usuario::create($data);
 				$id = $usuario->id;
+
+				\Mail::send("pagina::emails.confirmacion", [
+					'usuario' => $usuario,
+					'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion 
+				], function($message) use($usuario, $data) {
+					$message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+					$message->to($data['cuenta'], $usuario->personas->nombres)
+					->subject("CONFIRMACION DE CORREO MARY GASTRO.");
+				});
+
 			}else{
 				$usuario = Usuario::find($id);
 				
@@ -171,6 +183,14 @@ class UsuariosController extends Controller {
 		];
 	}
 
+	protected function random_string($length = 10) {
+        $key = '';
+        $keys = array_merge(range(0, 9), range('a', 'z'));
+        for ($i = 0; $i < $length; $i++) {
+            $key .= $keys[array_rand($keys)];
+        }
+        return $key;
+    }
 	protected function procesar_permisos($request, $id) {
 		$permisos = explode(',', $request->input('permisos'));
 
