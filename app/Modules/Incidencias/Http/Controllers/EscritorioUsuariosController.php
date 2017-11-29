@@ -41,7 +41,7 @@ class EscritorioUsuariosController extends Controller {
         
         $sql = Incidencias::select([
             'id','personas_id','cierre', 'estatus', 'caso', 'descripcion','created_at'   
-        ]);
+        ])->where('personas_id',\Auth::user()->personas_id);
      
         return Datatables::of($sql)
             ->setRowId('id')

@@ -167,5 +167,46 @@ class LoginController extends Controller {
             $key .= $keys[array_rand($keys)];
         }
         return $key;
-    }
+	}
+	public function confirmacion( $code = 0 ){
+		DB::beginTransaction();
+		try {
+			
+			if($code == 0){
+				return redirect($this->prefijo . '/login');
+			}
+			
+			$usuario = Usuario::where('code_autenticacion',$code)->first();
+
+			if($usuario->code_autenticacion == $code){
+
+				if($usuario->verificado){
+					return redirect($this->prefijo . '/login');
+				}
+
+				$_usuario = Usuario::find($usuario->id)->update([
+					'verificado' => true,
+				]);
+			}
+			/* 
+			\Mail::send("pagina::emails.bienvenido", [
+                'usuario' => $usuario,
+                'mensaje' => 'Bienvenido a Marygastro.com.ve'
+            ], function($message) use($usuario, $data) {
+                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                $message->to($data['correo'], $usuario->personas->nombres)
+                ->subject("CONFIRMACION DE CORREO MARY GASTRO.");
+			}); */
+		} catch (Exception $e) {
+			DB::rollback();
+			return $e->errorInfo[2];
+		}
+
+		DB::commit();
+
+		return redirect($this->prefijo . '/login');
+		
+           
+	}
+
 }
