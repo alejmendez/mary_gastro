@@ -177,7 +177,9 @@ class LoginController extends Controller {
 			}
 			
 			$usuario = Usuario::where('code_autenticacion',$code)->first();
-
+			if(count($usuario) == 0){
+				return redirect($this->prefijo . '/login');
+			}
 			if($usuario->code_autenticacion == $code){
 
 				if($usuario->verificado){
