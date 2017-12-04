@@ -318,7 +318,7 @@
                     </div>
                     <div class="lower-content">
                         <a href="{{ url('backend') }}" style="font-size: 20px;">Ingresa y regístrate</a>
-                        <div class="text">Consultas en líneas desde cualquier parte del mundo</div>
+                        <div class="text">Consultas en línea desde cualquier parte del mundo</div>
                     </div>
                 </div>
             </div>
