@@ -1,17 +1,21 @@
+<?php $__env->startPush('content'); ?>
+<style>
+ul {
+	margin-left: 20px;
+	list-style-type: circle;
+}
+li{
+	padding:0px;
+	margin:0px;	
+}
+</style>
+<?php $__env->stopPush(); ?>
+
 <?php $__env->startSection('content'); ?>
 <section class="page-title" style="background-image:url('public/img/bg-page-title-1.jpg');">
 	<div class="auto-container">
 		<h1>Mary Gastro</h1>
 		<h3 class="styled-font">Consejos y Recomendaciones</h3>
-	</div>
-</section>
-<section class="page-info">
-	<div class="auto-container clearfix">
-		<div class="breadcrumb-outer">
-			<ul class="bread-crumb clearfix">
-				
-			</ul>
-		</div>
 	</div>
 </section>
 
@@ -51,9 +55,9 @@
 	<aside class="sidebar">
 		<div id="search-3" class="widget sidebar-widget widget_search">
 			<div class="widget search-box sidebar-widget">
-				<form method="get" action="#">
+				<form method="get" action="<?php echo e(url('blogs')); ?>">
 					<div class="form-group">
-						<input type="search" name="s" value="" placeholder="Buscar..">
+						<input type="text" name="q" value="" placeholder="Buscar...">
 						<button type="submit"><span class="icon fa fa-search"></span></button>
 					</div>
 				</form>
@@ -96,5 +100,18 @@
 		</div>
 	</aside>
 </div>
+
+<div class="fb-comments" data-href="https://www.facebook.com/camporamaria" data-numposts="5"></div>
+<div id="fb-root"></div>
 <?php $__env->stopSection(); ?>
+<?php $__env->startPush('js'); ?>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<?php $__env->stopPush(); ?>
 <?php echo $__env->make('pagina::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

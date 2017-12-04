@@ -2,7 +2,8 @@
 
 Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix'), 'namespace' => 'marygastro\\Modules\Base\Http\Controllers'], function() {
     Route::get('/', 'EscritorioController@getIndex');
-    Route::post('/notificaciones/ver', 'NotificacionesController@guardar');
+	Route::post('/notificaciones/ver', 'NotificacionesController@guardar');
+	Route::get('/confirmacion/{code}', 'LoginController@confirmacion');
 	 
 	/**
 	 * Login
@@ -15,6 +16,7 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix'), 'n
 		Route::post('registro', 		'LoginController@registro');
 		Route::post('validar', 			'LoginController@validar');
 		Route::get('bloquear', 			'LoginController@bloquear');
+		
 	});
 
 	/**

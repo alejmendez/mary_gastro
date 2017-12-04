@@ -89,7 +89,7 @@ p {
 									<!--featured-image-box-->
 									<div class="video-image-box">
 										<figure class="image">
-											<img alt="" src="<?php echo e(asset('public/img/team-image-1.png')); ?>">
+											<img alt="" src="<?php echo e(asset('public/img/team-image-1.png')); ?>" style="max-width: 300px;">
 										</figure>
 										<div class="caption-box">
 											Aprenda como puede cambiar su vida y la salud de su familia con las rutinas de mi programa diario

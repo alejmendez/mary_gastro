@@ -20,6 +20,8 @@ class Usuario extends Modelo implements AuthenticatableContract, CanResetPasswor
 		'perfil_id',
 		'personas_id',
 		'consultas',
+		'code_autenticacion',
+		'verificado'
 
 	];
 	

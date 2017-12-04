@@ -20,7 +20,7 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#forma_parte_nuestro_team"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-1.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-1.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-1-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#forma_parte_nuestro_team"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-1.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-check"></span></div>
                             <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
@@ -30,7 +30,7 @@
                             <div class="overlay-inner">
                                 <div class="overlay-content">
                                     <h4 class="title"><a href="#forma_parte_nuestro_team">Revisiones de Control</a></h4>
-                                    <div class="text">Si sospechas de algún problema gastrico podría ayudarte a salir de dudas</div>
+                                    <div class="text">Si sospechas de algún problema gástrico podría ayudarte a salir de dudas</div>
                                 </div>
                             </div>
                         </div>
@@ -42,16 +42,16 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-2.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-2.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-2-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#tipsMarygastro"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-2.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-2.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-2-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-tropical-pineapple"></span></div>
-                            <h4 class="title"><a href="#teamMarygastro">Estrategias de Nutrición</a></h4>
+                            <h4 class="title"><a href="#tipsMarygastro">Estrategias de Nutrición</a></h4>
                         </div>
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-tropical-pineapple"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="teamMarygastro">Estrategias de Nutrición</a></h4>
+                                    <h4 class="title"><a href="#tipsMarygastro">Estrategias de Nutrición</a></h4>
                                     <div class="text">Somos lo que consumimos, para los niños y adolescentes es importante supervisar su nutrición</div>
                                 </div>
                             </div>
@@ -63,17 +63,17 @@
             <div class="featured-service col-md-4 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image-box">
-                        <figure class="image"><a href="#teamMarygastro"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-3.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-3.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-3-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
+                        <figure class="image"><a href="#tipsMarygastro"><img width="370" height="250" src="<?php echo e(asset('public/img/featured-image-3.jpg')); ?>" class="attachment-370x250 size-370x250 wp-post-image" alt="featured-image-1" srcset="<?php echo e(asset('public/img/featured-image-3.jpg')); ?> 370w, <?php echo e(asset('public/img/featured-image-3-300x203.jpg')); ?> 300w" sizes="(max-width: 370px) 100vw, 370px" /></a></figure>
                         <div class="caption-box">
                             <div class="icon"><span class="flaticon-rocket-launch"></span></div>
-                            <h4 class="title"><a href="#teamMarygastro">Ayuda y Motivación</a></h4>
+                            <h4 class="title"><a href="#tipsMarygastro">Ayuda y Motivación</a></h4>
                         </div>
                         <!--Overlay-->
                         <div class="overlay-box">
                             <div class="icon-box"><span class="flaticon-rocket-launch"></span></div>
                             <div class="overlay-inner">
                                 <div class="overlay-content">
-                                    <h4 class="title"><a href="teamMarygastro">Ayuda y Motivación</a></h4>
+                                    <h4 class="title"><a href="#tipsMarygastro">Ayuda y Motivación</a></h4>
                                     <div class="text">
                                     Si lo crees es posible, el secreto está en ti. 
                                     Tu gastropediatra en acción es imagen de 
@@ -205,7 +205,7 @@
                 <div class="inner-box">
                     <div class="video-image-box">
                         <figure class="image">
-                            <img src="<?php echo e(asset('public/img/featured-image-4.jpg')); ?>" alt="" />
+                            <img src="<?php echo e(asset('public/img/featured-image-20.jpg')); ?>" alt="" />
                         </figure>
                         <div class="caption-box">Hijos sanos, padres felices... padres sanos, FAMILIAS FELICES
                         </div>
@@ -309,9 +309,10 @@
             <h2 style="text-align:center; margin-bottom:46px;">Sigue estos sencillos pasos</h2>
             <div class="step-column col-md-3 col-sm-6 col-xs-12">
                 <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <a href="<?php echo e(url('backend')); ?>" style="font-size: 20px;">
                     <div class="image-box">
                         <figure class="image"><img src="<?php echo e(asset('public/img/featured-image-5.jpg')); ?>" alt=""></figure>
-                           <div class="count" style="font-size:x-large;">1</div>
+                        <div class="count" style="font-size:x-large;">1</div>
                     </div>
                     <div class="lower-content">
                         <a href="<?php echo e(url('backend')); ?>" style="font-size: 20px;">Ingresa y regístrate</a>
@@ -528,12 +529,10 @@
                     </div>
 
                     <div class="text-content">
-                       
-                        
-                        
-                        
-                        <p><strong>Horario de Consulta Online: </strong> 07:30am hasta las 05:00pm de Lunes a Viernes</p>
-                   
+                        <p>
+                            <strong>Horario de Consulta Online: </strong> 
+                            de Lunes de Domingo, su requerimiento será atendido a la brevedad.
+                        </p>
                     </div>
                 </div>
             </div>
