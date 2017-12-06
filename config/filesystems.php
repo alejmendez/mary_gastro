@@ -56,7 +56,7 @@ return [
 
         'modules' => [
             'driver' => 'local',
-            'root' => base_path('Modules'),
+            'root' => app_path('Modules'),
         ],
 
         's3' => [

@@ -59,6 +59,8 @@ Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/
 		Route::post('cambio', 			'TipsController@cambio');
 		Route::get('datatable', 		'TipsController@datatable');
 	});
+	
+	//{{route}}
 });
 
 Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/publicar', 'namespace' => 'App\\Modules\Noticias\Http\Controllers'], function()

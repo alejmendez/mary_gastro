@@ -40,7 +40,7 @@ class Controller extends BaseController {
 			//unlink($archivo);
 		}
 
-		$contenidoArchivo = $gestor->get('/Generador/Resources/plantillas/' . $tipoArchivo . '.stub');
+		$contenidoArchivo = $gestor->get('Generador/Resources/plantillas/' . $tipoArchivo . '.stub');
 		$contenidoArchivo = $this->stub($contenidoArchivo, $data);
 		
 		$gestor->put($archivo, $contenidoArchivo);

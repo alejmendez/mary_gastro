@@ -13,15 +13,15 @@ class Tips extends Migration
      */
     public function up()
     {
-       Schema::create('tips', function (Blueprint $table) {
-			$table->increments('id');
-			$table->string('titulo', 250);
-			$table->text('msj', 250);
-
-			$table->timestamps();
-			$table->softDeletes();
-		});
-
+        Schema::create('tips', function(Blueprint $table){
+            $table->increments('id');
+            
+            $table->string('titulo', 100);
+            $table->text('descripcion');
+        
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**

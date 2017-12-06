@@ -283,6 +283,7 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix'), 'n
 		Route::get('datatable', 		'PersonasController@datatable');
 	});
 
+	//{{route}}
 });
 
 

@@ -27,5 +27,5 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix').'/i
         Route::post('inbox/cierre', 	'InboxController@cierre');
     });
         
-	
+	//{{route}}
 });
