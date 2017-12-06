@@ -44,27 +44,16 @@ class NoticiasController extends Controller
     ];
 
     public $librerias = [
-
         'alphanum',
-
         'maskedinput',
-
         'datatables',
-
         'ckeditor',
-
         'jquery-ui',
-
         'jquery-ui-timepicker',
-
         'file-upload',
-
         'jcrop',
-
         'bootstrap-select',
-
         'bootstrap-tagsinput'
-
     ];
 
     public $perfiles_publicar = [1];
@@ -81,41 +70,46 @@ class NoticiasController extends Controller
         }else {
             $rs = Noticias::find($id);
         }
+
         $url = $this->ruta();
-        $url=substr($url,0,strlen($url)-7);
+        $url = substr($url, 0, strlen($url) - 7);
+
         if ($rs) {
             $imgArray=[];
             $imgs = Imagenes::where('noticias_id', $id)->get();
 
             foreach ($imgs as $img) {
-                $id_archivo=str_replace ('/','-', $img->archivo);
-                $name=substr($id_archivo, strrpos($id_archivo,'/')+1);
+                $id_archivo = str_replace ('/','-', $img->archivo);
+                $name = substr($id_archivo, strrpos($id_archivo,'/')+1);
                 $imgArray[]=[
-                    'id'=>$id_archivo,
-                    'name'=>$name,
-                    'url'=>url('public/archivos/noticias/'.$img->archivo),
-                    'thumbnailUrl'=>url('public/archivos/noticias/'.$img->archivo),
-                    'deleteType'=>'DELETE',
-                    'deleteUrl'=>url($url.'/eliminarimagen/'.$id_archivo),
-                    'data'=>[
-                        'cordenadas'=>[],
-                        'leyenda'=>$img->leyenda,
-                        'descripcion'=>$img->descripcion
+                    'id'           => $id_archivo,
+                    'name'         => $name,
+                    'url'          => url('public/archivos/noticias/'.$img->archivo),
+                    'thumbnailUrl' => url('public/archivos/noticias/'.$img->archivo),
+                    'deleteType'   => 'DELETE',
+                    'deleteUrl'    => url($url.'/eliminarimagen/'.$id_archivo),
+                    'data' => [
+                        'cordenadas'  => [],
+                        'leyenda'     => $img->leyenda,
+                        'descripcion' => $img->descripcion
                     ]
                 ];
             }
 
             $categoArray = [];
-            $categorias = Noticias_Categorias::select('categorias_id')->where('noticias_id', $id)->get();
+            $categorias = Noticias_Categorias::select('categorias_id')
+                ->where('noticias_id', $id)
+                ->get();
 
             foreach ($categorias as $key => $categoria) {
-                $categoArray[]=$categoria['categorias_id'];
+                $categoArray[] = $categoria['categorias_id'];
             }
+
             $etiArray = [];
             $etiquetas = Noticias_Etiquetas::select('etiquetas.nombre')
-            ->where('noticia_etiqueta.noticias_id', $id)
-            ->leftJoin('etiquetas', 'etiquetas.id', '=', 'noticia_etiqueta.etiquetas_id')
-            ->get();
+                ->where('noticia_etiqueta.noticias_id', $id)
+                ->leftJoin('etiquetas', 'etiquetas.id', '=', 'noticia_etiqueta.etiquetas_id')
+                ->get();
 
             $etiArray = '';
             foreach ($etiquetas as $key => $etiqueta) {
@@ -123,12 +117,15 @@ class NoticiasController extends Controller
             }
 
             $respuesta = array_merge($rs->toArray(),[
-                's'=>'s',
-                'msj'=>trans('controller.buscar'),
+                's'            => 's',
+                'msj'          => trans('controller.buscar'),
                 'categoria_id' => $categoArray,
-                'etiquetas' => $etiArray,
-                'files'=>$imgArray
+                'etiquetas'    => $etiArray,
+                'files'        => $imgArray
             ]);
+
+            $respuesta['published_at'] = Carbon::parse($respuesta['published_at'])
+                ->format('d/m/Y H:i');
 
             return $respuesta;
         }
