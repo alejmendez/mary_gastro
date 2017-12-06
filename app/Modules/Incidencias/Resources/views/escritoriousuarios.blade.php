@@ -138,7 +138,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Consulta express</h4>
+				<h4 class="modal-title">DETALLES PARA ADQUIRIR EL PLAN</h4>
 			</div>
 			<div class="modal-body">
 				<div class="row">
@@ -179,8 +179,9 @@
 					</div>
 					<div class="col-md-6">
 						Debe realizar el pago del paquete que usted ha seleccionado,
-						puede elegir la forma de pago que usted prefiera y notificar el pago 
-						al siguiente correo: <a href="mailto:pagos@marygastro.com.ve">pagos@marygastro.com.ve</a>
+						puede elegir la forma de pago de su prefierencia y notificar el pago 
+						al siguiente correo: <a href="mailto:pagos@marygastro.com.ve">pagos@marygastro.com.ve</a> </br></br>
+						<b>Importante:</b> Una vez realizado el pago y notificado al correo se habilitarán las consultas con la Dra. Mary Gastro  
 					</div>
 				</div>
 			</div>
@@ -225,14 +226,17 @@
 							<div class="bs-calltoaction bs-calltoaction-info">
 								<div class="row">
 									<div class="col-md-9 cta-contents">
-										<h1 class="cta-title">Consulta express</h1>
+										<h1 class="cta-title">Consulta Express </h1>
 										<div class="cta-desc">
 											<p>
-												Este tipo de consulta permite  
-												que en el transcurso de 24 h estemos 
-												en contacto y recibas asesoría VIP, 
-												personalizada en cualquier problema 
+												Este tipo de consulta permite atender cualquier problema digestivo o de salud de tu hijo,  
+												la consulta será atendida en el transcurso de 24 h, recibirás 
+												un trato directo, asesoría VIP, y trato 
+												personalizado en cualquier problema 
 												digestivo de tu hijo.
+												</br></br>Precio:
+												</br>30$ USD - Consulta Internacional
+												</br>70.000 Bs - Residentes en Venezuela
 											</p>
 										</div>
 									</div>
@@ -247,23 +251,28 @@
 							<div class="bs-calltoaction bs-calltoaction-primary">
 								<div class="row">
 									<div class="col-md-9 cta-contents">
-										<h1 class="cta-title">Tu gastopediatra en Acción</h1>
+										<h1 class="cta-title">Tu Gastropediatra en Acción </h1>
 										<div class="cta-desc">
 											<p>
 												Si tu hijo tiene síntomas como vómito, 
 												reflujo,  cólico, irritabilidad, diarrea, estreñimiento,  
 												pujo, erupciones en el cuerpo, trastornos del sueño, 
 												cuadros respiratorios recurrentes, flatulencias,
-												sensación de plenitud,  dolor abdominal u otra afectación intestinal,
-												tu gastropediatra en acción tiene la solución para ti.   3 consultas 
+												sensación de llenura,  dolor abdominal u otra afectación intestinal,
+												tu gastropediatra en acción tiene la solución para ti.   <b>3 CONSULTAS</b> 
 												que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
 												semana de diagnóstico y tratamiento. 
+								
 											</p>
 											<ol>
 												<li> Reconocimiento y evaluación inicial</li>
 												<li> Evolución a las 48 Horas </li>
 												<li> Seguimiento (7mo dia)</li>
+												
 											</ol>
+											<p>Precio:
+												</br>60$ USD - Consulta Internacional
+												</br>150.000 Bs - Residentes en Venezuela</p>
 										</div>
 									</div>
 									<div class="col-md-3 cta-button">
@@ -294,6 +303,9 @@
 												niño con intolerancias, alergias alimentarias 
 												o sensibilidad al gluten y de la madre que 
 												amamanta.
+												</br></br>Precio:
+												</br>30$ USD - Consulta Internacional
+												</br>70.000 Bs - Residentes en Venezuela
 											</p>
 										</div>
 									</div>
