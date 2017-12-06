@@ -338,6 +338,7 @@ class NoticiasController extends Controller
             ];
             $mover = $file->move($ruta, $nombre_archivo);
         }
+        
         return $respuesta;
     }
 
@@ -366,8 +367,6 @@ class NoticiasController extends Controller
         $sql = Noticias::select([
             'noticias.id', 'noticias.titulo', 'noticias.resumen'
         ]);
-         return Datatables::of($sql)->setRowId('id')->make(true);
+        return Datatables::of($sql)->setRowId('id')->make(true);
     }
-
-
 }

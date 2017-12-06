@@ -19,12 +19,10 @@
         {!! Form::open(['id' => 'formulario', 'name' => 'formulario', 'method' => 'POST' ]) !!}
             {!! $Tips->generate() !!}
             
-
             <div class="form-group col-xs-12">
-                <label for="contenido_html">Descripción </label>
+                <label for="editor">Descripción </label>
                 <textarea placeholder="Contenido" id="editor" class="form-control" required="required"></textarea>
             </div>
-
         {!! Form::close() !!}
     </div>
 @endsection

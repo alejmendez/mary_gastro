@@ -20,10 +20,14 @@
             {!! $Testimonios->generate() !!}
 
             <div class="form-group col-xs-12">
-                <label for="contenido_html">Descripción </label>
+                <label for="editor">Descripción </label>
                 <textarea placeholder="Contenido" id="editor" class="form-control" required="required"></textarea>
             </div>
-
+            
+            <div class="form-group col-xs-12">
+                <label for="imagen">Imagen </label>
+                <input id="imagen" name="imagen" class="form-control" required="required" />>
+            </div>
         {!! Form::close() !!}
     </div>
 @endsection

@@ -19,11 +19,6 @@ class Testimonios extends modelo
         ],
         'descripcion' => [
             'type' => 'hidden'
-        ],
-        'imagen' => [
-            'type' => 'text',
-            'label' => 'Imagen',
-            'placeholder' => 'Imagen del Testimonios'
         ]
     ];
 }
