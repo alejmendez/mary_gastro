@@ -7,4 +7,10 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+
+	config.language = 'es';
+	config.removePlugins = 'pastefromword';
+	config.forcePasteAsPlainText = true;
+
+	config.pasteFilter = 'span{*}';
 };

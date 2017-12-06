@@ -364,7 +364,7 @@ class NoticiasController extends Controller
 
     public function datatable() {
         $sql = Noticias::select([
-            'noticias.titulo', 'noticias.resumen', 'noticias.id'
+            'noticias.id', 'noticias.titulo', 'noticias.resumen'
         ]);
          return Datatables::of($sql)->setRowId('id')->make(true);
     }

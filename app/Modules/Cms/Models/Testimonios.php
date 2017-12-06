@@ -18,10 +18,7 @@ class Testimonios extends modelo
             'cont_class' => 'col-xs-12'
         ],
         'descripcion' => [
-            'type' => 'textarea',
-            'label' => 'Descripcion',
-            'placeholder' => 'Descripcion del Testimonios',
-            'cont_class' => 'col-xs-12'
+            'type' => 'hidden'
         ],
         'imagen' => [
             'type' => 'text',

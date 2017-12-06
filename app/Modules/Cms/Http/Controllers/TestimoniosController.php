@@ -29,7 +29,8 @@ class TestimoniosController extends Controller
     ];
 
     public $librerias = [
-        'datatables'
+        'datatables',
+        'ckeditor',
     ];
 
     public function index()

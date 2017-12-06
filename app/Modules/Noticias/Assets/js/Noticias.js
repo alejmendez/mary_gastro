@@ -4,7 +4,6 @@ $(function() {
 		'antes' : function(accion){
 			$("#archivos").val(jsonToString($archivos));
 			$("#contenido_html").val(CKEDITOR.instances.contenido.getData());
-
 		},
 		'limpiar' : function(){
 			tabla.ajax.reload();
@@ -41,7 +40,6 @@ $(function() {
     tabla = datatable('#tabla', {
         ajax: $url + "datatable",
         columns: [
-            { data: 'id',  name: 'id' },
             { data: 'titulo', name: 'titulo'},
             { data: 'resumen', name: 'resumen'},
         ]
@@ -51,9 +49,9 @@ $(function() {
         aplicacion.buscar(this.id);
     });
 
-		$('#published_at', $form).datetimepicker();
-		var contenido = CKEDITOR.replace('contenido');
-        $('#fileupload').fileupload({
+    $('#published_at', $form).datetimepicker();
+    var contenido = CKEDITOR.replace('contenido');
+    $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: $url + 'subir',

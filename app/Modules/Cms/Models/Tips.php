@@ -16,10 +16,7 @@ class Tips extends modelo
             'cont_class' => 'col-xs-12'
         ],
         'descripcion' => [
-            'type' => 'textarea',
-            'label' => 'Descripcion',
-            'placeholder' => 'Descripcion del Tips',
-            'cont_class' => 'col-xs-12'
+            'type' => 'hidden'
         ]
     ];
 }
