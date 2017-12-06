@@ -150,7 +150,7 @@
 			</div>
 		<b>¿Aún no has adquirido tu paquete de consultas personalizado?</b> Mira los paquetes que tenemos para ti, realizando <a href="{{ url('/backend') }}">clic aquí</a> 
 		</br></br>
-						<b>Importante:</b> Debe realizar el pago del paquete de su preferencia y notificar el pago 
+						<b>Importante:</b> Eliga el paquete de su preferencia y notifique el pago 
 						al siguiente correo: <a href="mailto:pagos@marygastro.com.ve">pagos@marygastro.com.ve</a> 
 						</br>Una vez realizado el pago y notificado al correo, podrá realizar consultas por este medio.
 

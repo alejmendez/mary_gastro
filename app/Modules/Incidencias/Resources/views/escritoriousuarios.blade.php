@@ -173,7 +173,7 @@
 								<i class="fa fa-address-book" aria-hidden="true"></i> 394 SHADOW CREEK LN RIVERWOODS IL 60015-3873</a>
 		
 								<a href="javascript:;" class="list-group-item"><b>DATOS DE PYONEER</b><br />
-								<i class="fa fa-envelope-o" aria-hidden="true"></i> Maryraida@hotmail.com</a>
+								<i class="fa fa-envelope-o" aria-hidden="true"></i>Debe enviar su nombre completo y correo asociado a su cuenta PAYONEER al siguiente correo pagos@marygastro.com.ve posteriormente le enviaré una notificación de cobro.</a>
 							</div>
 						</div>
 					</div>
