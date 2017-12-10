@@ -13,6 +13,4 @@ class Noticias_Categorias extends Model
     public $incrementing = false;
 
     protected $hidden = ['created_at', 'updated_at'];
-
-
 }

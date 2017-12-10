@@ -21,10 +21,4 @@ class Tips extends Modelo
             'cont_class'  => 'col-sm-12'
         ]
     ];
-
-    public function __construct(array $attributes = array())
-    {
-        parent::__construct($attributes);
-       
-    }
 }

@@ -25,6 +25,11 @@ $menu['incidencias'] = [
 				'nombre' 	=> 'Nueva Consulta',
 				'direccion' => 'incidencias/incidencias',
 				'icono' 	=> 'fa fa-plus'
+			],
+			[
+				'nombre' 	=> 'Asignar Consultas',
+				'direccion' => 'incidencias/asignar',
+				'icono' 	=> 'fa fa-plus-square-o'
 			]
 		]
 	]

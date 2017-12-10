@@ -5,7 +5,6 @@ namespace marygastro\Modules\Incidencias\Models;
 use marygastro\Modules\Base\Models\Modelo;
 
 
-
 class Incidencias extends modelo
 {
     protected $table = 'incidencias';
@@ -23,10 +22,4 @@ class Incidencias extends modelo
             'cont_class'  => 'col-sm-12'
         ]
     ];
-     public function __construct(array $attributes = array())
-    {
-        parent::__construct();
-        
-    }
- 
 }
