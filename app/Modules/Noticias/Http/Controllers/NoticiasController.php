@@ -56,7 +56,7 @@ class NoticiasController extends Controller
         'bootstrap-tagsinput'
     ];
 
-    public $perfiles_publicar = [1];
+    public $perfiles_publicar = [1, 2];
 
     public function index(){
         return $this->view('noticias::Noticias', [
@@ -382,6 +382,9 @@ class NoticiasController extends Controller
         $sql = Noticias::select([
             'noticias.id', 'noticias.titulo', 'noticias.resumen'
         ]);
-        return Datatables::of($sql)->setRowId('id')->make(true);
+        return Datatables::of($sql)
+            ->editColumn('resumen', '{{str_limit($resumen, 100, \'...\')}}')
+            ->setRowId('id')
+            ->make(true);
     }
 }

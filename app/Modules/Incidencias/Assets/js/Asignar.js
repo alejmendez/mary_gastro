@@ -1,5 +1,6 @@
 var aplicacion, $form, usuario;
 $(function() {
+    $('#eliminar, #buscar', '#botonera').remove();
     aplicacion = new app('formulario');
 
     $form = aplicacion.form;

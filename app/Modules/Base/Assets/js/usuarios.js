@@ -6,10 +6,14 @@ $(function() {
         'antes': function(accion) {
             if (accion !== 'guardar') return;
             tabla.ajax.reload();
-            $("#permisos", $form).val(data_arbol());
+            if ($("#arbol").length) {
+                $("#permisos", $form).val(data_arbol());
+            }
         },
         'limpiar': function() {
-            $arbol.uncheck_all();
+            if ($("#arbol").length) {
+                $arbol.uncheck_all();
+            }
             tabla.ajax.reload();
             $("#foto").prop("src", imagenDefault);
             $('#usuario').prop('readonly', false);
@@ -22,29 +26,33 @@ $(function() {
             //$('#sucursal_id').prop('disabled', true);
         },
         'buscar': function(r) {
-            $arbol.uncheck_all();
             $("#foto").prop("src", r.foto);
             $('#usuario').prop('readonly', true);
-            var $estructura = $arbol.get_json('#', { flat: true });
 
-            for (var i in $estructura) {
-                var estructura = $estructura[i].li_attr['data-direccion'];
+            if ($("#arbol").length) {
+                $arbol.uncheck_all();
+                
+                
+                var $estructura = $arbol.get_json('#', { flat: true });
 
-                if ($estructura[i].icon == "fa fa-folder-o" ||
-                    estructura.substring(0, 1) == '#' ||
-                    r.permisos.indexOf(estructura) === -1) {
-                    continue;
+                for (var i in $estructura) {
+                    var estructura = $estructura[i].li_attr['data-direccion'];
+                    
+                    if ($estructura[i].icon == "fa fa-folder-o" ||
+                        estructura.substring(0, 1) == '#' ||
+                        r.permisos.indexOf(estructura) === -1) {
+                        continue;
+                    }
+                    
+                    $arbol.check_node($estructura[i].id);
                 }
-
-                $arbol.check_node($estructura[i].id);
             }
-
+            
             /*if( r.empresass_id != ''){
             	for (var i in r.empresass_id) {
             		aplicacion.selectCascada(r.empresass_id[i], 'sucursal_id','sucursal');
             	}
             }*/
-
 
             $('#dni').val(r.persona.dni);
             validar(r.persona.dni, 'dni', '#dni');
@@ -54,10 +62,7 @@ $(function() {
     //$('#sucursal_id').prop('disabled', true);
 
     $('#cargos_id').change(function() {
-
-
         if ($(this).val() == null) {
-
             return false;
         }
 
@@ -75,17 +80,14 @@ $(function() {
 
         //aplicacion.selectCascada($(this).val(), 'parroquia_id','parroquias');
     });
+    
     $('#empresass_id').change(function() {
-
-
         if ($(this).val() == null) {
-
             return false;
         }
 
         aplicacion.selectCascada($(this).val(), 'sucursal_id', 'sucursal');
     });
-
 
     $("#upload_link").on('click', function(e) {
         e.preventDefault();
@@ -119,6 +121,7 @@ $(function() {
         }
         validar($(this).val(), 'dni', '#dni');
     });
+
     tabla = datatable('#tabla', {
         ajax: $url + "datatable",
         columns: [

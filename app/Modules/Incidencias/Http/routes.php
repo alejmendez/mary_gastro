@@ -30,19 +30,9 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix').'/i
 
     Route::group(['prefix' => 'asignar'], function() {
         Route::get('/',                 'AsignarController@index');
-        Route::get('nuevo',             'AsignarController@nuevo');
-        Route::get('cambiar/{id}',      'AsignarController@cambiar');
-        
         Route::get('buscar/{id}',       'AsignarController@buscar');
-
         Route::post('guardar',          'AsignarController@guardar');
         Route::put('guardar/{id}',      'AsignarController@guardar');
-
-        Route::delete('eliminar/{id}',  'AsignarController@eliminar');
-        Route::post('restaurar/{id}',   'AsignarController@restaurar');
-        Route::delete('destruir/{id}',  'AsignarController@destruir');
-
-        Route::get('datatable',         'AsignarController@datatable');
      });
 
 	//{{route}}
