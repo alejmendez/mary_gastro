@@ -51,6 +51,7 @@ $(function() {
 
     $('#published_at', $form).datetimepicker();
     var contenido = CKEDITOR.replace('contenido');
+
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
@@ -63,6 +64,7 @@ $(function() {
         var archivo = data.result.files[0];
         $archivos[archivo.id] = archivo.data;
     });
+
     $('#fileupload').on('click', '.btn-info', function(evn){
         evn.preventDefault();
         $archivo_actual = $(this).parents('tr').data('id');
@@ -80,7 +82,6 @@ $(function() {
         $("#descripcion", "#editar_imagen").val($archivos[$archivo_actual].descripcion);
         $("#leyenda", "#editar_imagen").val($archivos[$archivo_actual].leyenda);
 
-
         return false;
     });
 
@@ -89,7 +90,6 @@ $(function() {
     $('#fileupload').on('click', '.btn-danger', function(evn){
         evn.preventDefault();
         delete $archivos[$(this).parents('tr').data('id')];
-
     });
 
     $("#editar_imagen").on("click", "#btn_guardar_imagen", function () {
@@ -101,26 +101,18 @@ $(function() {
 
         $("#editar_imagen").modal('hide');
     });
-
-    $('#myModal').on('show.bs.modal', function (e) {
-        cordenadasImagen = [];
+    
+    $("#titulo").keyup(function () {
+        var value = slug($("#titulo").val());
+        $("#slug").val(value);
     });
 });
 
-$(document).ready(function () {
-	$("#titulo").keyup(function () {
-        var value = slug($("#titulo").val());
-        $("#slug").val(value);
-	});
-});
-function dataImagen(cordenadas){
-cordenadasImagen = cordenadas;
-}
 
-function stringToJson(str){
-return $.parseJSON(str);
+function dataImagen(cordenadas){
+    cordenadasImagen = cordenadas;
 }
 
 function jsonToString(json){
-return JSON.stringify(json);
+    return JSON.stringify(json);
 }

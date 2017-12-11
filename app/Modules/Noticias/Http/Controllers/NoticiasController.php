@@ -135,6 +135,7 @@ class NoticiasController extends Controller
     public function categorias() {
         return Categorias::pluck('nombre', 'id');
     }
+
     public function etiquetas() {
         return Etiquetas::pluck('nombre', 'id');
     }
@@ -232,7 +233,7 @@ class NoticiasController extends Controller
         return date('Y') . '/' . date('m') . '/';
     }
 
-    protected function guardarImagenes($archivos,$id=0){
+    protected function guardarImagenes($archivos, $id = 0){
         foreach ($archivos as $archivo => $data) {
             if (!preg_match("/^(\d{4})\-(\d{2})\-([0-9a-z\.]+)\.(jpe?g|png)$/i", $archivo)) {
                 continue;
