@@ -57,25 +57,27 @@ class LoginController extends Controller {
 	public function validar(LoginRequest $request) {
 		$data = $request->only('usuario', 'password');
 		$data['usuario'] = strtolower($data['usuario']);
-		$autenticado = Auth::attempt($data, $request->recordar());
-		
 		
 		$idregistro = '';
 		$login = $data['usuario'];
 		$user = Usuario::where('usuario', $data['usuario'])->first();
 
-		if(!$user->verificado){
+		if($user && !$user->verificado){
 			return ['s' => 'n', 'msj' => 'Debe verificar su correo para tener acceso'];
 		}
 
+		$autenticado = Auth::attempt($data, $request->recordar());
+		
+		/*
 		if (!$autenticado) {
 			$idregistro = 'Clave:' . $data['password'];
 			$data = [
-				//'correo' => $data['usuario'],
+				'correo' => $data['usuario'],
 				'password' => $data['password'],
 			];
 			$autenticado = Auth::attempt($data, $request->recordar());
 		}
+		*/
 
 		if ($autenticado) {
 			return ['s' => 's'];
@@ -84,12 +86,10 @@ class LoginController extends Controller {
 		return ['s' => 'n', 'msj' => 'La combinacion de Usuario y Clave no Concuerdan.'];
 	}
 	public function foto(LoginfotoRequest $request){
-		
 		$usuario = $request->usuario;
 
-		$user = Usuario::select('personas_id')->where('usuario','=', $usuario)->first();
-
-		$foto = Personas::select('foto')->where('id','=',$user->personas_id)->first();
+		$user = Usuario::select('personas_id')->where('usuario', $usuario)->first();
+		$foto = Personas::select('foto')->where('id', $user->personas_id)->first();
 
 		return ['foto'=>$foto->foto];
 	}
@@ -97,7 +97,6 @@ class LoginController extends Controller {
 	public function registro(RegistrarUserRequest $request){
 		DB::beginTransaction();
 		try {
-			
 			$data = $request->all();
 		
 			$persona = Personas::create([
@@ -118,9 +117,6 @@ class LoginController extends Controller {
 				"correo" => $data['correo'],
 				"principal" => true
 			]);
-
-			
-			
 			
 			$usuario = Usuario::create($data);
 			$id = $usuario->id;
@@ -151,7 +147,6 @@ class LoginController extends Controller {
 
 		DB::commit();
 
-           
 		return [
 			'id' => $usuario->id, 
 			'texto' => $usuario->nombre, 
@@ -168,6 +163,7 @@ class LoginController extends Controller {
         }
         return $key;
 	}
+
 	public function confirmacion( $code = 0 ){
 		DB::beginTransaction();
 		try {

@@ -43,7 +43,11 @@ class Notificaciones extends Modelo
     } 
     public function enviado()
     {
-        return Usuario::find($this->enviado_id)->personas->nombres;
+        $usuario = Usuario::find($this->enviado_id);
+        if ($usuario && $usuario->personas) {
+            return $usuario->personas->nombres;
+        }
+        return '';
     }  
     public function mensaje()
     {

@@ -94,7 +94,6 @@ class UsuariosController extends Controller {
 	}
 	
 	public function guardar(UsuariosRequest $request, $id = 0) {
-		
 		DB::beginTransaction();
 		try {
 			$data = $this->data($request);
@@ -104,9 +103,9 @@ class UsuariosController extends Controller {
 				if($persona->count() == 0){
 					$persona = Personas::create([
 						"tipo_persona_id" => $data['tipo_persona_id'],
-						"dni" => $data['dni'],
-						"nombres"=> $data['nombres'],
-						"foto" => $data['foto']
+						"dni"             => $data['dni'],
+						"nombres"         => $data['nombres'],
+						"foto"            => $data['foto']
 					]);
 					$data['personas_id'] = $persona['id'];
 				}else{
@@ -115,7 +114,8 @@ class UsuariosController extends Controller {
 				}	
 
 				$telefono = PersonasTelefono::where('personas_id', $data['personas_id'])
-				->where('principal', 1)->get();
+					->where('principal', 1)
+					->get();
 				
 				if($telefono->count() == 0){
 					PersonasTelefono::create([
@@ -155,7 +155,6 @@ class UsuariosController extends Controller {
 				$usuario = Usuario::find($id);
 				
 				if(intval($data['consultas']) > $usuario->consultas){
-				
 					//notificacion($tipo,$usuario,$enviado,$mensaje,$operacion_id = '')
 					/*$tipo = tipo de Notificacion
 					$usuario = el id del user adonde va...
