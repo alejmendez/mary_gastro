@@ -26,7 +26,7 @@ $html['titulo'] = 'Inicio de Sesión';
 			<div id="login"> 
 				<?php echo Form::open(array('id' => 'formulario', 'url' => 'login')); ?>
 
-					<h3 class="form-title font-green">Iniciar sesión</h3>
+					<h3 class="form-title font-green">Iniciar Sesión</h3>
 					
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9"><?php echo e(Lang::get('login.user')); ?></label>
@@ -48,14 +48,15 @@ $html['titulo'] = 'Inicio de Sesión';
 
 						<span></span>
 					</label>
-					<a href="javascript:;" id="forget-password" class="forget-password">Recuperar Contraseña?</a>
+					<a href="javascript:;" id="forget-password" class="forget-password">¿Recuperar Contraseña?</a>
 					<div class="form-actions" style="text-align: center;">
 						<?php echo Form::button(Lang::get('login.log_in'), ['class' => 'btn green uppercase']); ?>
 
 					</div>
+					<h6 class="form-title font-red">Nota: Sólo podrá Iniciar Sesión una vez creada la cuenta.</h6>
 					<div class="create-account">
 						<p>
-							<a href="javascript:;"  id="register-btn" class="uppercase">Crear Cuenta</a>
+							<a href="javascript:;"  id="register-btn" class="uppercase">Crea Una Cuenta Gratis</a>
 						</p>
 					</div>
 				
@@ -95,6 +96,7 @@ $html['titulo'] = 'Inicio de Sesión';
 						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline">Atras</button>
 						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Registrar</button>
 					</div>
+					<h6 class="form-title font-red">IMPORTANTE: Su contraseña debe incluir al menos 8 carácteres, entre ellos una letra mayúscula, una letra minúscula y un número.</h6>
 				<?php echo Form::close(); ?>
 
 			</div>

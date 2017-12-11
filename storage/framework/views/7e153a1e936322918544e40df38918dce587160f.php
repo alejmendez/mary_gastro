@@ -315,8 +315,8 @@
                         <div class="count" style="font-size:x-large;">1</div>
                     </div>
                     <div class="lower-content">
-                        <a href="<?php echo e(url('backend')); ?>" style="font-size: 20px;">Ingresa y regístrate</a>
-                        <div class="text">Consultas en líneas desde cualquier parte del mundo</div>
+                        <a href="<?php echo e(url('backend')); ?>" style="font-size: 20px;">Ingresa y regístrate gratis</a>
+                        <div class="text">Consultas en línea desde cualquier parte del mundo</div>
                     </div>
                 </div>
             </div>
@@ -497,7 +497,7 @@
                         <h2>Gastropediatra en Acción, Asesorías Online</h2>
                         <div class="separator"></div>
                         <p>
-                            Recibirás de Regalo una copia de mi guía 
+                            Recibirás de Regalo totalmente gratis una copia de mi guía 
                             <b>"3 pasos para saber si mi hijo es alérgico"</b>, 
                             al confirmar tu suscripción en la bandeja de entrada
                         </p>

@@ -226,6 +226,21 @@ class NoticiasController extends Controller
        }
 
        DB::commit();
+
+       /*  $user = Usuario::select('usuario')->where('perfil_id', 9)->get()->chunk(10);
+
+        foreach ($user as $correos){
+            foreach ($correos as $correo){
+                \Mail::send("pagina::emails.post", [
+                    'usuario' => $usuario,
+                    'mensaje' => 'marygastro.com.ve/blog/'. $Noticias->slug
+                ], function($message) use($usuario, $data) {
+                    $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                    $message->to($data['correo'], $Noticias->titulo)
+                    ->subject("CONFIRMACION DE CORREO MARY GASTRO.");
+                });
+            }
+        } */
        return ['s' => 's', 'msj' => trans('controller.incluir')];
     }
 

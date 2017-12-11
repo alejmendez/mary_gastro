@@ -3,6 +3,13 @@
 namespace marygastro\Modules\Base\Http\Controllers;
 
 use marygastro\Modules\Base\Http\Controllers\Controller;
+use marygastro\Modules\Base\Models\Usuario;
+
+
+
+use marygastro\Modules\Base\Models\Personas;
+use marygastro\Modules\Base\Models\PersonasTelefono;
+use marygastro\Modules\Base\Models\PersonasCorreo;
 
 class EscritorioController extends Controller {
     public $autenticar = false;
@@ -18,7 +25,8 @@ class EscritorioController extends Controller {
 
     public function getIndex() {
         $user = \Auth::user();
-        
+      
+
         $permisos = [
             'incidencias/inicio/usuarios',
             'incidencias/escritorios/tecnicos',

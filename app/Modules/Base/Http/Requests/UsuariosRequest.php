@@ -32,6 +32,7 @@ class UsuariosRequest extends Request {
 				}
 				if ($this->input('nombres') == '') {
 					unset($rules['nombres']);
+					unset($rules['dni']);
 				}
 
 				break;
