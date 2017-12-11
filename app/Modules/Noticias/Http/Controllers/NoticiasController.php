@@ -7,7 +7,6 @@ use DB;
 use Validator;
 use Image;
 use Yajra\Datatables\Datatables;
-use FTP;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -311,7 +310,7 @@ class NoticiasController extends Controller
             'files.*' => [
                 'required',
                 'mimes:jpeg,jpg,png'
-            ],
+            ]
         ]);
 
         if ($validator->fails()) {
