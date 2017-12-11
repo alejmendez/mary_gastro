@@ -56,7 +56,7 @@ class NoticiasController extends Controller
         'bootstrap-tagsinput'
     ];
 
-    public $perfiles_publicar = [1];
+    public $perfiles_publicar = [1, 2];
 
     public function index(){
         return $this->view('noticias::Noticias', [
