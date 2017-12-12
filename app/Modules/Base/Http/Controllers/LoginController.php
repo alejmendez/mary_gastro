@@ -140,7 +140,7 @@ class LoginController extends Controller {
 			'id' => $usuario->id, 
 			'texto' => $usuario->nombre, 
 			's' => 's', 
-			'msj' => trans('controller.incluir')
+			'msj' => 'Hemos enviado un mensaje de confirmación a su correo, por favor ingrese y verifique su cuenta.'
 		];
 	}
 
