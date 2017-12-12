@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Session;
 use DB;
 //Request
+use Illuminate\Http\Request;
 use marygastro\Modules\Base\Http\Requests\RegistrarUserRequest;
 use marygastro\Modules\Base\Http\Requests\LoginRequest;
 use marygastro\Modules\Base\Http\Requests\LoginfotoRequest;
@@ -154,39 +155,30 @@ class LoginController extends Controller {
         return $key;
 	}
 
-	public function confirmacion($code = 0)
+	public function confirmacion(Request $request, $code = false)
 	{
 		DB::beginTransaction();
 		try {
-			
-			if($code == 0){
+			if ($code === false) {
 				return redirect($this->prefijo . '/login');
 			}
 			
-			$usuario = Usuario::where('code_autenticacion',$code)->first();
-			if(count($usuario) == 0){
+			$usuario = Usuario::where('code_autenticacion', $code)->first();
+			
+			if(!$usuario || $usuario->verificado == 1){
 				return redirect($this->prefijo . '/login');
 			}
 
-			if($usuario->code_autenticacion == $code){
-				if($usuario->verificado){
-					return redirect($this->prefijo . '/login');
-				}
-
-				$_usuario = Usuario::find($usuario->id)->update([
-					'verificado' => true,
-				]);
-			}
+			Usuario::find($usuario->id)->update([
+				'verificado' => true,
+			]);
 			
 			\Mail::send("pagina::emails.bienvenido", [
-                'usuario' => $usuario,
-                'mensaje' => 'Bienvenido a Marygastro.com.ve'
-            ], function($message) use($usuario, $data) {
+                'usuario' => $usuario
+            ], function($message) use($usuario) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                 $message
-					//->to($data['correo'], $usuario->personas->nombres)
-					->to('alejmendez.87@gmail.com', 'Alejandro')
-					->to('leonardoberi21@gmail.com', 'Leonardo')
+					->to($usuario->usuario, $usuario->personas->nombres)
                 	->subject("Bienvenido a Mary Gastro");
 			});
 		} catch (Exception $e) {

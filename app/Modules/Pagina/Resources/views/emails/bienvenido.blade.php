@@ -195,16 +195,19 @@
 																					<h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Bienvenido a marygastro.com.ve</h3>
 																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
 																					
+																					<br />
+																					<br />
+																					Haz click en la imagen para obtener mi guía de regalo totalmente gratis.
+																					<br />
+																					<br />
+																					<br />
 																					
 																					
 																					
 																					
-																					
-																					
-																					
-																					<img src="{{ url('public/img/banens_regalo.jpg') }}" style="max-width: 100%;" />
-																					
-																					
+																					<a href="{{ url('/public/pdf/Guía_Pasos_Pdf.pdf') }}" target="_blank" >
+																						<img src="{{ url('/public/img/banens_regalo.jpg') }}" alt="Obtén mi guía de regalo, totalmente gratis" style="margin: 20px 0; width: 100%;" />
+																					</a>
 																					
 																					
 																					
