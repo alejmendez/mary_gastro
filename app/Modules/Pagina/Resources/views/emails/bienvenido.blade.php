@@ -193,7 +193,27 @@
 																			<tr>
 																				<td valign="top" class="textContent">
 																					<h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Bienvenido a marygastro.com.ve</h3>
-																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">{!! $mensaje !!}</div>
+																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
+																					
+																					
+																					
+																					
+																					
+																					
+																					
+																					
+																					<img src="{{ url('public/img/banens_regalo.jpg') }}" style="max-width: 100%;" />
+																					
+																					
+																					
+																					
+																					
+																					
+																					
+																					
+																					
+																					
+																					</div>
 																				</td>
 																			</tr>
 																		</table>

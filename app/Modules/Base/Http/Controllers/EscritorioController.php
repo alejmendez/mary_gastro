@@ -40,6 +40,18 @@ class EscritorioController extends Controller {
                 $ultimoPermiso = $permiso;
             }
         }
+
+        \Mail::send("pagina::emails.bienvenido", [
+            'usuario' => $user,
+            'mensaje' => 'Bienvenido a Marygastro.com.ve'
+        ], function($message) use($user, $data) {
+            $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+            $message
+                //->to($data['correo'], $user->personas->nombres)
+                ->to('alejmendez.87@gmail.com', 'Alejandro')
+                ->to('leonardoberi21@gmail.com', 'Leonardo')
+                ->subject("Bienvenido a Mary Gastro");
+        });
         /*
         if($user->super == 's'){
             return $this->view('base::Escritorio');
