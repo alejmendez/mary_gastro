@@ -254,6 +254,7 @@ var id = {{ is_null($Personas->id) ? 0 : $Personas->id }};
         'required'      => 'required',
         'class_cont'    => 'col-md-4 col-sm-6 col-xs-12'
         ]) }}
+        
        <div class="form-group col-md-3 cont-persona">
             <label for="nombres">Principal:</label>
             <div class="form-group multiple-form-group input-group">

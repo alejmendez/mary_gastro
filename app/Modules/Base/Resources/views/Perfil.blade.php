@@ -182,16 +182,22 @@
         'required'      => 'required',
         'class_cont'    => 'col-md-4 col-sm-6 col-xs-12'
     ]) }}
-    {{ Form::bsSelect('Principal_tlf',[
-         1=>'Si',
-         0=> 'No'
-        ], '{%=file.principal%}', [
-        'label'         => 'Principal',
-        'placeholder'   => 'Principal',
-        'name'          => 'principal_tlf[]',
-        'required'      => 'required',
-        'class_cont'    => 'col-md-4 col-sm-6 col-xs-12'
-    ]) }}
+  
+	<div class="form-group col-md-3 cont-persona">
+            <label for="nombres">Principal:</label>
+            <div class="form-group multiple-form-group input-group">
+                <div class="input-group-btn input-group-select">
+                    <select class="form-control" name="principal_tlf[]" required="">
+                        <option value="">seleccione ..</option>
+                        @foreach($controller->principal() as $id => $tipo)
+                            <option value="{{ $id }}" {% if (file.principal == {{ $id }}) { %} selected="selected" {% } %}>
+                                {{ $tipo }}
+                            </option>
+                        @endforeach
+                    </select> 
+                </div>
+             </div>
+        </div>
     <div class="col-md-12"></div>
     {% } %}
 </script>
@@ -234,16 +240,21 @@
         'required'      => 'required',
         'class_cont'    => 'col-md-4 col-sm-6 col-xs-12'
         ]) }}
-       {{ Form::bsSelect('Principal',[
-         1=>'Si',
-         0=> 'No'
-        ], '{%=file.principal%}', [
-        'label'         => 'Principal',
-        'placeholder'   => 'Principal',
-        'name'          => 'principal_correo[]',
-        'required'      => 'required',
-        'class_cont'    => 'col-md-4 col-sm-6 col-xs-12'
-         ]) }}
+        <div class="form-group col-md-3 cont-persona">
+            <label for="nombres">Principal:</label>
+            <div class="form-group multiple-form-group input-group">
+                <div class="input-group-btn input-group-select">
+                    <select class="form-control" name="principal_correo[]" required="">
+                        <option value="">seleccione ..</option>
+                        @foreach($controller->principal() as $id => $tipo)
+                            <option value="{{ $id }}" {% if (file.principal == {{ $id }}) { %} selected="selected" {% } %}>
+                                {{ $tipo }}
+                            </option>
+                        @endforeach
+                    </select> 
+                </div>
+             </div>
+        </div>
          <div class="col-md-12"></div>
     {% } %}
 </script>

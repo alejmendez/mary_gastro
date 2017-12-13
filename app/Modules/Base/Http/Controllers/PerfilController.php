@@ -50,7 +50,12 @@ class PerfilController extends Controller {
             'Personas_detalles' => new PersonasDetalles(),
             'Personas_direccion' => new PersonasDireccion()
 		]);
-	}
+    }
+    public function principal(){
+        $datos[]='no';
+        $datos[]='si';
+        return $datos;
+    } 
 	public function buscar(Request $request, $id = 0)
     {
        
