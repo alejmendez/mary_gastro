@@ -35,6 +35,7 @@ class Noticias extends Migration
 			$table->increments('id');
 			$table->string('titulo', 250);
 			$table->string('slug', 250)->unique();
+			$table->boolean('notificado')->default(false);
 			$table->text('contenido');
 			$table->text('contenido_html');
 			$table->text('resumen');

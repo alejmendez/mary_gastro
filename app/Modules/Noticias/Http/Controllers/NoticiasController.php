@@ -188,15 +188,15 @@ class NoticiasController extends Controller
             $data = $this->data($request);
             $archivos = json_decode($request->archivos);
 
-            if ($id === 0) {
-                $Noticias = Noticias::create($data);
-                $id = $Noticias->id;
-            }else {
+            if ($id == 0) {
+                $noticia = Noticias::create($data);
+                $id = $noticia->id;
+            } else {
                 if (empty($archivos)) {
                     unset($data['published_at']);
                 }
 
-                $Noticias = Noticias::find($id)->update($data);
+                $noticia = Noticias::find($id)->update($data);
             }
 
             $this->guardar_categorias($request,$id);
@@ -224,31 +224,41 @@ class NoticiasController extends Controller
 
             $this->guardarImagenes($archivos, $id);
             //$this->procesar_permisos($request, $id);
-       } catch (QueryException $e) {
+            $this->enviar_correo($noticia);
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-       } catch (Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
-       }
+        }
 
-       DB::commit();
+        DB::commit();
 
-       /*  $user = Usuario::select('usuario')->where('perfil_id', 9)->get()->chunk(10);
+        return ['s' => 's', 'msj' => trans('controller.incluir')];
+    }
 
-        foreach ($user as $correos){
-            foreach ($correos as $correo){
+    protected function enviar_correo($noticia)
+    {
+        if ($noticia->published_at && $noticia->notificado) {
+            $usuarios = Usuario::where('perfil_id', 9)->get()->chunk(10);
+    
+            foreach ($usuarios as $listaUsuarios){
                 \Mail::send("pagina::emails.post", [
-                    'usuario' => $usuario,
-                    'mensaje' => 'marygastro.com.ve/blog/'. $Noticias->slug
-                ], function($message) use($usuario, $data) {
+                    'noticia' => $noticia
+                ], function($message) use($listaUsuarios, $noticia) {
                     $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
-                    $message->to($data['correo'], $Noticias->titulo)
-                    ->subject("CONFIRMACION DE CORREO MARY GASTRO.");
+                    $message->subject("Tengo un nuevo post!");
+    
+                    foreach ($listaUsuarios as $usuario){
+                        $message->to($usuario->usuario, $usuario->personas->nombres);
+                    }
                 });
             }
-        } */
-       return ['s' => 's', 'msj' => trans('controller.incluir')];
+
+            $noticia->notificado = true;
+            $noticia->save();
+        }
     }
 
     protected function getRuta()
