@@ -44,21 +44,22 @@ class PerfilController extends Controller {
         'jquery-ui-timepicker'
     ];
 
-	public function index(){
+    public function index()
+    {
 		return $this->view('base::Perfil', [
 			'Personas' => new Personas(),
             'Personas_detalles' => new PersonasDetalles(),
             'Personas_direccion' => new PersonasDireccion()
 		]);
     }
-    public function principal(){
-        $datos[]='no';
-        $datos[]='si';
-        return $datos;
+
+    public function principal()
+    {
+        return ['No', 'Si'];
     } 
+
 	public function buscar(Request $request, $id = 0)
     {
-       
         $Personas = Personas::with('personadetalle', 'personadireccion')->find($id);
         
             $datos = [
@@ -104,22 +105,19 @@ class PerfilController extends Controller {
         return trans('controller.nobuscar');
     }
 
-    protected function personas($request, $id){
-    //procesa los datos antes de guardar
-        
-        $persona = [
+    protected function personas($request, $id)
+    {
+        return [
             "tipo_persona_id" => $request->tipo_persona_id,
             "dni"             => $request->dni,
             "nombres"         => $request->nombres
         ];
-        return $persona;
     }
 
     public function guardar(Request $request, $id = 0)
     {
         DB::beginTransaction();
         try{
-          
             $Personas = $id == 0 ? new Personas() : Personas::find($id);
     
             $datos = $this->personas($request, $id);
@@ -176,7 +174,8 @@ class PerfilController extends Controller {
         ];
     }
 
-    public function telefono_actulizar($request, $id){
+    public function telefono_actulizar($request, $id)
+    {
         DB::beginTransaction();
         try { 
 
@@ -209,8 +208,10 @@ class PerfilController extends Controller {
         DB::commit();
 
         return ['s' => 's', 'msj' => trans('controller.incluir')];
-    }  
-    public function correo_actulizar($request, $id){
+    }
+
+    public function correo_actulizar($request, $id)
+    {
         DB::beginTransaction();
         try { 
 
@@ -244,7 +245,8 @@ class PerfilController extends Controller {
         return ['s' => 's', 'msj' => trans('controller.incluir')];
     }
 
-	public function clave(Request $request){
+    public function clave(Request $request)
+    {
 		$usuario = auth()->user();
 		
 		if ($usuario->super !== 's'){
@@ -268,7 +270,8 @@ class PerfilController extends Controller {
 		return ['s' => 's', 'msj' => trans('controller.incluir')];
 	}
 
-	public function cambio(Request $request){
+    public function cambio(Request $request)
+    {
 		$validator = Validator::make($request->all(), [
 			'foto' => ['mimes:jpeg,png,jpg'],
 		]);
@@ -296,24 +299,26 @@ class PerfilController extends Controller {
 		return ['s' => 's', 'msj' => trans('controller.incluir'), 'foto' => url('public/img/usuarios/' . $name)];
 	}	 
 
-	public function ciudades(Request $request){
+    public function ciudades(Request $request)
+    {
         $sql = Ciudades::where('estados_id', $request->id)
-                    ->pluck('nombre','id')
-                    ->toArray();
+            ->pluck('nombre','id')
+            ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el estado no Contiene ciudades'];
         
         if($sql){
             $salida = ['s' => 's' , 'msj'=> 'Ciudades encontrados', 'ciudades_id'=> $sql];
-        }               
+        }
         
         return $salida;
     } 
     
-    public function municipios(Request $request){
+    public function municipios(Request $request)
+    {
         $sql = Municipio::where('estados_id', $request->id)
-                    ->pluck('nombre','id')
-                    ->toArray();
+            ->pluck('nombre','id')
+            ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el estado no Contiene municipios'];
         
@@ -323,10 +328,12 @@ class PerfilController extends Controller {
         
         return $salida;
     } 
-    public function parroquias(Request $request){
+
+    public function parroquias(Request $request)
+    {
         $sql = Parroquia::where('municipio_id', $request->id)
-                    ->pluck('nombre','id')
-                    ->toArray();
+            ->pluck('nombre','id')
+            ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el municipio no Contiene parroquias'];
         
@@ -336,31 +343,36 @@ class PerfilController extends Controller {
         
         return $salida;
     } 
-    public function sectores(Request $request){
+
+    public function sectores(Request $request)
+    {
         $sql = Sector::where('parroquia_id', $request->id)
-                    ->pluck('nombre','id')
-                    ->toArray();
+            ->pluck('nombre','id')
+            ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'La parroquia no Contiene sectores'];
         
         if($sql){
             $salida = ['s' => 's' , 'msj'=> 'Sectores encontrados', 'sector_id'=> $sql];
-        }               
+        }
         
         return $salida;
     }
 
-    public function tipotelefono(){
+    public function tipotelefono()
+    {
         return TipoTelefono::pluck('nombre','id');
     }
 	
-    public function personastelefono(Request $request){
+    public function personastelefono(Request $request)
+    {
         $telefonos = PersonasTelefono::where('personas_id', $request->id)->get();
         return ['datos' =>$telefonos->toArray()];
     } 
-    public function personascorreos(Request $request){
+
+    public function personascorreos(Request $request)
+    {
         $correos = PersonasCorreo::where('personas_id', $request->id)->get();
         return ['datos' =>$correos->toArray()];
     }
-   
-} 
+}

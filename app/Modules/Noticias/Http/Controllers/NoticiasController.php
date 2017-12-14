@@ -57,13 +57,15 @@ class NoticiasController extends Controller
 
     public $perfiles_publicar = [1, 2];
 
-    public function index(){
+    public function index()
+    {
         return $this->view('noticias::Noticias', [
             'Noticias'=> new Noticias()
         ]);
     }
 
-    public function buscar(Request $request, $id =0){
+    public function buscar(Request $request, $id = 0)
+    {
         if ($this->permisologia($this->ruta() . '/restaurar') || $this->permisologia($this->ruta().'/destruir')) {
             $rs = Noticias::withTrashed()->find($id);
         }else {
@@ -131,20 +133,24 @@ class NoticiasController extends Controller
         return trans('controller.nobuscar');
     }
 
-    public function categorias() {
+    public function categorias() 
+    {
         return Categorias::pluck('nombre', 'id');
     }
 
-    public function etiquetas() {
+    public function etiquetas() 
+    {
         return Etiquetas::pluck('nombre', 'id');
     }
 
-    public function data($request){
+    public function data($request)
+    {
         if ($this->puedePublicar() && $request->input(['published_at']) != '') {
             $data=$request->all();
-        }else {
+        } else {
             $data=$request->except(['published_at']);
         }
+
         $data['contenido']= strip_tags($data ['contenido_html']);
         // $data['app_usuario_id'] = auth()->user()->id;
         // $data['slug'] = str_slug($data['titulo'],'-');
@@ -152,7 +158,8 @@ class NoticiasController extends Controller
         return $data;
     }
 
-    protected function guardar_categorias($request, $id) {
+    protected function guardar_categorias($request, $id)
+    {
 		Noticias_Categorias::where('noticias_id', $id)->delete();
 		foreach ($request['categoria_id'] as $categoria) {
 			Noticias_Categorias::create([
@@ -160,10 +167,10 @@ class NoticiasController extends Controller
 				'categorias_id' => $categoria,
 			]);
 		}
-        // dd($categorias);
 	}
 
-    protected function guardar_etiquetas($request, $id) {
+    protected function guardar_etiquetas($request, $id)
+    {
         Noticias_Etiquetas::where('noticias_id', $id)->delete();
         foreach ($request['etiquetas_id'] as $etiqueta) {
             Noticias_Etiquetas::create([
@@ -173,10 +180,11 @@ class NoticiasController extends Controller
         }
     }
 
-    public function guardar(noticiasRequest $request,$id=0){
+    public function guardar(noticiasRequest $request, $id = 0)
+    {
        DB::beginTransaction();
-       try {
 
+       try {
             $data = $this->data($request);
             $archivos = json_decode($request->archivos);
 
@@ -243,11 +251,13 @@ class NoticiasController extends Controller
        return ['s' => 's', 'msj' => trans('controller.incluir')];
     }
 
-    protected function getRuta() {
+    protected function getRuta()
+    {
         return date('Y') . '/' . date('m') . '/';
     }
 
-    protected function guardarImagenes($archivos, $id = 0){
+    protected function guardarImagenes($archivos, $id = 0)
+    {
         foreach ($archivos as $archivo => $data) {
             if (!preg_match("/^(\d{4})\-(\d{2})\-([0-9a-z\.]+)\.(jpe?g|png)$/i", $archivo)) {
                 continue;
@@ -266,7 +276,8 @@ class NoticiasController extends Controller
         }
     }
 
-    public function eliminar(Request $request, $id=0){
+    public function eliminar(Request $request, $id = 0)
+    {
         try{
             $rs=Noticias::destroy($id);
         }catch (Exception $e){
@@ -275,7 +286,8 @@ class NoticiasController extends Controller
         return ['s'=>'s', 'msj'=>trans('controller.eliminar')];
     }
 
-    public function restaurar(Request $request, $id=0){
+    public function restaurar(Request $request, $id = 0)
+    {
         try {
             Noticias::withTrashed()->find($id)->restore();
         }catch(Exception $e){
@@ -284,7 +296,8 @@ class NoticiasController extends Controller
         return ['s'=>'s', 'msj'=>trans('controller.restaurar')];
     }
 
-    public function destruir(Request $request, $id=0){
+    public function destruir(Request $request, $id = 0)
+    {
         try {
 			Noticias::withTrashed()->find($id)->forceDelete();
 		} catch (Exception $e) {
@@ -294,7 +307,8 @@ class NoticiasController extends Controller
 		return ['s' => 's', 'msj' => trans('controller.destruir')];
     }
 
-    public function eliminarImagen(Request $request, $id=0){
+    public function eliminarImagen(Request $request, $id = 0)
+    {
         $id = str_replace('-', '/', $id);
 		try {
 			// \File::delete(public_path('img/noticias/' . $id));
@@ -305,7 +319,8 @@ class NoticiasController extends Controller
 		return ['s' => 's', 'msj' => trans('controller.eliminar')];
     }
 
-    public function subir(Request $request) {
+    public function subir(Request $request)
+    {
         $validator=Validator::make($request->all(),[
             'files.*' => [
                 'required',
@@ -357,7 +372,8 @@ class NoticiasController extends Controller
         return $respuesta;
     }
 
-    protected function random_string($length = 10) {
+    protected function random_string($length = 10)
+    {
         $key = '';
         $keys = array_merge(range(0, 9), range('a', 'z'));
         for ($i = 0; $i < $length; $i++) {
@@ -366,19 +382,23 @@ class NoticiasController extends Controller
         return $key;
     }
 
-    public function estatus(){
+    public function estatus()
+    {
         return Estatus::pluck('nombre', 'id');
     }
 
-    public function categoria() {
+    public function categoria()
+    {
         return categorias::pluck('nombre','id');
     }
 
-    public function puedePublicar(){
+    public function puedePublicar()
+    {
         return strtolower(auth()->user()->super) === 's' || $this->permisologia('publicar');
     }
 
-    public function datatable() {
+    public function datatable()
+    {
         $sql = Noticias::select([
             'noticias.id', 'noticias.titulo', 'noticias.resumen'
         ]);
