@@ -17,6 +17,7 @@ use marygastro\Http\Requests\Request;
 //Modelos
 use marygastro\Modules\Incidencias\Models\Incidencias;
 use marygastro\Modules\Base\Models\Usuario;
+use marygastro\Modules\Base\Models\PersonasCorreo;
 
 class IncidenciasController extends Controller
 {
@@ -71,18 +72,21 @@ class IncidenciasController extends Controller
                 'consultas' => $consultas
             ]);
 
+            $usuario = Usuario::where('id', \Auth::user()->id)->first();
 
-                $doctora =  Usuario::find(2);
-                dd($doctora->correo->correo);
-            /* \Mail::send("pagina::emails.nuevaconsulta", [
+
+            $doctora =  PersonasCorreo::where('personas_id',2)->first();
+               
+
+            \Mail::send("pagina::emails.nuevaconsulta", [
                 'usuario' => \Auth::user()->personas_id,
-                'mensaje' => $model->mensaje->mensaje . ' de ' . $usuario_recibe->personas->nombres
-            ], function($message) use($usuario, $correo) {
+                'mensaje' =>' Nueva Consulta de ' . $usuario->personas->nombres
+            ], function($message) use($usuario, $doctora) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
-                $message->to($correo->correo, $usuario->personas->nombres)
+                $message->to( $doctora->correo, $usuario->personas->nombres)
                 ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
             });
-            */
+            
 
         } catch(QueryException $e) {
             DB::rollback();

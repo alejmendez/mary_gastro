@@ -121,7 +121,7 @@ class InboxController extends Controller {
 			$usuario = Usuario::find( \Auth::user()->id);
 			$usuario_recibe = Usuario::find($id);
 			
-            $correo = PersonasCorreo::where('personas_id', \Auth::user()->personas->id)
+            $correo = PersonasCorreo::where('personas_id', $id)
             	->where('principal', 1)->first();
 
 			$msj = Mensaje::find(2);
