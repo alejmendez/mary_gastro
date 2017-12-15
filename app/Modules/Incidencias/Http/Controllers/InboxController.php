@@ -84,8 +84,7 @@ class InboxController extends Controller {
 		DB::beginTransaction();
         try{
 			$archivo = '';
-			if($request->archivo !=""){
-				
+			if($request->archivo != ""){
 				if($file = $request->file('archivo')){
 					$foto =  $this->random_string() . '.' . $file->getClientOriginalExtension();
 
@@ -123,8 +122,10 @@ class InboxController extends Controller {
 			$usuario_recibe = Usuario::find($id);
 			
             $correo = PersonasCorreo::where('personas_id', \Auth::user()->personas->id)
-            ->where('principal', 1)->first();
-			$msj= Mensaje::find(2);
+            	->where('principal', 1)->first();
+
+			$msj = Mensaje::find(2);
+
             \Mail::send("pagina::emails.notificacion", [
                 'usuario' => $usuario,
                 'mensaje' => $msj->mensaje . ' de ' . $usuario_recibe->personas->nombres
@@ -133,7 +134,6 @@ class InboxController extends Controller {
                 $message->to($correo->correo, $usuario->personas->nombres)
                 ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
             });
-
         } catch(QueryException $e) {
             DB::rollback();
             return $e->getMessage();
