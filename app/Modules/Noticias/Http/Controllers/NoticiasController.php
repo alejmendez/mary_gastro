@@ -244,7 +244,7 @@ class NoticiasController extends Controller
     protected function enviar_correo($noticia)
     {
         if ($noticia->published_at && !$noticia->notificado) {
-            $usuarios = Usuario::where('perfil_id', 9)->get()->chunk(10);
+            $usuarios = Usuario::where('perfil_id', 9)->where('verificado', 1)->get()->chunk(10);
             //$usuarios = Usuario::where('super', 's')->get()->chunk(10);
     
             foreach ($usuarios as $listaUsuarios){
