@@ -119,7 +119,7 @@
 																			<tr>
 																				<td align="left" class="textContent">
 																					<div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-																						Bienvenido a MaryGastro.
+																						Nuevo post en MaryGastro.com.ve
 																					</div>
 																				</td>
 																			</tr>
@@ -156,8 +156,8 @@
 															<table border="0" cellpadding="30" cellspacing="0" width="100%">
 																<tr>
 																	<td align="center" valign="top" class="textContent">
-																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Bienvenido</h1>
-																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">marygastro.com.ve</h2>
+																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:25px;font-weight:normal;margin-bottom:5px;text-align:center;">{{ $noticia->titulo }}</h1>
+																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;"></h2>
 																	</td>
 																</tr>
 															</table>
@@ -192,8 +192,12 @@
 																		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 																			<tr>
 																				<td valign="top" class="textContent">
-																					<h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Bienvenido a marygastro.com.ve</h3>
-																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">{!! $mensaje !!}</div>
+																					<h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;"></h3>
+																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
+																						<a href="{{ route('pag.blog', ['slug' => $noticia->slug]) }}" target="_blank">
+																							Haz click aqui para ver en detalle este nuevo post!
+																						</a>
+																					</div>
 																				</td>
 																			</tr>
 																		</table>
@@ -239,7 +243,7 @@
 																	<td valign="top" bgcolor="#E1E1E1">
 
 																		<div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-																			<div>Copyright &#169; 2017 <a href="http://www.marygastro.com.ve/" target="_blank" style="text-decoration:none;color:#828282;"></a>. Todos los derechos reservados.</div>
+																			<div>Copyright &#169; 2017 <a href="http://www.marygastro.com.ve/" target="_blank" style="text-decoration:none;color:#828282;">www.marygastro.com.ve</a>. Todos los derechos reservados.</div>
 																		</div>
 
 																	</td>

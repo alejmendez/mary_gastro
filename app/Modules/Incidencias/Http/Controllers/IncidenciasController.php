@@ -64,7 +64,8 @@ class IncidenciasController extends Controller
             ]);
 
             $Incidencias->save();
-                $consultas = \Auth::user()->consultas - 1;
+            
+            $consultas = \Auth::user()->consultas - 1;
 
             Usuario::where('id', \Auth::user()->id)->update([
                 'consultas' => $consultas
@@ -80,7 +81,8 @@ class IncidenciasController extends Controller
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                 $message->to($correo->correo, $usuario->personas->nombres)
                 ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
-            }); */
+            });
+            */
 
         } catch(QueryException $e) {
             DB::rollback();
@@ -98,6 +100,4 @@ class IncidenciasController extends Controller
             'msj'   => trans('controller.incluir')
         ];
     }
-
-
 }

@@ -34,7 +34,7 @@ class Noticias extends Modelo
         "contenido",
         "contenido_html",
         "resumen",
-        "audio",
+        "notificado",
         "published_at"
     ];
     
