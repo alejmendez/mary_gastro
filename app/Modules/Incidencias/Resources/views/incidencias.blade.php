@@ -23,6 +23,7 @@
 					</div>
 					<div id="collapse_3_1" class="panel-collapse in">
 						<div class="panel-body" style="overflow: auto;max-height: 300px;">
+							<img src="http://marygastro.com.ve/img/como-saber-si-mi-hijo-es-alergico.jpg" alt="Como saber si mi hijo es alérgico" width=700 height=700>
 							<p>Es diferente ser intolerante o ser alérgico a uno o varios alimentos a pesar de que comparten similitudes, como que provocan efectos nocivos en el organismo a causa de la ingesta de determinados alimentos.</p>
 							<p>Para iniciar vamos a definir los conceptos y luego describir cuales son los signos para poder responder nuestra pregunta. </p> 
 							<p>La intolerancia es la incapacidad de consumir ciertos alimentos o nutrientes sin efectos adversos sobre la salud cuando algún alimento no es asimilado por el organismo, debido a carencia de enzimas, metabólica o digestiva. </p>
