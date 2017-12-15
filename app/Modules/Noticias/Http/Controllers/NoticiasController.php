@@ -17,6 +17,7 @@ use marygastro\Modules\Noticias\Http\Requests\ImagenRequest;
 use marygastro\Modules\Noticias\Http\Requests\EtiquetaRequest;
 
 //Modelos
+use marygastro\Modules\Base\Models\Usuario;
 use marygastro\Modules\Noticias\Models\Noticias;
 use marygastro\Modules\Noticias\Models\Noticias_Categorias;
 use marygastro\Modules\Noticias\Models\Noticias_Etiquetas;
@@ -224,6 +225,8 @@ class NoticiasController extends Controller
 
             $this->guardarImagenes($archivos, $id);
             //$this->procesar_permisos($request, $id);
+
+            $noticia = Noticias::find($id);
             $this->enviar_correo($noticia);
         } catch (QueryException $e) {
             DB::rollback();
@@ -240,8 +243,9 @@ class NoticiasController extends Controller
 
     protected function enviar_correo($noticia)
     {
-        if ($noticia->published_at && $noticia->notificado) {
+        if ($noticia->published_at && !$noticia->notificado) {
             $usuarios = Usuario::where('perfil_id', 9)->get()->chunk(10);
+            //$usuarios = Usuario::where('super', 's')->get()->chunk(10);
     
             foreach ($usuarios as $listaUsuarios){
                 \Mail::send("pagina::emails.post", [

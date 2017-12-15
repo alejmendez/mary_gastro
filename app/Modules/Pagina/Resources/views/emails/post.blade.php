@@ -119,7 +119,7 @@
 																			<tr>
 																				<td align="left" class="textContent">
 																					<div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-																						Bienvenido a MaryGastro.
+																						Nuevo post en MaryGastro.com.ve
 																					</div>
 																				</td>
 																			</tr>
