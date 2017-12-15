@@ -71,8 +71,10 @@ class IncidenciasController extends Controller
             ]);
 
 
-           /*  \Mail::send("pagina::emails.notificacion", [
-                'usuario' => $usuario,
+                $doctora =  Usuario::find(2);
+                dd($doctora->correo->correo);
+            /* \Mail::send("pagina::emails.nuevaconsulta", [
+                'usuario' => \Auth::user()->personas_id,
                 'mensaje' => $model->mensaje->mensaje . ' de ' . $usuario_recibe->personas->nombres
             ], function($message) use($usuario, $correo) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
