@@ -16,7 +16,7 @@
 						<h4 class="panel-title">
 							<a class="accordion-toggle accordion-toggle-styled " data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
 								<center>
-									<center><h2  class="panel-title">¿Alérgico o Intolerante a algún alimento?</h2></center>
+									<center><h2  class="panel-title">¿Cómo saber si mi hijo es alérgico o intolerante?</h2></center>
 								</center> 
 							</a>
 						</h4>
