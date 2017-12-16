@@ -7,6 +7,7 @@ Route::group(['middleware' => 'web', 'namespace' => 'marygastro\Modules\Pagina\H
 
 	Route::get('/', 'Controller@index')->name('pag.index');
 	
+	Route::get('/testimonios', 'Controller@testimonios')->name('pag.testimonios');
 	Route::get('/categoria/{slug}', 'Controller@categorias')->name('pag.categoria');
 	Route::get('/blogs', 'Controller@blogs')->name('pag.blogs');
 	Route::get('/blog/{slug}', 'Controller@blog')->name('pag.blog');

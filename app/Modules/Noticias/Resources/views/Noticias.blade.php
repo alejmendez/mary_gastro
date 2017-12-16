@@ -8,8 +8,8 @@
 		@include('base::partials.modal-busqueda', [
 			'titulo' => 'Buscar Noticias.',
 			'columnas' => [
-				'Titulo' => '33.3',
-				'Resumen' => '33.3',
+				'Titulo' => '50',
+				'Resumen' => '50',
 			]
 		])
 @endsection

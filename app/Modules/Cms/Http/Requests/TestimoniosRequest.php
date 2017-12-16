@@ -8,6 +8,6 @@ class TestimoniosRequest extends Request {
     protected $reglasArr = [
 		'titulo' => ['min:3', 'max:100'], 
 		'descripcion' => ['required'], 
-		'imagen' => ['required', 'max:100']
+		'imagen' => ['required', 'mimes:jpeg,jpg,png']
 	];
 }

@@ -359,7 +359,7 @@ class NoticiasController extends Controller
 
         foreach ($files as $file) {
             do {
-                $nombre_archivo = $this->random_string() . '.' . $file->getClientOriginalExtension();
+                $nombre_archivo = str_random(10) . '.' . $file->getClientOriginalExtension();
             } while (is_file($ruta . $nombre_archivo));
 
             $id = str_replace('/', '-', $rutaFecha . $nombre_archivo);
@@ -384,16 +384,6 @@ class NoticiasController extends Controller
         }
         
         return $respuesta;
-    }
-
-    protected function random_string($length = 10)
-    {
-        $key = '';
-        $keys = array_merge(range(0, 9), range('a', 'z'));
-        for ($i = 0; $i < $length; $i++) {
-            $key .= $keys[array_rand($keys)];
-        }
-        return $key;
     }
 
     public function estatus()
