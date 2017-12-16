@@ -26,7 +26,7 @@
 
             <div class="form-group col-xs-12">
                 <label for="imagen">Imagen </label>
-                <input id="imagen" name="imagen" class="form-control" required="required" />
+                <input id="imagen" name="imagen" class="form-control" required="required" type="file" />
             </div>
         {!! Form::close() !!}
     </div>

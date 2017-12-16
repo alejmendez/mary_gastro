@@ -5,7 +5,7 @@ return [
 	'prefix'          => 'backend',
 	'libreriaEntorno' => 'interna', //interna, externa
 	'grupos_apps'     => [
-		'base'        => ['base','noticias', 'Incidencias'],
+		'base'        => ['base', 'noticias', 'incidencias', 'cms'],
 	],
 	'librerias' => [
 		'externa' => [

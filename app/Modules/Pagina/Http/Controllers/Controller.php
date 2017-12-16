@@ -14,6 +14,8 @@ use marygastro\Modules\Noticias\Models\Noticias;
 use marygastro\Modules\Noticias\Models\Noticias_Categorias;
 use marygastro\Modules\Noticias\Models\Categorias;
 use marygastro\Modules\Noticias\Models\Imagenes;
+use marygastro\Modules\Cms\Models\Testimonios;
+use marygastro\Modules\Cms\Models\Tips;
 
 class Controller extends BaseController
 {
@@ -33,7 +35,7 @@ class Controller extends BaseController
 
 
 	public $meses =[
-		1=>'ENE',
+		1 => 'ENE',
 		'FEB',
 		'MAR',
 		'ABR',
@@ -86,11 +88,16 @@ class Controller extends BaseController
 
 		$Imagenes = Imagenes::select(['archivo']);
 
+		$testimonios = Testimonios::all();
+		$tips = Tips::inRandomOrder()->take(3)->get();
+
 		return $this
 			->setTitulo('GastroPediatra en Acción')
 			->view('pagina::index',[
 				'noticias' => $noticias,
-				'imagen' => $Imagenes
+				'imagen' => $Imagenes,
+				'testimonios' => $testimonios,
+				'tips' => $tips
 			]);
 	}
 
@@ -127,6 +134,14 @@ class Controller extends BaseController
 	{
 		SEOMeta::setTitle('Dra. MaryGastro ' . $titulo);
 		return $this;
+	}
+
+	public function testimonios(Request $request)
+	{
+		$testimonios = Testimonios::all();
+		return $this->view('pagina::testimonios',[
+			'testimonios' => $testimonios,
+		]);
 	}
 
 	public function categorias(Request $request)

@@ -81,8 +81,20 @@ class TestimoniosController extends Controller
         DB::beginTransaction();
         try{
             $Testimonios = $id == 0 ? new Testimonios() : Testimonios::find($id);
+            
+            $data = $request->all();
+            
+            $imagen = $request->file('imagen');
+            $ruta = public_path('archivos/testimonios/');
 
-            $Testimonios->fill($request->all());
+            do {
+                $nombre_archivo = str_random(10) . '.' . $imagen->getClientOriginalExtension();
+            } while (is_file($ruta . $nombre_archivo));
+
+            $mover = $imagen->move($ruta, $nombre_archivo);
+            $data['imagen'] = $nombre_archivo;
+
+            $Testimonios->fill($data);
             $Testimonios->save();
         } catch(QueryException $e) {
             DB::rollback();

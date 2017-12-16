@@ -218,30 +218,22 @@
             <div class="column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-box">
                     <ul class="accordion-box">
-                        <li class="accordion block ">
-                            <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Desayuna</div>
+                        @foreach($tips as $tip)
+                        <li class="accordion block {{ $loop->first ? 'active-block' : '' }}">
+                            <div class="acc-btn">
+                                <div class="icon-outer">
+                                    <span class="icon icon-plus fa fa-plus"></span> 
+                                    <span class="icon icon-minus fa fa-minus"></span>
+                                </div>
+                                {{ $tip->titulo }}
+                            </div>
                             <div class="acc-content ">
                                 <div class="content clearfix">
-                                    <p>El desayuno es la comida más importante del día, si no desayunamos nuestro cerebro ordena consumir las reservas de glucosa en el hígado y una vez agotadas éstas  lo hará de nuestros músculos, huesos y piel.  Cuando no desayunamos lo que sucede es que nos auto devoramos para poder obtener a como dé lugar una  fuente de energía.</p>
+                                    {!! $tip->descripcion !!}
                                 </div>
                             </div>
                         </li>
-                        <li class="accordion block active-block">
-                            <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Hidratate</div>
-                            <div class="acc-content current">
-                                <div class="content clearfix">
-                                    <p>Somos Agua. El porcentaje corporal de agua de los niños es de aproximadamente 80% y en adultos 60-70%, el agua es fundamental para el transporte de nutrientes, eliminación de toxinas, regulación de la digestión y hasta la regulación de nuestra temperatura.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="accordion block ">
-                            <div class="acc-btn "><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Haz ejercicio y descansa</div>
-                            <div class="acc-content ">
-                                <div class="content clearfix">
-                                    <p>La actividad física es fundamental para nuestra salud, así dediquemos tan sólo una hora al día de ejercicio cardiovascular (por ejemplo caminar, bailar) este hábito será de mucho beneficio para nuestro corazón. Además podemos incluir en nuestra rutina ejercicios de estiramiento,  tonificación y musculación  de manera moderada. Es igualmente importante nuestras horas de descanso para recuperarnos.</p>
-                                </div>
-                            </div>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -267,37 +259,25 @@
         </div>
 
         <div class="carousel-outer">
-            <div class="testimonials">
-                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
+            <div class="testimonials-carousel">
+
+                @foreach($testimonios as $testimonio)
+                <div class="slide-item">
                     <div class="inner-box">
                         <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-1.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-1" srcset="{{ asset('public/img/author-thumb-1.jpg') }} 90w, {{ asset('public/img/author-thumb-1-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
-                            <h4>Yraimis Poueriet</h4>
-                            <div class="designation">Intoleracia a la caseina</div>
+                            <figure class="author-thumb">
+                            <img width="90" height="90" src="{{ asset('public/archivos/testimonios/' . $testimonio->imagen) }}" class="attachment-90x90 size-90x90 wp-post-image" alt="{{ $testimonio->titulo }}" /></figure>
+                            <h4 id="{{ str_slug($testimonio->titulo) }}">
+                                {{ $testimonio->titulo }}
+                            </h4>
+                            <div class="designation">{{ $testimonio->subtitulo }}</div>
                         </div>
-                        <div class="slide-content">Mi nombre es Yraimis Poueriet, soy madre de esta princesa llamada Ashley Nazareth, y la verdad es que conocer ... (Ver más)</div>
+                        <div class="slide-content">
+                            {!! str_limit(strip_tags($testimonio->descripcion), 110, ' ...') !!}
+                        </div>
                     </div>
                 </div>
-                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
-                    <div class="inner-box">
-                        <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-2.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-2" /></figure>
-                            <h4>Familia Gallego Jaramillo</h4>
-                            <div class="designation">Diagnóstico acertado</div>
-                        </div>
-                        <div class="slide-content">Dra. Maryraida Canónico; un ángel enviado por Dios para Cesar Gallego Jaramillo nuestro hijo, ... (Ver más) </div>
-                    </div>
-                </div>
-                <div class="slide-item col-sm-4" style="margin-bottom: 35px;">
-                    <div class="inner-box">
-                        <div class="slide-header">
-                            <figure class="author-thumb"><img width="90" height="90" src="{{ asset('public/img/author-thumb-3.jpg') }}" class="attachment-90x90 size-90x90 wp-post-image" alt="author-thumb-3" srcset="{{ asset('public/img/author-thumb-3.jpg') }} 90w, {{ asset('public/img/author-thumb-3-75x75.jpg') }} 75w" sizes="(max-width: 90px) 100vw, 90px" /></figure>
-                            <h4>Orlenis Pulido</h4>
-                            <div class="designation">Mi Dra. para el hogar</div>
-                        </div>
-                        <div class="slide-content">Agradecemos a Dios porque existen médicos profesionales  con  excelente calidad  como la Dra. Maryraida. (Ver más) </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
