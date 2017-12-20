@@ -1,0 +1,16 @@
+{
+    "name": "Pagos",
+    "alias": "pagos",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "marygastro\\Modules\\Pagos\\Providers\\PagosServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

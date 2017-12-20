@@ -28,7 +28,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Validator::extend('password', function($attribute, $value, $parameters, $validator) {
-            return preg_match('/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/', $value);
+            //return preg_match('/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/', $value);
+
+            if(strlen($value) >= 4){
+                return true;
+            }
+            return false;
+
         });
 
         Form::component('bsText', 'components.form.text', ['name', 'value', 'attributes']);

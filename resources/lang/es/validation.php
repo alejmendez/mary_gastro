@@ -79,7 +79,7 @@ return [
 "url"    => "El formato de :attribute es inválido.",
 "nombre"    => "El campo :attribute contiene caracteres no permitidos.",
 "telefono"    => "El campo :attribute no tiene el formato de Telefono.",
-"password"    => "El campo :attribute debe contener al menos un letra en Mayuscula, una letra en Minuscula, al menos un numero.",
+"password"    => "El campo :attribute debe contener al menos 4 caracteres.",
 
 /*
 |--------------------------------------------------------------------------

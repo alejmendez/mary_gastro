@@ -111,6 +111,7 @@ class LoginController extends Controller {
 			$data['perfil_id'] = 9;
 			$data['usuario'] = $data['correo'];
 			$data['code_autenticacion'] = $code_verificacion;
+			$data['verificado'] = 1;
 
 			PersonasCorreo::create([
 				"personas_id" => $data['personas_id'],
@@ -120,7 +121,8 @@ class LoginController extends Controller {
 			
 			$usuario = Usuario::create($data);
 			$id = $usuario->id;
-			
+
+			/* 	
 			\Mail::send("pagina::emails.confirmacion", [
                 'usuario' => $usuario,
                 'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion 
@@ -128,7 +130,7 @@ class LoginController extends Controller {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                 $message->to($data['correo'], $usuario->personas->nombres)
                 	->subject("CONFIRMACION DE CORREO MARY GASTRO.");
-            });
+            }); */
 			
 		} catch (Exception $e) {
 			DB::rollback();
@@ -141,7 +143,8 @@ class LoginController extends Controller {
 			'id' => $usuario->id, 
 			'texto' => $usuario->nombre, 
 			's' => 's', 
-			'msj' => 'Hemos enviado un mensaje de confirmación a su correo, por favor ingrese y verifique su cuenta.'
+			//'msj' => 'Hemos enviado un mensaje de confirmación a su correo, por favor ingrese y verifique su cuenta.'
+			'msj' => 'Usuario Creado'
 		];
 	}
 

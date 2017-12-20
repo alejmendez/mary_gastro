@@ -6,7 +6,7 @@ use marygastro\Http\Requests\Request;
 
 class RegistrarUserRequest extends Request {
 	protected $reglasArr = [
-		'password'       => ['required', 'password', 'min:8', 'max:50'],
+		'password'       => ['required', 'password', 'min:4', 'max:50'],
 		'dni'            => ['required', 'integer', 'unique:personas,dni'],
 		'nombres'        => ['required', 'nombre', 'min:3', 'max:50'],
 		'correo'         => ['required','max:50', 'unique:personas_correo,correo'],
