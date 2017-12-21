@@ -42,7 +42,7 @@
 				<a href="{{ url('/') }}" class="list-group-item">
                 <i class="fa fa-plus" aria-hidden="true"> </i> Opciones 1 </a>
 		
-				<a href="{{ url('/') }}" class="list-group-item "><i class="fa fa-search" aria-hidden="true"></i> Opciones  2</a>
+				<a href="{{ url(Config::get('admin.prefix').'/pagos/confirmacion') }}" class="list-group-item "><i class="fa fa-search" aria-hidden="true"></i>Pagos</a>
 
 				{{--  <a href="{{ url('ventas/reporte/imprimir') }}" class="list-group-item" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Clientes</a>  --}}
 				

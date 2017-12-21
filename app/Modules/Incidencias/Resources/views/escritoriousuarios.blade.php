@@ -185,6 +185,13 @@
 						puede elegir la forma de pago de su prefierencia y notificar el pago 
 						al siguiente correo: <a href="mailto:pagos@marygastro.com.ve">pagos@marygastro.com.ve</a> </br></br>
 						<b>Importante:</b> Una vez realizado el pago y notificado al correo se habilitarán las consultas con la Dra. Mary Gastro  
+						<br>
+						<center>
+							<a href="{{ url(Config::get('admin.prefix').'/pagos/pagos') }}" class="btn btn-warning ">
+								<i class="fa fa-plus" aria-hidden="true"></i> 
+								Registra tu pago
+							</a>
+						</center>
 					</div>
 				</div>
 			</div>
@@ -206,6 +213,10 @@
 			<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias') }}" class="list-group-item ">
 				<i class="fa fa-plus" aria-hidden="true"></i> 
 				Nueva Consulta
+			</a>
+			<a href="{{ url(Config::get('admin.prefix').'/pagos/pagos') }}" class="list-group-item ">
+				<i class="fa fa-plus" aria-hidden="true"></i> 
+				Registra tu pago
 			</a>
 		</div>
 		

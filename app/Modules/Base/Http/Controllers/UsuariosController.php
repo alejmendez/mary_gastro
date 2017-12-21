@@ -139,17 +139,18 @@ class UsuariosController extends Controller {
 				
 				$code_verificacion = $this->random_string(20);
 				$data['code_autenticacion'] = $code_verificacion;
+				$data['verificado'] = 1;
 				$usuario = Usuario::create($data);
 				$id = $usuario->id;
 
-				\Mail::send("pagina::emails.confirmacion", [
+				/* \Mail::send("pagina::emails.confirmacion", [
 					'usuario' => $usuario,
 					'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion 
 				], function($message) use($usuario, $data) {
 					$message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
 					$message->to($data['cuenta'], $usuario->personas->nombres)
 					->subject("CONFIRMACION DE CORREO MARY GASTRO.");
-				});
+				}); */
 
 			}else{
 				$usuario = Usuario::find($id);

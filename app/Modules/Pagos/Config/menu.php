@@ -20,6 +20,11 @@ $menu['pagos'] = [
 				'nombre' 	=> 'Registro de pagos',
 				'direccion' => 'pagos/pagos',
 				'icono' 	=> 'fa fa-users'
+			],
+			[
+				'nombre' 	=> 'Pagos',
+				'direccion' => 'pagos/confirmacion',
+				'icono' 	=> 'fa fa-users'
 			]
 		]
 	]

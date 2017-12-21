@@ -31,10 +31,10 @@ Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/
         Route::delete('destruir/{id}',  'PlanesController@destruir');
 
         Route::get('datatable',         'PlanesController@datatable');
-     });
+    });
 
 
-        Route::group(['prefix' => 'pagos'], function() {
+    Route::group(['prefix' => 'pagos'], function() {
         Route::get('/',                 'PagosController@index');
         Route::get('nuevo',             'PagosController@nuevo');
         Route::get('cambiar/{id}',      'PagosController@cambiar');
@@ -49,7 +49,24 @@ Route::group(['middleware' => 'web', 'prefix' =>  Config::get('admin.prefix').'/
         Route::delete('destruir/{id}',  'PagosController@destruir');
 
         Route::get('datatable',         'PagosController@datatable');
-     });
+    });
+
+    Route::group(['prefix' => 'confirmacion'], function() {
+        Route::get('/',                 'ConfirmacionController@index');
+        Route::get('nuevo',             'ConfirmacionController@nuevo');
+        Route::get('detalles/{id}',      'ConfirmacionController@detalles');
+        
+        Route::get('buscar/{id}',       'ConfirmacionController@buscar');
+
+        Route::post('guardar',          'ConfirmacionController@guardar');
+        Route::put('guardar/{id}',      'ConfirmacionController@guardar');
+
+        Route::delete('eliminar/{id}',  'ConfirmacionController@eliminar');
+        Route::post('restaurar/{id}',   'ConfirmacionController@restaurar');
+        Route::delete('destruir/{id}',  'ConfirmacionController@destruir');
+
+        Route::get('datatable',         'ConfirmacionController@datatable');
+    });
 
     //{{route}}
 });

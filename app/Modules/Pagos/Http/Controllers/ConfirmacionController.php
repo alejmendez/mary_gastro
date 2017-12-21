@@ -18,47 +18,61 @@ use marygastro\Modules\Pagos\Models\Pagos;
 use marygastro\Modules\Base\Models\usuario;
 use marygastro\Modules\Base\Models\PersonasCorreo;
 
-class PagosController extends Controller
+class ConfirmacionController extends Controller
 {
     protected $titulo = 'Pagos';
 
     public $js = [
-        'Pagos'
+        'confirmacion'
     ];
     
     public $css = [
-        'Pagos'
+        ''
     ];
 
     public $librerias = [
-        'jquery-ui',
-        'jquery-ui-timepicker'
+      'datatables'
     ];
 
     public function index()
     {
-        return $this->view('pagos::Pagos', [
-            'Pagos' => new Pagos()
+        return $this->view('pagos::Confirmacion');
+    }
+    public function detalles($id = 0)
+    {
+
+        $this->js = [
+            ''
+        ];
+        
+        $this->css = [
+            ''
+        ];
+
+        $sql = Pagos::select([
+            'pagos.id',
+            'personas.dni',
+            'personas.nombres',
+            'banco.nombre_banco as banco_emisor',
+            'banco2.nombre_banco as banco_receptor',
+            'planes.nombre',
+            'pagos.fecha',
+            'pagos.monto',
+            'pagos.created_at'
+        ])
+        ->leftJoin('app_usuario','pagos.usuario_id','=','app_usuario.id')
+        ->leftJoin('personas','personas.id','=','app_usuario.personas_id')
+        ->leftJoin('planes','planes.id','=','pagos.planes_id')
+        ->leftJoin('banco','banco.id','=','pagos.banco_emisor_id')
+        ->leftJoin('banco as banco2','banco2.id','=','pagos.banco_receptor_id')
+        ->orderBy('pagos.created_at','DESC')
+        ->where('pagos.id',$id);
+
+        return $this->view('pagos::Confirmacion-info',[
+            'info' => $sql->first()
         ]);
     }
 
-    public function nuevo()
-    {
-        $Pagos = new Pagos();
-        return $this->view('pagos::Pagos', [
-            'layouts' => 'base::layouts.popup',
-            'Pagos' => $Pagos
-        ]);
-    }
-
-    public function cambiar(Request $request, $id = 0)
-    {
-        $Pagos = Pagos::find($id);
-        return $this->view('pagos::Pagos', [
-            'layouts' => 'base::layouts.popup',
-            'Pagos' => $Pagos
-        ]);
-    }
 
     public function buscar(Request $request, $id = 0)
     {
@@ -93,13 +107,13 @@ class PagosController extends Controller
            $correo = PersonasCorreo::where('personas_id', 2)
                 ->where('principal', 1)->first();
             $usuario = Usuario::find( \Auth::user()->id);
-            //$Pagos->id
             
-            $this->notificacion(3, 2, \Auth::user()->id, 3, '');
+            
+            $this->notificacion(3, 2, \Auth::user()->id, 3, $Pagos->id);
             
             \Mail::send("pagina::emails.notificacion", [
                 'usuario' => $usuario,
-                'mensaje' =>  'Solicitud  de  Pago de ' . $usuario->personas->nombres
+                'mensaje' =>  'Solicitud  de  Pago de ' .  $usuario->personas->nombres
             ], function($message) use($usuario, $correo) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                 $message->to($correo->correo, $usuario->personas->nombres)
@@ -124,62 +138,30 @@ class PagosController extends Controller
         ];
     }
 
-    public function eliminar(Request $request, $id = 0)
-    {
-        try{
-            Pagos::destroy($id);
-        } catch (QueryException $e) {
-            return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch (Exception $e) {
-            return ['s' => 'n', 'msj' => $e->errorInfo[2]];
-        }
-
-        return ['s' => 's', 'msj' => trans('controller.eliminar')];
-    }
-
-    public function restaurar(Request $request, $id = 0)
-    {
-        try {
-            Pagos::withTrashed()->find($id)->restore();
-        } catch (QueryException $e) {
-           return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch (Exception $e) {
-            return ['s' => 'n', 'msj' => $e->errorInfo[2]];
-        }
-
-        return ['s' => 's', 'msj' => trans('controller.restaurar')];
-    }
-
-    public function destruir(Request $request, $id = 0)
-    {
-        try {
-            Pagos::withTrashed()->find($id)->forceDelete();
-        } catch (QueryException $e) {
-            return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch (Exception $e) {
-            return ['s' => 'n', 'msj' => $e->errorInfo[2]];
-        }
-
-        return ['s' => 's', 'msj' => trans('controller.destruir')];
-    }
 
     public function datatable(Request $request)
     {
         $sql = Pagos::select([
-            'id', 'usuario_id', 'banco_emisor_id', 'banco_receptor_id', 'tipo_deposito', 'cod_referencia', 'planes_id', 'url', 'fecha', 'estatus', 'monto', 'deleted_at'
-        ]);
-
-        if ($request->verSoloEliminados == 'true') {
-            $sql->onlyTrashed();
-        } elseif ($request->verEliminados == 'true') {
-            $sql->withTrashed();
-        }
-
+            'pagos.id',
+            'personas.dni',
+            'personas.nombres',
+            'banco.nombre_banco as banco_emisor',
+            'banco2.nombre_banco as banco_receptor',
+            'planes.nombre',
+            'pagos.fecha',
+            'pagos.monto',
+           
+            'pagos.created_at'
+        ])
+        ->leftJoin('app_usuario','pagos.usuario_id','=','app_usuario.id')
+        ->leftJoin('personas','personas.id','=','app_usuario.personas_id')
+        ->leftJoin('planes','planes.id','=','pagos.planes_id')
+        ->leftJoin('banco','banco.id','=','pagos.banco_emisor_id')
+        ->leftJoin('banco as banco2','banco2.id','=','pagos.banco_receptor_id')
+        ->orderBy('pagos.created_at','DESC');
+   
         return Datatables::of($sql)
             ->setRowId('id')
-            ->setRowClass(function ($registro) {
-                return is_null($registro->deleted_at) ? '' : 'bg-red-thunderbird bg-font-red-thunderbird';
-            })
             ->make(true);
     }
 }
