@@ -65,7 +65,7 @@ class Pagos extends modelo
         parent::__construct($attributes);
         $this->campos['planes_id']['options'] = Planes::pluck('nombre', 'id');
         $this->campos['banco_emisor_id']['options'] = Banco::pluck('nombre_banco', 'id');
-        $this->campos['banco_receptor_id']['options'] = Banco::whereIn('id',[7,35])->pluck('nombre_banco', 'id');
+        $this->campos['banco_receptor_id']['options'] = Banco::whereIn('id',[7,35,30,36])->pluck('nombre_banco', 'id');
     }
 
     public function usuario()

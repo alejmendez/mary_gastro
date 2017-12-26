@@ -185,14 +185,24 @@
 						puede elegir la forma de pago de su prefierencia y notificar el pago 
 						al siguiente correo: <a href="mailto:pagos@marygastro.com.ve">pagos@marygastro.com.ve</a> </br></br>
 						<b>Importante:</b> Una vez realizado el pago y notificado al correo se habilitarán las consultas con la Dra. Mary Gastro  
-						<br>
+						<br><br>
 						<center>
-							<a href="{{ url(Config::get('admin.prefix').'/pagos/pagos') }}" class="btn btn-warning ">
+							<a href="{{ url(Config::get('admin.prefix').'/pagos/pagos') }}" class="btn btn-warning " style="width: 100%;">
 								<i class="fa fa-plus" aria-hidden="true"></i> 
 								Registra tu pago
 							</a>
 						</center>
+						<br>
+						<center>
+							<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias')  }}" class="btn btn-success" style="width: 100%;">
+								<i class="fa fa-plus" aria-hidden="true"></i> 
+								Nueva Consulta
+							</a>
+						</center>
 					</div>
+				
+					
+					
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -209,6 +219,11 @@
 			<a href="{{ url('/') }}" class="list-group-item">
 				<i class="fa fa-home" aria-hidden="true"></i> 
 				Ir a Pagina Web 
+			</a>
+			
+			<a href="{{ url(Config::get('admin.prefix').'/incidencias/inicio/usuarios#accordion3') }}" class="list-group-item ">
+				<i class="fa fa-plus" aria-hidden="true"></i> 
+				Consultas
 			</a>
 			<a href="{{ url(Config::get('admin.prefix').'/incidencias/incidencias') }}" class="list-group-item ">
 				<i class="fa fa-plus" aria-hidden="true"></i> 

@@ -111,15 +111,19 @@ class InboxController extends Controller {
 			$user = Incidencias::find($request->incidencia_id);
 			
 			if(\Auth::user()->personas->id == $user->personas_id){
+				$id2 = 2;
 				$id = 2;
 			}else{
+				
 				$id = $user->personas_id;
+				$_id2 =  Usuario::where('personas_id', $user->personas_id)->first();
+				$id2 = $_id2->id;
 			}
 			
-			$this->notificacion(2, $id, \Auth::user()->id, 2, $request->incidencia_id);
+			$this->notificacion(2, $id2, \Auth::user()->id, 2, $request->incidencia_id);
 
 			$usuario = Usuario::find( \Auth::user()->id);
-			$usuario_recibe = Usuario::find($id);
+			$usuario_recibe = Usuario::where('personas_id', $id)->first();
 			
             $correo = PersonasCorreo::where('personas_id', $id)
             	->where('principal', 1)->first();
