@@ -48,11 +48,14 @@ $html['titulo'] = 'Inicio de Sesión';
 						{!! Form::button(Lang::get('login.log_in'), ['class' => 'btn green uppercase']) !!}
 					</div>
 					<h6 class="form-title font-red">Nota: Sólo podrá Iniciar Sesión una vez creada la cuenta.</h6>
+
 					<div class="create-account">
 						<p>
 							<a href="javascript:;"  id="register-btn" class="uppercase">Crea Una Cuenta Gratis</a>
 						</p>
+						
 					</div>
+				
 				
 					<!-- 	
 						Desarrollado por:  
@@ -93,7 +96,7 @@ $html['titulo'] = 'Inicio de Sesión';
 			</div>
 			<div id="recuperar" style="display: none;">
 				{!! Form::open(array('id' => 'formulario3')) !!}
-					<h3 class="font-green">Nuevo Usuario</h3>
+					<h3 class="font-green">Recuperar Contraseña</h3>
 					<p class="hint"> </p>
 					
 					<div class="form-group">
@@ -107,9 +110,37 @@ $html['titulo'] = 'Inicio de Sesión';
 					</div>
 				{!! Form::close() !!}
 			</div>
-			
+			<div id="reportar" style="display: none;">
+				{!! Form::open(array('id' => 'formulario4')) !!}
+					<h3 class="font-green">Reportar error</h3>
+					<p class="hint"> </p>
+					
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Nombres y Apellidos</label>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Nombres y Apellidos" name="nombres" /> 
+					</div>
+
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Correo</label>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" /> 
+					</div>
+
+					<div class="form-group">
+						<label class="control-label visible-ie8 visible-ie9">Descripcion</label>
+						 <textarea class="form-control" placeholder="Descripcion" name="descripcion"></textarea>
+					</div>
+				
+					<div class="form-actions">
+						<button type="button" id="report-back-btn" class="register-back-btn btn green btn-outline ">Atras</button>
+						<button type="button" id="report-submit-btn" class="btn btn-success uppercase pull-right">Enviar</button>
+					</div>
+				{!! Form::close() !!}
+			</div>
 		</div>
-		 <div class="copyright">MaryGastro © 2017 por <a href="http://www.tumundoclick.com/" class="author-name">www.tumundoclick.com</a></div>
+		<div class="copyright">
+		 	<a href="javascript:;"  id="report-btn" class="forget-password">Reporte de Error</a><br>
+		 	MaryGastro © 2017 por <a href="http://www.tumundoclick.com/" class="author-name">www.tumundoclick.com</a>
+		</div>
 	
 		@include('base::partials.footer')
 	</body>

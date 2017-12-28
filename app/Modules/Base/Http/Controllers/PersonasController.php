@@ -1,5 +1,4 @@
 <?php
-
 namespace marygastro\Modules\Base\Http\Controllers;
 
 //Controlador Padre

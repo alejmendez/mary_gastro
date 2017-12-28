@@ -19,9 +19,11 @@ Route::group(['prefix' => Config::get('admin.prefix')], function() {
 	 */
 	
 	Route::group(['prefix' => 'login'], function() {
-		Route::get('/', 				'LoginController@index')->name('login');;
+		Route::get('/', 				'LoginController@index')->name('login');
 		Route::get('salir', 			'LoginController@salir');
 		Route::post('validar', 			'LoginController@validar');
+		
+		
 		Route::get('bloquear', 			'LoginController@bloquear');
 	});
 

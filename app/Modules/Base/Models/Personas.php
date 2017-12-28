@@ -4,8 +4,6 @@ namespace marygastro\Modules\Base\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
-
-
 class Personas extends modelo
 {
     protected $table = 'personas';

@@ -119,14 +119,23 @@ $('#register-btn').on('click', function() {
     $('#login').css('display', 'none');
     $('#registro').css('display', 'block');
     $('#recuperar').css('display', 'none');
+    $('#reportar').css('display', 'none');
 });
 $('.register-back-btn').on('click', function() {
     $('#login').css('display', 'block');
     $('#registro').css('display', 'none');
     $('#recuperar').css('display', 'none');
+    $('#reportar').css('display', 'none');
 });
 $('#forget-password').on('click', function() {
     $('#recuperar').css('display', 'block');
+    $('#login').css('display', 'none');
+    $('#registro').css('display', 'none');
+    $('#reportar').css('display', 'none');
+});
+$('#report-btn').on('click', function() {
+    $('#reportar').css('display', 'block');
+    $('#recuperar').css('display', 'none');
     $('#login').css('display', 'none');
     $('#registro').css('display', 'none');
 });
@@ -150,7 +159,7 @@ $('#register-submit-btn').on('click', function() {
         'type': 'POST',
         'success': function(r) {
 
-            if(r.s == 's'){
+            if (r.s == 's') {
                 new PNotify({
                     title: 'success',
                     text: r.msj,
@@ -159,6 +168,27 @@ $('#register-submit-btn').on('click', function() {
                 });
 
                 location.reload();
+            }
+        }
+    });
+});
+
+$('#report-submit-btn').on('click', function() {
+
+    $('#formulario4').ajaxSubmit({
+        'url': $url + 'reporte',
+        'type': 'POST',
+        'success': function(r) {
+
+            if (r.s == 's') {
+                new PNotify({
+                    title: 'success',
+                    text: r.msj,
+                    type: 'success',
+                    hide: true
+                });
+
+                //location.reload();
             }
         }
     });

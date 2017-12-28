@@ -233,6 +233,10 @@
 				<i class="fa fa-plus" aria-hidden="true"></i> 
 				Registra tu pago
 			</a>
+			<a href="{{ url(Config::get('admin.prefix').'/reporte') }}" class="list-group-item ">
+				<i class="fa fa-plus" aria-hidden="true"></i> 
+				Reporte de Error
+			</a>
 		</div>
 		
 	</div>

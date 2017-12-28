@@ -14,11 +14,16 @@ Route::group(['middleware' => 'web', 'prefix' => Config::get('admin.prefix'), 'n
 		Route::get('salir', 			'LoginController@salir')->name('logout');
 		Route::post('foto', 			'LoginController@foto');
 		Route::post('registro', 		'LoginController@registro');
+		Route::post('reporte', 			'ReporteController@reporte');
 		Route::post('validar', 			'LoginController@validar');
 		Route::get('bloquear', 			'LoginController@bloquear');
 		
 	});
-
+	Route::group(['prefix' => 'reporte'], function() {
+		Route::get('/', 				'ReporteController@index');
+		Route::post('reporte', 			'ReporteController@reporte');	
+	});
+   
 	/**
 	 * Perfiles
 	 */

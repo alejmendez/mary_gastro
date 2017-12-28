@@ -67,7 +67,7 @@
 													@endif  
 												</a>
 		                                    </li>
-	                                	@endforeach                                  
+	                                	@endforeach
 	                                </ul>
 	                            </li>
 	                        </ul>
@@ -87,6 +87,11 @@
 								<li>
 									<a href="{{ url(Config::get('admin.prefix').'/perfil') }}">
 										<i class="fa fa-user"></i> Mi Perfil
+									</a>
+								</li>
+								<li>
+									<a href="{{ url(Config::get('admin.prefix').'/reporte') }}">
+										<i class="fa fa-exclamation-circle"></i> Reportar Error
 									</a>
 								</li>
 								<li class="divider"> </li>
