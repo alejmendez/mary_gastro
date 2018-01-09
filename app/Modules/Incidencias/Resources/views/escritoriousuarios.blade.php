@@ -174,7 +174,7 @@
 		
 								<a href="javascript:;" class="list-group-item"><b>PAGO VÍA PAYPAL</b><br />
 								<i class="fa fa-paypal" aria-hidden="true"></i> Puede realizar el pago vía Paypal en el siguiente botón.</a>
-								<a href="https://www.paypal.me/marygastro" class="btn">Pago Paypal</a>
+								<a href="https://www.paypal.me/marygastro" class="btn btn-primary">Pagar con Paypal</a>
 								
 								<a href="javascript:;" class="list-group-item"><b>DATOS DE PYONEER</b><br />
 								<i class="fa fa-credit-card-alt" aria-hidden="true"></i> Debe enviar su nombre completo y correo asociado a su cuenta PAYONEER al siguiente correo pagos@marygastro.com.ve posteriormente le enviaré una notificación de cobro.</a>
