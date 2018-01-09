@@ -173,7 +173,8 @@
 								<i class="fa fa-address-book" aria-hidden="true"></i> 394 SHADOW CREEK LN RIVERWOODS IL 60015-3873</a>
 		
 								<a href="javascript:;" class="list-group-item"><b>PAGO VÍA PAYPAL</b><br />
-								<i class="fa fa-paypal" aria-hidden="true"></i> Para realizar el pago vía Paypal debe realizarlo dirigido al siguiente correo maryraida@hotmail.com luego de haber efectuado el pago debe notificarlo a pagos@marygastro.com.ve y adjuntar un capture del pago.</a>
+								<i class="fa fa-paypal" aria-hidden="true"></i> Puede realizar el pago vía Paypal en el siguiente botón.</a>
+								<a href="https://www.paypal.me/marygastro" class="btn">Pago Paypal</a>
 								
 								<a href="javascript:;" class="list-group-item"><b>DATOS DE PYONEER</b><br />
 								<i class="fa fa-credit-card-alt" aria-hidden="true"></i> Debe enviar su nombre completo y correo asociado a su cuenta PAYONEER al siguiente correo pagos@marygastro.com.ve posteriormente le enviaré una notificación de cobro.</a>
@@ -181,9 +182,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						Debe realizar el pago del paquete que usted ha seleccionado,
-						puede elegir la forma de pago de su prefierencia y notificar el pago 
-						al siguiente correo: <a href="mailto:pagos@marygastro.com.ve">pagos@marygastro.com.ve</a> </br></br>
+						Debe adquirir alguno de los paquetes realizando el Pago y notificando en "Registra tu Pago" </br></br>
 						<b>Importante:</b> Una vez realizado el pago y notificado al correo se habilitarán las consultas con la Dra. Mary Gastro  
 						<br><br>
 						<center>
@@ -293,7 +292,7 @@
 												cuadros respiratorios recurrentes, flatulencias,
 												sensación de llenura,  dolor abdominal u otra afectación intestinal,
 												tu gastropediatra en acción tiene la solución para ti.   <b>3 CONSULTAS</b> 
-												que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
+												al mismo paciente que garantizan su mejoría de 24 a 72 horas y el seguimiento en la primera 
 												semana de diagnóstico y tratamiento. 
 								
 											</p>
