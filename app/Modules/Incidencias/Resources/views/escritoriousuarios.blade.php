@@ -268,7 +268,7 @@
 												digestivo de tu hijo.
 												</br></br>Precio:
 												</br>30$ USD - Consulta Internacional
-												</br>70.000 Bs - Residentes en Venezuela
+												</br>100.000 Bs - Residentes en Venezuela
 											</p>
 										</div>
 									</div>
@@ -304,7 +304,7 @@
 											</ol>
 											<p>Precio:
 												</br>60$ USD - Consulta Internacional
-												</br>150.000 Bs - Residentes en Venezuela</p>
+												</br>250.000 Bs - Residentes en Venezuela</p>
 										</div>
 									</div>
 									<div class="col-md-3 cta-button">
@@ -337,7 +337,7 @@
 												amamanta.
 												</br></br>Precio:
 												</br>30$ USD - Consulta Internacional
-												</br>70.000 Bs - Residentes en Venezuela
+												</br>100.000 Bs - Residentes en Venezuela
 											</p>
 										</div>
 									</div>
