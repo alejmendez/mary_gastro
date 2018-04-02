@@ -48,7 +48,8 @@ class NoticiasServiceProvider extends ServiceProvider
             __DIR__.'/../Config/config.php' => config_path('noticias.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'noticias'
+            __DIR__.'/../Config/config.php',
+            'noticias'
         );
     }
 

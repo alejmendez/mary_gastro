@@ -32,7 +32,7 @@ class Pagos extends modelo
         'options'    =>[
             '0' => 'Transferencia',
             '1' => 'Deposito'
-        ] 
+        ]
     ],
     'cod_referencia' => [
         'type' => 'number',
@@ -56,7 +56,7 @@ class Pagos extends modelo
         'placeholder' => 'Monto del Pagos'
     ]
 ];
-     protected $hidden = [
+    protected $hidden = [
         'deleted_at'
     ];
 
@@ -65,7 +65,7 @@ class Pagos extends modelo
         parent::__construct($attributes);
         $this->campos['planes_id']['options'] = Planes::pluck('nombre', 'id');
         $this->campos['banco_emisor_id']['options'] = Banco::pluck('nombre_banco', 'id');
-        $this->campos['banco_receptor_id']['options'] = Banco::whereIn('id',[7,35,30,36])->pluck('nombre_banco', 'id');
+        $this->campos['banco_receptor_id']['options'] = Banco::whereIn('id', [7,35,30,36])->pluck('nombre_banco', 'id');
     }
 
     public function usuario()
@@ -78,22 +78,23 @@ class Pagos extends modelo
         return $this->belongsTo('marygastro\Modules\Pagos\Models\Planes');
     }
 
-     public function setFechaAttribute($value)
+    public function setFechaAttribute($value)
     {
         // 2016-06-27
         $formato = 'd/m/Y';
-        if (preg_match('/^\d{4}-\d{1,2}-\d{1,2}$/', $value)){
+        if (preg_match('/^\d{4}-\d{1,2}-\d{1,2}$/', $value)) {
             $formato = 'Y-m-d';
         }
         
         $this->attributes['fecha'] = Carbon::createFromFormat($formato, $value);
     }
     
-    public function getFechaAttribute($value){
+    public function getFechaAttribute($value)
+    {
         return Carbon::parse($value)->format('d/m/Y');
     }
-    public function getCreatedAtAttribute($value){
+    public function getCreatedAtAttribute($value)
+    {
         return Carbon::parse($value)->format('d/m/Y');
     }
-    
 }

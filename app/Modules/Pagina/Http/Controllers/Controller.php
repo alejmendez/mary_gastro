@@ -19,275 +19,275 @@ use marygastro\Modules\Cms\Models\Tips;
 
 class Controller extends BaseController
 {
-	public $app = 'Pagina';
+    public $app = 'Pagina';
 
-	public $titulo = '';
+    public $titulo = '';
 
-	public $autenticar = false;
-	public $paginar = 8;
+    public $autenticar = false;
+    public $paginar = 8;
 
-	public $patch_js = [
-		'public/js',
-		'public/plugins',
-		'app/Modules/Pagina/Assets/js',
-		'public/js/pagina',
-	];
+    public $patch_js = [
+        'public/js',
+        'public/plugins',
+        'app/Modules/Pagina/Assets/js',
+        'public/js/pagina',
+    ];
 
 
-	public $meses =[
-		1 => 'ENE',
-		'FEB',
-		'MAR',
-		'ABR',
-		'MAY',
-		'JUN',
-		'JUL',
-		'AGO',
-		'SEP',
-		'OCT',
-		'NOV',
-		'DIC'
-	];
+    public $meses =[
+        1 => 'ENE',
+        'FEB',
+        'MAR',
+        'ABR',
+        'MAY',
+        'JUN',
+        'JUL',
+        'AGO',
+        'SEP',
+        'OCT',
+        'NOV',
+        'DIC'
+    ];
 
-	public $patch_css = [
-		'public/css',
-		'public/plugins',
-		'app/Modules/Pagina/Assets/css',
-	];
+    public $patch_css = [
+        'public/css',
+        'public/plugins',
+        'app/Modules/Pagina/Assets/css',
+    ];
 
-	public $libreriasIniciales = [
-		'OpenSans', 'font-awesome',
-		'animate', 'wow', 'bootstrap',
-		'pace', 'jquery-form', 'jquery-ui',
-		'blockUI',
-		'modernizr',
-		'pnotify'
-	];
+    public $libreriasIniciales = [
+        'OpenSans', 'font-awesome',
+        'animate', 'wow', 'bootstrap',
+        'pace', 'jquery-form', 'jquery-ui',
+        'blockUI',
+        'modernizr',
+        'pnotify'
+    ];
 
-	public function index(Request $request)
-	{
-		$estreno = Carbon::create(2017, 11, 24, 19, 0, 0);
-		$serverName = request()->server->get('SERVER_NAME');
-		if ($estreno->gt(Carbon::now())) {
-			return $this->view('pagina::contador', [
-				'estreno' => $estreno
-			]);
-		}
+    public function index(Request $request)
+    {
+        $estreno = Carbon::create(2017, 11, 24, 19, 0, 0);
+        $serverName = request()->server->get('SERVER_NAME');
+        if ($estreno->gt(Carbon::now())) {
+            return $this->view('pagina::contador', [
+                'estreno' => $estreno
+            ]);
+        }
 
-		$noticias = Noticias::select([
-			'id',
-			'titulo',
-			'slug',
-			'resumen',
-			'published_at',
-		])
-		->where('published_at', '<=', Carbon::now())
-		->orderByDesc('published_at')
-		->take(3)
-		->get();
+        $noticias = Noticias::select([
+            'id',
+            'titulo',
+            'slug',
+            'resumen',
+            'published_at',
+        ])
+        ->where('published_at', '<=', Carbon::now())
+        ->orderByDesc('published_at')
+        ->take(3)
+        ->get();
 
-		$Imagenes = Imagenes::select(['archivo']);
+        $Imagenes = Imagenes::select(['archivo']);
 
-		$testimonios = Testimonios::all();
-		$tips = Tips::inRandomOrder()->take(3)->get();
+        $testimonios = Testimonios::all();
+        $tips = Tips::inRandomOrder()->take(3)->get();
 
-		return $this
-			->setTitulo('GastroPediatra en Acción')
-			->view('pagina::index',[
-				'noticias' => $noticias,
-				'imagen' => $Imagenes,
-				'testimonios' => $testimonios,
-				'tips' => $tips
-			]);
-	}
+        return $this
+            ->setTitulo('GastroPediatra en Acción')
+            ->view('pagina::index', [
+                'noticias' => $noticias,
+                'imagen' => $Imagenes,
+                'testimonios' => $testimonios,
+                'tips' => $tips
+            ]);
+    }
 
-	public function pagina(Request $request, $pag)
-	{
-		$dir = __DIR__ . '/../../Resources/views/';
+    public function pagina(Request $request, $pag)
+    {
+        $dir = __DIR__ . '/../../Resources/views/';
 
-		if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')){
-			return $this->view('pagina::' . $pag, [
-				'msj' => ''
-			]);
-		}
+        if (is_file($dir . $pag . '.blade.php') || is_file($dir . $pag . '.php')) {
+            return $this->view('pagina::' . $pag, [
+                'msj' => ''
+            ]);
+        }
 
-		abort(404);
-	}
+        abort(404);
+    }
 
-	public function sendMail(ContactoRequest $request)
-	{
-		\Mail::send("pagina::emails.mail", ['request' => $request], function($message) use($request) {
-			$message->from('info@marygastro.com.ve', 'marygastro');
-			$message->to('info@marygastro.com.ve', 'marygastro')
-				->subject($request->asunto);
+    public function sendMail(ContactoRequest $request)
+    {
+        \Mail::send("pagina::emails.mail", ['request' => $request], function ($message) use ($request) {
+            $message->from('info@marygastro.com.ve', 'marygastro');
+            $message->to('info@marygastro.com.ve', 'marygastro')
+                ->subject($request->asunto);
 
-			$message->cc('alejmendez.87@gmail.com', 'alejandro mendez');
-			$message->cc('leonardoberti21@gmail.com', 'Leonardo Berti');
-		});
-		
-		return $this->view('pagina::contacto', [
-			'msj' => 'correo enviado satisfactoriamente'
-		]);
-	}
+            $message->cc('alejmendez.87@gmail.com', 'alejandro mendez');
+            $message->cc('leonardoberti21@gmail.com', 'Leonardo Berti');
+        });
+        
+        return $this->view('pagina::contacto', [
+            'msj' => 'correo enviado satisfactoriamente'
+        ]);
+    }
 
-	public function setTitulo($titulo)
-	{
-		SEOMeta::setTitle('Dra. MaryGastro ' . $titulo);
-		return $this;
-	}
+    public function setTitulo($titulo)
+    {
+        SEOMeta::setTitle('Dra. MaryGastro ' . $titulo);
+        return $this;
+    }
 
-	public function testimonios(Request $request)
-	{
-		$testimonios = Testimonios::all();
-		return $this->view('pagina::testimonios',[
-			'testimonios' => $testimonios,
-		]);
-	}
+    public function testimonios(Request $request)
+    {
+        $testimonios = Testimonios::all();
+        return $this->view('pagina::testimonios', [
+            'testimonios' => $testimonios,
+        ]);
+    }
 
-	public function categorias(Request $request)
-	{
-		$noticias = Noticias::with('categorias')->select([
-			'id',
-			'titulo',
-			'slug',
-			'resumen',
-			'published_at'
-		])
-			->where('published_at', '<=', Carbon::now())
-			->whereHas('categorias', function ($query) use ($request) {
-				$query->where('slug', $request->slug);
-			})
-			->orderByDesc('published_at');
+    public function categorias(Request $request)
+    {
+        $noticias = Noticias::with('categorias')->select([
+            'id',
+            'titulo',
+            'slug',
+            'resumen',
+            'published_at'
+        ])
+            ->where('published_at', '<=', Carbon::now())
+            ->whereHas('categorias', function ($query) use ($request) {
+                $query->where('slug', $request->slug);
+            })
+            ->orderByDesc('published_at');
 
-		$noticias = $noticias
-			->paginate($this->paginar);
-		
-		$listaNoticias = Noticias::select([
-			'id',
-			'titulo',
-			'slug',
-			'resumen',
-			'published_at'
-		])
-			->where('published_at', '<=', Carbon::now())
-			->orderByDesc('published_at')
-			->whereHas('categorias', function ($query) use ($request) {
-				$query->where('slug', $request->slug);
-			})
-			->take(4)
-			->get();
+        $noticias = $noticias
+            ->paginate($this->paginar);
+        
+        $listaNoticias = Noticias::select([
+            'id',
+            'titulo',
+            'slug',
+            'resumen',
+            'published_at'
+        ])
+            ->where('published_at', '<=', Carbon::now())
+            ->orderByDesc('published_at')
+            ->whereHas('categorias', function ($query) use ($request) {
+                $query->where('slug', $request->slug);
+            })
+            ->take(4)
+            ->get();
 
-		$categorias = Categorias::select([
-			'categorias.nombre',
-			'categorias.id',
-			DB::raw('Count(noticia_categoria.noticias_id) as total'),
-		])
-			->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
-			->orderBy('categorias.nombre')
-			->groupby('categorias.nombre')
-			->groupby('categorias.id')
-			->get();
+        $categorias = Categorias::select([
+            'categorias.nombre',
+            'categorias.id',
+            DB::raw('Count(noticia_categoria.noticias_id) as total'),
+        ])
+            ->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
+            ->orderBy('categorias.nombre')
+            ->groupby('categorias.nombre')
+            ->groupby('categorias.id')
+            ->get();
 
-		return $this->view('pagina::blogs',[
-			'noticias'      => $noticias,
-			'listaNoticias' => $listaNoticias,
-			'categorias'    => $categorias
-		]);
-	}
+        return $this->view('pagina::blogs', [
+            'noticias'      => $noticias,
+            'listaNoticias' => $listaNoticias,
+            'categorias'    => $categorias
+        ]);
+    }
 
-	public function blog (Request $request, $slug)
-	{
-		$noticia = Noticias::where('published_at','<=', Carbon::now())
-			->where('slug', $slug)
-			->first();
+    public function blog(Request $request, $slug)
+    {
+        $noticia = Noticias::where('published_at', '<=', Carbon::now())
+            ->where('slug', $slug)
+            ->first();
 
-		$categorias = Categorias::select([
-			'categorias.nombre',
-			'categorias.id',
-			DB::raw('Count(noticia_categoria.noticias_id) as total'),
-		])
-			->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
-			->whereNull('categorias.deleted_at')
-			->groupby('categorias.nombre')
-			->groupby('categorias.id')
-			->get();
+        $categorias = Categorias::select([
+            'categorias.nombre',
+            'categorias.id',
+            DB::raw('Count(noticia_categoria.noticias_id) as total'),
+        ])
+            ->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
+            ->whereNull('categorias.deleted_at')
+            ->groupby('categorias.nombre')
+            ->groupby('categorias.id')
+            ->get();
 
-		$listaNoticias = Noticias::select([
-			'id',
-			'titulo',
-			'slug',
-			'resumen',
-			'published_at'
-		])
-			->where('published_at', '<=', Carbon::now())
-			->orderByDesc('published_at')
-			->take(4)
-			->get();
+        $listaNoticias = Noticias::select([
+            'id',
+            'titulo',
+            'slug',
+            'resumen',
+            'published_at'
+        ])
+            ->where('published_at', '<=', Carbon::now())
+            ->orderByDesc('published_at')
+            ->take(4)
+            ->get();
 
-		return $this
-			->setTitulo('GastroPediatra en Acción')
-			->view('pagina::blog', [
-				'noticia' 		=> $noticia,
-				'categorias' 	=> $categorias,
-				'listaNoticias' => $listaNoticias,
-			]);
-	}
+        return $this
+            ->setTitulo('GastroPediatra en Acción')
+            ->view('pagina::blog', [
+                'noticia' 		=> $noticia,
+                'categorias' 	=> $categorias,
+                'listaNoticias' => $listaNoticias,
+            ]);
+    }
 
-	public function blogs(Request $request) 
-	{
-		$noticias = Noticias::select([
-			'id',
-			'titulo',
-			'slug',
-			'resumen',
-			'published_at'
-		])
-			->where('published_at', '<=', date('Y-m-d H:i'))
-			->orderByDesc('published_at');
+    public function blogs(Request $request)
+    {
+        $noticias = Noticias::select([
+            'id',
+            'titulo',
+            'slug',
+            'resumen',
+            'published_at'
+        ])
+            ->where('published_at', '<=', date('Y-m-d H:i'))
+            ->orderByDesc('published_at');
 
-		if ($request->q) {
-			$busqueda = strtolower($request->q);
-			$busqueda = '%' . implode('%%', explode(' ', $busqueda)) . '%';
+        if ($request->q) {
+            $busqueda = strtolower($request->q);
+            $busqueda = '%' . implode('%%', explode(' ', $busqueda)) . '%';
 
-			$noticias = $noticias->where(function($q) use ($busqueda) {
-				$q->where('titulo', 'like', $busqueda)
-					->orWhere('contenido', 'like', $busqueda);
-			});
-		}
-		
-		$noticias = $noticias->paginate($this->paginar);
-		
-		if ($request->q) {
-			$noticias->appends(['q' => $request->q]);
-		}
-		
-		$listaNoticias = Noticias::select([
-			'id',
-			'titulo',
-			'slug',
-			'resumen',
-			'published_at'
-		])
-			->where('published_at', '<=', Carbon::now())
-			->orderByDesc('published_at')
-			->take(4)
-			->get();
+            $noticias = $noticias->where(function ($q) use ($busqueda) {
+                $q->where('titulo', 'like', $busqueda)
+                    ->orWhere('contenido', 'like', $busqueda);
+            });
+        }
+        
+        $noticias = $noticias->paginate($this->paginar);
+        
+        if ($request->q) {
+            $noticias->appends(['q' => $request->q]);
+        }
+        
+        $listaNoticias = Noticias::select([
+            'id',
+            'titulo',
+            'slug',
+            'resumen',
+            'published_at'
+        ])
+            ->where('published_at', '<=', Carbon::now())
+            ->orderByDesc('published_at')
+            ->take(4)
+            ->get();
 
-		$categorias = Categorias::select([
-			'categorias.nombre',
-			'categorias.id',
-			DB::raw('Count(noticia_categoria.noticias_id) as total'),
-		])
-			->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
-			->orderBy('categorias.nombre')
-			->groupby('categorias.nombre')
-			->groupby('categorias.id')
-			->get();
+        $categorias = Categorias::select([
+            'categorias.nombre',
+            'categorias.id',
+            DB::raw('Count(noticia_categoria.noticias_id) as total'),
+        ])
+            ->leftJoin('noticia_categoria', 'noticia_categoria.categorias_id', '=', 'categorias.id')
+            ->orderBy('categorias.nombre')
+            ->groupby('categorias.nombre')
+            ->groupby('categorias.id')
+            ->get();
 
-		return $this->view('pagina::blogs',[
-			'noticias'      => $noticias,
-			'listaNoticias' => $listaNoticias,
-			'categorias'    => $categorias
-		]);
-	}
+        return $this->view('pagina::blogs', [
+            'noticias'      => $noticias,
+            'listaNoticias' => $listaNoticias,
+            'categorias'    => $categorias
+        ]);
+    }
 }

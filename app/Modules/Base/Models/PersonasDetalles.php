@@ -5,7 +5,6 @@ use marygastro\Modules\Base\Models\Modelo;
 
 use Carbon\Carbon;
 
-
 class PersonasDetalles extends modelo
 {
     protected $table = 'personas_detalles';
@@ -14,8 +13,8 @@ class PersonasDetalles extends modelo
         'profesion_id' => [
             'type'       => 'select',
             'label'      => 'Profesion',
-            'url'        => 'personas/profesion',  
-            'cont_class' => 'form-group col-md-4' 
+            'url'        => 'personas/profesion',
+            'cont_class' => 'form-group col-md-4'
         ],
         'sexo' => [
             'type'       => 'select',
@@ -24,7 +23,7 @@ class PersonasDetalles extends modelo
             'options'    =>[
                 'm' => 'Masculino',
                 'f' => 'Femenino'
-            ] 
+            ]
         ],
         'fecha_nacimiento' => [
             'type'        => 'text',
@@ -45,21 +44,22 @@ class PersonasDetalles extends modelo
         // 2016-06-27
        
         $formato = 'd/m/Y';
-        if (preg_match('/^\d{4}-\d{1,2}-\d{1,2}$/', $value)){
+        if (preg_match('/^\d{4}-\d{1,2}-\d{1,2}$/', $value)) {
             $formato = 'Y-m-d';
         }
         
         $this->attributes['fecha_nacimiento'] = Carbon::createFromFormat($formato, $value);
     }
     
-    public function getFechaNacimientoAttribute($value){
+    public function getFechaNacimientoAttribute($value)
+    {
         return Carbon::parse($value)->format('d/m/Y');
     }
 
     public function profesion()
     {
         return $this->belongsTo('marygastro\Modules\Base\Models\Profesion', 'profesion_id');
-    } 
+    }
 
     public function personas()
     {

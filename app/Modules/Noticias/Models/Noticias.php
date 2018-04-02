@@ -14,19 +14,19 @@ use marygastro\Modules\Noticias\Models\Etiquetas;
 class Noticias extends Modelo
 {
     protected $settings = array(
-		'exclude'       => array(
-			'id',
-			'created_at',
-			'updated_at',
-			'deleted_at',
-			'password'
-		),
-		'extras'    => array(
-			'class' => '',
-			'cont_class' => 'col-lg-3 col-md-4 col-sm-6 col-xs-12'
-		),
-		'showLabels'    => true
-	);
+        'exclude'       => array(
+            'id',
+            'created_at',
+            'updated_at',
+            'deleted_at',
+            'password'
+        ),
+        'extras'    => array(
+            'class' => '',
+            'cont_class' => 'col-lg-3 col-md-4 col-sm-6 col-xs-12'
+        ),
+        'showLabels'    => true
+    );
     protected $table = 'noticias';
     protected $fillable = [
         "titulo",
@@ -41,8 +41,8 @@ class Noticias extends Modelo
     protected $dates = [
         'published_at',
         'created_at',
-		'updated_at',
-		'deleted_at'
+        'updated_at',
+        'deleted_at'
     ];
 
     protected $campos = [
@@ -55,7 +55,8 @@ class Noticias extends Modelo
         ]
     ];
 
-    public function setPublishedAtAttribute($value){
+    public function setPublishedAtAttribute($value)
+    {
         $this->attributes['published_at'] = Carbon::createFromFormat('d/m/Y H:i', $value);
     }
 
@@ -75,14 +76,15 @@ class Noticias extends Modelo
         return $this->belongsToMany('marygastro\Modules\Noticias\Models\Etiquetas', 'noticia_etiqueta', 'noticias_id', 'etiquetas_id');
     }
 
-    public function imagenes(){
+    public function imagenes()
+    {
         // belongsTo = "pertenece a" | hace relacion desde el detalle hasta el maestro
         return $this->hasMany('marygastro\Modules\Noticias\Models\Imagenes');
     }
 
-    public function estatus(){
+    public function estatus()
+    {
         // belongsTo = "pertenece a" | hace relacion desde el detalle hasta el maestro
         return $this->belongsTo('marygastro\Modules\Noticias\Models\Estatus');
     }
-
 }

@@ -9,19 +9,22 @@ use marygastro\Modules\Base\Models\Personas;
 use marygastro\Modules\Base\Models\PersonasTelefono;
 use marygastro\Modules\Base\Models\PersonasCorreo;
 
-class EscritorioController extends Controller {
+class EscritorioController extends Controller
+{
     public $autenticar = false;
 
     protected $titulo = 'Escritorio';
     protected $prefijo = 'backend';
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->middleware('auth');
     }
 
-    public function getIndex() {
+    public function getIndex()
+    {
         $user = \Auth::user();
       
 
@@ -45,14 +48,14 @@ class EscritorioController extends Controller {
         }
         */
         
-        if($user->perfil->nombre == "Usuarios") {
+        if ($user->perfil->nombre == "Usuarios") {
             return redirect($this->prefijo . '/incidencias/inicio/usuarios');
         }
-        if($user->perfil->nombre == "Tecnicos") {
+        if ($user->perfil->nombre == "Tecnicos") {
             return redirect($this->prefijo . '/incidencias/escritorios/tecnicos');
         }
         
-        if ($pase >= 1){
+        if ($pase >= 1) {
             return $this->view('base::Escritorio');
         } else {
             return $this->view('base::Escritorio');

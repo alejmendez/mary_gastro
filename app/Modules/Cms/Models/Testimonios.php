@@ -4,8 +4,6 @@ namespace marygastro\Modules\Cms\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
-
-
 class Testimonios extends modelo
 {
     protected $table = 'testimonios';

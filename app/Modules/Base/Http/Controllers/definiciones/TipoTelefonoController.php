@@ -81,15 +81,15 @@ class TipoTelefonoController extends Controller
     public function guardar(TipoTelefonoRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $TipoTelefono = $id == 0 ? new TipoTelefono() : TipoTelefono::find($id);
 
             $TipoTelefono->fill($request->all());
             $TipoTelefono->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -105,7 +105,7 @@ class TipoTelefonoController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             TipoTelefono::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();

@@ -13,7 +13,7 @@ class Tips extends Migration
      */
     public function up()
     {
-        Schema::create('tips', function(Blueprint $table){
+        Schema::create('tips', function (Blueprint $table) {
             $table->increments('id');
             
             $table->string('titulo', 100);

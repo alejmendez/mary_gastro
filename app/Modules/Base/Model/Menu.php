@@ -104,21 +104,21 @@ class Menu extends Modelo
         foreach ($_menus as $men) {
             $menus = self::_estructura($men);
 
-            if (isset($menus[0])){
-            	$menu[] = $menus[0];
+            if (isset($menus[0])) {
+                $menu[] = $menus[0];
             }
         }
         //dd($metodos, $menu);
         
         $data = [[
-			'id'       => md5('#'),
-			'text'     => 'Todo',
-			'li_attr'  => ['data-direccion' => '#'],
-			'icon'     => 'fa fa-sitemap',
-			'children' => $menu,
-			'state'    => [
-				'opened' => true
-			]
+            'id'       => md5('#'),
+            'text'     => 'Todo',
+            'li_attr'  => ['data-direccion' => '#'],
+            'icon'     => 'fa fa-sitemap',
+            'children' => $menu,
+            'state'    => [
+                'opened' => true
+            ]
         ]];
         
         return $data;
@@ -132,10 +132,10 @@ class Menu extends Modelo
             $menu['direccion'] = trim($menu['direccion']);
 
             $dato = [
-				'id'      => md5($menu['direccion']),
-				'text'    => $menu['nombre'],
-				'li_attr' => ['data-direccion' => $menu['direccion']],
-				'icon'    => $menu['icono']
+                'id'      => md5($menu['direccion']),
+                'text'    => $menu['nombre'],
+                'li_attr' => ['data-direccion' => $menu['direccion']],
+                'icon'    => $menu['icono']
             ];
             
             if (isset($menu['menu'])) {
@@ -162,10 +162,10 @@ class Menu extends Modelo
                         }
 
                         $dato['children'][] = [
-							'id'      => md5($route),
-							'text'    => $texto,
-							'li_attr' => ['data-direccion' => $route],
-							'icon'    => 'fa fa-code'
+                            'id'      => md5($route),
+                            'text'    => $texto,
+                            'li_attr' => ['data-direccion' => $route],
+                            'icon'    => 'fa fa-code'
                         ];
                     }
                 }

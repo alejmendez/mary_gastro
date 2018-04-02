@@ -15,26 +15,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('usuario', function($attribute, $value, $parameters, $validator) {
+        Validator::extend('usuario', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/^[a-zA-Z]((\.|_|-)?[a-zA-Z0-9]+){3}$/i', $value);
         });
 
-        Validator::extend('nombre', function($attribute, $value, $parameters, $validator) {
+        Validator::extend('nombre', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*/i', $value);
         });
 
-        Validator::extend('telefono', function($attribute, $value, $parameters, $validator) {
+        Validator::extend('telefono', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/^\d{4}\-\d{3}\-\d{4}$/i', $value);
         });
 
-        Validator::extend('password', function($attribute, $value, $parameters, $validator) {
+        Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
             //return preg_match('/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/', $value);
 
-            if(strlen($value) >= 4){
+            if (strlen($value) >= 4) {
                 return true;
             }
             return false;
-
         });
 
         Form::component('bsText', 'components.form.text', ['name', 'value', 'attributes']);

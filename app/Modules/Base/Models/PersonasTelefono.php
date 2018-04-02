@@ -30,10 +30,10 @@ class PersonasTelefono extends modelo
     public function personas()
     {
         return $this->belongsTo('marygastro\Modules\Base\Models\Personas', 'personas_id');
-    }  
+    }
 
     public function tipotelefono()
     {
         return $this->belongsTo('marygastro\Modules\Base\Models\TipoTelefono', 'tipo_telefono_id');
-    }  
+    }
 }

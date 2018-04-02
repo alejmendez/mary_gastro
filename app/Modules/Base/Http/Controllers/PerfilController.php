@@ -25,18 +25,19 @@ use marygastro\Modules\Base\Models\Parroquia;
 use marygastro\Modules\Base\Models\Ciudades;
 use marygastro\Modules\Base\Models\Sector;
 
-class PerfilController extends Controller {
-	protected $titulo = 'Perfil';
+class PerfilController extends Controller
+{
+    protected $titulo = 'Perfil';
 
-	public $autenticar = false;
-	public $css = [
-		'Perfil'
-	];
-	public $js = [
-		'Perfil'
-	];
+    public $autenticar = false;
+    public $css = [
+        'Perfil'
+    ];
+    public $js = [
+        'Perfil'
+    ];
 
-	public $librerias = [
+    public $librerias = [
         'alphanum',
         'maskedinput',
         'template',
@@ -46,33 +47,32 @@ class PerfilController extends Controller {
 
     public function index()
     {
-		return $this->view('base::Perfil', [
-			'Personas' => new Personas(),
+        return $this->view('base::Perfil', [
+            'Personas' => new Personas(),
             'Personas_detalles' => new PersonasDetalles(),
             'Personas_direccion' => new PersonasDireccion()
-		]);
+        ]);
     }
 
     public function principal()
     {
         return ['No', 'Si'];
-    } 
+    }
 
-	public function buscar(Request $request, $id = 0)
+    public function buscar(Request $request, $id = 0)
     {
         $Personas = Personas::with('personadetalle', 'personadireccion')->find($id);
         
-            $datos = [
+        $datos = [
                 "id"                => $id,
                 "tipo_persona_id"   => $Personas->tipo_persona_id,
                 "dni"               => $Personas->dni,
                 "nombres"           => $Personas->nombres,
-                "foto"              => $Personas->foto,    
+                "foto"              => $Personas->foto,
             ];
 
-            if(!is_null($Personas->personadireccion)){
-                
-                $datos = array_merge($datos, [
+        if (!is_null($Personas->personadireccion)) {
+            $datos = array_merge($datos, [
                     "estados_id"        => $Personas->personadireccion->estados_id,
                     "ciudades_id"       => $Personas->personadireccion->ciudades_id,
                     "municipios_id"      => $Personas->personadireccion->municipios_id,
@@ -84,15 +84,14 @@ class PerfilController extends Controller {
                     "sexo"              => $Personas->personadetalle->sexo,
                     "fecha_nacimiento"  => $Personas->personadetalle->fecha_nacimiento
                 ]);
-            }
-            if(!is_null($Personas->personadetalle)){
-                
-                $datos = array_merge($datos, [
+        }
+        if (!is_null($Personas->personadetalle)) {
+            $datos = array_merge($datos, [
                     "profesion_id"      => $Personas->personadetalle->profesion_id,
                     "sexo"              => $Personas->personadetalle->sexo,
                     "fecha_nacimiento"  => $Personas->personadetalle->fecha_nacimiento
                 ]);
-            }
+        }
 
           
         if ($Personas) {
@@ -117,7 +116,7 @@ class PerfilController extends Controller {
     public function guardar(Request $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Personas = $id == 0 ? new Personas() : Personas::find($id);
     
             $datos = $this->personas($request, $id);
@@ -131,10 +130,11 @@ class PerfilController extends Controller {
                     ['profesion_id' => $request->profesion_id,
                      'sexo'=> $request->sexo,
                      'fecha_nacimiento'=>$request->fecha_nacimiento
-                ]);     
+                ]
+                );
             }
 
-            if($request->estados_id !=''){
+            if ($request->estados_id !='') {
                 PersonasDireccion::updateOrCreate(
                     ['personas_id' => $Personas->id],
                     [
@@ -145,22 +145,21 @@ class PerfilController extends Controller {
                         "sectores_id"     => $request->sectores_id,
                         "direccion"     => $request->direccion
                     ]
-                );  
+                );
             }
 
 
-            if($request->tipo_telefono[0] != '' ){
+            if ($request->tipo_telefono[0] != '') {
                 $this->telefono_actulizar($request->all(), $Personas->id);
-            } 
+            }
 
-            if($request->correo[0] != '' ){
+            if ($request->correo[0] != '') {
                 $this->correo_actulizar($request->all(), $Personas->id);
             }
-
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -177,11 +176,10 @@ class PerfilController extends Controller {
     public function telefono_actulizar($request, $id)
     {
         DB::beginTransaction();
-        try { 
-
+        try {
             $datos = [];
             foreach ($request['tipo_telefono'] as $_id => $bancos) {
-                if($bancos==" "){
+                if ($bancos==" ") {
                     continue;
                 }
 
@@ -192,14 +190,12 @@ class PerfilController extends Controller {
                     'numero'            => $request['numero'][$_id]
                 ];
                 
-                if($request['id_telefonos'][$_id]==0){
+                if ($request['id_telefonos'][$_id]==0) {
                     PersonasTelefono::create($datos);
-                }else{
+                } else {
                     PersonasTelefono::find($request['id_telefonos'][$_id])->update($datos);
-                } 
+                }
             }
-          
-
         } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
@@ -213,11 +209,10 @@ class PerfilController extends Controller {
     public function correo_actulizar($request, $id)
     {
         DB::beginTransaction();
-        try { 
-
+        try {
             $datos = [];
             foreach ($request['correo'] as $_id => $bancos) {
-                if($bancos==" "){
+                if ($bancos==" ") {
                     continue;
                 }
 
@@ -227,14 +222,12 @@ class PerfilController extends Controller {
                     'correo'       => $request['correo'][$_id]
                 ];
                 
-                if($request['id_correo'][$_id]==0){
+                if ($request['id_correo'][$_id]==0) {
                     PersonasCorreo::create($datos);
-                }else{
+                } else {
                     PersonasCorreo::find($request['id_correo'][$_id])->update($datos);
-                } 
+                }
             }
-          
-
         } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
@@ -247,112 +240,112 @@ class PerfilController extends Controller {
 
     public function clave(Request $request)
     {
-		$usuario = auth()->user();
-		
-		if ($usuario->super !== 's'){
-			$validator = Validator::make($request->all(), [
-				'password' => ['required', 'confirmed', 'password', 'min:8', 'max:50'],
-			]);
+        $usuario = auth()->user();
+        
+        if ($usuario->super !== 's') {
+            $validator = Validator::make($request->all(), [
+                'password' => ['required', 'confirmed', 'password', 'min:8', 'max:50'],
+            ]);
 
-			if ($validator->fails()) {
-				return response($validator->errors(), 422);
-			}
-		}
+            if ($validator->fails()) {
+                return response($validator->errors(), 422);
+            }
+        }
 
-		try {
-			$usuario = usuario::find($usuario->id);
-			$usuario->password = $request->password;
-			$usuario->save();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+        try {
+            $usuario = usuario::find($usuario->id);
+            $usuario->password = $request->password;
+            $usuario->save();
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.incluir')];
-	}
+        return ['s' => 's', 'msj' => trans('controller.incluir')];
+    }
 
     public function cambio(Request $request)
     {
-		$validator = Validator::make($request->all(), [
-			'foto' => ['mimes:jpeg,png,jpg'],
-		]);
+        $validator = Validator::make($request->all(), [
+            'foto' => ['mimes:jpeg,png,jpg'],
+        ]);
 
-		if ($validator->fails()) {
-			return response($validator->errors(), 422);
-		}
-		
-		$usuario = auth()->user();
+        if ($validator->fails()) {
+            return response($validator->errors(), 422);
+        }
+        
+        $usuario = auth()->user();
 
-		$file = $request->file('foto');
-		$name = $usuario->usuario.'.'.$file->getClientOriginalExtension();
-		$path = public_path('img/usuarios/');
+        $file = $request->file('foto');
+        $name = $usuario->usuario.'.'.$file->getClientOriginalExtension();
+        $path = public_path('img/usuarios/');
 
-		$file->move($path, $name);
-		$filename = $path . $name;
+        $file->move($path, $name);
+        $filename = $path . $name;
 
-		chmod($filename, 0777);
+        chmod($filename, 0777);
 
       
-		Personas::find($usuario->personas_id)->update([
-			'foto' => $name
-		]);
+        Personas::find($usuario->personas_id)->update([
+            'foto' => $name
+        ]);
 
-		return ['s' => 's', 'msj' => trans('controller.incluir'), 'foto' => url('public/img/usuarios/' . $name)];
-	}	 
+        return ['s' => 's', 'msj' => trans('controller.incluir'), 'foto' => url('public/img/usuarios/' . $name)];
+    }
 
     public function ciudades(Request $request)
     {
         $sql = Ciudades::where('estados_id', $request->id)
-            ->pluck('nombre','id')
+            ->pluck('nombre', 'id')
             ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el estado no Contiene ciudades'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Ciudades encontrados', 'ciudades_id'=> $sql];
         }
         
         return $salida;
-    } 
+    }
     
     public function municipios(Request $request)
     {
         $sql = Municipio::where('estados_id', $request->id)
-            ->pluck('nombre','id')
+            ->pluck('nombre', 'id')
             ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el estado no Contiene municipios'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Municipios encontrados', 'municipio_id'=> $sql];
-        }               
+        }
         
         return $salida;
-    } 
+    }
 
     public function parroquias(Request $request)
     {
         $sql = Parroquia::where('municipio_id', $request->id)
-            ->pluck('nombre','id')
+            ->pluck('nombre', 'id')
             ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el municipio no Contiene parroquias'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Paroquias encontrados', 'parroquia_id'=> $sql];
-        }               
+        }
         
         return $salida;
-    } 
+    }
 
     public function sectores(Request $request)
     {
         $sql = Sector::where('parroquia_id', $request->id)
-            ->pluck('nombre','id')
+            ->pluck('nombre', 'id')
             ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'La parroquia no Contiene sectores'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Sectores encontrados', 'sector_id'=> $sql];
         }
         
@@ -361,14 +354,14 @@ class PerfilController extends Controller {
 
     public function tipotelefono()
     {
-        return TipoTelefono::pluck('nombre','id');
+        return TipoTelefono::pluck('nombre', 'id');
     }
-	
+    
     public function personastelefono(Request $request)
     {
         $telefonos = PersonasTelefono::where('personas_id', $request->id)->get();
         return ['datos' =>$telefonos->toArray()];
-    } 
+    }
 
     public function personascorreos(Request $request)
     {

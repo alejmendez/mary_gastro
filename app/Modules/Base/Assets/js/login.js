@@ -140,6 +140,32 @@ $('#report-btn').on('click', function() {
     $('#registro').css('display', 'none');
 });
 
+$('#recuperar-back-btn').on('click', function() {
+    $('#login').css('display', 'block');
+    $('#registro').css('display', 'none');
+    $('#recuperar').css('display', 'none');
+    $('#reportar').css('display', 'none');
+});
+
+$('#recuperar-submit-btn').on('click', function() {
+    $('#formulario3').ajaxSubmit({
+        'url': $url + 'recuperar',
+        'type': 'GET',
+        'success': function(r) {
+            if (r.s == 's') {
+                new PNotify({
+                    title: 'success',
+                    text: r.msj,
+                    type: 'success',
+                    hide: true
+                });
+
+                location.reload();
+            }
+        }
+    });
+});
+
 $('#register-submit-btn').on('click', function() {
 
     console.log($('#register_password').val(), $('#rpassword').val());
@@ -204,7 +230,7 @@ function validar($dato, $id) {
     /*
     $dato = dato a validar
     $tipo = que campo validar
-	
+
     */
     $.ajax({
         url: $url + 'foto',

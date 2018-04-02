@@ -4,7 +4,6 @@ namespace marygastro\Modules\Incidencias\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
-
 class IncidenciasChat extends modelo
 {
     protected $table    = 'incidencias_chat';
@@ -12,8 +11,7 @@ class IncidenciasChat extends modelo
     
 
     public function personas()
-	{
+    {
         return $this->belongsTo('marygastro\Modules\Base\Models\Personas', 'personas_id');
     }
 }
-

@@ -11,9 +11,9 @@ class IncidenciasChat extends Migration
      *
      * @return void
      */
-     public function up()
+    public function up()
     {
-        Schema::create('incidencias_chat', function(Blueprint $table){
+        Schema::create('incidencias_chat', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('incidencias_id')->unsigned();
             $table->integer('personas_id')->unsigned();
@@ -30,7 +30,6 @@ class IncidenciasChat extends Migration
             $table->foreign('incidencias_id')
                 ->references('id')->on('incidencias')
                 ->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 

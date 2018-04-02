@@ -81,16 +81,16 @@ class ProfesionController extends Controller
     public function guardar(ProfesionRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Profesion = $id == 0 ? new Profesion() : Profesion::find($id);
             $datos = $request->all();
             $datos['slug'] = str_slug($request->nombre, '-');
             $Profesion->fill($datos);
             $Profesion->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -106,7 +106,7 @@ class ProfesionController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Profesion::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();

@@ -21,14 +21,14 @@ class ProfesionSeeder extends Seeder
         ];
 
         DB::beginTransaction();
-        try{
+        try {
             foreach ($data as $Profesion) {
                 Profesion::create([
                     'nombre'      => $Profesion,
                     'slug'        => str_slug($Profesion)
                 ]);
             }
-        }catch(Exception $e){
+        } catch (Exception $e) {
             DB::rollback();
             echo "Error ";
         }

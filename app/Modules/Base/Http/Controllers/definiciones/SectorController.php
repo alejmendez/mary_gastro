@@ -81,16 +81,16 @@ class SectorController extends Controller
     public function guardar(SectorRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Sector = $id == 0 ? new Sector() : Sector::find($id);
             $datos = $request->all();
             $datos['slug'] = str_slug($request->nombre, '-');
             $Sector->fill($datos);
             $Sector->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -106,7 +106,7 @@ class SectorController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Sector::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();
@@ -147,7 +147,7 @@ class SectorController extends Controller
     {
         $sql = Sector::select([
             'sectores.id', 'sectores.nombre', 'parroquias.nombre as parroquias', 'sectores.deleted_at'
-        ])->join('parroquias', 'parroquias.id','=','sectores.parroquias_id');
+        ])->join('parroquias', 'parroquias.id', '=', 'sectores.parroquias_id');
 
         if ($request->verSoloEliminados == 'true') {
             $sql->onlyTrashed();

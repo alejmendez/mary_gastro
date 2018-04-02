@@ -6,6 +6,8 @@ namespace marygastro\Modules\Base\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use DB;
+use Validator;
+
 //Request
 use Illuminate\Http\Request;
 use marygastro\Modules\Base\Http\Requests\RegistrarUserRequest;
@@ -19,178 +21,257 @@ use marygastro\Modules\Base\Models\Usuario;
 use marygastro\Modules\Base\Models\Personas;
 use marygastro\Modules\Base\Models\PersonasCorreo;
 
-class LoginController extends Controller {
-	public $autenticar = false;
+class LoginController extends Controller
+{
+    public $autenticar = false;
 
-	protected $redirectTo = '/';   //antes era /escritorio
-	protected $redirectPath = '/';   //antes era /escritorio
-	protected $prefijo = '';
+    protected $redirectTo = '/';   //antes era /escritorio
+    protected $redirectPath = '/';   //antes era /escritorio
+    protected $prefijo = '';
 
-	public function __construct() 
-	{
-		//$this->middleware('guest', ['except' => 'getSalir']);
-		$this->prefijo = \Config::get('admin.prefix');
+    public function __construct()
+    {
+        //$this->middleware('guest', ['except' => 'getSalir']);
+        $this->prefijo = \Config::get('admin.prefix');
 
-		$this->redirectTo = $this->prefijo . $this->redirectTo;
-		$this->redirectPath = $this->prefijo . $this->redirectPath;
+        $this->redirectTo = $this->prefijo . $this->redirectTo;
+        $this->redirectPath = $this->prefijo . $this->redirectPath;
 
-		if (Auth::check()) {
-			return redirect($this->prefijo . '/');   //antes era /escritorio
-		}
-	}
+        if (Auth::check()) {
+            return redirect($this->prefijo . '/');   //antes era /escritorio
+        }
+    }
 
-	public function index() 
-	{
-		if (Auth::check()) {
-			return redirect($this->prefijo . '/');   //antes era /escritorio
-		}
+    public function index()
+    {
+        if (Auth::check()) {
+            return redirect($this->prefijo . '/');   //antes era /escritorio
+        }
 
-		return $this->view('base::Login');
-	}
+        return $this->view('base::Login');
+    }
 
-	public function bloquear() 
-	{
-		return $this->view('base::Bloquear');
-	}
+    public function bloquear()
+    {
+        return $this->view('base::Bloquear');
+    }
 
-	public function salir() 
-	{
-		Auth::logout();
-		return redirect($this->prefijo . '/login');
-	}
+    public function salir()
+    {
+        Auth::logout();
+        return redirect($this->prefijo . '/login');
+    }
 
-	public function validar(LoginRequest $request)
-	{
-		$data = $request->only('usuario', 'password');
-		$data['usuario'] = strtolower($data['usuario']);
-		
-		$idregistro = '';
-		$login = $data['usuario'];
-		$user = Usuario::where('usuario', $data['usuario'])->first();
+    public function validar(LoginRequest $request)
+    {
+        $data = $request->only('usuario', 'password');
+        $data['usuario'] = strtolower($data['usuario']);
 
-		if($user && !$user->verificado){
-			return ['s' => 'n', 'msj' => 'Hemos enviado un mensaje de confirmación a su correo, por favor ingrese y verifique su cuenta.'];
-		}
+        $idregistro = '';
+        $login = $data['usuario'];
+        $user = Usuario::where('usuario', $data['usuario'])->first();
 
-		$autenticado = Auth::attempt($data, $request->recordar());
+        if ($user && !$user->verificado) {
+            return ['s' => 'n', 'msj' => 'Hemos enviado un mensaje de confirmación a su correo, por favor ingrese y verifique su cuenta.'];
+        }
 
-		if ($autenticado) {
-			return ['s' => 's'];
-		}
-		
-		return ['s' => 'n', 'msj' => 'La combinacion de Usuario y Clave no Concuerdan.'];
-	}
+        $autenticado = Auth::attempt($data, $request->recordar());
 
-	public function foto(LoginfotoRequest $request)
-	{
-		$usuario = $request->usuario;
+        if ($autenticado) {
+            return ['s' => 's'];
+        }
 
-		$user = Usuario::select('personas_id')->where('usuario', $usuario)->first();
-		$foto = Personas::select('foto')->where('id', $user->personas_id)->first();
+        return ['s' => 'n', 'msj' => 'La combinacion de Usuario y Clave no Concuerdan.'];
+    }
 
-		return ['foto'=>$foto->foto];
-	}
+    public function foto(LoginfotoRequest $request)
+    {
+        $usuario = $request->usuario;
 
-	public function registro(RegistrarUserRequest $request)
-	{
-		DB::beginTransaction();
-		try {
-			$data = $request->all();
-		
-			$persona = Personas::create([
-				"tipo_persona_id" => 1,
-				"dni"             => $request->dni,
-				"nombres"         => $request->nombres,
-				"foto"            => 'usuario.png'
-			]);
+        $user = Usuario::select('personas_id')->where('usuario', $usuario)->first();
+        $foto = Personas::select('foto')->where('id', $user->personas_id)->first();
 
-			$data['personas_id'] = $persona->id;
+        return ['foto'=>$foto->foto];
+    }
 
-			$code_verificacion = $this->random_string(20);
+    public function registro(RegistrarUserRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
 
-			$data['perfil_id'] = 9;
-			$data['usuario'] = $data['correo'];
-			$data['code_autenticacion'] = $code_verificacion;
-			$data['verificado'] = 1;
+            $persona = Personas::create([
+                "tipo_persona_id" => 1,
+                "dni"             => $request->dni,
+                "nombres"         => $request->nombres,
+                "foto"            => 'usuario.png'
+            ]);
 
-			PersonasCorreo::create([
-				"personas_id" => $data['personas_id'],
-				"correo" => $data['correo'],
-				"principal" => true
-			]);
-			
-			$usuario = Usuario::create($data);
-			$id = $usuario->id;
+            $data['personas_id'] = $persona->id;
 
-			/* 	
-			\Mail::send("pagina::emails.confirmacion", [
+            $code_verificacion = $this->random_string(20);
+
+            $data['perfil_id'] = 9;
+            $data['usuario'] = $data['correo'];
+            $data['code_autenticacion'] = $code_verificacion;
+            $data['verificado'] = 1;
+
+            PersonasCorreo::create([
+                "personas_id" => $data['personas_id'],
+                "correo" => $data['correo'],
+                "principal" => true
+            ]);
+
+            $usuario = Usuario::create($data);
+            $id = $usuario->id;
+
+            /*
+            \Mail::send("pagina::emails.confirmacion", [
                 'usuario' => $usuario,
-                'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion 
+                'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion
             ], function($message) use($usuario, $data) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                 $message->to($data['correo'], $usuario->personas->nombres)
-                	->subject("CONFIRMACION DE CORREO MARY GASTRO.");
+                    ->subject("CONFIRMACION DE CORREO MARY GASTRO.");
             }); */
-			
-		} catch (Exception $e) {
-			DB::rollback();
-			return $e->errorInfo[2];
-		}
+        } catch (Exception $e) {
+            DB::rollback();
+            return $e->errorInfo[2];
+        }
 
-		DB::commit();
+        DB::commit();
 
-		return [
-			'id' => $usuario->id, 
-			'texto' => $usuario->nombre, 
-			's' => 's', 
-			//'msj' => 'Hemos enviado un mensaje de confirmación a su correo, por favor ingrese y verifique su cuenta.'
-			'msj' => 'Usuario Creado'
-		];
-	}
+        return [
+            'id' => $usuario->id,
+            'texto' => $usuario->nombre,
+            's' => 's',
+            //'msj' => 'Hemos enviado un mensaje de confirmación a su correo, por favor ingrese y verifique su cuenta.'
+            'msj' => 'Usuario Creado'
+        ];
+    }
 
-	protected function random_string($length = 10)
-	{
+    protected function random_string($length = 10)
+    {
         $key = '';
         $keys = array_merge(range(0, 9), range('a', 'z'));
         for ($i = 0; $i < $length; $i++) {
             $key .= $keys[array_rand($keys)];
         }
         return $key;
-	}
+    }
 
-	public function confirmacion(Request $request, $code = false)
-	{
-		DB::beginTransaction();
-		try {
-			if ($code === false) {
-				return redirect($this->prefijo . '/login');
-			}
-			
-			$usuario = Usuario::where('code_autenticacion', $code)->first();
-			
-			if(!$usuario || $usuario->verificado == 1){
-				return redirect($this->prefijo . '/login');
-			}
+    public function recuperar(Request $request)
+    {
+        $usuario = Usuario::where("usuario", $request->correo)->first();
+        if (!$usuario) {
+            return [
+                's' => 'n',
+                'msj' => 'No se encontró un usuario con ese correo.'
+            ];
+        }
 
-			Usuario::find($usuario->id)->update([
-				'verificado' => true,
-			]);
-			
-			\Mail::send("pagina::emails.bienvenido", [
-                'usuario' => $usuario
-            ], function($message) use($usuario) {
-                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
-                $message
-					->to($usuario->usuario, $usuario->personas->nombres)
-                	->subject("Bienvenido a Mary Gastro");
-			});
-		} catch (Exception $e) {
-			DB::rollback();
-			return $e->errorInfo[2];
+        $usuario->code_autenticacion = $this->random_string(20);
+        $usuario->save();
+
+        \Mail::send("pagina::emails.recuperar", [
+            'usuario' => $usuario,
+            'token' => $usuario->code_autenticacion
+        ], function ($message) use ($usuario) {
+            $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+            $message->to($usuario->usuario, $usuario->personas->nombres)
+                ->subject("RECUPERACION DE CLAVE - MARY GASTRO");
+        });
+
+        return [
+            's' => 's',
+            'msj' => 'Hemos enviado un mensaje de recuperacio de clave.'
+        ];
+    }
+
+    public function recuperarMail(Request $request, $code = false)
+    {
+        if ($code === false) {
+            return redirect($this->prefijo . '/login');
+        }
+
+        $usuario = Usuario::where('code_autenticacion', $code)->first();
+
+        if (!$usuario) {
+            return redirect($this->prefijo . '/login');
+        }
+
+        return $this->view('base::Recuperar', [
+			'code' => $code
+		]);
+    }
+
+    public function recuperarMailPost(Request $request, $code = false)
+    {
+		$validator = Validator::make($request->all(), [
+            'password' => ['required', 'password', 'confirmed'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('backend/login/recuperar/' . $code)
+				->withErrors($validator);
+        }
+
+        if ($code === false) {
+            return redirect($this->prefijo . '/login');
+        }
+
+        $usuario = Usuario::where('code_autenticacion', $code)->first();
+
+        if (!$usuario) {
+            return redirect($this->prefijo . '/login');
 		}
 
-		DB::commit();
+		if ($request->password != $request->rpassword) {
+			$this->view('base::Recuperar', [
+				'msj' => 'Las Claves no coinciden, intentalo nuevamente',
+				'code' => $code,
+			]);
+		}
+
+		$usuario->password = $request->password;
+		$usuario->save();
 
 		return redirect($this->prefijo . '/login');
-	}
+    }
+
+    public function confirmacion(Request $request, $code = false)
+    {
+        DB::beginTransaction();
+        try {
+            if ($code === false) {
+                return redirect($this->prefijo . '/login');
+            }
+
+            $usuario = Usuario::where('code_autenticacion', $code)->first();
+
+            if (!$usuario || $usuario->verificado == 1) {
+                return redirect($this->prefijo . '/login');
+            }
+
+            Usuario::find($usuario->id)->update([
+                'verificado' => true,
+            ]);
+
+            \Mail::send("pagina::emails.bienvenido", [
+                'usuario' => $usuario
+            ], function ($message) use ($usuario) {
+                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                $message
+                    ->to($usuario->usuario, $usuario->personas->nombres)
+                    ->subject("Bienvenido a Mary Gastro");
+            });
+        } catch (Exception $e) {
+            DB::rollback();
+            return $e->errorInfo[2];
+        }
+
+        DB::commit();
+
+        return redirect($this->prefijo . '/login');
+    }
 }

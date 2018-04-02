@@ -4,13 +4,15 @@ namespace marygastro\Modules\Noticias\Http\Requests;
 
 use marygastro\Http\Requests\Request;
 
-class EtiquetasRequest extends Request {
+class EtiquetasRequest extends Request
+{
     protected $reglasArr = [
-		'nombre' => ['string', 'min:3', 'max:60'],
-		'slug' => ['required', 'min:3', 'max:250', 'unique:etiquetas,slug']
-	];
+        'nombre' => ['string', 'min:3', 'max:60'],
+        'slug' => ['required', 'min:3', 'max:250', 'unique:etiquetas,slug']
+    ];
 
-    public function rules(){
-		return $this->reglas();
-	}
+    public function rules()
+    {
+        return $this->reglas();
+    }
 }

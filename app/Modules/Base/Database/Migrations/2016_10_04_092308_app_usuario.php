@@ -13,7 +13,7 @@ class AppUsuario extends Migration
      */
     public function up()
     {
-        Schema::create('app_usuario', function(Blueprint $table){
+        Schema::create('app_usuario', function (Blueprint $table) {
             $table->increments('id');
             
             $table->string('usuario', 100)->nullable();

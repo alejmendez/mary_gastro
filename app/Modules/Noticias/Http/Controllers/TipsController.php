@@ -79,15 +79,15 @@ class TipsController extends Controller
     public function guardar(request $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Tips = $id == 0 ? new Tips() : Tips::find($id);
             $Tips->fill($request->all());
             $Tips->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             //return response()->json(['s' => 's', 'msj' => $e->getMessage()], 500);
             return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }
@@ -103,7 +103,7 @@ class TipsController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Tips::destroy($id);
         } catch (QueryException $e) {
             return ['s' => 'n', 'msj' => $e->getMessage()];
@@ -119,7 +119,7 @@ class TipsController extends Controller
         try {
             Tips::withTrashed()->find($id)->restore();
         } catch (QueryException $e) {
-           return ['s' => 'n', 'msj' => $e->getMessage()];
+            return ['s' => 'n', 'msj' => $e->getMessage()];
         } catch (Exception $e) {
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }

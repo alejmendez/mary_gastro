@@ -24,9 +24,9 @@ class BaseDatabaseSeeder extends Seeder
         $this->call(ParroquiasSeeder::class);
 
         $this->call(ProfesionSeeder::class);
-		$this->call(TipoTelefonoSeeder::class);
-		$this->call(TipoPersonasSeeder::class);
+        $this->call(TipoTelefonoSeeder::class);
+        $this->call(TipoPersonasSeeder::class);
         $this->call(UsuariosSeeder::class);
-	   $this->call(ConfiguracionSeeder::class);
+        $this->call(ConfiguracionSeeder::class);
     }
 }

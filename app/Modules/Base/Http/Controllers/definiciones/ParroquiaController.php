@@ -81,15 +81,15 @@ class ParroquiaController extends Controller
     public function guardar(ParroquiaRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Parroquia = $id == 0 ? new Parroquia() : Parroquia::find($id);
 
             $Parroquia->fill($request->all());
             $Parroquia->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -105,7 +105,7 @@ class ParroquiaController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Parroquia::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();
@@ -146,7 +146,7 @@ class ParroquiaController extends Controller
     {
         $sql = Parroquia::select([
             'parroquias.id', 'parroquias.nombre', 'municipios.nombre as municipios', 'parroquias.deleted_at'
-        ])->join('municipios', 'municipios.id','=', 'parroquias.municipios_id');
+        ])->join('municipios', 'municipios.id', '=', 'parroquias.municipios_id');
 
         if ($request->verSoloEliminados == 'true') {
             $sql->onlyTrashed();

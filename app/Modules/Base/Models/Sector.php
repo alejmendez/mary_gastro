@@ -24,9 +24,6 @@ class Sector extends modelo
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
-       $this->campos['parroquias_id']['options'] = Parroquia::pluck('nombre', 'id');
-        
+        $this->campos['parroquias_id']['options'] = Parroquia::pluck('nombre', 'id');
     }
-
-    
 }

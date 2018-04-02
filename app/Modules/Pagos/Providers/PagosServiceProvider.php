@@ -48,7 +48,8 @@ class PagosServiceProvider extends ServiceProvider
             __DIR__.'/../Config/config.php' => config_path('pagos.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'pagos'
+            __DIR__.'/../Config/config.php',
+            'pagos'
         );
     }
 

@@ -17,8 +17,8 @@ class PersonasTelefonos extends Migration
             $table->increments('id');
             
             $table->integer('personas_id')->unsigned();
-            $table->integer('tipo_telefono_id')->unsigned(); 
-            $table->boolean('principal')->comment('Correo principal  0 = no , 1= si'); 
+            $table->integer('tipo_telefono_id')->unsigned();
+            $table->boolean('principal')->comment('Correo principal  0 = no , 1= si');
             $table->string('numero', 20)->unique();
             
             $table->timestamps();
@@ -31,7 +31,6 @@ class PersonasTelefonos extends Migration
             $table->foreign('tipo_telefono_id')
                   ->references('id')->on('tipo_telefono')
                   ->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 
@@ -42,6 +41,6 @@ class PersonasTelefonos extends Migration
      */
     public function down()
     {
-          Schema::dropIfExists('personas_telefono');
+        Schema::dropIfExists('personas_telefono');
     }
 }

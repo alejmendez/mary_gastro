@@ -11,9 +11,9 @@ class Incidencias extends Migration
      *
      * @return void
      */
-     public function up()
+    public function up()
     {
-        Schema::create('incidencias', function(Blueprint $table){
+        Schema::create('incidencias', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('personas_id')->unsigned();
             $table->integer('estatus')->default(0);//pendiente
@@ -27,7 +27,6 @@ class Incidencias extends Migration
             $table->foreign('personas_id')
                 ->references('id')->on('personas')
                 ->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 

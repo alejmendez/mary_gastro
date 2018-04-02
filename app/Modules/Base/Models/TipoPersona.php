@@ -24,5 +24,5 @@ class TipoPersona extends modelo
     public function personas()
     {
         return $this->hasMany('marygastro\Modules\Base\Models\Personas', 'tipo_persona_id');
-    } 
+    }
 }

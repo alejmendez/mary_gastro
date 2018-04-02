@@ -1,8 +1,8 @@
 	<?php 
-		$_notificaciones = $controller->vernotificaciones();
-		$notificaciones = $_notificaciones['notificaciones'];
-		
-	?>
+        $_notificaciones = $controller->vernotificaciones();
+        $notificaciones = $_notificaciones['notificaciones'];
+        
+    ?>
     
     <div class="page-header">
 		<!-- BEGIN HEADER TOP -->

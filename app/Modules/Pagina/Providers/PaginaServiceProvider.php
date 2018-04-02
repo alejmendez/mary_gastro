@@ -46,7 +46,8 @@ class PaginaServiceProvider extends ServiceProvider
             __DIR__.'/../Config/config.php' => config_path('pagina.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'pagina'
+            __DIR__.'/../Config/config.php',
+            'pagina'
         );
     }
 

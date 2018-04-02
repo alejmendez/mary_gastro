@@ -17,7 +17,7 @@ class Municipios extends Migration
             $table->increments('id');
 
             $table->integer('estados_id')->unsigned();
-            $table->string('nombre',100);
+            $table->string('nombre', 100);
             
             $table->timestamps();
             $table->softDeletes();
@@ -26,9 +26,6 @@ class Municipios extends Migration
                 ->references('id')->on('estados')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
-
-      
-        
     }
 
     /**
@@ -38,6 +35,6 @@ class Municipios extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('municipio');
+        Schema::dropIfExists('municipio');
     }
 }

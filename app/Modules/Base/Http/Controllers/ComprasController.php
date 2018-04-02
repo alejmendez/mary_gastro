@@ -83,7 +83,7 @@ class ComprasController extends Controller
     public function guardar(ComprasRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Compras = $id == 0 ? new Compras() : Compras::find($id);
 
             $data = $request->all();
@@ -117,17 +117,17 @@ class ComprasController extends Controller
                     'cuerpo' => $msj,
                 ];
 
-                \Mail::send("pagina::emails.mensaje", $datosCorreo, function($message) use($usuario) {
+                \Mail::send("pagina::emails.mensaje", $datosCorreo, function ($message) use ($usuario) {
                     $message->from('no_responder@marygastro.com', 'marygastro.com');
                     $message->to($usuario->persona->email, $usuario->persona->full_name)
                         ->subject("Compra en marygastro.com");
                 });
             }
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             //return response()->json(['s' => 's', 'msj' => $e->getMessage()], 500);
             return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }
@@ -144,7 +144,7 @@ class ComprasController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Compras::destroy($id);
         } catch (QueryException $e) {
             return ['s' => 'n', 'msj' => $e->getMessage()];
@@ -160,7 +160,7 @@ class ComprasController extends Controller
         try {
             Compras::withTrashed()->find($id)->restore();
         } catch (QueryException $e) {
-           return ['s' => 'n', 'msj' => $e->getMessage()];
+            return ['s' => 'n', 'msj' => $e->getMessage()];
         } catch (Exception $e) {
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }
@@ -184,13 +184,13 @@ class ComprasController extends Controller
     public function datatable(Request $request)
     {
         $sql = Compras::select([
-            'id', 
-            'sale_id', 
-            'nombre', 
-            'cedula', 
-            'codigo_transferencia', 
-            'banco_usuario', 
-            'monto', 
+            'id',
+            'sale_id',
+            'nombre',
+            'cedula',
+            'codigo_transferencia',
+            'banco_usuario',
+            'monto',
             'deleted_at'
         ]);
 

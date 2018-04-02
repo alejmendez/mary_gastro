@@ -13,7 +13,7 @@ class Sectores extends Migration
      */
     public function up()
     {
-        Schema::create('sectores', function(Blueprint $table){
+        Schema::create('sectores', function (Blueprint $table) {
             $table->increments('id');
             
             $table->string('nombre', 100);
@@ -38,6 +38,6 @@ class Sectores extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('sector');
+        Schema::dropIfExists('sector');
     }
 }

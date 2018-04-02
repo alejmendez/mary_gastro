@@ -11,7 +11,6 @@ use marygastro\Modules\Base\Models\Parroquia;
 use marygastro\Modules\Base\Models\Ciudades;
 use marygastro\Modules\Base\Models\Sector;
 
-
 class PersonasDireccion extends modelo
 {
     protected $table = 'personas_direccion';
@@ -78,7 +77,7 @@ class PersonasDireccion extends modelo
     public function municipio()
     {
         return $this->belongsTo('marygastro\Modules\Base\Models\Municipio', 'municipios_id');
-    } 
+    }
 
     public function ciudad()
     {

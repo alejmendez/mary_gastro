@@ -13,12 +13,12 @@ class usuariosSeeder extends Seeder
     public function run()
     {
         $usuario = Usuario::create([
-			'usuario' => 'admin',
-			'password' => 'admin',
-			'perfil_id' => 1,
-			'persona_id' => 1,
-			'super' => 's',
-			'confirmado'=> 's'
-		]);
+            'usuario' => 'admin',
+            'password' => 'admin',
+            'perfil_id' => 1,
+            'persona_id' => 1,
+            'super' => 's',
+            'confirmado'=> 's'
+        ]);
     }
 }

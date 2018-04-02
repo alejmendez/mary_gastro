@@ -35,7 +35,7 @@ class AsignarController extends Controller
             ->where('perfil_id', 9)
             ->orderBy('personas.nombres')
             ->get();
-        foreach ($_usuarios as $usuario){
+        foreach ($_usuarios as $usuario) {
             $usuarios[$usuario->id] = $usuario->nombres;
         }
 
@@ -47,16 +47,16 @@ class AsignarController extends Controller
     public function guardar(AsignarRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $usuario = Usuario::findOrFail($id);
             
             $usuario->consultas = $request->consultas;
             $usuario->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             //return response()->json(['s' => 's', 'msj' => $e->getMessage()], 500);
             return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }

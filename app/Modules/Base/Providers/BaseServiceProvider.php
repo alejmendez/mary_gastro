@@ -46,7 +46,8 @@ class BaseServiceProvider extends ServiceProvider
             __DIR__.'/../Config/config.php' => config_path('base.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'base'
+            __DIR__.'/../Config/config.php',
+            'base'
         );
     }
 

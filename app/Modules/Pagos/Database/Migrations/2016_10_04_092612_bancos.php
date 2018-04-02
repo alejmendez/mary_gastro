@@ -13,14 +13,13 @@ class Bancos extends Migration
      */
     public function up()
     {
-        Schema::create('banco', function(Blueprint $table){
+        Schema::create('banco', function (Blueprint $table) {
             $table->increments('id');
            
-            $table->string('nombre_banco', 200);  
+            $table->string('nombre_banco', 200);
 
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

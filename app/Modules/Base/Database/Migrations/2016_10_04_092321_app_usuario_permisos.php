@@ -13,7 +13,7 @@ class AppUsuarioPermisos extends Migration
      */
     public function up()
     {
-        Schema::create('app_usuario_permisos', function(Blueprint $table){
+        Schema::create('app_usuario_permisos', function (Blueprint $table) {
             $table->integer('usuario_id')->unsigned();
             $table->string('ruta', 200);
 

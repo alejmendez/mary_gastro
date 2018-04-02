@@ -13,7 +13,7 @@ class TipoTelefono extends Migration
      */
     public function up()
     {
-      Schema::create('tipo_telefono', function (Blueprint $table) {
+        Schema::create('tipo_telefono', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('nombre', 100);

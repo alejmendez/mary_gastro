@@ -78,16 +78,16 @@ class BancoController extends Controller
     public function guardar(BancoRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Banco = $id == 0 ? new Banco() : Banco::find($id);
 
             $Banco->fill($request->all());
             $Banco->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             //return response()->json(['s' => 's', 'msj' => $e->getMessage()], 500);
             return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }
@@ -103,7 +103,7 @@ class BancoController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Banco::destroy($id);
         } catch (QueryException $e) {
             return ['s' => 'n', 'msj' => $e->getMessage()];
@@ -119,7 +119,7 @@ class BancoController extends Controller
         try {
             Banco::withTrashed()->find($id)->restore();
         } catch (QueryException $e) {
-           return ['s' => 'n', 'msj' => $e->getMessage()];
+            return ['s' => 'n', 'msj' => $e->getMessage()];
         } catch (Exception $e) {
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }

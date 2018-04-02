@@ -5,7 +5,7 @@ use marygastro\Modules\Base\Models\Modelo;
 
 class Tips extends Modelo
 {
-	protected $table = 'tips';
+    protected $table = 'tips';
     protected $fillable = ["msj","titulo"];
 
     protected $campos = [

@@ -81,15 +81,15 @@ class TipoPersonaController extends Controller
     public function guardar(TipoPersonaRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $TipoPersona = $id == 0 ? new TipoPersona() : TipoPersona::find($id);
 
             $TipoPersona->fill($request->all());
             $TipoPersona->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -105,7 +105,7 @@ class TipoPersonaController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             TipoPersona::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();

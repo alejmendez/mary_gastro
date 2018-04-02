@@ -39,8 +39,7 @@ class IncidenciasController extends Controller
 
     public function index()
     {
-       
-        return $this->view('incidencias::incidencias',[
+        return $this->view('incidencias::incidencias', [
             'Incidencias' => new Incidencias(),
             'casos' => \Auth::user()->consultas
         ]);
@@ -49,13 +48,13 @@ class IncidenciasController extends Controller
     public function guardar(Request $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Incidencias = $id == 0 ? new Incidencias() : Incidencias::find($id);
-            if(\Auth::user()->consultas == 0){
+            if (\Auth::user()->consultas == 0) {
                 return [
                     's'     => 'n',
                     'msj'   => 'no puede Realizar esta accion'
-                ];  
+                ];
             }
 
             $Incidencias->fill([
@@ -75,23 +74,21 @@ class IncidenciasController extends Controller
             $usuario = Usuario::where('id', \Auth::user()->id)->first();
 
 
-            $doctora =  PersonasCorreo::where('personas_id',2)->first();
+            $doctora =  PersonasCorreo::where('personas_id', 2)->first();
                
 
             \Mail::send("pagina::emails.nuevaconsulta", [
                 'usuario' => \Auth::user()->personas_id,
                 'mensaje' =>' Nueva Consulta de ' . $usuario->personas->nombres
-            ], function($message) use($usuario, $doctora) {
+            ], function ($message) use ($usuario, $doctora) {
                 $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
-                $message->to( $doctora->correo, $usuario->personas->nombres)
+                $message->to($doctora->correo, $usuario->personas->nombres)
                 ->subject("NOTIFICACION DEL SISTEMA ONLINE MARY GASTRO.");
             });
-            
-
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }

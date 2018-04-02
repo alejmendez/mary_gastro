@@ -29,7 +29,6 @@ use marygastro\Modules\Base\Models\Parroquia;
 use marygastro\Modules\Base\Models\Ciudades;
 use marygastro\Modules\Base\Models\Sector;
 
-
 class PersonasController extends Controller
 {
     protected $titulo = 'Personas';
@@ -93,21 +92,19 @@ class PersonasController extends Controller
 
     public function buscar(Request $request, $id = 0)
     {
-       
         $Personas = Personas::with('personadetalle', 'personadireccion')->find($id);
         
-            $datos = [
+        $datos = [
                 "id"                => $id,
                 "tipo_persona_id"   => $Personas->tipo_persona_id,
                 "dni"               => $Personas->dni,
                 "nombres"           => $Personas->nombres,
-                "foto"              => $Personas->foto,    
+                "foto"              => $Personas->foto,
             ];
 
 
-            if(!is_null($Personas->personadireccion)){
-                
-                $datos = array_merge($datos, [
+        if (!is_null($Personas->personadireccion)) {
+            $datos = array_merge($datos, [
                     "estados_id"        => $Personas->personadireccion->estados_id,
                     "ciudades_id"       => $Personas->personadireccion->ciudades_id,
                     "municipios_id"      => $Personas->personadireccion->municipios_id,
@@ -116,15 +113,14 @@ class PersonasController extends Controller
                     "direccion"         => $Personas->personadireccion->direccion,
                     
                 ]);
-            }
-            if(!is_null($Personas->personadetalle)){
-                
-                $datos = array_merge($datos, [
+        }
+        if (!is_null($Personas->personadetalle)) {
+            $datos = array_merge($datos, [
                     "profesion_id"      => $Personas->personadetalle->profesion_id,
                     "sexo"              => $Personas->personadetalle->sexo,
                     "fecha_nacimiento"  => $Personas->personadetalle->fecha_nacimiento
                 ]);
-            }
+        }
 
           
         if ($Personas) {
@@ -137,22 +133,23 @@ class PersonasController extends Controller
         return trans('controller.nobuscar');
     }
 
-    protected function foto($request){
-
+    protected function foto($request)
+    {
         $foto = "user.png";
         
-        if($file = $request->file('foto')){
+        if ($file = $request->file('foto')) {
             $foto =  $this->random_string(). '.' .$file->getClientOriginalExtension();
 
             $path = public_path('img/usuarios/');
             $file->move($path, $foto);
             chmod($path . $foto, 0777);
-        }        
+        }
 
         return $foto;
     }
 
-    protected function random_string($length = 20) {
+    protected function random_string($length = 20)
+    {
         $key = '';
         $keys = array_merge(range(0, 9), range('a', 'z'));
 
@@ -164,8 +161,9 @@ class PersonasController extends Controller
     }
 
 
-    protected function personas($request, $id){
-    //procesa los datos antes de guardar
+    protected function personas($request, $id)
+    {
+        //procesa los datos antes de guardar
         
         $persona = [
             "tipo_persona_id" => $request->tipo_persona_id,
@@ -173,20 +171,17 @@ class PersonasController extends Controller
             "nombres"         => $request->nombres
         ];
 
-       if($request->foto != ''|| $id !=0){
-         $foto = $this->foto($request);
-         $persona['foto'] = $foto;
-       }
+        if ($request->foto != ''|| $id !=0) {
+            $foto = $this->foto($request);
+            $persona['foto'] = $foto;
+        }
         return $persona;
     }
 
     public function guardar(PersonasRequest $request, $id = 0)
     {
-       
-      
         DB::beginTransaction();
-        try{
-                 
+        try {
             $Personas = $id == 0 ? new Personas() : Personas::find($id);
 
             $datos = $this->personas($request, $id);
@@ -200,10 +195,11 @@ class PersonasController extends Controller
                     ['profesion_id' => $request->profesion_id,
                      'sexo'=> $request->sexo,
                      'fecha_nacimiento'=> $request->fecha_nacimiento
-                ]);     
+                ]
+                );
             }
 
-            if($request->estados_id !=''){
+            if ($request->estados_id !='') {
                 PersonasDireccion::updateOrCreate(
                     ['personas_id' => $Personas->id],
                     [
@@ -214,22 +210,20 @@ class PersonasController extends Controller
                         "sectores_id"    => $request->sectores_id,
                         "direccion"     => $request->direccion
                     ]
-                );  
+                );
             }
 
-            if($request->tipo_telefono[0] != '' ){
-
+            if ($request->tipo_telefono[0] != '') {
                 $this->telefono_actulizar($request->all(), $Personas->id);
-            } 
+            }
 
-            if($request->correo[0] != '' ){
+            if ($request->correo[0] != '') {
                 $this->correo_actulizar($request->all(), $Personas->id);
             }
-
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -243,13 +237,13 @@ class PersonasController extends Controller
         ];
     }
 
-    public function telefono_actulizar($request, $id){
+    public function telefono_actulizar($request, $id)
+    {
         DB::beginTransaction();
-        try { 
-
+        try {
             $datos = [];
             foreach ($request['tipo_telefono'] as $_id => $bancos) {
-                if($bancos==" "){
+                if ($bancos==" ") {
                     continue;
                 }
 
@@ -260,14 +254,12 @@ class PersonasController extends Controller
                     'numero'            => $request['numero'][$_id]
                 ];
                 
-                if($request['id_telefonos'][$_id]==0){
+                if ($request['id_telefonos'][$_id]==0) {
                     PersonasTelefono::create($datos);
-                }else{
+                } else {
                     PersonasTelefono::find($request['id_telefonos'][$_id])->update($datos);
-                } 
+                }
             }
-          
-
         } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
@@ -278,13 +270,13 @@ class PersonasController extends Controller
         return ['s' => 's', 'msj' => trans('controller.incluir')];
     }
       
-    public function correo_actulizar($request, $id){
+    public function correo_actulizar($request, $id)
+    {
         DB::beginTransaction();
-        try { 
-
+        try {
             $datos = [];
             foreach ($request['correo'] as $_id => $bancos) {
-                if($bancos==" "){
+                if ($bancos==" ") {
                     continue;
                 }
 
@@ -294,14 +286,12 @@ class PersonasController extends Controller
                     'correo'       => $request['correo'][$_id]
                 ];
                 
-                if($request['id_correo'][$_id]==0){
+                if ($request['id_correo'][$_id]==0) {
                     PersonasCorreo::create($datos);
-                }else{
+                } else {
                     PersonasCorreo::find($request['id_correo'][$_id])->update($datos);
-                } 
+                }
             }
-          
-
         } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
@@ -314,7 +304,7 @@ class PersonasController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Personas::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();
@@ -351,86 +341,97 @@ class PersonasController extends Controller
         return ['s' => 's', 'msj' => trans('controller.destruir')];
     }
 
-    public function ciudades(Request $request){
+    public function ciudades(Request $request)
+    {
         $sql = Ciudades::where('estados_id', $request->id)
-                    ->pluck('nombre','id')
+                    ->pluck('nombre', 'id')
                     ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el estado no Contiene ciudades'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Ciudades encontrados', 'ciudades_id'=> $sql];
-        }               
+        }
         
         return $salida;
-    } 
+    }
     
-    public function municipios(Request $request){
+    public function municipios(Request $request)
+    {
         $sql = Municipio::where('estados_id', $request->id)
-                    ->pluck('nombre','id')
+                    ->pluck('nombre', 'id')
                     ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el estado no Contiene municipios'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Municipios encontrados', 'municipios_id'=> $sql];
-        }               
+        }
         
         return $salida;
-    } 
+    }
 
-    public function parroquias(Request $request){
+    public function parroquias(Request $request)
+    {
         $sql = Parroquia::where('municipios_id', $request->id)
-                    ->pluck('nombre','id')
+                    ->pluck('nombre', 'id')
                     ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'el municipio no Contiene parroquias'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Paroquias encontrados', 'parroquias_id'=> $sql];
-        }               
+        }
         
         return $salida;
-    } 
+    }
     
-    public function sectores(Request $request){
+    public function sectores(Request $request)
+    {
         $sql = Sector::where('parroquias_id', $request->id)
-                    ->pluck('nombre','id')
+                    ->pluck('nombre', 'id')
                     ->toArray();
 
         $salida = ['s' => 'n' , 'msj'=> 'La parroquia no Contiene sectores'];
         
-        if($sql){
+        if ($sql) {
             $salida = ['s' => 's' , 'msj'=> 'Sectores encontrados', 'sectores_id'=> $sql];
-        }               
+        }
         
         return $salida;
     }
 
-    public function bancos(){
-        return Bancos::pluck('nombre','id');
+    public function bancos()
+    {
+        return Bancos::pluck('nombre', 'id');
     }
-    public function tipocuenta(){
-        return BancoTipoCuenta::pluck('nombre','id');
-    } 
-    public function tipotelefono(){
-        return TipoTelefono::pluck('nombre','id');
+    public function tipocuenta()
+    {
+        return BancoTipoCuenta::pluck('nombre', 'id');
+    }
+    public function tipotelefono()
+    {
+        return TipoTelefono::pluck('nombre', 'id');
     }
 
-    public function personasbancos(Request $request){
+    public function personasbancos(Request $request)
+    {
         $bancos = PersonasBancos::where('personas_id', $request->id)->get();
         return ['datos' =>$bancos->toArray()];
     }
-    public function personastelefono(Request $request){
+    public function personastelefono(Request $request)
+    {
         $telefonos = PersonasTelefono::where('personas_id', $request->id)->get();
         return ['datos' =>$telefonos->toArray()];
-    } 
-    public function principal(){
+    }
+    public function principal()
+    {
         $datos[]='no';
         $datos[]='si';
         return $datos;
-    } 
-    public function personascorreos(Request $request){
+    }
+    public function personascorreos(Request $request)
+    {
         $correos = PersonasCorreo::where('personas_id', $request->id)->get();
         return ['datos' =>$correos->toArray()];
     }
@@ -438,7 +439,7 @@ class PersonasController extends Controller
     {
         $sql = Personas::select([
             'personas.id', 'tipo_persona.nombre as tipo_persona', 'personas.dni', 'personas.nombres', 'personas.deleted_at'
-        ])->join('tipo_persona', 'tipo_persona.id','=','personas.tipo_persona_id');
+        ])->join('tipo_persona', 'tipo_persona.id', '=', 'personas.tipo_persona_id');
 
         if ($request->verSoloEliminados == 'true') {
             $sql->onlyTrashed();

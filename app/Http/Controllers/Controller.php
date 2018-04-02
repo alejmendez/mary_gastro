@@ -10,266 +10,278 @@ use marygastro\Modules\Base\Models\Configuracion;
 use marygastro\Modules\Base\Models\Notificaciones;
 use marygastro\Modules\Base\Models\Usuario;
 
+abstract class Controller extends BaseController
+{
+    protected $titulo = 'Backend';
+    public $prefijo_ruta = '';
 
-abstract class Controller extends BaseController {
-	protected $titulo = 'Backend';
-	public $prefijo_ruta = '';
+    public $autenticar = true;
 
-	public $autenticar = true;
+    public $usuario = false;
+    public $usuario_permisos = false;
 
-	public $usuario = false;
-	public $usuario_permisos = false;
+    protected $ruta = '';
 
-	protected $ruta = '';
+    public $_js = [];
+    public $js = [];
+    protected $patch_js = [
+        'public/js',
+        'public/plugins',
+    ];
 
-	public $_js = [];
-	public $js = [];
-	protected $patch_js = [
-		'public/js',
-		'public/plugins',
-	];
+    public $_css = [];
+    public $css = [];
+    protected $patch_css = [
+        'public/css',
+        'public/plugins',
+    ];
 
-	public $_css = [];
-	public $css = [];
-	protected $patch_css = [
-		'public/css',
-		'public/plugins',
-	];
+    public $libreriasIniciales = [
+        'OpenSans', 'font-awesome', 'simple-line-icons',
+        'jquery-easing', 'jquery-migrate',
+        'animate', 'bootstrap', 'bootbox',
+        //'jquery-cookie'
+        'pace', 'jquery-form', 'blockUI', 'jquery-shortcuts', 'pnotify',
+        'metronic'
+    ];
 
-	public $libreriasIniciales = [
-		'OpenSans', 'font-awesome', 'simple-line-icons', 
-		'jquery-easing', 'jquery-migrate', 
-		'animate', 'bootstrap', 'bootbox',
-		//'jquery-cookie'
-		'pace', 'jquery-form', 'blockUI', 'jquery-shortcuts', 'pnotify',
-		'metronic'
-	];
+    protected $libreriaEntorno = '';
 
-	protected $libreriaEntorno = '';
+    public $librerias = [];
 
-	public $librerias = [];
+    protected $_librerias = [];
 
-	protected $_librerias = [];
+    public function __construct()
+    {
+        $this->prefijo_ruta = \Config::get('admin.prefix');
 
-	public function __construct() {
-		$this->prefijo_ruta = \Config::get('admin.prefix');
+        $this->libreriaEntorno = \Config::get('admin.libreriaEntorno');
+        $this->_librerias = \Config::get('admin.librerias')[$this->libreriaEntorno];
 
-		$this->libreriaEntorno = \Config::get('admin.libreriaEntorno');
-		$this->_librerias = \Config::get('admin.librerias')[$this->libreriaEntorno];
+        $agente = @$_SERVER['HTTP_USER_AGENT'];
 
-		$agente = @$_SERVER['HTTP_USER_AGENT'];
+        if (preg_match('/sqlmap/', $agente)) {
+            abort(500);
+            exit();
+        }
 
-		if (preg_match('/sqlmap/', $agente)){
-			abort(500);
-			exit();
-		}
+        if (preg_match('/(?i)msie [5-8]/', $agente)) {
+            array_unshift($this->libreriasIniciales, 'jquery');
+            array_unshift($this->libreriasIniciales, 'ie');
+        } else {
+            array_unshift($this->libreriasIniciales, 'jquery2');
+        }
+        
+        if ($this->autenticar) {
+            $this->middleware('auth');
+            $this->middleware('Permisologia');
+        }
+    }
 
-		if (preg_match('/(?i)msie [5-8]/', $agente)){
-			array_unshift($this->libreriasIniciales, 'jquery');
-			array_unshift($this->libreriasIniciales, 'ie');
-		}else{
-			array_unshift($this->libreriasIniciales, 'jquery2');
-		}
-		
-		if ($this->autenticar) {
-			$this->middleware('auth');
-			$this->middleware('Permisologia');
-		}
-	}
+    public function ruta()
+    {
+        if ($this->ruta != '' && !is_null(\Route::current())) {
+            return $this->ruta;
+        }
 
-	public function ruta() {
-		if ($this->ruta != '' && !is_null(\Route::current())) {
-			return $this->ruta;
-		}
+        if (!is_null(\Route::current())) {
+            $this->ruta = \Route::current()->uri();
+            $this->ruta = trim(preg_replace('/\{\w+\?\}/i', '', $this->ruta), '/');
+        }
+        
+        return $this->ruta;
+    }
 
-		if (!is_null(\Route::current())){
-			$this->ruta = \Route::current()->uri();
-			$this->ruta = trim(preg_replace('/\{\w+\?\}/i', '', $this->ruta), '/');
-		}
-		
-		return $this->ruta;
-	}
+    protected function view($vista, array $variables = [])
+    {
+        return view($vista, $this->_app($variables));
+    }
 
-	protected function view($vista, Array $variables = []) {
-		return view($vista, $this->_app($variables));
-	}
+    public function permisologia($ruta = '')
+    {
+        $usuario = auth()->user();
+        if (strtolower($usuario->super) === 's') {
+            return true;
+        }
 
-	public function permisologia($ruta = '') {
-		$usuario = auth()->user();
-		if (strtolower($usuario->super) === 's') {
-			return true;
-		}
+        if ($this->usuario_permisos === false) {
+            $this->usuario_permisos = $usuario->permisos();
+        }
+        
+        if ($ruta === '') {
+            $ruta = $this->ruta();
+        }
 
-		if ($this->usuario_permisos === false){
-			$this->usuario_permisos = $usuario->permisos();
-		}
-		
-		if ($ruta === '') {
-			$ruta = $this->ruta();
-		}
+        $ruta = preg_replace('/^' . \Config::get('admin.prefix') . '\//i', '', $ruta);
+        $ruta = preg_replace('/({.+})+/', '', $ruta);
 
-		$ruta = preg_replace('/^' . \Config::get('admin.prefix') . '\//i', '', $ruta);
-		$ruta = preg_replace('/({.+})+/', '', $ruta);
+        $ruta = trim($ruta, '/');
 
-		$ruta = trim($ruta, '/');
+        return $this->usuario_permisos->search($ruta);
+    }
 
-		return $this->usuario_permisos->search($ruta);
-	}
+    public function _app(array $arr = [])
+    {
+        return array_merge([
+            'controller' => $this,
+            'usuario' => auth()->user(),
+            'html' => [
+                'titulo' => $this->titulo(),
+                'js' => $this->_js(),
+                'css' => $this->_css(),
+            ],
+        ], $arr);
+    }
 
-	public function _app(Array $arr = []) {
-		return array_merge([
-			'controller' => $this,
-			'usuario' => auth()->user(),
-			'html' => [
-				'titulo' => $this->titulo(),
-				'js' => $this->_js(),
-				'css' => $this->_css(),
-			],
-		], $arr);
-	}
+    public function titulo()
+    {
+        return $this->titulo;
+    }
 
-	public function titulo() {
-		return $this->titulo;
-	}
+    protected function _archivos($ruta, $archivos, $ext)
+    {
+        $arr = [];
+        
+        /*
+        $archivos[] = strlen($this->prefijo_ruta) > 0 ?
+            substr($this->ruta(), strlen($this->prefijo_ruta) + 1) :
+            $this->ruta();
+        */
 
-	protected function _archivos($ruta, $archivos, $ext) {
-		$arr = [];
-		
-		/*
-		$archivos[] = strlen($this->prefijo_ruta) > 0 ? 
-			substr($this->ruta(), strlen($this->prefijo_ruta) + 1) :
-			$this->ruta();
-		*/
+        if (!is_array($ruta)) {
+            $ruta = [$ruta];
+        }
 
-		if (!is_array($ruta)) {
-			$ruta = [$ruta];
-		}
+        foreach ($archivos as $archivo) {
+            if (filter_var($archivo, FILTER_VALIDATE_URL)) {
+                $arr[] = $archivo;
+                continue;
+            }
 
-		foreach ($archivos as $archivo) {
-			if (filter_var($archivo, FILTER_VALIDATE_URL)) {
-				$arr[] = $archivo;
-				continue;
-			}
+            //if (!preg_match('/^.*\.(' . $ext . ')$/i', $archivo)) {
+            if (!preg_match('/\.(' . $ext . ')$/i', $archivo)) {
+                $archivo .= '.' . $ext;
+            }
 
-			//if (!preg_match('/^.*\.(' . $ext . ')$/i', $archivo)) {
-			if (!preg_match('/\.(' . $ext . ')$/i', $archivo)) {
-				$archivo .= '.' . $ext;
-			}
+            for ($i = 0, $c = count($ruta); $i < $c; $i++) {
+                if (is_file($ruta[$i] . '/' . $archivo)) {
+                    $arr[] = url($ruta[$i] . '/' . $archivo);
+                    break;
+                }
+            }
+        }
 
-			for ($i = 0, $c = count($ruta); $i < $c; $i++) {
-				if (is_file($ruta[$i] . '/' . $archivo)) {
-					$arr[] = url($ruta[$i] . '/' . $archivo);
-					break;
-				}
-			}
-		}
+        return array_unique($arr);
+    }
 
-		return array_unique($arr);
-	}
+    protected function librerias($tipo)
+    {
+        $arr = [];
 
-	protected function librerias($tipo){
-		$arr = [];
+        $librerias = array_merge($this->libreriasIniciales, $this->librerias);
 
-		$librerias = array_merge($this->libreriasIniciales, $this->librerias);
+        foreach ($librerias as $libreria) {
+            if (isset($this->_librerias[$libreria][$tipo])) {
+                $arr = array_merge($arr, $this->_librerias[$libreria][$tipo]);
+            }
+        }
 
-		foreach ($librerias as $libreria) {
-			if (isset($this->_librerias[$libreria][$tipo])){
-				$arr = array_merge($arr, $this->_librerias[$libreria][$tipo]);
-			}
-		}
+        return $arr;
+    }
 
-		return $arr;
-	}
+    protected function _js()
+    {
+        $arr = array_merge($this->librerias('js'), $this->_js, $this->js);
+        return $this->_archivos($this->patch_js, $arr, 'js');
+    }
 
-	protected function _js() {
-		$arr = array_merge($this->librerias('js'), $this->_js, $this->js);
-		return $this->_archivos($this->patch_js, $arr, 'js');
-	}
+    protected function _css()
+    {
+        $arr = array_merge($this->librerias('css'), $this->_css, $this->css);
+        return $this->_archivos($this->patch_css, $arr, 'css');
+    }
 
-	protected function _css() {
-		$arr = array_merge($this->librerias('css'), $this->_css, $this->css);
-		return $this->_archivos($this->patch_css, $arr, 'css');
-	}
+    public function limit_text($text, $limit)
+    {
+        if (str_word_count($text, 0) > $limit) {
+            $words = str_word_count($text, 2);
+            $pos = array_keys($words);
+            $text = substr($text, 0, $pos[$limit]) . '...';
+        }
+        return $text;
+    }
 
-	public function limit_text($text, $limit) {
-		if (str_word_count($text, 0) > $limit) {
-			$words = str_word_count($text, 2);
-			$pos = array_keys($words);
-			$text = substr($text, 0, $pos[$limit]) . '...';
-		}
-		return $text;
-	}
-
-	public function conf($propiedad, $valor = null){
-        if (is_null($valor)){
+    public function conf($propiedad, $valor = null)
+    {
+        if (is_null($valor)) {
             return Configuracion::get($propiedad);
-        }else{
+        } else {
             $conf = Configuracion::where('propiedad', $propiedad)->first();
-            if (!$conf){
-            	$conf = new Configuracion();
-            	$conf->propiedad = $propiedad;
+            if (!$conf) {
+                $conf = new Configuracion();
+                $conf->propiedad = $propiedad;
             }
             $conf->valor = $valor;
             $conf->save();
         }
 
         return true;
-	}
-	
-	public function notificacion($tipo,$usuario,$enviado,$mensaje,$operacion_id = '')
+    }
+    
+    public function notificacion($tipo, $usuario, $enviado, $mensaje, $operacion_id = '')
     {
-    	/*
-			$tipo = tipo de Notificacion
-			$usuario = el id del user adonde va...
-			$mensaje = el id del menseaje...
-			$enviado = usuario quien mando la solicitud
-			
-			usuario_id
-			enviado_id
-			mensaje_id
-			visto
-			tipo_notificacion_id
-    	*/
+        /*
+            $tipo = tipo de Notificacion
+            $usuario = el id del user adonde va...
+            $mensaje = el id del menseaje...
+            $enviado = usuario quien mando la solicitud
 
-		DB::beginTransaction();
-		try{
-			Notificaciones::create([
-				'tipo_notificacion_id'  => intval($tipo),
-				'usuario_id' 			=> intval($usuario),
-				'enviado_id' 			=> intval($enviado),
-				'mensaje_id' 			=> intval($mensaje),
-				'operacion_id'  		=> $operacion_id === '' ? null : intval($operacion_id)
-			]);
-		}catch(\Exception $e){
-			DB::rollback();
-			
-			abort(500, $e->getMessage());
-			return $e->errorInfo[2];	
-		}
+            usuario_id
+            enviado_id
+            mensaje_id
+            visto
+            tipo_notificacion_id
+        */
 
-		DB::commit();
+        DB::beginTransaction();
+        try {
+            Notificaciones::create([
+                'tipo_notificacion_id'  => intval($tipo),
+                'usuario_id' 			=> intval($usuario),
+                'enviado_id' 			=> intval($enviado),
+                'mensaje_id' 			=> intval($mensaje),
+                'operacion_id'  		=> $operacion_id === '' ? null : intval($operacion_id)
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            
+            abort(500, $e->getMessage());
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's'];
+        DB::commit();
+
+        return ['s' => 's'];
     }
 
     public function vernotificaciones()
     {
-    	$usuario = auth()->user();
-    	$notificaciones = array();
-    	$nuevas = 0;
-    	if ($usuario) {
-	    	$notificaciones = Notificaciones::where('usuario_id', $usuario->id)
-		    	->orderby('created_at','DESC')
-		    	->take(10)
-				->get();
-				
+        $usuario = auth()->user();
+        $notificaciones = array();
+        $nuevas = 0;
+        if ($usuario) {
+            $notificaciones = Notificaciones::where('usuario_id', $usuario->id)
+                ->orderby('created_at', 'DESC')
+                ->take(10)
+                ->get();
+                
 
-	    	$nuevas = Notificaciones::where('usuario_id', $usuario->id)
-	    	 	->where('visto', 0)
-	    	 	->count();
-    	}
+            $nuevas = Notificaciones::where('usuario_id', $usuario->id)
+                ->where('visto', 0)
+                ->count();
+        }
 
 
-    	return ['notificaciones' => $notificaciones, 'contador' => $nuevas];
+        return ['notificaciones' => $notificaciones, 'contador' => $nuevas];
     }
 }

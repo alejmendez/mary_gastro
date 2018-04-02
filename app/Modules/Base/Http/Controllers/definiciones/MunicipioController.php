@@ -81,15 +81,15 @@ class MunicipioController extends Controller
     public function guardar(MunicipioRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Municipio = $id == 0 ? new Municipio() : Municipio::find($id);
 
             $Municipio->fill($request->all());
             $Municipio->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -105,7 +105,7 @@ class MunicipioController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Municipio::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();
@@ -146,7 +146,7 @@ class MunicipioController extends Controller
     {
         $sql = Municipio::select([
             'municipios.id', 'estados.nombre as estado', 'municipios.nombre', 'municipios.deleted_at'
-        ])->join('estados', 'estados.id','=', 'municipios.estados_id');
+        ])->join('estados', 'estados.id', '=', 'municipios.estados_id');
 
         if ($request->verSoloEliminados == 'true') {
             $sql->onlyTrashed();

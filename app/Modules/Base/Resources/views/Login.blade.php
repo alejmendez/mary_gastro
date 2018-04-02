@@ -23,10 +23,10 @@ $html['titulo'] = 'Inicio de Sesión';
 			</a>
 		</div>
 		<div class="content">
-			<div id="login"> 
+			<div id="login">
 				{!! Form::open(array('id' => 'formulario', 'url' => 'login')) !!}
 					<h3 class="form-title font-green">Iniciar Sesión</h3>
-					
+
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">{{ Lang::get('login.user') }}</label>
 						{!! Form::text('nombre', '', ['class' => 'form-control form-control-solid placeholder-no-fix user', 'autocomplete' => 'off', 'placeholder' => Lang::get('login.user')]) !!}
@@ -53,14 +53,14 @@ $html['titulo'] = 'Inicio de Sesión';
 						<p>
 							<a href="javascript:;"  id="register-btn" class="uppercase">Crea Una Cuenta Gratis</a>
 						</p>
-						
+
 					</div>
-				
-				
-					<!-- 	
-						Desarrollado por:  
-						Alejandro Mendez alejmendez.87@gmail.com 
-						Miguelangel Gutierrez Drummermiguelangel@gmail.com	
+
+
+					<!--
+						Desarrollado por:
+						Alejandro Mendez alejmendez.87@gmail.com
+						Miguelangel Gutierrez Drummermiguelangel@gmail.com
 					-->
 				{!! Form::close() !!}
 			</div>
@@ -70,15 +70,15 @@ $html['titulo'] = 'Inicio de Sesión';
 					<p class="hint"> </p>
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">N° Cedula</label>
-						<input class="form-control placeholder-no-fix" type="text" placeholder="N° Cedula" name="dni" /> 
+						<input class="form-control placeholder-no-fix" type="text" placeholder="N° Cedula" name="dni" />
 					</div>
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Nombres y Apellidos</label>
-						<input class="form-control placeholder-no-fix" type="text" placeholder="Nombres y Apellidos" name="nombres" /> 
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Nombres y Apellidos" name="nombres" />
 					</div>
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Correo</label>
-						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" /> 
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" />
 					</div>
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Contraseña</label>
@@ -86,7 +86,7 @@ $html['titulo'] = 'Inicio de Sesión';
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Repita su Contraseña</label>
 						<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Repita su Contraseña"  id="rpassword" name="rpassword" /> </div>
-					
+
 					<div class="form-actions">
 						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline">Atras</button>
 						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Registrar</button>
@@ -98,15 +98,15 @@ $html['titulo'] = 'Inicio de Sesión';
 				{!! Form::open(array('id' => 'formulario3')) !!}
 					<h3 class="font-green">Recuperar Contraseña</h3>
 					<p class="hint"> </p>
-					
+
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Correo</label>
-						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" /> 
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" />
 					</div>
-				
+
 					<div class="form-actions">
-						<button type="button" id="register-back-btn" class="register-back-btn btn green btn-outline ">Atras</button>
-						<button type="button" id="register-submit-btn" class="btn btn-success uppercase pull-right">Registrar</button>
+						<button type="button" id="recuperar-back-btn" class="recuperar-back-btn btn green btn-outline ">Atras</button>
+						<button type="button" id="recuperar-submit-btn" class="btn btn-success uppercase pull-right">Aceptar</button>
 					</div>
 				{!! Form::close() !!}
 			</div>
@@ -114,22 +114,22 @@ $html['titulo'] = 'Inicio de Sesión';
 				{!! Form::open(array('id' => 'formulario4')) !!}
 					<h3 class="font-green">Reportar error</h3>
 					<p class="hint"> </p>
-					
+
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Nombres y Apellidos</label>
-						<input class="form-control placeholder-no-fix" type="text" placeholder="Nombres y Apellidos" name="nombres" /> 
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Nombres y Apellidos" name="nombres" />
 					</div>
 
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Correo</label>
-						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" /> 
+						<input class="form-control placeholder-no-fix" type="text" placeholder="Correo" name="correo" />
 					</div>
 
 					<div class="form-group">
 						<label class="control-label visible-ie8 visible-ie9">Descripcion</label>
 						 <textarea class="form-control" placeholder="Descripcion" name="descripcion"></textarea>
 					</div>
-				
+
 					<div class="form-actions">
 						<button type="button" id="report-back-btn" class="register-back-btn btn green btn-outline ">Atras</button>
 						<button type="button" id="report-submit-btn" class="btn btn-success uppercase pull-right">Enviar</button>
@@ -141,7 +141,7 @@ $html['titulo'] = 'Inicio de Sesión';
 		 	<a href="javascript:;"  id="report-btn" class="forget-password">Reporte de Error</a><br>
 		 	MaryGastro © 2017 por <a href="http://www.tumundoclick.com/" class="author-name">www.tumundoclick.com</a>
 		</div>
-	
+
 		@include('base::partials.footer')
 	</body>
 </html>

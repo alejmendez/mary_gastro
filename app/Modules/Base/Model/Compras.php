@@ -118,10 +118,11 @@ class Compras extends Modelo
         $this->campos['bancos_id']['options'] = Bancos::pluck('nombre', 'id');
     }
 
-    public static function boot(){
+    public static function boot()
+    {
         parent::boot();
         
-        static::deleted(function($model) {
+        static::deleted(function ($model) {
             $model->sale_id;
             if ($model->estatus == 0) {
                 $dbDefault = \Config::get('database.default');
@@ -151,14 +152,14 @@ class Compras extends Modelo
     }
 
     public function usuario()
-	{
-		return $this->belongsTo('marygastro\Modules\Base\Model\Usuario');
-	}
+    {
+        return $this->belongsTo('marygastro\Modules\Base\Model\Usuario');
+    }
 
-	public function bancos()
-	{
-		return $this->belongsTo('marygastro\Modules\Base\Model\Bancos');
-	}
+    public function bancos()
+    {
+        return $this->belongsTo('marygastro\Modules\Base\Model\Bancos');
+    }
 
     public function venta()
     {

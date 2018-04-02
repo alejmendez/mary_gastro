@@ -79,15 +79,15 @@ class BancosController extends Controller
     public function guardar(BancosRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Bancos = $id == 0 ? new Bancos() : Bancos::find($id);
 
             $Bancos->fill($request->all());
             $Bancos->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -103,7 +103,7 @@ class BancosController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Bancos::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();

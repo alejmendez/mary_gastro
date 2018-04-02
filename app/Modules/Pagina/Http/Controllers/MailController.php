@@ -13,17 +13,16 @@ use marygastro\Modules\Pagina\Http\Controllers\Controller;
 
 class Controller extends Controller
 {
-	public $titulo = 'marygastro';
+    public $titulo = 'marygastro';
 
-	public function send(Request $request)
-	{
+    public function send(Request $request)
+    {
+        \Mail::send("pagina::emails.mail", ['data' => ''], function ($message) use ($usuario) {
+            $message->from('no_responder@marygastro', 'marygastro');
+            $message->to('info@marygastro', 'marygastro')
+                ->subject("Asusto del mail.");
+        });
 
-		\Mail::send("pagina::emails.mail", ['data' => ''], function($message) use($usuario) {
-			$message->from('no_responder@marygastro', 'marygastro');
-			$message->to('info@marygastro', 'marygastro')
-				->subject("Asusto del mail.");
-		});
-
-		return 'correo enviado satisfactoriamente';
-	}
+        return 'correo enviado satisfactoriamente';
+    }
 }

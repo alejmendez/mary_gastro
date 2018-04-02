@@ -1,9 +1,9 @@
 <?php
 $menu['noticias'] = [
     [
-		'nombre'	=>	'Noticias',
-		'direccion'	=>	'#Noticias',
-		'icono'		=>	'fa fa-folder',
+        'nombre'	=>	'Noticias',
+        'direccion'	=>	'#Noticias',
+        'icono'		=>	'fa fa-folder',
         'menu'      =>  [
 
             [
@@ -27,6 +27,5 @@ $menu['noticias'] = [
                 'icono'     =>  'fa fa-pencil-square-o'
             ]
         ]
-	]
+    ]
 ];
- ?>

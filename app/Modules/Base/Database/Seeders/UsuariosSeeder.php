@@ -22,7 +22,7 @@ class UsuariosSeeder extends Seeder
     public function run()
     {
         DB::beginTransaction();
-        try{
+        try {
             $persona = Personas::create([
                 'tipo_persona_id' => 1,
                 'dni'             => 1,
@@ -64,8 +64,8 @@ class UsuariosSeeder extends Seeder
                 'password'    => 'admin',
                 'perfil_id'   => 1,
                 'super'       => 's'
-    		]);
-        }catch(Exception $e){
+            ]);
+        } catch (Exception $e) {
             DB::rollback();
             echo "Error ";
         }

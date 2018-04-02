@@ -17,14 +17,14 @@ class TipoTelefonoSeeder extends Seeder
     public function run()
     {
         DB::beginTransaction();
-        try{
+        try {
             TipoTelefono::create([
                 'nombre'         => 'Movil'
             ]);
             TipoTelefono::create([
                 'nombre'         => 'Casa'
             ]);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             DB::rollback();
             echo "Error ";
         }

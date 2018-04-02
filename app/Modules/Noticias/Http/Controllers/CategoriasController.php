@@ -1,6 +1,7 @@
 <?php
 
 namespace marygastro\Modules\Noticias\Http\Controllers;
+
 //controlador papito
 use marygastro\Modules\Noticias\Http\Controllers\Controller;
 //Dependencias
@@ -11,7 +12,6 @@ use Yajra\Datatables\Datatables;
 use marygastro\Modules\Noticias\Http\Requests\CategoriasRequest;
 //Modelooos
 use marygastro\Modules\Noticias\Models\Categorias;
-
 
 class CategoriasController extends Controller
 {
@@ -29,7 +29,8 @@ class CategoriasController extends Controller
         'bootstrap-colorpicker'
     ];
 
-    public function index(){
+    public function index()
+    {
         return $this->view('noticias::Categorias', [
             'Categorias'=> new Categorias()
         ]);
@@ -53,37 +54,39 @@ class CategoriasController extends Controller
         ]);
     }
 
-    public function buscar(Request $request, $id = 0) {
-		if ($this->permisologia($this->ruta() . '/restaurar') || $this->permisologia($this->ruta() . '/destruir')){
-			$categoria = Categorias::withTrashed()->find($id);
-		}else{
-			$categoria = Categorias::find($id);
-		}
+    public function buscar(Request $request, $id = 0)
+    {
+        if ($this->permisologia($this->ruta() . '/restaurar') || $this->permisologia($this->ruta() . '/destruir')) {
+            $categoria = Categorias::withTrashed()->find($id);
+        } else {
+            $categoria = Categorias::find($id);
+        }
 
-		if ($categoria) {
-			$respuesta = array_merge($categoria->toArray(), [
-				's' => 's',
-				'msj' => trans('controller.buscar'),
-			]);
+        if ($categoria) {
+            $respuesta = array_merge($categoria->toArray(), [
+                's' => 's',
+                'msj' => trans('controller.buscar'),
+            ]);
 
-			return $respuesta;
-		}
+            return $respuesta;
+        }
 
-		return trans('controller.nobuscar');
-	}
+        return trans('controller.nobuscar');
+    }
 
-    public function guardar(CategoriasRequest $request, $id = 0) {
+    public function guardar(CategoriasRequest $request, $id = 0)
+    {
         DB::beginTransaction();
-        try{
+        try {
             $Categorias = $id == 0 ? new Categorias() : Categorias::find($id);
 
             $Categorias->fill($request->all());
             $Categorias->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             //return response()->json(['s' => 's', 'msj' => $e->getMessage()], 500);
             return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }
@@ -97,41 +100,45 @@ class CategoriasController extends Controller
         ];
     }
 
-    public function eliminar(Request $request, $id = 0) {
-		try {
-			$usuario = Categorias::destroy($id);
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+    public function eliminar(Request $request, $id = 0)
+    {
+        try {
+            $usuario = Categorias::destroy($id);
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.eliminar')];
-	}
+        return ['s' => 's', 'msj' => trans('controller.eliminar')];
+    }
 
-    public function restaurar(Request $request, $id = 0) {
-		try {
-			Categorias::withTrashed()->find($id)->restore();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+    public function restaurar(Request $request, $id = 0)
+    {
+        try {
+            Categorias::withTrashed()->find($id)->restore();
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.restaurar')];
-	}
+        return ['s' => 's', 'msj' => trans('controller.restaurar')];
+    }
 
-    public function destruir(Request $request, $id = 0) {
-		try {
-			Categorias::withTrashed()->find($id)->forceDelete();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+    public function destruir(Request $request, $id = 0)
+    {
+        try {
+            Categorias::withTrashed()->find($id)->forceDelete();
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.destruir')];
-	}
+        return ['s' => 's', 'msj' => trans('controller.destruir')];
+    }
 
-    public function datatable(Request $request) {
-		$sql = Categorias::select([
-			'id', 'nombre', 'descripcion',
-		]);
+    public function datatable(Request $request)
+    {
+        $sql = Categorias::select([
+            'id', 'nombre', 'descripcion',
+        ]);
 
-		return Datatables::of($sql)->setRowId('id')->make(true);
-	}
+        return Datatables::of($sql)->setRowId('id')->make(true);
+    }
 }

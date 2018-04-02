@@ -81,15 +81,15 @@ class EstadosController extends Controller
     public function guardar(EstadosRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Estados = $id == 0 ? new Estados() : Estados::find($id);
 
             $Estados->fill($request->all());
             $Estados->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -105,7 +105,7 @@ class EstadosController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Estados::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();

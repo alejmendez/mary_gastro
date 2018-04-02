@@ -1,9 +1,9 @@
 <?php
 $menu['cms'] = [
     [
-		'nombre'	=>	'Contenido',
-		'direccion'	=>	'#Contenido',
-		'icono'		=>	'fa fa-pencil',
+        'nombre'	=>	'Contenido',
+        'direccion'	=>	'#Contenido',
+        'icono'		=>	'fa fa-pencil',
         'menu'      =>  [
             [
                 'nombre'    => 'Testimonios',
@@ -16,5 +16,5 @@ $menu['cms'] = [
                 'icono'     =>  'fa fa-info'
             ],
         ]
-	]
+    ]
 ];

@@ -79,16 +79,16 @@ class EtiquetasController extends Controller
     public function guardar(EtiquetasRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Etiquetas = $id == 0 ? new Etiquetas() : Etiquetas::find($id);
 
             $Etiquetas->fill($request->all());
             $Etiquetas->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             //return response()->json(['s' => 's', 'msj' => $e->getMessage()], 500);
             return ['s' => 'n', 'msj' => $e->getMessage()];
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }
@@ -104,7 +104,7 @@ class EtiquetasController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Etiquetas::destroy($id);
         } catch (QueryException $e) {
             return ['s' => 'n', 'msj' => $e->getMessage()];
@@ -120,7 +120,7 @@ class EtiquetasController extends Controller
         try {
             Etiquetas::withTrashed()->find($id)->restore();
         } catch (QueryException $e) {
-           return ['s' => 'n', 'msj' => $e->getMessage()];
+            return ['s' => 'n', 'msj' => $e->getMessage()];
         } catch (Exception $e) {
             return ['s' => 'n', 'msj' => $e->errorInfo[2]];
         }

@@ -19,7 +19,7 @@ use marygastro\Modules\Base\Models\Notificaciones;
 class NotificacionesController extends Controller
 {
     protected $titulo = '';
-	public $autenticar = false;
+    public $autenticar = false;
     public $js = [
   
     ];
@@ -36,8 +36,7 @@ class NotificacionesController extends Controller
     public function guardar(Request $request)
     {
         DB::beginTransaction();
-        try{
-           
+        try {
             $Notificaciones = Notificaciones::find($request->id);
             
     
@@ -46,10 +45,10 @@ class NotificacionesController extends Controller
             ]);
 
             $Notificaciones->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -62,5 +61,4 @@ class NotificacionesController extends Controller
             'msj'   => trans('controller.incluir')
         ];
     }
-
 }

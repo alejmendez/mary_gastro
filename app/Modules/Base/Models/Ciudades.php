@@ -24,7 +24,7 @@ class Ciudades extends modelo
 
     public function __construct(array $attributes = array())
     {
-        parent::__construct($attributes);      
+        parent::__construct($attributes);
         $this->campos['estados_id']['options'] = Estados::pluck('nombre', 'id');
     }
 

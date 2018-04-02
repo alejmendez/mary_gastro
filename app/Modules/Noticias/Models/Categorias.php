@@ -4,8 +4,6 @@ namespace marygastro\Modules\Noticias\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
-
-
 class Categorias extends Modelo
 {
     protected $table = 'categorias';

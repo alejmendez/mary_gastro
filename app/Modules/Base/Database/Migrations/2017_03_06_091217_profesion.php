@@ -13,14 +13,14 @@ class Profesion extends Migration
      */
     public function up()
     {
-       Schema::create('profesion', function(Blueprint $table){
+        Schema::create('profesion', function (Blueprint $table) {
             $table->increments('id');
             
             $table->string('nombre', 100);
             $table->string('slug', 100)->unique();
             
             $table->timestamps();
-            $table->softDeletes();    
+            $table->softDeletes();
         });
     }
 

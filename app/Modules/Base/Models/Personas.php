@@ -46,28 +46,28 @@ class Personas extends modelo
 
     public function tipo_persona()
     {
-    	return $this->belongsTo('marygastro\Modules\Base\Models\TipoPersona', 'tipo_persona_id');
-	}
+        return $this->belongsTo('marygastro\Modules\Base\Models\TipoPersona', 'tipo_persona_id');
+    }
 
     public function personadetalle()
     {
         return $this->hasOne('marygastro\Modules\Base\Models\PersonasDetalles', 'personas_id');
-    } 
+    }
     
     public function personadireccion()
     {
         return $this->hasOne('marygastro\Modules\Base\Models\PersonasDireccion', 'personas_id');
-    } 
+    }
     public function personascorreo()
     {
         return $this->hasOne('marygastro\Modules\Base\Models\PersonasCorreo', 'personas_id');
-    } 
+    }
     public function personastelefono()
     {
         return $this->hasMany('marygastro\Modules\Base\Models\PersonasTelefono', 'personas_id');
     }
 
-	public function setCorreoAttribute($value)
+    public function setCorreoAttribute($value)
     {
         $this->attributes['correo'] = strtolower($value);
     }

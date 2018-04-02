@@ -24,14 +24,14 @@ class TipoPersonasSeeder extends Seeder
         ];
 
         DB::beginTransaction();
-        try{
+        try {
             foreach ($data as $tipo_persona) {
                 TipoPersona::create([
                     'nombre'      => $tipo_persona[0],
                     'descripcion' => $tipo_persona[1]
                 ]);
             }
-        }catch(Exception $e){
+        } catch (Exception $e) {
             DB::rollback();
             echo "Error ";
         }

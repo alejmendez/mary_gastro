@@ -24,166 +24,169 @@ use marygastro\Modules\Base\Models\Personas;
 use marygastro\Modules\Base\Models\PersonasTelefono;
 use marygastro\Modules\Base\Models\PersonasCorreo;
 
+class UsuariosController extends Controller
+{
+    protected $titulo = 'Usuarios';
 
-class UsuariosController extends Controller {
-	protected $titulo = 'Usuarios';
+    public $js = ['usuarios'];
+    public $css = ['usuarios'];
 
-	public $js = ['usuarios'];
-	public $css = ['usuarios'];
+    public $librerias = [
+        'alphanum',
+        'maskedinput',
+        'datatables',
+        'jstree',
+        'bootstrap-select'
+    ];
 
-	public $librerias = [
-		'alphanum', 
-		'maskedinput', 
-		'datatables', 
-		'jstree',
-		'bootstrap-select'
-	];
+    public function index()
+    {
+        return $this->view('base::Usuarios', [
+            'Personas' => new Personas(),
+            'Personas_telefono' => new PersonasTelefono(),
+            'Personas_correo' => new PersonasCorreo()
+        ]);
+    }
 
-	public function index() {	
-		return $this->view('base::Usuarios',[
-			'Personas' => new Personas(),
-			'Personas_telefono' => new PersonasTelefono(),
-			'Personas_correo' => new PersonasCorreo()
-		]);
-	}
-
-	public function buscar(Request $request, $id) {
-		if ($this->permisologia($this->ruta() . '/restaurar') || $this->permisologia($this->ruta() . '/destruir')){
-			$usuario = Usuario::withTrashed()->find($id);
-		}else{
-			$usuario = Usuario::find($id);
-			
-		}
-			$persona = Personas::find($usuario->personas_id);
-		if ($usuario){
-			$usuario->foto = URL::to("public/img/usuarios/" . $persona->foto);
-			$permisos = $usuario->UsuarioPermisos->pluck('ruta');
+    public function buscar(Request $request, $id)
+    {
+        if ($this->permisologia($this->ruta() . '/restaurar') || $this->permisologia($this->ruta() . '/destruir')) {
+            $usuario = Usuario::withTrashed()->find($id);
+        } else {
+            $usuario = Usuario::find($id);
+        }
+        $persona = Personas::find($usuario->personas_id);
+        if ($usuario) {
+            $usuario->foto = URL::to("public/img/usuarios/" . $persona->foto);
+            $permisos = $usuario->UsuarioPermisos->pluck('ruta');
 
 
-			return array_merge($usuario->toArray(), [
-				'permisos' => $permisos,
-				'persona' => $persona,
-				
-				's' => 's',
-				'msj' => trans('controller.buscar'),
-			]);
-		}
+            return array_merge($usuario->toArray(), [
+                'permisos' => $permisos,
+                'persona' => $persona,
+                
+                's' => 's',
+                'msj' => trans('controller.buscar'),
+            ]);
+        }
 
-		return trans('controller.nobuscar');
-	}
+        return trans('controller.nobuscar');
+    }
 
-	protected function data($request){
-		$foto = "user.png";
-		
-		if($file = $request->file('foto')){
-			$foto = $request->usuario . '.' . $file->getClientOriginalExtension();
+    protected function data($request)
+    {
+        $foto = "user.png";
+        
+        if ($file = $request->file('foto')) {
+            $foto = $request->usuario . '.' . $file->getClientOriginalExtension();
 
-			$path = public_path('img/usuarios/');
-			$file->move($path, $foto);
-			chmod($path . $foto, 0777);
-		}
+            $path = public_path('img/usuarios/');
+            $file->move($path, $foto);
+            chmod($path . $foto, 0777);
+        }
 
-		$data = $request->all();
-		$data['foto'] = $foto;
+        $data = $request->all();
+        $data['foto'] = $foto;
 
-		if($data['password'] == ""){
-			unset($data['password']);
-		}
+        if ($data['password'] == "") {
+            unset($data['password']);
+        }
 
-		return $data;
-	}
-	
-	public function guardar(UsuariosRequest $request, $id = 0) {
-		DB::beginTransaction();
-		try {
-			$data = $this->data($request);
-			if ($id === 0){
-				$persona = Personas::where('dni',$request->dni)->get();
+        return $data;
+    }
+    
+    public function guardar(UsuariosRequest $request, $id = 0)
+    {
+        DB::beginTransaction();
+        try {
+            $data = $this->data($request);
+            if ($id === 0) {
+                $persona = Personas::where('dni', $request->dni)->get();
 
-				if($persona->count() == 0){
-					$persona = Personas::create([
-						"tipo_persona_id" => $data['tipo_persona_id'],
-						"dni"             => $data['dni'],
-						"nombres"         => $data['nombres'],
-						"foto"            => $data['foto']
-					]);
-					$data['personas_id'] = $persona['id'];
-				}else{
-					$persona->toArray();
-					$data['personas_id'] = $persona[0]['id'];
-				}	
+                if ($persona->count() == 0) {
+                    $persona = Personas::create([
+                        "tipo_persona_id" => $data['tipo_persona_id'],
+                        "dni"             => $data['dni'],
+                        "nombres"         => $data['nombres'],
+                        "foto"            => $data['foto']
+                    ]);
+                    $data['personas_id'] = $persona['id'];
+                } else {
+                    $persona->toArray();
+                    $data['personas_id'] = $persona[0]['id'];
+                }
 
-				$telefono = PersonasTelefono::where('personas_id', $data['personas_id'])
-					->where('principal', 1)
-					->get();
-				
-				if($telefono->count() == 0){
-					PersonasTelefono::create([
-						"personas_id" => $data['personas_id'],
-						"tipo_telefono_id" => $data['tipo_telefono_id'],
-						"numero" => $data['numero'],
-						"principal" => true
-					]);
-				}
+                $telefono = PersonasTelefono::where('personas_id', $data['personas_id'])
+                    ->where('principal', 1)
+                    ->get();
+                
+                if ($telefono->count() == 0) {
+                    PersonasTelefono::create([
+                        "personas_id" => $data['personas_id'],
+                        "tipo_telefono_id" => $data['tipo_telefono_id'],
+                        "numero" => $data['numero'],
+                        "principal" => true
+                    ]);
+                }
 
-				$correo = PersonasCorreo::where('personas_id', $data['personas_id'])
-				->where('principal', 1)->get();
-				
-				if($correo->count() == 0){
-					PersonasCorreo::create([
-						"personas_id" => $data['personas_id'],
-						"correo" => $data['cuenta'],
-						"principal" => true
-					]);
-				}
-				
-				$code_verificacion = $this->random_string(20);
-				$data['code_autenticacion'] = $code_verificacion;
-				$data['verificado'] = 1;
-				$usuario = Usuario::create($data);
-				$id = $usuario->id;
+                $correo = PersonasCorreo::where('personas_id', $data['personas_id'])
+                ->where('principal', 1)->get();
+                
+                if ($correo->count() == 0) {
+                    PersonasCorreo::create([
+                        "personas_id" => $data['personas_id'],
+                        "correo" => $data['cuenta'],
+                        "principal" => true
+                    ]);
+                }
+                
+                $code_verificacion = $this->random_string(20);
+                $data['code_autenticacion'] = $code_verificacion;
+                $data['verificado'] = 1;
+                $usuario = Usuario::create($data);
+                $id = $usuario->id;
 
-				/* \Mail::send("pagina::emails.confirmacion", [
-					'usuario' => $usuario,
-					'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion 
-				], function($message) use($usuario, $data) {
-					$message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
-					$message->to($data['cuenta'], $usuario->personas->nombres)
-					->subject("CONFIRMACION DE CORREO MARY GASTRO.");
-				}); */
+            /* \Mail::send("pagina::emails.confirmacion", [
+                'usuario' => $usuario,
+                'mensaje' => 'marygastro.com.ve/backend/confirmacion/'. $code_verificacion
+            ], function($message) use($usuario, $data) {
+                $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
+                $message->to($data['cuenta'], $usuario->personas->nombres)
+                ->subject("CONFIRMACION DE CORREO MARY GASTRO.");
+            }); */
+            } else {
+                $usuario = Usuario::find($id);
+                
+                if (intval($data['consultas']) > $usuario->consultas) {
+                    //notificacion($tipo,$usuario,$enviado,$mensaje,$operacion_id = '')
+                    /*$tipo = tipo de Notificacion
+                    $usuario = el id del user adonde va...
+                    $mensaje = el id del menseaje...
+                    $enviado = usuario quien mando la solicitud */
+                    $this->notificacion(1, $id, \Auth::user()->id, 1, '');
+                }
+                $usuario = Usuario::find($id)->update($data);
+                $usuario = Usuario::find($id);
+                Personas::find($usuario->personas_id)->update($data);
+            }
+            
+            $this->procesar_permisos($request, $id);
+        } catch (Exception $e) {
+            DB::rollback();
+            return $e->errorInfo[2];
+        }
 
-			}else{
-				$usuario = Usuario::find($id);
-				
-				if(intval($data['consultas']) > $usuario->consultas){
-					//notificacion($tipo,$usuario,$enviado,$mensaje,$operacion_id = '')
-					/*$tipo = tipo de Notificacion
-					$usuario = el id del user adonde va...
-					$mensaje = el id del menseaje...
-					$enviado = usuario quien mando la solicitud */
-					$this->notificacion(1, $id, \Auth::user()->id, 1, '');
-				}
-				$usuario = Usuario::find($id)->update($data);
-				$usuario = Usuario::find($id);
-				Personas::find($usuario->personas_id)->update($data);
-			}
-			
-			$this->procesar_permisos($request, $id);
-		} catch (Exception $e) {
-			DB::rollback();
-			return $e->errorInfo[2];
-		}
+        DB::commit();
+        return [
+            'id' => $usuario->id,
+            'texto' => $usuario->nombre,
+            's' => 's',
+            'msj' => trans('controller.incluir')
+        ];
+    }
 
-		DB::commit();
-		return [
-			'id' => $usuario->id, 
-			'texto' => $usuario->nombre, 
-			's' => 's', 
-			'msj' => trans('controller.incluir')
-		];
-	}
-
-	protected function random_string($length = 10) {
+    protected function random_string($length = 10)
+    {
         $key = '';
         $keys = array_merge(range(0, 9), range('a', 'z'));
         for ($i = 0; $i < $length; $i++) {
@@ -191,112 +194,118 @@ class UsuariosController extends Controller {
         }
         return $key;
     }
-	protected function procesar_permisos($request, $id) {
-		$permisos = explode(',', $request->input('permisos'));
+    protected function procesar_permisos($request, $id)
+    {
+        $permisos = explode(',', $request->input('permisos'));
 
-		$permiso_perfil = UsuarioPermisos::where('usuario_id', $id)->delete();
+        $permiso_perfil = UsuarioPermisos::where('usuario_id', $id)->delete();
 
-		foreach ($permisos as $permiso) {
-			$permiso = trim($permiso);
+        foreach ($permisos as $permiso) {
+            $permiso = trim($permiso);
 
-			UsuarioPermisos::create([
-				'usuario_id' => $id,
-				'ruta' => trim($permiso),
-			]);
-		}
-	}
+            UsuarioPermisos::create([
+                'usuario_id' => $id,
+                'ruta' => trim($permiso),
+            ]);
+        }
+    }
 
-	public function eliminar(Request $request, $id = 0) {
-		try {
-			$usuario = Usuario::destroy($id);
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+    public function eliminar(Request $request, $id = 0)
+    {
+        try {
+            $usuario = Usuario::destroy($id);
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.eliminar')];
-	}
+        return ['s' => 's', 'msj' => trans('controller.eliminar')];
+    }
 
-	public function restaurar(Request $request, $id = 0) {
-		try {
-			Usuario::withTrashed()->find($id)->restore();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+    public function restaurar(Request $request, $id = 0)
+    {
+        try {
+            Usuario::withTrashed()->find($id)->restore();
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.restaurar')];
-	}
+        return ['s' => 's', 'msj' => trans('controller.restaurar')];
+    }
 
-	public function destruir(Request $request, $id = 0) {
-		try {
-			Usuario::withTrashed()->find($id)->forceDelete();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+    public function destruir(Request $request, $id = 0)
+    {
+        try {
+            Usuario::withTrashed()->find($id)->forceDelete();
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.destruir')];
-	}
+        return ['s' => 's', 'msj' => trans('controller.destruir')];
+    }
 
-	public function perfiles() {
-		return perfil::pluck('nombre', 'id');
-	}
+    public function perfiles()
+    {
+        return perfil::pluck('nombre', 'id');
+    }
 
-	public function arbol() {
-		return menu::estructura(true);
-	}
+    public function arbol()
+    {
+        return menu::estructura(true);
+    }
 
-	public function datatable(Request $request) {
-		$sql = Usuario::select('app_usuario.id', 'personas.dni', 'personas.nombres', 'app_usuario.usuario', 'app_usuario.deleted_at')
-		->join('personas','personas.id','=','app_usuario.personas_id');
+    public function datatable(Request $request)
+    {
+        $sql = Usuario::select('app_usuario.id', 'personas.dni', 'personas.nombres', 'app_usuario.usuario', 'app_usuario.deleted_at')
+        ->join('personas', 'personas.id', '=', 'app_usuario.personas_id');
 
-		if ($request->verSoloEliminados == 'true'){
-			$sql->onlyTrashed();
-		}elseif ($request->verEliminados == 'true'){
-			$sql->withTrashed();
-		}
+        if ($request->verSoloEliminados == 'true') {
+            $sql->onlyTrashed();
+        } elseif ($request->verEliminados == 'true') {
+            $sql->withTrashed();
+        }
 
-		return Datatables::of($sql)
-			->setRowId('id')
-			->setRowClass(function ($registro) {
-				return is_null($registro->deleted_at) ? '' : 'bg-red-thunderbird bg-font-red-thunderbird';
-			})
-			->make(true);
-	}
+        return Datatables::of($sql)
+            ->setRowId('id')
+            ->setRowClass(function ($registro) {
+                return is_null($registro->deleted_at) ? '' : 'bg-red-thunderbird bg-font-red-thunderbird';
+            })
+            ->make(true);
+    }
 
-	public function validar(Request $request){
+    public function validar(Request $request)
+    {
+        $persona = Personas::where('dni', $request->dato)->get();
+        
+        if ($persona->count() == 0) {
+            return [
+            's' => 'n'
+            ];
+        }
+        $_persona = $persona->toArray();
+        $telefono = PersonasTelefono::where('personas_id', $_persona[0]['id'])
+            ->where('principal', 1)->get();
+        
+        if ($telefono->count() == 0) {
+            $telefono = 'n';
+        } else {
+            $telefono =	$telefono->toArray();
+        }
 
-		$persona = Personas::where('dni',$request->dato)->get();
-		
-		if($persona->count() == 0){
+        $correo = PersonasCorreo::where('personas_id', $_persona[0]['id'])
+            ->where('principal', 1)->get();
+        
+        if ($correo->count() == 0) {
+            $correo = 'n';
+        } else {
+            $correo =	$correo->toArray();
+        }
 
-			return [
-			's' => 'n'
-			];
-		}	
-		$_persona = $persona->toArray();
-		$telefono = PersonasTelefono::where('personas_id', $_persona[0]['id'])
-			->where('principal', 1)->get();
-		
-		if($telefono->count() == 0){
-			$telefono = 'n';
-		}else{
-			$telefono =	$telefono->toArray();
-		}
-
-		$correo = PersonasCorreo::where('personas_id', $_persona[0]['id'])
-			->where('principal', 1)->get();
-		
-		if($correo->count() == 0){
-			$correo = 'n';
-		}else{
-			$correo =	$correo->toArray();
-		}
-
-		return [
-			'persona' => $_persona[0],
-			'telefono'=> $telefono[0],
-			'correo'  => $correo[0],
-			's' => 's', 
-			'msj' => trans('controller.incluir')
-		];
-	}
+        return [
+            'persona' => $_persona[0],
+            'telefono'=> $telefono[0],
+            'correo'  => $correo[0],
+            's' => 's',
+            'msj' => trans('controller.incluir')
+        ];
+    }
 }

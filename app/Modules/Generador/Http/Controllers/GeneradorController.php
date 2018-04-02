@@ -18,8 +18,8 @@ use Validator;
 use marygastro\Modules\Generador\Http\Controllers\Controller;
 use marygastro\Modules\Generador\Http\Requests\GeneradorRequest;
 
-
-class GeneradorController extends Controller {
+class GeneradorController extends Controller
+{
     protected $titulo = 'Generador';
 
     public $js = ['generador'];
@@ -41,13 +41,15 @@ class GeneradorController extends Controller {
     protected $timestamps  = false;
     protected $softDeletes = false;
 
-    public function index() {
+    public function index()
+    {
         $this->modulo = 'Generador';
         
         return $this->view('generador::Generador');
     }
 
-    public function guardar(GeneradorRequest $request) {
+    public function guardar(GeneradorRequest $request)
+    {
         $this->modulo = studly_case($request->modulo);
 
         $this->tabla  = trim(strtolower($request->tabla));
@@ -66,7 +68,7 @@ class GeneradorController extends Controller {
         $this->foreign_key  = $request->foreign_key;
         $this->local_key    = $request->local_key;
 
-        if ($request->estructura){
+        if ($request->estructura) {
             $this->campos = [];
         }
 
@@ -74,38 +76,39 @@ class GeneradorController extends Controller {
         $this->softDeletes = !!$request->softDeletes;
 
 
-        if ($request->controller){
+        if ($request->controller) {
             $this->controllers();
         }
 
-        if ($request->request){
+        if ($request->request) {
             $this->requests();
         }
 
-        if ($request->model){
+        if ($request->model) {
             $this->model();
         }
 
-        if ($request->view){
+        if ($request->view) {
             $this->_view();
         }
 
-        if ($request->css){
+        if ($request->css) {
             $this->css();
         }
 
-        if ($request->js){
+        if ($request->js) {
             $this->js();
         }
 
-        if ($request->route){
+        if ($request->route) {
             $this->route();
         }
 
         return ['s' => 's', 'msj' => 'Archivos Generados Satisfactoriamente'];
     }
 
-    protected function controllers(){
+    protected function controllers()
+    {
         $namespace = 'Modules\\' . studly_case($this->modulo);
         $tabla = strtolower($this->tabla);
 
@@ -129,13 +132,14 @@ class GeneradorController extends Controller {
         return true;
     }
 
-    protected function requests(){
+    protected function requests()
+    {
         $columnas = $this->campos;
         
         $reglas = [];
 
-        foreach($columnas as $columna){
-            if (!isset($columna['validate'])){
+        foreach ($columnas as $columna) {
+            if (!isset($columna['validate'])) {
                 continue;
             }
             
@@ -154,7 +158,8 @@ class GeneradorController extends Controller {
         return true;
     }
 
-    protected function model(){
+    protected function model()
+    {
         $columnas = $this->campos;
         
         $data = [
@@ -171,11 +176,11 @@ class GeneradorController extends Controller {
             'metodos'         => ''
         ];
 
-        if ($this->timestamps){
+        if ($this->timestamps) {
             $data['hidden'] = ['created_at', 'updated_at'];
         }
 
-        if ($this->softDeletes){
+        if ($this->softDeletes) {
             $data['extends'] = 'modelo';
             $data['namespaceParent'] = 'Modules\Admin\Models\Modelo';
             $data['hidden'][] = 'deleted_at';
@@ -195,22 +200,22 @@ class GeneradorController extends Controller {
                 'placeholder'   => $campo['placeholder'],
             ];
 
-            if ($propiedades['name'] == $nombre_columna){
+            if ($propiedades['name'] == $nombre_columna) {
                 unset($propiedades['name']);
             }
 
-            if (isset($campo['cont_class']) && $campo['cont_class'] != ''){
+            if (isset($campo['cont_class']) && $campo['cont_class'] != '') {
                 $propiedades['cont_class'] = $campo['cont_class'];
             }
 
-            if (isset($campo['url']) && $campo['url'] != ''){
+            if (isset($campo['url']) && $campo['url'] != '') {
                 $propiedades['url'] = $campo['url'];
             }
 
-            if (isset($campo['data']) && !empty($campo['data'])){
+            if (isset($campo['data']) && !empty($campo['data'])) {
                 $model = $campo['data'][0];
                 foreach ($modelos as $modelo) {
-                    if (snake_case($modelo[1]) == $campo['data'][0]){
+                    if (snake_case($modelo[1]) == $campo['data'][0]) {
                         $model = $modelo[0];
                     }
                 }
@@ -232,7 +237,7 @@ class GeneradorController extends Controller {
         return \$this->" . $relacion . "('" . $this->model[$id] . "'" . ($this->foreign_key[$id] != '' ? ", " . $this->foreign_key[$id] : '') . ($this->local_key[$id] != '' ? ", " . $this->local_key[$id] : '') . ");
     }
 
-    "; 
+    ";
         }
 
 
@@ -245,13 +250,14 @@ class GeneradorController extends Controller {
         $this->archivo($this->modulo, 'model', '', $data);
     }
 
-    protected function _view(){
+    protected function _view()
+    {
         $columnas = $this->campos;
         
         unset($columnas['id']);
         $thtable = [];
-        foreach ($columnas as $columna){
-            if ($columna['id'] == 'id'){
+        foreach ($columnas as $columna) {
+            if ($columna['id'] == 'id') {
                 continue;
             }
 
@@ -266,7 +272,8 @@ class GeneradorController extends Controller {
         return;
     }
 
-    protected function css(){
+    protected function css()
+    {
         $this->archivo($this->modulo, 'css', '', [
             'table' => studly_case($this->tabla)
         ]);
@@ -274,13 +281,14 @@ class GeneradorController extends Controller {
         return;
     }
 
-    protected function js(){
+    protected function js()
+    {
         $columnas = $this->campos;
         
         unset($columnas['id']);
         $camposDT = [];
 
-        foreach ($columnas as $columna){
+        foreach ($columnas as $columna) {
             $camposDT[] = [
                 'data' => $columna['id'],
                 'name' => $columna['id']
@@ -294,7 +302,8 @@ class GeneradorController extends Controller {
         return;
     }
 
-    protected function route(){ 
+    protected function route()
+    {
         $gestor = Storage::disk('modules');
         $archivo = $this->modulo . '/Http/routes.php';
 
@@ -307,13 +316,13 @@ class GeneradorController extends Controller {
         $class = studly_case($this->tabla) . 'Controller';
 
         foreach ($_contenido as $linea) {
-            if (strpos($linea, $class) !== false && !$insercion){
+            if (strpos($linea, $class) !== false && !$insercion) {
                 return true;
             }
         }
 
         foreach ($_contenido as $linea) {
-            if (strpos($linea, '//{{route}}') !== false && !$insercion){
+            if (strpos($linea, '//{{route}}') !== false && !$insercion) {
                 $insercion = true;
                 $linea = "
         Route::group(['prefix' => '$this->tabla'], function() {
@@ -341,11 +350,13 @@ class GeneradorController extends Controller {
         return;
     }
 
-    protected function nombre($nombre = ''){
+    protected function nombre($nombre = '')
+    {
         return ucwords(str_replace('_', ' ', $nombre === '' ? $this->tabla : $nombre));
     }
 
-    public function campos(Request $request, $tabla){
+    public function campos(Request $request, $tabla)
+    {
         $this->tabla = $tabla;
         
         $campos = $this->listarCampos();
@@ -354,7 +365,8 @@ class GeneradorController extends Controller {
         return $campos;
     }
 
-    public function modulos(){
+    public function modulos()
+    {
         $modulos = [];
 
         foreach (Module::all() as $module) {
@@ -364,7 +376,8 @@ class GeneradorController extends Controller {
         return $modulos;
     }
 
-    public function modelos(){
+    public function modelos()
+    {
         $gestor = Storage::disk('modules');
 
         $modelos = [];
@@ -388,7 +401,8 @@ class GeneradorController extends Controller {
         return $modelos;
     }
 
-    public function tablas(){
+    public function tablas()
+    {
         $tablas = [];
         $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
 
@@ -400,7 +414,8 @@ class GeneradorController extends Controller {
         return $tablas;
     }
 
-    public function listarCampos(){
+    public function listarCampos()
+    {
         $conexion = DB::connection();
         $schema = $conexion->getDoctrineSchemaManager();
         $this->indices = $schema->listTableIndexes($this->tabla);
@@ -414,17 +429,17 @@ class GeneradorController extends Controller {
         }
         */
         
-        if (empty($this->columnas)){
+        if (empty($this->columnas)) {
             return;
         }
 
         foreach ($this->columnas as $nombre_columna) {
-            if ($nombre_columna === 'created_at' || $nombre_columna === 'updated_at'){
+            if ($nombre_columna === 'created_at' || $nombre_columna === 'updated_at') {
                 $this->timestamps = true;
                 continue;
             }
 
-            if ($nombre_columna === 'deleted_at'){
+            if ($nombre_columna === 'deleted_at') {
                 $this->softDeletes = true;
                 continue;
             }
@@ -436,10 +451,10 @@ class GeneradorController extends Controller {
             $this->columnas_tipos[$nombre_columna]->isUnique = false;
             $this->columnas_tipos[$nombre_columna]->isPrimary = false;
             foreach ($this->indices as $indice) {
-                if (in_array($nombre_columna, $indice->getColumns())){
-                    if ($indice->isUnique()){
+                if (in_array($nombre_columna, $indice->getColumns())) {
+                    if ($indice->isUnique()) {
                         $this->columnas_tipos[$nombre_columna]->isUnique = true;
-                    }elseif ($indice->isPrimary()){
+                    } elseif ($indice->isPrimary()) {
                         $this->columnas_tipos[$nombre_columna]->isPrimary = true;
                     }
 
@@ -452,7 +467,7 @@ class GeneradorController extends Controller {
 
         $campos = [];
         foreach ($this->columnas_tipos as $nombre_columna => $campo) {
-            if ($campo->getAutoincrement() || $nombre_columna === 'created_at' || $nombre_columna === 'updated_at' || $nombre_columna === 'deleted_at'){
+            if ($campo->getAutoincrement() || $nombre_columna === 'created_at' || $nombre_columna === 'updated_at' || $nombre_columna === 'deleted_at') {
                 continue;
             }
             
@@ -473,7 +488,7 @@ class GeneradorController extends Controller {
 
             $validate = [];
 
-            if ($campo->getNotnull()){
+            if ($campo->getNotnull()) {
                 $propiedades['required'] = true;
                 $validate[] = 'required';
             }
@@ -493,11 +508,11 @@ class GeneradorController extends Controller {
                     break;
             }
 
-            if ($campo->isUnique){
+            if ($campo->isUnique) {
                 $validate[] = 'unique:' . $this->tabla . ',' . $nombre_columna;
             }
 
-            if ($campo->isForeign){
+            if ($campo->isForeign) {
                 $propiedades['type'] = 'select';
                 $propiedades['options'] = [];
                 //$propiedades['placeholder'] = '- Seleccione';
@@ -505,17 +520,17 @@ class GeneradorController extends Controller {
                 $url = 'Agrega una URL Aqui!';
                 
                 foreach ($this->indices as $indice) {
-                    if (in_array($nombre_columna, $indice->getColumns())){
+                    if (in_array($nombre_columna, $indice->getColumns())) {
                         $nombreindice = str_replace(['_id_foreign', $this->tabla], '', $indice->getname());
                         $nombreindice = trim($nombreindice, '_');
                         $nombreindice = studly_case($nombreindice);
 
                         //$data['options'][] = "\$this->campos['$nombre_columna']['options'] = $nombreindice::pluck('nombre', 'id');";
-                        if ($indice->isUnique() || $indice->isPrimary() || substr($indice->getName(), -5) == 'index' || substr($indice->getName(), -12) == 'index_unique'){
+                        if ($indice->isUnique() || $indice->isPrimary() || substr($indice->getName(), -5) == 'index' || substr($indice->getName(), -12) == 'index_unique') {
                             continue;
                         }
 
-                        if (!Schema::hasTable(snake_case($nombreindice))){
+                        if (!Schema::hasTable(snake_case($nombreindice))) {
                             continue;
                         }
 
@@ -527,15 +542,15 @@ class GeneradorController extends Controller {
 
                         $url = snake_case($nombreindice);
 
-                        if (in_array('id', $_columnas)){
+                        if (in_array('id', $_columnas)) {
                             $propiedades['data'][] = 'id';
-                        }else{
+                        } else {
                             $propiedades['data'][] = snake_case($_columnas[0]);
                         }
 
-                        if (in_array('nombre', $_columnas)){
+                        if (in_array('nombre', $_columnas)) {
                             $propiedades['data'][] = 'nombre';
-                        }else{
+                        } else {
                             $propiedades['data'][] = $_columnas[1];
                         }
                         
@@ -568,7 +583,8 @@ class GeneradorController extends Controller {
         ];
     }
 
-    protected function relaciones($tabla){
+    protected function relaciones($tabla)
+    {
         $conexion = DB::connection();
         $schema = $conexion->getDoctrineSchemaManager();
 
@@ -582,20 +598,20 @@ class GeneradorController extends Controller {
             unset($indice['primary']);
 
             foreach ($indice as $nombre => $ind) {
-                if ($ind->isUnique() || $ind->isPrimary() || substr($ind->getName(), -5) == 'index' || substr($ind->getName(), -12) == 'index_unique'){
+                if ($ind->isUnique() || $ind->isPrimary() || substr($ind->getName(), -5) == 'index' || substr($ind->getName(), -12) == 'index_unique') {
                     unset($indice[$nombre]);
                 }
 
-                if ($table == $tabla){
+                if ($table == $tabla) {
                     $tabla_relacion = str_replace([$tabla . '_', '_id', '_foreign'], '', $nombre);
                     $model = "";
                     foreach ($modelos as $modelo) {
-                        if (snake_case($modelo[1]) == $tabla_relacion){
+                        if (snake_case($modelo[1]) == $tabla_relacion) {
                             $model = $modelo[0];
                         }
                     }
 
-                    if ($model == ""){
+                    if ($model == "") {
                         continue;
                     }
 
@@ -611,7 +627,7 @@ class GeneradorController extends Controller {
                 if (strpos($nombre, $tabla . '_id') !== false) {
                     $model = $tabla_relacion;
                     foreach ($modelos as $modelo) {
-                        if (snake_case($modelo[1]) == $tabla_relacion){
+                        if (snake_case($modelo[1]) == $tabla_relacion) {
                             $model = $modelo[0];
                         }
                     }
@@ -625,7 +641,7 @@ class GeneradorController extends Controller {
                 }
             }
 
-            if (!empty($indice)){
+            if (!empty($indice)) {
                 $tablas[$table] = $indice;
             }
         }
@@ -634,7 +650,8 @@ class GeneradorController extends Controller {
         return $relaciones;
     }
 
-    protected function getInputType($dataType){
+    protected function getInputType($dataType)
+    {
         $lookup = array(
             'string'  => 'text',
             'integer' => 'number',

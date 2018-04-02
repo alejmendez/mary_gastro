@@ -27,7 +27,6 @@ class Personas extends Migration
             $table->foreign('tipo_persona_id')
                   ->references('id')->on('tipo_persona')
                   ->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 
@@ -38,6 +37,6 @@ class Personas extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('personas');
+        Schema::dropIfExists('personas');
     }
 }

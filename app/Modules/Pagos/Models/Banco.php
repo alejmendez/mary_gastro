@@ -19,8 +19,5 @@ class Banco extends modelo
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
-        
     }
-
-    
 }

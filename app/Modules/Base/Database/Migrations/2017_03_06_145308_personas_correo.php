@@ -16,8 +16,8 @@ class PersonasCorreo extends Migration
         Schema::create('personas_correo', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('personas_id')->unsigned();
-            $table->boolean('principal')->comment('Correo principal  0 = no , 1= si'); 
-            $table->string('correo', 200)->unique();     
+            $table->boolean('principal')->comment('Correo principal  0 = no , 1= si');
+            $table->string('correo', 200)->unique();
 
             $table->timestamps();
             $table->softDeletes();
@@ -25,7 +25,6 @@ class PersonasCorreo extends Migration
             $table->foreign('personas_id')
                   ->references('id')->on('personas')
                   ->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 

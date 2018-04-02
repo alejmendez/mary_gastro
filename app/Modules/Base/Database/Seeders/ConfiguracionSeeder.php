@@ -14,22 +14,22 @@ class ConfiguracionSeeder extends Seeder
      */
     public function run()
     {
-    	$configuraciones = [
-			'logo'           => 'logo.png',
-			'login_logo'     => 'login_logo.png',
-			'nombre'         => 'Base',
-			'formato_fecha'  => 'd/m/Y',
-			'miles'          => '.',
-			'email'          => 'Base@base.com',
-			'email_name'     => 'Base',
-			'nombre_empresa' => 'Gobernacion'
-    	];
+        $configuraciones = [
+            'logo'           => 'logo.png',
+            'login_logo'     => 'login_logo.png',
+            'nombre'         => 'Base',
+            'formato_fecha'  => 'd/m/Y',
+            'miles'          => '.',
+            'email'          => 'Base@base.com',
+            'email_name'     => 'Base',
+            'nombre_empresa' => 'Gobernacion'
+        ];
 
-    	foreach ($configuraciones as $propiedad => $valor) {
-	        Configuracion::create([
-				'propiedad' => $propiedad,
-				'valor' => $valor
-			]);
-    	}
+        foreach ($configuraciones as $propiedad => $valor) {
+            Configuracion::create([
+                'propiedad' => $propiedad,
+                'valor' => $valor
+            ]);
+        }
     }
 }

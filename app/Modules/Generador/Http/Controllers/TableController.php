@@ -17,121 +17,127 @@ use marygastro\Modules\Generador\Http\Controllers\Controller;
 
 use marygastro\Modules\Generador\Http\Requests\TablesRequest;
 
-class TableController extends Controller {
-	protected $titulo = 'Generador';
+class TableController extends Controller
+{
+    protected $titulo = 'Generador';
 
-	public $js = ['table'];
-	public $css = ['table'];
+    public $js = ['table'];
+    public $css = ['table'];
 
-	public $librerias = ['jquery-ui', 'template', 'icheck'];
+    public $librerias = ['jquery-ui', 'template', 'icheck'];
 
-	public function index() {
-		return $this->view('Generador::table');
-	}
+    public function index()
+    {
+        return $this->view('Generador::table');
+    }
 
-	public function modulos(){
-		$modulos = [];
+    public function modulos()
+    {
+        $modulos = [];
 
-		foreach (Module::all() as $key => $value) {
-			$modulos[$key] = $value['name'];
-		}
+        foreach (Module::all() as $key => $value) {
+            $modulos[$key] = $value['name'];
+        }
 
-		return $modulos;
-	}
+        return $modulos;
+    }
 
-	public function guardar(TablesRequest $request){
-		$migration = $this->nombre_migracion($request);
-		
-		$contenido = [];
+    public function guardar(TablesRequest $request)
+    {
+        $migration = $this->nombre_migracion($request);
+        
+        $contenido = [];
 
-		if ($request->increments){
-			$contenido[] = "\$table->increments('id')";
-		}
+        if ($request->increments) {
+            $contenido[] = "\$table->increments('id')";
+        }
 
-		foreach ($request->name as $key => $name) {
-			$length = $request->length[$key] > 0 ? ", " . $request->length[$key] : '';
-			$campo = "\$table->" . $request->type[$key];
+        foreach ($request->name as $key => $name) {
+            $length = $request->length[$key] > 0 ? ", " . $request->length[$key] : '';
+            $campo = "\$table->" . $request->type[$key];
 
-			switch ($request->type[$key]) {
-				case 'integer':
-					$campo .= "('" . $request->name[$key] . "')->unsigned()";
-					break;
-				
-				default:
-					$campo .= "('" . $request->name[$key] . "'" . $length . ")";
-					break;
-			}
+            switch ($request->type[$key]) {
+                case 'integer':
+                    $campo .= "('" . $request->name[$key] . "')->unsigned()";
+                    break;
+                
+                default:
+                    $campo .= "('" . $request->name[$key] . "'" . $length . ")";
+                    break;
+            }
 
-			if ($request->null[$key]){
-				$campo .= "->nullable()";
-			}
+            if ($request->null[$key]) {
+                $campo .= "->nullable()";
+            }
 
-			if ($request->unique[$key]){
-				$campo .= "->unique()";
-			}
+            if ($request->unique[$key]) {
+                $campo .= "->unique()";
+            }
 
-			$contenido[] = $campo;
-		}
+            $contenido[] = $campo;
+        }
 
-		if ($request->timestamps){
-			$contenido[] = "\$table->timestamps()";
-		}
+        if ($request->timestamps) {
+            $contenido[] = "\$table->timestamps()";
+        }
 
-		if ($request->softDeletes){
-			$contenido[] = "\$table->softDeletes()";
-		}
+        if ($request->softDeletes) {
+            $contenido[] = "\$table->softDeletes()";
+        }
 
-		$cont = implode(";\n\t\t\t", $contenido) . ';';
+        $cont = implode(";\n\t\t\t", $contenido) . ';';
 
-		$this->archivo($request->modulo, 'migration', $migration, [
-			'classMigration' 	=> studly_case($request->nombre_tabla),
-			'table' 			=> $request->nombre_tabla,
-			'cont' 				=> $cont
-		]);
+        $this->archivo($request->modulo, 'migration', $migration, [
+            'classMigration' 	=> studly_case($request->nombre_tabla),
+            'table' 			=> $request->nombre_tabla,
+            'cont' 				=> $cont
+        ]);
 
-		return [
-			's' => 's',
-			'existe' => Schema::hasTable($request->nombre_tabla),
-			'msj' => 'Tabla Creada'
-		];
-	}
+        return [
+            's' => 's',
+            'existe' => Schema::hasTable($request->nombre_tabla),
+            'msj' => 'Tabla Creada'
+        ];
+    }
 
-	protected function nombre_migracion($request){
-		$request->nombre_tabla = snake_case($request->nombre_tabla);
+    protected function nombre_migracion($request)
+    {
+        $request->nombre_tabla = snake_case($request->nombre_tabla);
 
-		$dir = $request->modulo . '/Database/Migrations';
+        $dir = $request->modulo . '/Database/Migrations';
 
-		$archivos = Storage::disk('modules')->files($dir);
+        $archivos = Storage::disk('modules')->files($dir);
 
-		$migration = date('Y_m_d_His') . '_' . $request->nombre_tabla;
+        $migration = date('Y_m_d_His') . '_' . $request->nombre_tabla;
 
-		foreach ($archivos as $archivo) {
-			$arch = substr($archivo, strrpos($archivo, '/') + 1);
-			$arch = substr($arch, 0, strrpos($arch, '.'));
-			$arch = substr($arch, 18);
+        foreach ($archivos as $archivo) {
+            $arch = substr($archivo, strrpos($archivo, '/') + 1);
+            $arch = substr($arch, 0, strrpos($arch, '.'));
+            $arch = substr($arch, 18);
 
-			if ($arch == ''){
-				continue;
-			}
+            if ($arch == '') {
+                continue;
+            }
 
-			if ($arch == $request->nombre_tabla){
-				$arch = substr($archivo, strrpos($archivo, '/') + 1);
-				$arch = substr($arch, 0, strrpos($arch, '.'));
-				$migration = $arch;
-			}
-		}
+            if ($arch == $request->nombre_tabla) {
+                $arch = substr($archivo, strrpos($archivo, '/') + 1);
+                $arch = substr($arch, 0, strrpos($arch, '.'));
+                $migration = $arch;
+            }
+        }
 
-		return $migration;
-	}
+        return $migration;
+    }
 
-	public function tablas(){
-		$tablas = [];
-		$tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
+    public function tablas()
+    {
+        $tablas = [];
+        $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
 
-		foreach ($tables as $table) {
-			$tablas[$table] = $table;
-		}
+        foreach ($tables as $table) {
+            $tablas[$table] = $table;
+        }
 
-		return $tablas;
-	}
+        return $tablas;
+    }
 }

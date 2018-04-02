@@ -4,8 +4,6 @@ namespace marygastro\Modules\Base\Model;
 
 use marygastro\Modules\Base\Model\Modelo;
 
-
-
 class Bancos extends modelo
 {
     protected $table = 'bancos';
@@ -46,8 +44,5 @@ class Bancos extends modelo
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
-        
     }
-
-    
 }

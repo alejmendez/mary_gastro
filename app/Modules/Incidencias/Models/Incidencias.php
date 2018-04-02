@@ -4,7 +4,6 @@ namespace marygastro\Modules\Incidencias\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
-
 class Incidencias extends modelo
 {
     protected $table = 'incidencias';

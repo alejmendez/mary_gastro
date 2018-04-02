@@ -48,7 +48,8 @@ class CmsServiceProvider extends ServiceProvider
             __DIR__.'/../Config/config.php' => config_path('cms.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'cms'
+            __DIR__.'/../Config/config.php',
+            'cms'
         );
     }
 

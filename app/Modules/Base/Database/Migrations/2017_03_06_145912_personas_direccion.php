@@ -13,7 +13,7 @@ class PersonasDireccion extends Migration
      */
     public function up()
     {
-         Schema::create('personas_direccion', function (Blueprint $table) {
+        Schema::create('personas_direccion', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('personas_id')->unsigned()->unique();
@@ -39,7 +39,7 @@ class PersonasDireccion extends Migration
 
             $table->foreign('municipios_id')
                 ->references('id')->on('municipios')
-                ->onDelete('cascade')->onUpdate('cascade'); 
+                ->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreign('parroquias_id')
                 ->references('id')->on('parroquias')

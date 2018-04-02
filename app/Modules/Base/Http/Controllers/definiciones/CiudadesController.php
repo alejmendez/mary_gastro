@@ -81,15 +81,15 @@ class CiudadesController extends Controller
     public function guardar(CiudadesRequest $request, $id = 0)
     {
         DB::beginTransaction();
-        try{
+        try {
             $Ciudades = $id == 0 ? new Ciudades() : Ciudades::find($id);
 
             $Ciudades->fill($request->all());
             $Ciudades->save();
-        } catch(QueryException $e) {
+        } catch (QueryException $e) {
             DB::rollback();
             return $e->getMessage();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return $e->errorInfo[2];
         }
@@ -105,7 +105,7 @@ class CiudadesController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             Ciudades::destroy($id);
         } catch (QueryException $e) {
             return $e->getMessage();
@@ -146,7 +146,7 @@ class CiudadesController extends Controller
     {
         $sql = Ciudades::select([
             'ciudades.id', 'estados.nombre as estado', 'ciudades.nombre', 'ciudades.deleted_at'
-        ])->join('estados', 'estados.id','=', 'ciudades.estados_id');
+        ])->join('estados', 'estados.id', '=', 'ciudades.estados_id');
 
         if ($request->verSoloEliminados == 'true') {
             $sql->onlyTrashed();

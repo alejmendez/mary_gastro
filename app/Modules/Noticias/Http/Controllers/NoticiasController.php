@@ -28,9 +28,7 @@ use marygastro\Modules\Noticias\Models\Imagenes;
 use marygastro\Modules\Noticias\Http\Controllers\Controller;
 
 class NoticiasController extends Controller
-
 {
-
     public $js = [
        'Noticias',
        'typeahead.bundle.min.js',
@@ -69,7 +67,7 @@ class NoticiasController extends Controller
     {
         if ($this->permisologia($this->ruta() . '/restaurar') || $this->permisologia($this->ruta().'/destruir')) {
             $rs = Noticias::withTrashed()->find($id);
-        }else {
+        } else {
             $rs = Noticias::find($id);
         }
 
@@ -81,8 +79,8 @@ class NoticiasController extends Controller
             $imgs = Imagenes::where('noticias_id', $id)->get();
 
             foreach ($imgs as $img) {
-                $id_archivo = str_replace ('/','-', $img->archivo);
-                $name = substr($id_archivo, strrpos($id_archivo,'/')+1);
+                $id_archivo = str_replace('/', '-', $img->archivo);
+                $name = substr($id_archivo, strrpos($id_archivo, '/')+1);
                 $imgArray[]=[
                     'id'           => $id_archivo,
                     'name'         => $name,
@@ -118,7 +116,7 @@ class NoticiasController extends Controller
                 $etiArray .= ','. $etiqueta->nombre;
             }
 
-            $respuesta = array_merge($rs->toArray(),[
+            $respuesta = array_merge($rs->toArray(), [
                 's'            => 's',
                 'msj'          => trans('controller.buscar'),
                 'categoria_id' => $categoArray,
@@ -134,12 +132,12 @@ class NoticiasController extends Controller
         return trans('controller.nobuscar');
     }
 
-    public function categorias() 
+    public function categorias()
     {
         return Categorias::pluck('nombre', 'id');
     }
 
-    public function etiquetas() 
+    public function etiquetas()
     {
         return Etiquetas::pluck('nombre', 'id');
     }
@@ -161,14 +159,14 @@ class NoticiasController extends Controller
 
     protected function guardar_categorias($request, $id)
     {
-		Noticias_Categorias::where('noticias_id', $id)->delete();
-		foreach ($request['categoria_id'] as $categoria) {
-			Noticias_Categorias::create([
-				'noticias_id' => $id,
-				'categorias_id' => $categoria,
-			]);
-		}
-	}
+        Noticias_Categorias::where('noticias_id', $id)->delete();
+        foreach ($request['categoria_id'] as $categoria) {
+            Noticias_Categorias::create([
+                'noticias_id' => $id,
+                'categorias_id' => $categoria,
+            ]);
+        }
+    }
 
     protected function guardar_etiquetas($request, $id)
     {
@@ -183,9 +181,9 @@ class NoticiasController extends Controller
 
     public function guardar(noticiasRequest $request, $id = 0)
     {
-       DB::beginTransaction();
+        DB::beginTransaction();
 
-       try {
+        try {
             $data = $this->data($request);
             $archivos = json_decode($request->archivos);
 
@@ -200,17 +198,17 @@ class NoticiasController extends Controller
                 $noticia = Noticias::find($id)->update($data);
             }
 
-            $this->guardar_categorias($request,$id);
+            $this->guardar_categorias($request, $id);
 
             //Etiquetas
-            if($request->etiquetas != ""){ 
-                Noticias_Etiquetas::where('noticias_id',  $id)->delete();
+            if ($request->etiquetas != "") {
+                Noticias_Etiquetas::where('noticias_id', $id)->delete();
 
-                $array = explode(",",$request->etiquetas);
+                $array = explode(",", $request->etiquetas);
                 $longitud = count($array);
                 
                 //se recorre el array para guardar el array
-                for($i = 0; $i < $longitud; $i++){
+                for ($i = 0; $i < $longitud; $i++) {
                     $id_etiqueta = Etiquetas::updateOrCreate(
                         ['slug'   => str_slug($array[$i])],
                         ['nombre' => $array[$i]]
@@ -247,14 +245,14 @@ class NoticiasController extends Controller
             $usuarios = Usuario::where('perfil_id', 9)->where('verificado', 1)->get()->chunk(10);
             //$usuarios = Usuario::where('super', 's')->get()->chunk(10);
     
-            foreach ($usuarios as $listaUsuarios){
+            foreach ($usuarios as $listaUsuarios) {
                 \Mail::send("pagina::emails.post", [
                     'noticia' => $noticia
-                ], function($message) use($listaUsuarios, $noticia) {
+                ], function ($message) use ($listaUsuarios, $noticia) {
                     $message->from('info@marygastro.com.ve', 'www.marygastro.com.ve');
                     $message->subject("Tengo un nuevo post!");
     
-                    foreach ($listaUsuarios as $usuario){
+                    foreach ($listaUsuarios as $usuario) {
                         $message->to($usuario->usuario, $usuario->personas->nombres);
                     }
                 });
@@ -277,7 +275,7 @@ class NoticiasController extends Controller
                 continue;
             }
 
-            $archivo = str_replace('-','/',$archivo);
+            $archivo = str_replace('-', '/', $archivo);
             $imagen = Image::make(public_path('archivos/noticias/' . $archivo));
             $imagenes=Imagenes::firstOrNew(array('archivo'=>$archivo));
             $imagenes->fill([
@@ -292,9 +290,9 @@ class NoticiasController extends Controller
 
     public function eliminar(Request $request, $id = 0)
     {
-        try{
+        try {
             $rs=Noticias::destroy($id);
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return $e->errorInfo[2];
         }
         return ['s'=>'s', 'msj'=>trans('controller.eliminar')];
@@ -304,7 +302,7 @@ class NoticiasController extends Controller
     {
         try {
             Noticias::withTrashed()->find($id)->restore();
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->errorInfo[2];
         }
         return ['s'=>'s', 'msj'=>trans('controller.restaurar')];
@@ -313,29 +311,29 @@ class NoticiasController extends Controller
     public function destruir(Request $request, $id = 0)
     {
         try {
-			Noticias::withTrashed()->find($id)->forceDelete();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
+            Noticias::withTrashed()->find($id)->forceDelete();
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-		return ['s' => 's', 'msj' => trans('controller.destruir')];
+        return ['s' => 's', 'msj' => trans('controller.destruir')];
     }
 
     public function eliminarImagen(Request $request, $id = 0)
     {
         $id = str_replace('-', '/', $id);
-		try {
-			// \File::delete(public_path('img/noticias/' . $id));
-			$rs = Imagenes::where('archivo', $id)->delete();
-		} catch (Exception $e) {
-			return $e->errorInfo[2];
-		}
-		return ['s' => 's', 'msj' => trans('controller.eliminar')];
+        try {
+            // \File::delete(public_path('img/noticias/' . $id));
+            $rs = Imagenes::where('archivo', $id)->delete();
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
+        return ['s' => 's', 'msj' => trans('controller.eliminar')];
     }
 
     public function subir(Request $request)
     {
-        $validator=Validator::make($request->all(),[
+        $validator=Validator::make($request->all(), [
             'files.*' => [
                 'required',
                 'mimes:jpeg,jpg,png'
@@ -393,7 +391,7 @@ class NoticiasController extends Controller
 
     public function categoria()
     {
-        return categorias::pluck('nombre','id');
+        return categorias::pluck('nombre', 'id');
     }
 
     public function puedePublicar()

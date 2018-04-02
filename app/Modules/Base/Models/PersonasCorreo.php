@@ -20,5 +20,5 @@ class PersonasCorreo extends modelo
     public function personas()
     {
         return $this->belongsTo('marygastro\Modules\Base\Models\Personas', 'personas_id');
-    }  
-} 
+    }
+}

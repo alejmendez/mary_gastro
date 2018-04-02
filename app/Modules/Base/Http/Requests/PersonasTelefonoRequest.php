@@ -4,10 +4,11 @@ namespace Modules\Base\Http\Requests;
 
 use marygastro\Http\Requests\Request;
 
-class PersonasTelefonoRequest extends Request {
+class PersonasTelefonoRequest extends Request
+{
     protected $reglasArr = [
-		'personas_id' => ['required', 'integer'], 
-		'tipo_telefono_id' => ['required', 'integer'], 
-		'numero' => ['required', 'min:3', 'max:20', 'unique:personas_telefono,numero']
-	];
+        'personas_id' => ['required', 'integer'],
+        'tipo_telefono_id' => ['required', 'integer'],
+        'numero' => ['required', 'min:3', 'max:20', 'unique:personas_telefono,numero']
+    ];
 }

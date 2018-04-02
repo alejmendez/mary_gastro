@@ -13,7 +13,6 @@ class Ciudades extends Migration
      */
     public function up()
     {
-      
         Schema::create('ciudades', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('estados_id')->unsigned()->nullable();
@@ -28,7 +27,6 @@ class Ciudades extends Migration
                 ->references('id')->on('estados')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
-
     }
 
     /**
@@ -39,6 +37,5 @@ class Ciudades extends Migration
     public function down()
     {
         Schema::dropIfExists('ciudades');
-        
     }
 }

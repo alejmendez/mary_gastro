@@ -4,71 +4,75 @@ namespace marygastro\Http\Middleware;
 
 use Closure;
 
-class Permisologia {
-	protected $usuario = false;
-	protected $ruta = '';
+class Permisologia
+{
+    protected $usuario = false;
+    protected $ruta = '';
 
-	/**
-	 * Handle an incoming request.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \Closure  $next
-	 * @return mixed
-	 */
-	public function handle($request, Closure $next) {
-		$this->usuario = \Auth::user();
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        $this->usuario = \Auth::user();
 
-		if (!$this->permisologia()) {
-			if ($request->ajax() || $request->wantsJson()) {
-				//abort(403, \Lang::get('backend.without_permission_ajax'));
-	            return response(\Lang::get('backend.without_permission_ajax'));
-	        } else {
-	            return redirect('errors/permiso');
-	            /*
-	            return view('admin::errors/permiso', [
-					'controller' => $this,
-					'usuario' => $this->usuario,
-					'html' => [
-						'titulo' => 'Error',
-						'js' => [],
-						'css' => [],
-					],
-				]);
-				*/
-	        }
-		}
+        if (!$this->permisologia()) {
+            if ($request->ajax() || $request->wantsJson()) {
+                //abort(403, \Lang::get('backend.without_permission_ajax'));
+                return response(\Lang::get('backend.without_permission_ajax'));
+            } else {
+                return redirect('errors/permiso');
+                /*
+                return view('admin::errors/permiso', [
+                    'controller' => $this,
+                    'usuario' => $this->usuario,
+                    'html' => [
+                        'titulo' => 'Error',
+                        'js' => [],
+                        'css' => [],
+                    ],
+                ]);
+                */
+            }
+        }
 
-		return $next($request);
-	}
+        return $next($request);
+    }
 
-	protected function ruta() {
-		if ($this->ruta != '' && !is_null(\Route::current())) {
-			return $this->ruta;
-		}
+    protected function ruta()
+    {
+        if ($this->ruta != '' && !is_null(\Route::current())) {
+            return $this->ruta;
+        }
 
-		$this->ruta = \Route::current()->uri();
-		$this->ruta = trim(preg_replace('/\{\w+\?\}/i', '', $this->ruta), '/');
+        $this->ruta = \Route::current()->uri();
+        $this->ruta = trim(preg_replace('/\{\w+\?\}/i', '', $this->ruta), '/');
 
-		return $this->ruta;
-	}
+        return $this->ruta;
+    }
 
-	protected function permisologia($ruta = '') {
-		$usuario = auth()->user();
-		if (strtolower($usuario->super) === 's') {
-			return true;
-		}
+    protected function permisologia($ruta = '')
+    {
+        $usuario = auth()->user();
+        if (strtolower($usuario->super) === 's') {
+            return true;
+        }
 
-		$usuario_permisos = $usuario->permisos();
-		
-		if ($ruta === '') {
-			$ruta = $this->ruta();
-		}
+        $usuario_permisos = $usuario->permisos();
+        
+        if ($ruta === '') {
+            $ruta = $this->ruta();
+        }
 
-		$ruta = preg_replace('/^' . \Config::get('admin.prefix') . '\//i', '', $ruta);
-		$ruta = preg_replace('/({.+})+/', '', $ruta);
+        $ruta = preg_replace('/^' . \Config::get('admin.prefix') . '\//i', '', $ruta);
+        $ruta = preg_replace('/({.+})+/', '', $ruta);
 
-		$ruta = trim($ruta, '/');
+        $ruta = trim($ruta, '/');
 
-		return $usuario_permisos->search($ruta) !== false;
-	}
+        return $usuario_permisos->search($ruta) !== false;
+    }
 }

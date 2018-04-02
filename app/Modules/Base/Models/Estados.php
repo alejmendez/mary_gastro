@@ -4,8 +4,6 @@ namespace marygastro\Modules\Base\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
-
-
 class Estados extends modelo
 {
     protected $table = 'estados';
@@ -26,16 +24,16 @@ class Estados extends modelo
     public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
-        
     }
-    public function ciudades(){
+    public function ciudades()
+    {
         // hasMany = "tiene muchas" | hace relacion desde el maestro hasta el detalle
         return $this->hasMany('Modules\Base\Models\Ciudades', 'estados_id');
     }
     
-    public function municipio(){
+    public function municipio()
+    {
         // hasMany = "tiene muchas" | hace relacion desde el maestro hasta el detalle
         return $this->hasMany('Modules\Base\Models\Municipio', 'estados_id');
     }
-    
 }

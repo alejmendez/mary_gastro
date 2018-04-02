@@ -22,7 +22,6 @@ class Estados extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
     }
 
     /**

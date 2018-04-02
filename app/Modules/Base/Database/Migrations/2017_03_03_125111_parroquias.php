@@ -13,7 +13,7 @@ class Parroquias extends Migration
      */
     public function up()
     {
-        Schema::create('parroquias', function(Blueprint $table){
+        Schema::create('parroquias', function (Blueprint $table) {
             $table->increments('id');
             
             $table->string('nombre', 100);
@@ -26,7 +26,6 @@ class Parroquias extends Migration
                 ->references('id')->on('municipios')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
-
     }
 
     /**
@@ -36,6 +35,6 @@ class Parroquias extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('parroquia');
+        Schema::dropIfExists('parroquia');
     }
 }

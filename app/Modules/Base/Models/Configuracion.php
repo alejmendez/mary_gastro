@@ -6,21 +6,21 @@ use marygastro\Modules\Base\Models\Modelo;
 
 class Configuracion extends Modelo
 {
-	protected $table = 'configuracion';
+    protected $table = 'configuracion';
     protected $fillable = ['propiedad', 'valor'];
 
-    static protected $conf = [];
+    protected static $conf = [];
 
-    static function get($propiedad)
+    public static function get($propiedad)
     {
-    	$propiedad = strtolower($propiedad);
-    	if (empty(self::$conf)){
-    		$rs = self::all();
-    		foreach ($rs as $fila) {
-    			self::$conf[strtolower($fila->propiedad)] = $fila->valor;
-    		}
-    	}
+        $propiedad = strtolower($propiedad);
+        if (empty(self::$conf)) {
+            $rs = self::all();
+            foreach ($rs as $fila) {
+                self::$conf[strtolower($fila->propiedad)] = $fila->valor;
+            }
+        }
 
-    	return isset(self::$conf[$propiedad]) ? self::$conf[$propiedad] : '';
+        return isset(self::$conf[$propiedad]) ? self::$conf[$propiedad] : '';
     }
 }

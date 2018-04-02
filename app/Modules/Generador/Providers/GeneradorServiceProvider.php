@@ -46,7 +46,8 @@ class GeneradorServiceProvider extends ServiceProvider
             __DIR__.'/../Config/config.php' => config_path('generador.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'generador'
+            __DIR__.'/../Config/config.php',
+            'generador'
         );
     }
 

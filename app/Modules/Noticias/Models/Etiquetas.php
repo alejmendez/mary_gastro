@@ -4,8 +4,6 @@ namespace marygastro\Modules\Noticias\Models;
 
 use marygastro\Modules\Base\Models\Modelo;
 
-
-
 class Etiquetas extends modelo
 {
     protected $table = 'etiquetas';

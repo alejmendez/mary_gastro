@@ -13,15 +13,15 @@ class Notificaciones extends Migration
      */
     public function up()
     {
-        Schema::create('mensaje', function(Blueprint $table){
+        Schema::create('mensaje', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('mensaje', 200);  
+            $table->string('mensaje', 200);
 
             $table->timestamps();
             $table->softDeletes();
         }); //nuevo user
 
-        Schema::create('tipo_notificacion', function(Blueprint $table){
+        Schema::create('tipo_notificacion', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 200);//mjs nuevo
             $table->string('ruta');
@@ -29,10 +29,10 @@ class Notificaciones extends Migration
             $table->softDeletes();
         });
         
-        Schema::create('notificaciones', function(Blueprint $table){
+        Schema::create('notificaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
-            $table->integer('enviado_id')->unsigned();  
+            $table->integer('enviado_id')->unsigned();
             $table->integer('mensaje_id')->unsigned();
             $table->integer('operacion_id')->unsigned()->nullable();
             $table->boolean('visto')->default(0);
@@ -42,7 +42,7 @@ class Notificaciones extends Migration
             
             $table->foreign('mensaje_id')
             ->references('id')->on('mensaje')
-            ->onDelete('cascade')->onUpdate('cascade');  
+            ->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreign('tipo_notificacion_id')
             ->references('id')->on('tipo_notificacion')

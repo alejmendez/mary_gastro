@@ -43,74 +43,76 @@ class PublicarController extends Controller
         return $this->view('noticias::Publicar');
     }
 
-    public function buscar(Request $request, $id = 0){
+    public function buscar(Request $request, $id = 0)
+    {
         if ($this->permisologia($this->ruta().'/restaurar') || $this->permisologia($this->ruta().'/destruir')) {
             $rs = Noticias::withTrashed()->find($id);
-        }else {
+        } else {
             $rs = Noticias::find($id);
         }
 
-      if ($rs){
-        $imgArray=[];
-        $imgs = imagenes::select('id', 'archivo', 'tamano')->where('noticias_id', $id)->get();
+        if ($rs) {
+            $imgArray=[];
+            $imgs = imagenes::select('id', 'archivo', 'tamano')->where('noticias_id', $id)->get();
 
-        foreach ($imgs as $img) {
-         list($w, $h) =explode('x', $img->tamano);
-         $imgArray[]=[
+            foreach ($imgs as $img) {
+                list($w, $h) =explode('x', $img->tamano);
+                $imgArray[]=[
            'id' => $img->id,
            'img' => url('imagen/small/' . $img->archivo),
            'w' =>intval($w),
            'h' =>intval($h),
          ];
+            }
+            $etiquetas_id = [];
+
+            // $etiquetas = noticias_etiquetas::where('noticias_id', $id)->select('etiquetas_id')->get();
+            // foreach ($etiquetas as $etiqueta) {
+            // 				$etiquetas_id[] = $etiqueta->etiquetas_id;
+            // 			}
+
+            $respuesta = array_merge($rs->toArray(), [
+                's' => 's',
+                'msj' => trans('controller.buscar'),
+                'etiquetas_id' => $etiquetas_id,
+                'imagenes' => $imgArray,
+            ]);
+
+            unset($respuesta['published_at']);
+
+            return $respuesta;
         }
-        $etiquetas_id = [];
 
-        // $etiquetas = noticias_etiquetas::where('noticias_id', $id)->select('etiquetas_id')->get();
-        // foreach ($etiquetas as $etiqueta) {
-  // 				$etiquetas_id[] = $etiqueta->etiquetas_id;
-  // 			}
-
-  			$respuesta = array_merge($rs->toArray(), [
-  				's' => 's',
-  				'msj' => trans('controller.buscar'),
-  				'etiquetas_id' => $etiquetas_id,
-  				'imagenes' => $imgArray,
-  			]);
-
-  			unset($respuesta['published_at']);
-
-  			return $respuesta;
-      }
-
-      return trans('controller.nobuscar');
-
+        return trans('controller.nobuscar');
     }
-    public function guardar(publicarRequest $request, $id = 0) {
-  		try {
-  			$noticias = noticias::find($id)->update([
-  				'published_at' => $request->input('published_at'),
-  			]);
-  		} catch (Exception $e) {
-  			return $e->errorInfo[2];
-  		}
+    public function guardar(publicarRequest $request, $id = 0)
+    {
+        try {
+            $noticias = noticias::find($id)->update([
+                'published_at' => $request->input('published_at'),
+            ]);
+        } catch (Exception $e) {
+            return $e->errorInfo[2];
+        }
 
-  		return ['s' => 's', 'msj' => trans('controller.incluir')];
-  	}
+        return ['s' => 's', 'msj' => trans('controller.incluir')];
+    }
 
-  	public function etiquetas() {
-  		return etiquetas::lists('nombre', 'id');
-  		//return etiquetas::select('id', 'nombre')->get()->toArray();
-  	}
+    public function etiquetas()
+    {
+        return etiquetas::lists('nombre', 'id');
+        //return etiquetas::select('id', 'nombre')->get()->toArray();
+    }
 
-  	public function datatable() {
-  		$sql = noticias::select([
+    public function datatable()
+    {
+        $sql = noticias::select([
             'noticias.id',
-  			'noticias.titulo',
-  			'noticias.resumen',
-  		])->whereNull('noticias.published_at');
+            'noticias.titulo',
+            'noticias.resumen',
+        ])->whereNull('noticias.published_at');
 
 
-  		return Datatables::of($sql)->setRowId('id')->make(true);
-  	}
-
+        return Datatables::of($sql)->setRowId('id')->make(true);
+    }
 }

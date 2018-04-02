@@ -16,12 +16,12 @@
 			h1, h2, h3, h4, h5, h6{color:#5F5F5F; font-weight:normal; font-family:Helvetica; font-size:20px; line-height:125%; text-align:Left; letter-spacing:normal;margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0;}
 
 			.ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
-			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{line-height:100%;} 
+			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{line-height:100%;}
 			table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
 			#outlook a{padding:0;}
-			img{-ms-interpolation-mode: bicubic;display:block;outline:none; text-decoration:none;} 
-			body, table, td, p, a, li, blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; font-weight:normal!important;} 
-			.ExternalClass td[class="ecxflexibleContainerBox"] h3 {padding-top: 10px !important;} 
+			img{-ms-interpolation-mode: bicubic;display:block;outline:none; text-decoration:none;}
+			body, table, td, p, a, li, blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; font-weight:normal!important;}
+			.ExternalClass td[class="ecxflexibleContainerBox"] h3 {padding-top: 10px !important;}
 			h1{display:block;font-size:26px;font-style:normal;font-weight:normal;line-height:100%;}
 			h2{display:block;font-size:20px;font-style:normal;font-weight:normal;line-height:120%;}
 			h3{display:block;font-size:17px;font-style:normal;font-weight:normal;line-height:110%;}
@@ -59,7 +59,7 @@
 				table[class="flexibleContainer"],
 				td[class="flexibleContainerCell"] {width:100% !important;}
 				td[class="flexibleContainerBox"], td[class="flexibleContainerBox"] table {display: block;width: 100%;text-align: left;}
-				
+
 				td[class="imageContent"] img {height:auto !important; width:100% !important; max-width:100% !important; }
 				img[class="flexibleImage"]{height:auto !important; width:100% !important;max-width:100% !important;}
 				img[class="flexibleImageSmall"]{height:auto !important; width:auto !important;}
@@ -230,7 +230,7 @@
 															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color: #3498DB;">
 																<tr>
 																	<td align="center" valign="middle" class="buttonContent" style="padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;">
-																		<a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="{{ url(\Config::get('admin.prefix') . '/login/recovery/' . $token) }}" target="_blank">Recuperaci&oacute;n</a>
+																		<a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="{{ url(\Config::get('admin.prefix') . '/login/recuperar/' . $token) }}" target="_blank">Recuperaci&oacute;n</a>
 																	</td>
 																</tr>
 															</table>

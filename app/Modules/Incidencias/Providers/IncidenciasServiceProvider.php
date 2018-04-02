@@ -48,7 +48,8 @@ class IncidenciasServiceProvider extends ServiceProvider
             __DIR__.'/../Config/config.php' => config_path('incidencias.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'incidencias'
+            __DIR__.'/../Config/config.php',
+            'incidencias'
         );
     }
 

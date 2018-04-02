@@ -13,7 +13,7 @@ class AppPerfilesPermisos extends Migration
      */
     public function up()
     {
-        Schema::create('app_perfiles_permisos', function(Blueprint $table){
+        Schema::create('app_perfiles_permisos', function (Blueprint $table) {
             $table->integer('perfil_id')->unsigned();
             $table->string('ruta', 200);
 

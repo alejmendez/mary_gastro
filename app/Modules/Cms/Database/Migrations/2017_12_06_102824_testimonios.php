@@ -13,7 +13,7 @@ class Testimonios extends Migration
      */
     public function up()
     {
-        Schema::create('testimonios', function(Blueprint $table){
+        Schema::create('testimonios', function (Blueprint $table) {
             $table->increments('id');
             
             $table->string('titulo', 100);
